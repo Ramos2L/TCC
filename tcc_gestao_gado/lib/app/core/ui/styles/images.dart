@@ -11,6 +11,10 @@ class Images {
   }
 
   String get splashImage => "assets/images/splash.jpg";
+  String get introImage1 => "assets/images/intro_1.jpg";
+  String get introImage2 => "assets/images/intro_2.jpg";
+  String get introImage3 => "assets/images/intro_3.jpg";
+  String get introImage4 => "assets/images/intro_4.jpg";
 }
 
 extension ImagesAppExtensions on BuildContext {
