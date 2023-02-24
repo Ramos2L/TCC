@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/images.dart';
+import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
+import 'package:tcc_gestao_gado/app/core/ui/widgets/button.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/circle_avatar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
 import 'package:validatorless/validatorless.dart';
@@ -76,6 +78,28 @@ class _LoginPageState extends State<LoginPage> {
                   //   FocusScope.of(context).requestFocus(phoneNode);
                   // },
                 ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                  child: Button.primary(
+                    label: 'LOGIN',
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/home');
+                    },
+                  ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/register');
+                  },
+                  child: Text(
+                    'Não tem conta? Cadastra-se agora',
+                    style: context.textStyles.textLight.copyWith(
+                      color: context.colors.onSecondary,
+                      fontSize: 16,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                )
               ],
             ),
           ),
