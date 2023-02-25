@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/images.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
+import 'package:tcc_gestao_gado/app/core/ui/widgets/button_home.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/circle_avatar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
 
@@ -55,47 +56,35 @@ class _HomePageState extends State<HomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Container(
-                    color: Colors.red,
-                    width: 150,
+                  ButtonHome(
+                    width: 125,
                     height: 150,
+                    buttonStyle: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(context.colors.secondary),
+                    ),
+                    image: context.images.manejo,
+                    label: 'MANEJO',
+                    styleLabel: context.textStyles.textMedium.copyWith(
+                      color: context.colors.onPrimary,
+                      fontSize: 20,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    onPressed: () {},
                   ),
-                  Container(
-                    color: Colors.blue,
-                    width: 150,
+                  ButtonHome(
+                    width: 125,
                     height: 150,
-                  ),
-                ],
-              ),
-              const SizedBox(height: 15),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Container(
-                    color: Colors.yellow,
-                    width: 150,
-                    height: 150,
-                  ),
-                  Container(
-                    color: Colors.green,
-                    width: 150,
-                    height: 150,
-                  ),
-                ],
-              ),
-              const SizedBox(height: 15),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Container(
-                    color: Colors.black,
-                    width: 150,
-                    height: 150,
-                  ),
-                  Container(
-                    color: Colors.white,
-                    width: 150,
-                    height: 150,
+                    buttonStyle: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(context.colors.secondary),
+                    ),
+                    image: context.images.add,
+                    label: 'CADASTRO',
+                    styleLabel: context.textStyles.textMedium.copyWith(
+                      color: context.colors.onPrimary,
+                      fontSize: 20,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    onPressed: () {},
                   ),
                 ],
               ),
@@ -103,15 +92,106 @@ class _HomePageState extends State<HomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Container(
-                    color: Colors.pink,
-                    width: 150,
+                  ButtonHome(
+                    width: 125,
                     height: 150,
+                    buttonStyle: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(context.colors.secondary),
+                    ),
+                    image: context.images.buscar,
+                    label: 'CONSULTAR ANIMAL',
+                    styleLabel: context.textStyles.textMedium.copyWith(
+                      color: context.colors.onPrimary,
+                      fontSize: 20,
+                    ),
+                    onPressed: () {},
                   ),
-                  Container(
-                    color: Colors.brown,
-                    width: 150,
+                  ButtonHome(
+                    width: 125,
                     height: 150,
+                    buttonStyle: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(context.colors.secondary),
+                    ),
+                    image: context.images.relatorio,
+                    label: 'RELATÓRIO',
+                    styleLabel: context.textStyles.textMedium.copyWith(
+                      color: context.colors.onPrimary,
+                      fontSize: 20,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+              const SizedBox(height: 15),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ButtonHome(
+                    width: 125,
+                    height: 150,
+                    buttonStyle: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(context.colors.secondary),
+                    ),
+                    image: context.images.nascimento,
+                    label: 'NASCIMENTO',
+                    styleLabel: context.textStyles.textMedium.copyWith(
+                      color: context.colors.onPrimary,
+                      fontSize: 20,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    onPressed: () {},
+                  ),
+                  ButtonHome(
+                    width: 125,
+                    height: 150,
+                    buttonStyle: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(context.colors.secondary),
+                    ),
+                    image: context.images.vendas,
+                    label: 'VENDAS',
+                    styleLabel: context.textStyles.textMedium.copyWith(
+                      color: context.colors.onPrimary,
+                      fontSize: 20,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+              const SizedBox(height: 15),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ButtonHome(
+                    width: 125,
+                    height: 150,
+                    buttonStyle: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(context.colors.secondary),
+                    ),
+                    image: context.images.pasto,
+                    label: 'PASTO',
+                    styleLabel: context.textStyles.textMedium.copyWith(
+                      color: context.colors.onPrimary,
+                      fontSize: 20,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    onPressed: () {},
+                  ),
+                  ButtonHome(
+                    width: 125,
+                    height: 150,
+                    buttonStyle: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(context.colors.secondary),
+                    ),
+                    image: context.images.informacao,
+                    label: 'INFORMAÇÕES',
+                    styleLabel: context.textStyles.textMedium.copyWith(
+                      color: context.colors.onPrimary,
+                      fontSize: 20,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    onPressed: () {},
                   ),
                 ],
               ),

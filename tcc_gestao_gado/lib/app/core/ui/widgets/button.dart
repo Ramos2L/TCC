@@ -79,12 +79,16 @@ class _ButtonState extends State<Button> {
           : ElevatedButton(
               onPressed: widget.onPressed,
               style: widget.style,
-              child: FittedBox(
-                child: Text(
-                  widget.label.toUpperCase(),
-                  style: widget.labelStyle,
-                  overflow: TextOverflow.ellipsis,
-                ),
+              child: Column(
+                children: [
+                  FittedBox(
+                    child: Text(
+                      widget.label.toUpperCase(),
+                      style: widget.labelStyle,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
               ),
             ),
     );

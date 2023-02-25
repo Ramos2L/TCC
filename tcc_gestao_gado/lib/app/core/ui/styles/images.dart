@@ -15,6 +15,15 @@ class Images {
   String get introImage2 => "assets/images/intro_2.jpg";
   String get introImage3 => "assets/images/intro_3.jpg";
   String get introImage4 => "assets/images/intro_4.jpg";
+  //
+  String get manejo => "assets/images/manejo.png";
+  String get add => "assets/images/add.png";
+  String get nascimento => "assets/images/nascimento.png";
+  String get vendas => "assets/images/vendas.png";
+  String get relatorio => "assets/images/relatorio.png";
+  String get informacao => "assets/images/informacao.jpg";
+  String get buscar => "assets/images/buscar.png";
+  String get pasto => "assets/images/pasto.png";
 }
 
 extension ImagesAppExtensions on BuildContext {

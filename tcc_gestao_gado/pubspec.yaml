@@ -68,6 +68,14 @@ flutter:
     - assets/images/intro_2.jpg
     - assets/images/intro_3.jpg
     - assets/images/intro_4.jpg
+    - assets/images/manejo.png
+    - assets/images/add.png
+    - assets/images/nascimento.png
+    - assets/images/vendas.png
+    - assets/images/relatorio.png
+    - assets/images/informacao.jpg
+    - assets/images/buscar.png
+    - assets/images/pasto.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

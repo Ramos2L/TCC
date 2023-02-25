@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 
 class CircleAvatarWidget extends StatelessWidget {
   const CircleAvatarWidget({super.key, this.width, this.height, this.image});
@@ -12,7 +13,10 @@ class CircleAvatarWidget extends StatelessWidget {
     return SizedBox(
       width: width,
       height: height,
-      child: CircleAvatar(backgroundImage: AssetImage(image!)),
+      child: CircleAvatar(
+        backgroundImage: AssetImage(image!),
+        backgroundColor: context.colors.primary,
+      ),
     );
   }
 }
