@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.white, size: 50),
+        iconTheme: IconThemeData(color: context.colors.onPrimary, size: 50),
         title: SizedBox(
           height: 50,
           child: Center(
@@ -38,11 +38,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: CircleAvatarWidget(
-              width: 50,
-              height: 50,
-              image: context.images.introImage1,
-            ),
+            child: CircleAvatarWidget(width: 50, height: 50, image: context.images.introImage1),
           ),
         ],
       ),

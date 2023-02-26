@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/images.dart';
+import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/circle_avatar_widget.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/intro/widgets/button_widget.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/intro/widgets/count_widget.dart';
 
 class SliderIntro4Page extends StatefulWidget {
@@ -15,37 +15,64 @@ class SliderIntro4Page extends StatefulWidget {
 class _SliderIntro4PageState extends State<SliderIntro4Page> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.colors.primary,
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Column(
-            children: [
-              const CountWidget(index: 4, padding: EdgeInsets.all(25)),
-              CircleAvatarWidget(
-                height: 200,
-                width: 200,
-                image: context.images.introImage4,
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(25, 50, 25, 25),
-                child: Text(
-                  "ESTE É O QUARTO TEXTO DE INTRO",
-                  style: TextStyle(fontSize: 26, color: context.colors.background),
+    return SingleChildScrollView(
+      child: SafeArea(
+        child: Column(
+          children: [
+            const CountWidget(index: 4, padding: EdgeInsets.all(25)),
+            CircleAvatarWidget(height: 200, width: 200, image: context.images.introImage4),
+            const SizedBox(height: 25),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: RichText(
+                text: TextSpan(
+                  children: <TextSpan>[
+                    TextSpan(
+                      text:
+                          'Lembre-se de sempre salvar seus dados enquanto está off line e de sempre acompanhar seus relatórios. O aplicativo é e sempre será ',
+                      style: context.textStyles.textLight.copyWith(
+                        color: context.colors.onSecondary,
+                        fontSize: 27,
+                      ),
+                    ),
+                    TextSpan(
+                      text: '100% grátis.',
+                      style: context.textStyles.textMedium.copyWith(
+                        color: context.colors.onSecondary,
+                        fontSize: 27,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+            const SizedBox(height: 25),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: RichText(
+                text: TextSpan(
+                  children: <TextSpan>[
+                    TextSpan(
+                      text:
+                          'Agora você está pronto para prosseguir e der inicio nessa ferramenta para te auxiliar a produzir com mais segurança. ',
+                      style: context.textStyles.textLight.copyWith(
+                        color: context.colors.onSecondary,
+                        fontSize: 27,
+                      ),
+                    ),
+                    TextSpan(
+                      text: ':) ',
+                      style: context.textStyles.textMedium.copyWith(
+                        color: context.colors.onSecondary,
+                        fontSize: 27,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
-      ),
-      floatingActionButton: ButtonWidget(
-        padding: const EdgeInsets.all(10),
-        backgroundColor: context.colors.background,
-        foregroundColor: context.colors.primary,
-        icon: const Icon(Icons.arrow_forward),
-        onPressed: () {
-          Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false);
-        },
       ),
     );
   }
