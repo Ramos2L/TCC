@@ -65,7 +65,9 @@ class _HomePageState extends State<HomePage> {
                       fontSize: 20,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/manejo');
+                    },
                   ),
                   ButtonHome(
                     width: 125,
@@ -80,7 +82,9 @@ class _HomePageState extends State<HomePage> {
                       fontSize: 20,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/cadastro');
+                    },
                   ),
                 ],
               ),
@@ -115,7 +119,9 @@ class _HomePageState extends State<HomePage> {
                       fontSize: 20,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/relatorio');
+                    },
                   ),
                 ],
               ),
@@ -151,7 +157,9 @@ class _HomePageState extends State<HomePage> {
                       fontSize: 20,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/vendas');
+                    },
                   ),
                 ],
               ),

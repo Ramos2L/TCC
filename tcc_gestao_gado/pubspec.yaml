@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   simple_animations: ^5.0.0+3
   validatorless: ^1.2.3
+  flutter_svg: ^1.1.6
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +64,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/icons/cow.png
+    - assets/icons/male.png
+    - assets/icons/female.png
+    - assets/icons/scale.png
+    
     - assets/images/splash.jpg
     - assets/images/intro_1.jpg
     - assets/images/intro_2.jpg
