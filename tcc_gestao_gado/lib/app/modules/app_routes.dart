@@ -8,6 +8,7 @@ import 'package:tcc_gestao_gado/app/modules/pages/intro/slider_intro_3_page.dart
 import 'package:tcc_gestao_gado/app/modules/pages/intro/slider_intro_4_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/login/login_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/manejo/manejo_page.dart';
+import 'package:tcc_gestao_gado/app/modules/pages/pasto/pasto_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/register/register_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/splash/splash_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/vendas/vendas_page.dart';
@@ -29,5 +30,6 @@ class AppRoutes {
     '/cadastro': (context) => const CadastroPage(),
     '/relatorio': (context) => const RelatorioPage(),
     '/vendas': (context) => const VendasPage(),
+    '/pasto': (context) => const PastoPage(),
   };
 }
