@@ -55,7 +55,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
               ),
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, '/manejo');
             },
           ),
           ListTile(
@@ -68,7 +68,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
               ),
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, '/consulta');
             },
           ),
           ListTile(
@@ -81,7 +81,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
               ),
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, '/consultar');
             },
           ),
           ListTile(
@@ -94,7 +94,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
               ),
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, '/relatorio');
             },
           ),
           ListTile(
@@ -107,7 +107,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
               ),
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, '/pasto');
             },
           ),
           ListTile(
@@ -120,7 +120,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
               ),
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, '/informacoes');
             },
           ),
           ListTile(

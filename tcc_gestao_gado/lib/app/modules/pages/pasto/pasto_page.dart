@@ -6,6 +6,8 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/circle_avatar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/container_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
 
+import '../../../core/ui/widgets/container_principal.dart';
+
 class PastoPage extends StatefulWidget {
   const PastoPage({Key? key}) : super(key: key);
 
@@ -50,100 +52,10 @@ class _PastoPageState extends State<PastoPage> {
             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
             child: Column(
               children: [
-                Container(
-                  height: 150,
-                  decoration: BoxDecoration(
-                    color: context.colors.background,
-                    borderRadius: const BorderRadius.all(Radius.circular(20)),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Row(
-                          children: [
-                            Row(
-                              children: [
-                                Image.asset(
-                                  'assets/icons/cow.png',
-                                  width: 40,
-                                ),
-                                const SizedBox(width: 10),
-                                Text(
-                                  '504 animais',
-                                  style: context.textStyles.textMedium.copyWith(
-                                    color: context.colors.primary,
-                                    fontSize: 20,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Image.asset(
-                                  'assets/icons/female.png',
-                                  width: 40,
-                                ),
-                                const SizedBox(width: 10),
-                                Text(
-                                  '201',
-                                  style: context.textStyles.textMedium.copyWith(
-                                    color: context.colors.primary,
-                                    fontSize: 20,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Row(
-                              children: [
-                                Image.asset(
-                                  'assets/icons/cow.png',
-                                  width: 40,
-                                ),
-                                const SizedBox(width: 10),
-                                Text(
-                                  '504 animais',
-                                  style: context.textStyles.textMedium.copyWith(
-                                    color: context.colors.primary,
-                                    fontSize: 20,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Image.asset(
-                                  'assets/icons/female.png',
-                                  width: 40,
-                                ),
-                                const SizedBox(width: 10),
-                                Text(
-                                  '201',
-                                  style: context.textStyles.textMedium.copyWith(
-                                    color: context.colors.primary,
-                                    fontSize: 20,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                const ContainerPrincipal(),
                 const SizedBox(height: 25),
                 Text(
-                  'Manejo dos animais',
+                  'Pasto',
                   style: context.textStyles.textMedium.copyWith(
                     color: context.colors.onPrimary,
                     fontSize: 20,
@@ -207,33 +119,6 @@ class _PastoPageState extends State<PastoPage> {
                   onTap: () {},
                 ),
                 const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Descarte',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
-                      fontSize: 20,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  onTap: () {},
-                ),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Dicas de manejo',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
-                      fontSize: 20,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  onTap: () {},
-                ),
               ],
             ),
           ),

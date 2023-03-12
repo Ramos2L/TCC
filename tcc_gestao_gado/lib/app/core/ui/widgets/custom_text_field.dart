@@ -4,6 +4,9 @@ import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 
 class CustomTextField extends StatelessWidget {
   final String? label;
+  final String? initialValue;
+  final String? hintText;
+
   final TextStyle? labelStyle;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
@@ -40,6 +43,8 @@ class CustomTextField extends StatelessWidget {
     this.suffixIcon,
     this.focusNode,
     super.key,
+    this.initialValue,
+    this.hintText,
   });
 
   @override
@@ -55,6 +60,7 @@ class CustomTextField extends StatelessWidget {
               child: Text(label!, style: labelStyle),
             ),
           TextFormField(
+            initialValue: initialValue,
             enabled: enabled,
             controller: controller,
             obscureText: obscureText,
@@ -67,6 +73,7 @@ class CustomTextField extends StatelessWidget {
             onFieldSubmitted: onFieldSubmitted,
             focusNode: focusNode,
             decoration: inputDecoration?.copyWith(
+              hintText: hintText,
               suffixIcon: suffixIcon,
               fillColor: enabled ?? true
                   ? context.colors.background

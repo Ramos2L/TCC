@@ -104,7 +104,9 @@ class _HomePageState extends State<HomePage> {
                       color: context.colors.onPrimary,
                       fontSize: 20,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/consulta');
+                    },
                   ),
                   ButtonHome(
                     width: 125,
@@ -142,7 +144,9 @@ class _HomePageState extends State<HomePage> {
                       fontSize: 20,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/nascimento');
+                    },
                   ),
                   ButtonHome(
                     width: 125,
@@ -180,7 +184,9 @@ class _HomePageState extends State<HomePage> {
                       fontSize: 20,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/pasto');
+                    },
                   ),
                   ButtonHome(
                     width: 125,
@@ -195,7 +201,9 @@ class _HomePageState extends State<HomePage> {
                       fontSize: 20,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/informacoes');
+                    },
                   ),
                 ],
               ),
