@@ -69,6 +69,7 @@ class _HomePageState extends State<HomePage> {
                       Navigator.pushNamed(context, '/manejo');
                     },
                   ),
+                  const SizedBox(width: 15),
                   ButtonHome(
                     width: 125,
                     height: 150,
@@ -108,6 +109,7 @@ class _HomePageState extends State<HomePage> {
                       Navigator.pushNamed(context, '/consulta');
                     },
                   ),
+                  const SizedBox(width: 15),
                   ButtonHome(
                     width: 125,
                     height: 150,
@@ -148,6 +150,7 @@ class _HomePageState extends State<HomePage> {
                       Navigator.pushNamed(context, '/nascimento');
                     },
                   ),
+                  const SizedBox(width: 15),
                   ButtonHome(
                     width: 125,
                     height: 150,
@@ -188,6 +191,7 @@ class _HomePageState extends State<HomePage> {
                       Navigator.pushNamed(context, '/pasto');
                     },
                   ),
+                  const SizedBox(width: 15),
                   ButtonHome(
                     width: 125,
                     height: 150,

@@ -79,6 +79,7 @@ class _SliderIntro3PageState extends State<SliderIntro3Page> {
                     ],
                   ),
                 ),
+                const SizedBox(height: 100),
               ],
             ),
           ),

@@ -10,6 +10,11 @@ class Images {
     return _instance!;
   }
 
+  String get cow => "assets/icons/cow.png";
+  String get female => "assets/icons/female.png";
+  String get male => "assets/icons/male.png";
+  String get scale => "assets/icons/scale.png";
+
   String get splashImage => "assets/images/splash.jpg";
   String get introImage1 => "assets/images/intro_1.jpg";
   String get introImage2 => "assets/images/intro_2.jpg";
@@ -24,6 +29,7 @@ class Images {
   String get informacao => "assets/images/informacao.jpg";
   String get buscar => "assets/images/buscar.png";
   String get pasto => "assets/images/pasto.png";
+  String get example => "assets/images/example.png";
 }
 
 extension ImagesAppExtensions on BuildContext {

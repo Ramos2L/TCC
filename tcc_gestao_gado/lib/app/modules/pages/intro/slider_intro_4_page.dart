@@ -80,6 +80,7 @@ class _SliderIntro4PageState extends State<SliderIntro4Page> {
                     ],
                   ),
                 ),
+                const SizedBox(height: 100),
               ],
             ),
           ),

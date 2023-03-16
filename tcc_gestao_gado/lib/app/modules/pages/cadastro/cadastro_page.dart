@@ -73,7 +73,9 @@ class _CadastroPageState extends State<CadastroPage> {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/cadastro_animal');
+                  },
                 ),
                 const SizedBox(height: 15),
                 GestureDetector(
@@ -87,7 +89,9 @@ class _CadastroPageState extends State<CadastroPage> {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/cadastro_animal');
+                  },
                 ),
                 const SizedBox(height: 15),
                 GestureDetector(
@@ -101,7 +105,9 @@ class _CadastroPageState extends State<CadastroPage> {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/cadastro_animal');
+                  },
                 ),
                 const SizedBox(height: 15),
                 GestureDetector(
@@ -115,7 +121,9 @@ class _CadastroPageState extends State<CadastroPage> {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/cadastro_animal');
+                  },
                 ),
                 const SizedBox(height: 15),
                 GestureDetector(
@@ -129,7 +137,9 @@ class _CadastroPageState extends State<CadastroPage> {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/cadastro_animal');
+                  },
                 ),
               ],
             ),

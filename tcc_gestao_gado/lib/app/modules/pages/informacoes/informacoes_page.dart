@@ -58,7 +58,7 @@ class _InformacoesPageState extends State<InformacoesPage> {
                 padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                 child: Column(
                   children: [
-                    Image.asset('assets/images/example.png'),
+                    Image.asset(context.images.example),
                     const SizedBox(height: 15),
                     Row(
                       children: [

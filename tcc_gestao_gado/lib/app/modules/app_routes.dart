@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tcc_gestao_gado/app/modules/pages/cadastro/cadastro_animal_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/cadastro/cadastro_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/consulta/consulta_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/home/home_page.dart';
@@ -31,6 +32,7 @@ class AppRoutes {
     '/home': (context) => const HomePage(),
     '/manejo': (context) => const ManejoPage(),
     '/cadastro': (context) => const CadastroPage(),
+    '/cadastro_animal': (context) => const CadastroAnimalPage(),
     '/relatorio': (context) => const RelatorioPage(),
     '/vendas': (context) => const VendasPage(),
     '/pasto': (context) => const PastoPage(),

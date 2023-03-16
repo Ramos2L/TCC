@@ -84,6 +84,7 @@ class _SliderIntro1PageState extends State<SliderIntro1Page> {
                     fontSize: 27,
                   ),
                 ),
+                const SizedBox(height: 100),
               ],
             ),
           ),

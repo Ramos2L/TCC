@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
+import 'package:tcc_gestao_gado/app/core/ui/styles/images.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 
 class ContainerPrincipal extends StatelessWidget {
@@ -24,7 +25,7 @@ class ContainerPrincipal extends StatelessWidget {
                 Row(
                   children: [
                     Image.asset(
-                      'assets/icons/cow.png',
+                      context.images.cow,
                       width: 40,
                     ),
                     const SizedBox(width: 10),
@@ -41,7 +42,7 @@ class ContainerPrincipal extends StatelessWidget {
                 Row(
                   children: [
                     Image.asset(
-                      'assets/icons/female.png',
+                      context.images.female,
                       width: 40,
                     ),
                     const SizedBox(width: 10),
@@ -63,7 +64,7 @@ class ContainerPrincipal extends StatelessWidget {
                 Row(
                   children: [
                     Image.asset(
-                      'assets/icons/scale.png',
+                      context.images.scale,
                       width: 40,
                     ),
                     const SizedBox(width: 10),
@@ -80,7 +81,7 @@ class ContainerPrincipal extends StatelessWidget {
                 Row(
                   children: [
                     Image.asset(
-                      'assets/icons/male.png',
+                      context.images.male,
                       width: 40,
                     ),
                     const SizedBox(width: 10),

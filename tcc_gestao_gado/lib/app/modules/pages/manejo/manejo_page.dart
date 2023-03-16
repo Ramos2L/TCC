@@ -78,35 +78,7 @@ class _ManejoPageState extends State<ManejoPage> {
                 const SizedBox(height: 15),
                 GestureDetector(
                   child: ContainerWidget(
-                    title: 'Reprodução',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
-                      fontSize: 20,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  onTap: () {},
-                ),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
                     title: 'Desmama',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
-                      fontSize: 20,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  onTap: () {},
-                ),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Identificação animal',
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
