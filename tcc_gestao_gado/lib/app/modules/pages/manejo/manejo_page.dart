@@ -73,7 +73,9 @@ class _ManejoPageState extends State<ManejoPage> {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/pesagem');
+                  },
                 ),
                 const SizedBox(height: 15),
                 GestureDetector(
@@ -87,7 +89,9 @@ class _ManejoPageState extends State<ManejoPage> {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/desmama');
+                  },
                 ),
                 const SizedBox(height: 15),
                 GestureDetector(
@@ -101,7 +105,9 @@ class _ManejoPageState extends State<ManejoPage> {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/descarte');
+                  },
                 ),
                 const SizedBox(height: 15),
                 GestureDetector(
@@ -115,7 +121,9 @@ class _ManejoPageState extends State<ManejoPage> {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/dicas-manejo');
+                  },
                 ),
               ],
             ),

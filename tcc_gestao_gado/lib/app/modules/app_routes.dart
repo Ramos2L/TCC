@@ -10,6 +10,9 @@ import 'package:tcc_gestao_gado/app/modules/pages/intro/slider_intro_2_page.dart
 import 'package:tcc_gestao_gado/app/modules/pages/intro/slider_intro_3_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/intro/slider_intro_4_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/login/login_page.dart';
+import 'package:tcc_gestao_gado/app/modules/pages/manejo/descarte/descarte_page.dart';
+import 'package:tcc_gestao_gado/app/modules/pages/manejo/desmama/desmama_page.dart';
+import 'package:tcc_gestao_gado/app/modules/pages/manejo/pesagem/pesagem_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/manejo/manejo_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/nascimento/nascimento_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/pasto/pasto_page.dart';
@@ -17,6 +20,7 @@ import 'package:tcc_gestao_gado/app/modules/pages/register/register_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/splash/splash_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/vendas/vendas_page.dart';
 
+import 'pages/manejo/dicas/dicas_manejo_page.dart';
 import 'pages/relatorio/relatorio_page.dart';
 
 class AppRoutes {
@@ -31,6 +35,10 @@ class AppRoutes {
     '/register': (context) => const RegisterPage(),
     '/home': (context) => const HomePage(),
     '/manejo': (context) => const ManejoPage(),
+    '/pesagem': (context) => const PesagemPage(),
+    '/desmama': (context) => const DesmamaPage(),
+    '/descarte': (context) => const DescartePage(),
+    '/dicas-manejo': (context) => const DicasManejoPage(),
     '/cadastro': (context) => const CadastroPage(),
     '/cadastro_animal': (context) => const CadastroAnimalPage(),
     '/relatorio': (context) => const RelatorioPage(),

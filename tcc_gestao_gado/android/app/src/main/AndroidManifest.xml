@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.lucasramosleite.tcc_gestao_gado">
    <application
-        android:label="tcc_gestao_gado"
+        android:label="Gestao de Gado"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
