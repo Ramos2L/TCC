@@ -41,20 +41,27 @@ class _SliderIntro2PageState extends State<SliderIntro2Page> {
                   text: TextSpan(
                     children: <TextSpan>[
                       TextSpan(
-                        text: 'A ferramenta que você precisa para ',
+                        text: 'Com uma interface ',
                         style: context.textStyles.textLight.copyWith(
                           color: context.colors.onSecondary,
                           fontSize: 27,
                         ),
                       ),
                       TextSpan(
-                        text: 'controlar seu gado com eficiência. ',
+                        text: 'intuitiva e recursos ',
                         style: context.textStyles.textMedium.copyWith(
                           color: context.colors.onSecondary,
                           fontSize: 27,
                         ),
                       ),
                     ],
+                  ),
+                ),
+                Text(
+                  'para auxiliá-lo a acompanhar seu gado, vai ser ainda mais fácil gerenciar sua propriedade',
+                  style: context.textStyles.textLight.copyWith(
+                    color: context.colors.onSecondary,
+                    fontSize: 27,
                   ),
                 ),
                 const SizedBox(height: 100),

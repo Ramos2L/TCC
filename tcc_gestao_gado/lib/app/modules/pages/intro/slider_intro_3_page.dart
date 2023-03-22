@@ -42,35 +42,21 @@ class _SliderIntro3PageState extends State<SliderIntro3Page> {
                     children: <TextSpan>[
                       TextSpan(
                         text:
-                            'Somos focados em ajudar você a ter total domínio sobre sua gestão de sua propriedade, assim, conseguir acompanhar e planejar toda sua trajetória com seus animais e melhorar seus ',
+                            'O nosso objetivo é fornecer aos produtores de gado uma ferramenta que ajude a  ',
                         style: context.textStyles.textLight.copyWith(
                           color: context.colors.onSecondary,
                           fontSize: 27,
                         ),
                       ),
                       TextSpan(
-                        text: 'investimento ',
+                        text: 'aumentar a produtividade ',
                         style: context.textStyles.textMedium.copyWith(
                           color: context.colors.onSecondary,
                           fontSize: 27,
                         ),
                       ),
                       TextSpan(
-                        text: ' e ter ',
-                        style: context.textStyles.textLight.copyWith(
-                          color: context.colors.onSecondary,
-                          fontSize: 27,
-                        ),
-                      ),
-                      TextSpan(
-                        text: 'melhores decisões,',
-                        style: context.textStyles.textMedium.copyWith(
-                          color: context.colors.onSecondary,
-                          fontSize: 27,
-                        ),
-                      ),
-                      TextSpan(
-                        text: ' com seus animais.',
+                        text: 'e ter total acompanhamento como preferir',
                         style: context.textStyles.textLight.copyWith(
                           color: context.colors.onSecondary,
                           fontSize: 27,

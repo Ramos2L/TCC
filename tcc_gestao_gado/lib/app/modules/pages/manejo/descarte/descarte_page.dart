@@ -63,6 +63,14 @@ class _DescartePageState extends State<DescartePage> {
                   ),
                 ),
                 const SizedBox(height: 25),
+                Text(
+                  'O descarte do animal ocorre em caso de morte ou venda do mesmo',
+                  style: context.textStyles.textMedium.copyWith(
+                    color: context.colors.onPrimary,
+                    fontSize: 20,
+                  ),
+                ),
+                const SizedBox(height: 25),
                 CustomTextField(
                   //controller: ,
                   hintText: 'Data da descarte',

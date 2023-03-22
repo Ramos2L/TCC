@@ -41,34 +41,14 @@ class _SliderIntro1PageState extends State<SliderIntro1Page> {
                   text: TextSpan(
                     children: <TextSpan>[
                       TextSpan(
-                        text: 'Seja bem vindo ao aplicativo para ',
+                        text: 'Bem-vindo ao nosso aplicativo de ',
                         style: context.textStyles.textLight.copyWith(
                           color: context.colors.onSecondary,
                           fontSize: 27,
                         ),
                       ),
                       TextSpan(
-                        text: 'gestão de gado.',
-                        style: context.textStyles.textMedium.copyWith(
-                          color: context.colors.onSecondary,
-                          fontSize: 27,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                RichText(
-                  text: TextSpan(
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: 'O aplicativo criado para que todo produtor rural tenha a ',
-                        style: context.textStyles.textLight.copyWith(
-                          color: context.colors.onSecondary,
-                          fontSize: 27,
-                        ),
-                      ),
-                      TextSpan(
-                        text: 'governança e a gestão nas mãos.',
+                        text: 'gestão de gado!',
                         style: context.textStyles.textMedium.copyWith(
                           color: context.colors.onSecondary,
                           fontSize: 27,
@@ -78,7 +58,7 @@ class _SliderIntro1PageState extends State<SliderIntro1Page> {
                   ),
                 ),
                 Text(
-                  'Siga os passos para começar utilizar o aplicativo',
+                  'Este aplicativo foi projetado para ajudar produtores de gado',
                   style: context.textStyles.textLight.copyWith(
                     color: context.colors.onSecondary,
                     fontSize: 27,

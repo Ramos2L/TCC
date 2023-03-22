@@ -37,7 +37,7 @@ class _SplashPageState extends State<SplashPage> {
               Padding(
                 padding: const EdgeInsets.all(25),
                 child: Text(
-                  "Gestão para seu Gado",
+                  "CattleControl",
                   style: context.textStyles.textLight.copyWith(
                     color: context.colors.onPrimary,
                     fontSize: 16,

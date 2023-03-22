@@ -64,8 +64,11 @@ class _LoginPageState extends State<LoginPage> {
                   CircleAvatarWidget(width: 125, height: 125, image: context.images.splashImage),
                   const SizedBox(height: 25),
                   Text(
-                    "NOME DO APP",
-                    style: TextStyle(color: context.colors.background, fontSize: 18),
+                    "CATTLECONTROL",
+                    style: context.textStyles.textRegular.copyWith(
+                      color: context.colors.onSecondary,
+                      fontSize: 22,
+                    ),
                   ),
                   const SizedBox(height: 50),
                   CustomTextField(

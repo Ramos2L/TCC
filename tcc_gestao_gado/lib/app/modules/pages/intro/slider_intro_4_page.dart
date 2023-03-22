@@ -37,6 +37,14 @@ class _SliderIntro4PageState extends State<SliderIntro4Page> {
                   ),
                 ),
                 const SizedBox(height: 25),
+                Text(
+                  'Explore o nosso aplicativo e comece a gerenciar a sua fazenda de gado com mais eficiência hoje mesmo!',
+                  style: context.textStyles.textLight.copyWith(
+                    color: context.colors.onSecondary,
+                    fontSize: 27,
+                  ),
+                ),
+                const SizedBox(height: 25),
                 RichText(
                   text: TextSpan(
                     children: <TextSpan>[
@@ -49,29 +57,7 @@ class _SliderIntro4PageState extends State<SliderIntro4Page> {
                         ),
                       ),
                       TextSpan(
-                        text: '100% grátis.',
-                        style: context.textStyles.textMedium.copyWith(
-                          color: context.colors.onSecondary,
-                          fontSize: 27,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 25),
-                RichText(
-                  text: TextSpan(
-                    children: <TextSpan>[
-                      TextSpan(
-                        text:
-                            'Agora você está pronto para prosseguir e der inicio nessa ferramenta para te auxiliar a produzir com mais segurança. ',
-                        style: context.textStyles.textLight.copyWith(
-                          color: context.colors.onSecondary,
-                          fontSize: 27,
-                        ),
-                      ),
-                      TextSpan(
-                        text: ':) ',
+                        text: '100% grátis.\n:)',
                         style: context.textStyles.textMedium.copyWith(
                           color: context.colors.onSecondary,
                           fontSize: 27,

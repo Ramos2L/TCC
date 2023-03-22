@@ -99,6 +99,19 @@ class _DrawerMenuState extends State<DrawerMenu> {
           ),
           ListTile(
             title: Text(
+              'Vendas',
+              style: context.textStyles.textMedium.copyWith(
+                color: context.colors.secondary,
+                fontSize: 20,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            onTap: () {
+              Navigator.pushNamed(context, '/vendas');
+            },
+          ),
+          ListTile(
+            title: Text(
               'Pasto',
               style: context.textStyles.textMedium.copyWith(
                 color: context.colors.secondary,
@@ -108,19 +121,6 @@ class _DrawerMenuState extends State<DrawerMenu> {
             ),
             onTap: () {
               Navigator.pushNamed(context, '/pasto');
-            },
-          ),
-          ListTile(
-            title: Text(
-              'Informações',
-              style: context.textStyles.textMedium.copyWith(
-                color: context.colors.secondary,
-                fontSize: 20,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-            onTap: () {
-              Navigator.pushNamed(context, '/informacoes');
             },
           ),
           ListTile(
