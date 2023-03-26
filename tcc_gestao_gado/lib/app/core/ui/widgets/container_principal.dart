@@ -26,7 +26,7 @@ class ContainerPrincipal extends StatelessWidget {
                   children: [
                     Image.asset(
                       context.images.cow,
-                      width: 40,
+                      width: 25,
                     ),
                     const SizedBox(width: 10),
                     Text(
@@ -41,10 +41,7 @@ class ContainerPrincipal extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Image.asset(
-                      context.images.female,
-                      width: 40,
-                    ),
+                    const Icon(Icons.male),
                     const SizedBox(width: 10),
                     Text(
                       '201',
@@ -63,10 +60,7 @@ class ContainerPrincipal extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Image.asset(
-                      context.images.scale,
-                      width: 40,
-                    ),
+                    const Icon(Icons.balance),
                     const SizedBox(width: 10),
                     Text(
                       '6.450.012 peso',
@@ -80,10 +74,7 @@ class ContainerPrincipal extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Image.asset(
-                      context.images.male,
-                      width: 40,
-                    ),
+                    const Icon(Icons.female),
                     const SizedBox(width: 10),
                     Text(
                       '201',

@@ -11,9 +11,6 @@ class Images {
   }
 
   String get cow => "assets/icons/cow.png";
-  String get female => "assets/icons/female.png";
-  String get male => "assets/icons/male.png";
-  String get scale => "assets/icons/scale.png";
 
   String get splashImage => "assets/images/splash.jpg";
   String get introImage1 => "assets/images/intro_1.jpg";
