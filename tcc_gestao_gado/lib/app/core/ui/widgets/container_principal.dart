@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/images.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
+import 'package:tcc_gestao_gado/app/core/utils/size_page.dart';
 
 class ContainerPrincipal extends StatelessWidget {
   const ContainerPrincipal({Key? key}) : super(key: key);
@@ -33,7 +34,8 @@ class ContainerPrincipal extends StatelessWidget {
                       '504 animais',
                       style: context.textStyles.textMedium.copyWith(
                         color: context.colors.primary,
-                        fontSize: 20,
+                        fontSize:
+                            SizePage.isSmallScreenWidth(context) ? 14 : 20,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -47,7 +49,8 @@ class ContainerPrincipal extends StatelessWidget {
                       '201',
                       style: context.textStyles.textMedium.copyWith(
                         color: context.colors.primary,
-                        fontSize: 20,
+                        fontSize:
+                            SizePage.isSmallScreenWidth(context) ? 14 : 20,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -66,7 +69,8 @@ class ContainerPrincipal extends StatelessWidget {
                       '6.450.012 peso',
                       style: context.textStyles.textMedium.copyWith(
                         color: context.colors.primary,
-                        fontSize: 20,
+                        fontSize:
+                            SizePage.isSmallScreenWidth(context) ? 14 : 20,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -80,7 +84,8 @@ class ContainerPrincipal extends StatelessWidget {
                       '201',
                       style: context.textStyles.textMedium.copyWith(
                         color: context.colors.primary,
-                        fontSize: 20,
+                        fontSize:
+                            SizePage.isSmallScreenWidth(context) ? 14 : 20,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
