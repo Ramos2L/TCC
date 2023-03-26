@@ -81,7 +81,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
               ),
             ),
             onTap: () {
-              Navigator.pushNamed(context, '/consultar');
+              Navigator.pushNamed(context, '/consulta');
             },
           ),
           ListTile(

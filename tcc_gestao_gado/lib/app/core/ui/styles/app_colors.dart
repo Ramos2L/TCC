@@ -10,7 +10,7 @@ class AppColors {
     return _instance!;
   }
 
-  Color get primary => const Color(0xFF006D38);
+  Color get primary => const Color(0xFF194138);
   Color get onPrimary => const Color(0xFFFFFFFF);
   Color get primaryContainer => const Color(0xFF9BF6B3);
   Color get onPrimaryContainer => const Color(0xFF00210D);

@@ -38,7 +38,8 @@ class _HomePageState extends State<HomePage> {
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: CircleAvatarWidget(width: 50, height: 50, image: context.images.introImage1),
+            child: CircleAvatarWidget(
+                width: 50, height: 50, image: context.images.introImage1),
           ),
         ],
       ),
@@ -53,10 +54,9 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   ButtonHome(
-                    width: 125,
-                    height: 150,
                     buttonStyle: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(context.colors.secondary),
+                      backgroundColor:
+                          MaterialStateProperty.all(context.colors.secondary),
                     ),
                     image: context.images.manejo,
                     label: 'MANEJO',
@@ -71,10 +71,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SizedBox(width: 15),
                   ButtonHome(
-                    width: 125,
-                    height: 150,
                     buttonStyle: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(context.colors.secondary),
+                      backgroundColor:
+                          MaterialStateProperty.all(context.colors.secondary),
                     ),
                     image: context.images.add,
                     label: 'CADASTRO',
@@ -94,10 +93,9 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   ButtonHome(
-                    width: 125,
-                    height: 150,
                     buttonStyle: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(context.colors.secondary),
+                      backgroundColor:
+                          MaterialStateProperty.all(context.colors.secondary),
                     ),
                     image: context.images.buscar,
                     label: 'CONSULTAR ANIMAL',
@@ -111,10 +109,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SizedBox(width: 15),
                   ButtonHome(
-                    width: 125,
-                    height: 150,
                     buttonStyle: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(context.colors.secondary),
+                      backgroundColor:
+                          MaterialStateProperty.all(context.colors.secondary),
                     ),
                     image: context.images.relatorio,
                     label: 'RELATÓRIO',
@@ -134,10 +131,9 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   ButtonHome(
-                    width: 125,
-                    height: 150,
                     buttonStyle: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(context.colors.secondary),
+                      backgroundColor:
+                          MaterialStateProperty.all(context.colors.secondary),
                     ),
                     image: context.images.nascimento,
                     label: 'NASCIMENTO',
@@ -152,10 +148,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SizedBox(width: 15),
                   ButtonHome(
-                    width: 125,
-                    height: 150,
                     buttonStyle: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(context.colors.secondary),
+                      backgroundColor:
+                          MaterialStateProperty.all(context.colors.secondary),
                     ),
                     image: context.images.vendas,
                     label: 'VENDAS',
@@ -175,10 +170,9 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   ButtonHome(
-                    width: 125,
-                    height: 150,
                     buttonStyle: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(context.colors.secondary),
+                      backgroundColor:
+                          MaterialStateProperty.all(context.colors.secondary),
                     ),
                     image: context.images.pasto,
                     label: 'PASTO',
@@ -193,10 +187,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SizedBox(width: 15),
                   ButtonHome(
-                    width: 125,
-                    height: 150,
                     buttonStyle: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(context.colors.secondary),
+                      backgroundColor:
+                          MaterialStateProperty.all(context.colors.secondary),
                     ),
                     image: context.images.informacao,
                     label: 'INFORMAÇÕES',

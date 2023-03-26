@@ -55,91 +55,117 @@ class _LoginPageState extends State<LoginPage> {
       },
       child: Scaffold(
         backgroundColor: context.colors.primary,
-        body: SingleChildScrollView(
-          child: SafeArea(
-            child: Center(
-              child: Column(
-                children: [
-                  const SizedBox(height: 50),
-                  CircleAvatarWidget(width: 125, height: 125, image: context.images.splashImage),
-                  const SizedBox(height: 25),
-                  Text(
-                    "CATTLECONTROL",
-                    style: context.textStyles.textRegular.copyWith(
-                      color: context.colors.onSecondary,
-                      fontSize: 22,
-                    ),
-                  ),
-                  const SizedBox(height: 50),
-                  CustomTextField(
-                    padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
-                    //controller: ,
-                    label: 'e-mail',
-                    labelStyle: TextStyle(color: context.colors.background),
-                    inputDecoration: InputDecoration(
-                      errorStyle: TextStyle(
-                        fontSize: 14,
-                        color: context.colors.error,
+        body: SafeArea(
+          child: CustomScrollView(
+            scrollBehavior:
+                ScrollConfiguration.of(context).copyWith(scrollbars: false),
+            slivers: [
+              SliverList(
+                delegate: SliverChildListDelegate.fixed(
+                  [
+                    Center(
+                      child: Column(
+                        children: [
+                          const SizedBox(height: 50),
+                          CircleAvatarWidget(
+                              width: 125,
+                              height: 125,
+                              image: context.images.splashImage),
+                          const SizedBox(height: 25),
+                          Text(
+                            "CATTLECONTROL",
+                            style: context.textStyles.textRegular.copyWith(
+                              color: context.colors.onSecondary,
+                              fontSize: 22,
+                            ),
+                          ),
+                          const SizedBox(height: 50),
+                          CustomTextField(
+                            padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
+                            //controller: ,
+                            label: 'e-mail',
+                            labelStyle:
+                                TextStyle(color: context.colors.background),
+                            inputDecoration: InputDecoration(
+                              errorStyle: TextStyle(
+                                fontSize: 14,
+                                color: context.colors.error,
+                              ),
+                            ),
+                            inputFormatters: [
+                              FilteringTextInputFormatter.allow(
+                                  RegExp(r'[\S]')),
+                            ],
+                            keyboardType: TextInputType.emailAddress,
+                            validator: Validatorless.multiple(
+                              [
+                                Validatorless.required("Obrigatório"),
+                                Validatorless.email("e-mail inválido")
+                              ],
+                            ),
+                            suffixIcon: const Icon(Icons.person),
+                            // onFieldSubmitted: (_) {
+                            //   FocusScope.of(context).requestFocus(phoneNode);
+                            // },
+                          ),
+                          CustomTextField(
+                            padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
+                            //controller: ,
+                            label: 'senha',
+                            labelStyle:
+                                TextStyle(color: context.colors.background),
+                            inputDecoration: InputDecoration(
+                              errorStyle: TextStyle(
+                                fontSize: 14,
+                                color: context.colors.error,
+                              ),
+                            ),
+                            keyboardType: TextInputType.text,
+                            obscureText: true,
+                            suffixIcon: const Icon(Icons.remove_red_eye),
+                            // onFieldSubmitted: (_) {
+                            //   FocusScope.of(context).requestFocus(phoneNode);
+                            // },
+                          ),
+                        ],
                       ),
                     ),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp(r'[\S]')),
-                    ],
-                    keyboardType: TextInputType.emailAddress,
-                    validator: Validatorless.multiple(
-                      [
-                        Validatorless.required("Obrigatório"),
-                        Validatorless.email("e-mail inválido")
-                      ],
-                    ),
-                    suffixIcon: const Icon(Icons.person),
-                    // onFieldSubmitted: (_) {
-                    //   FocusScope.of(context).requestFocus(phoneNode);
-                    // },
-                  ),
-                  CustomTextField(
-                    padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
-                    //controller: ,
-                    label: 'senha',
-                    labelStyle: TextStyle(color: context.colors.background),
-                    inputDecoration: InputDecoration(
-                      errorStyle: TextStyle(
-                        fontSize: 14,
-                        color: context.colors.error,
-                      ),
-                    ),
-                    keyboardType: TextInputType.text,
-                    obscureText: true,
-                    suffixIcon: const Icon(Icons.remove_red_eye),
-                    // onFieldSubmitted: (_) {
-                    //   FocusScope.of(context).requestFocus(phoneNode);
-                    // },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-                    child: Button.primary(
-                      label: 'LOGIN',
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/home');
-                      },
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/register');
-                    },
-                    child: Text(
-                      'Não tem conta? Cadastra-se agora',
-                      style: context.textStyles.textLight.copyWith(
-                        color: context.colors.onSecondary,
-                        fontSize: 16,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Button.primary(
+                        label: 'LOGIN',
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/home');
+                        },
+                      ),
+                      const SizedBox(height: 25),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/register');
+                        },
+                        child: Text(
+                          'Não tem conta? Cadastra-se agora',
+                          style: context.textStyles.textLight.copyWith(
+                            color: context.colors.onSecondary,
+                            fontSize: 16,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
