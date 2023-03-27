@@ -163,7 +163,6 @@ class _CadastroAnimalPageState extends State<CadastroAnimalPage> {
                           ),
                           keyboardType: TextInputType.text,
                           obscureText: false,
-                          suffixIcon: const Icon(Icons.search),
                           // onFieldSubmitted: (_) {
                           //   FocusScope.of(context).requestFocus(phoneNode);
                           // },
