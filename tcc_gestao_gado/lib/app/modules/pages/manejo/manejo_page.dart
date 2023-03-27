@@ -8,6 +8,7 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/container_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
 
 class ManejoPage extends StatefulWidget {
+  static const routeName = '/manejo';
   const ManejoPage({super.key});
 
   @override

@@ -10,6 +10,8 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
 import '../../../core/ui/widgets/drawer_menu.dart';
 
 class NascimentoPage extends StatefulWidget {
+  static const routeName = '/nascimento';
+
   const NascimentoPage({Key? key}) : super(key: key);
 
   @override
@@ -43,7 +45,8 @@ class _NascimentoPageState extends State<NascimentoPage> {
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: CircleAvatarWidget(width: 50, height: 50, image: context.images.introImage1),
+            child: CircleAvatarWidget(
+                width: 50, height: 50, image: context.images.introImage1),
           ),
         ],
       ),

@@ -8,6 +8,7 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
 
 class PesagemPage extends StatefulWidget {
+  static const routeName = '/pesagem';
   const PesagemPage({Key? key}) : super(key: key);
 
   @override
@@ -120,7 +121,7 @@ class _PesagemPageState extends State<PesagemPage> {
                           ),
                           keyboardType: TextInputType.text,
                           obscureText: false,
-                          suffixIcon: const Icon(Icons.monitor_weight),
+                          suffixIcon: const Icon(Icons.balance),
                           // onFieldSubmitted: (_) {
                           //   FocusScope.of(context).requestFocus(phoneNode);
                           // },

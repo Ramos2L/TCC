@@ -9,7 +9,7 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/cadastro/cadastro_page.dart';
 
 class CadastroAnimalPage extends StatefulWidget {
-  static const routeName = '/cadastroAnimal';
+  static const routeName = '/cadastro_animal';
 
   const CadastroAnimalPage({Key? key}) : super(key: key);
 
@@ -125,7 +125,7 @@ class _CadastroAnimalPageState extends State<CadastroAnimalPage> {
                           ),
                           keyboardType: TextInputType.text,
                           obscureText: false,
-                          suffixIcon: const Icon(Icons.monitor_weight),
+                          suffixIcon: const Icon(Icons.balance),
                           // onFieldSubmitted: (_) {
                           //   FocusScope.of(context).requestFocus(phoneNode);
                           // },

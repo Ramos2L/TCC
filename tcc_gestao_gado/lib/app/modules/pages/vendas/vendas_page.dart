@@ -7,7 +7,14 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/container_principal.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/container_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
 
+class Arguments {
+  final String animal;
+
+  Arguments(this.animal);
+}
+
 class VendasPage extends StatefulWidget {
+  static const routeName = '/vendas';
   const VendasPage({Key? key}) : super(key: key);
 
   @override
@@ -40,7 +47,8 @@ class _VendasPageState extends State<VendasPage> {
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: CircleAvatarWidget(width: 50, height: 50, image: context.images.introImage1),
+            child: CircleAvatarWidget(
+                width: 50, height: 50, image: context.images.introImage1),
           ),
         ],
       ),
@@ -73,7 +81,13 @@ class _VendasPageState extends State<VendasPage> {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      '/venda_animal',
+                      arguments: Arguments('Vaca'),
+                    );
+                  },
                 ),
                 const SizedBox(height: 15),
                 GestureDetector(
@@ -87,7 +101,13 @@ class _VendasPageState extends State<VendasPage> {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      '/venda_animal',
+                      arguments: Arguments('Touro'),
+                    );
+                  },
                 ),
                 const SizedBox(height: 15),
                 GestureDetector(
@@ -101,7 +121,13 @@ class _VendasPageState extends State<VendasPage> {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      '/venda_animal',
+                      arguments: Arguments('Boi'),
+                    );
+                  },
                 ),
                 const SizedBox(height: 15),
                 GestureDetector(
@@ -115,7 +141,13 @@ class _VendasPageState extends State<VendasPage> {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      '/venda_animal',
+                      arguments: Arguments('Bezerro'),
+                    );
+                  },
                 ),
                 const SizedBox(height: 15),
                 GestureDetector(
@@ -129,7 +161,13 @@ class _VendasPageState extends State<VendasPage> {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      '/venda_animal',
+                      arguments: Arguments('Novilha'),
+                    );
+                  },
                 ),
               ],
             ),

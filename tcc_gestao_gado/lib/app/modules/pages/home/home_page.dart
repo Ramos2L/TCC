@@ -7,6 +7,7 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/circle_avatar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
 
 class HomePage extends StatefulWidget {
+  static const routeName = '/home';
   const HomePage({super.key});
 
   @override

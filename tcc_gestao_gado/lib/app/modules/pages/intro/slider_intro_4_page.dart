@@ -7,6 +7,8 @@ import 'package:tcc_gestao_gado/app/core/utils/size_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/intro/widgets/count_widget.dart';
 
 class SliderIntro4Page extends StatefulWidget {
+  static const routeName = '/intro_4';
+
   const SliderIntro4Page({super.key});
 
   @override

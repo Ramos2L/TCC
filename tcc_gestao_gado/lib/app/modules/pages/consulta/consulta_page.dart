@@ -9,6 +9,8 @@ import '../../../core/ui/widgets/container_principal.dart';
 import '../../../core/ui/widgets/drawer_menu.dart';
 
 class ConsultaPage extends StatefulWidget {
+  static const routeName = '/consulta';
+
   const ConsultaPage({Key? key}) : super(key: key);
 
   @override

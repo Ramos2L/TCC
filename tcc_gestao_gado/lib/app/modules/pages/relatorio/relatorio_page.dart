@@ -9,6 +9,7 @@ import '../../../core/ui/widgets/circle_avatar_widget.dart';
 import '../../../core/ui/widgets/container_principal.dart';
 
 class RelatorioPage extends StatefulWidget {
+  static const routeName = '/relatorio';
   const RelatorioPage({super.key});
 
   @override
@@ -41,7 +42,8 @@ class _RelatorioPageState extends State<RelatorioPage> {
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: CircleAvatarWidget(width: 50, height: 50, image: context.images.introImage1),
+            child: CircleAvatarWidget(
+                width: 50, height: 50, image: context.images.introImage1),
           ),
         ],
       ),

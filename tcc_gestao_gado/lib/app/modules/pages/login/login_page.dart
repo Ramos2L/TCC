@@ -9,6 +9,7 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
 import 'package:validatorless/validatorless.dart';
 
 class LoginPage extends StatefulWidget {
+  static const routeName = '/login';
   const LoginPage({super.key});
 
   @override

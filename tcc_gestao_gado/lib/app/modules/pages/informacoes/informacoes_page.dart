@@ -6,6 +6,8 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/circle_avatar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
 
 class InformacoesPage extends StatefulWidget {
+  static const routeName = '/informacoes';
+
   const InformacoesPage({Key? key}) : super(key: key);
 
   @override
@@ -38,7 +40,8 @@ class _InformacoesPageState extends State<InformacoesPage> {
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: CircleAvatarWidget(width: 50, height: 50, image: context.images.introImage1),
+            child: CircleAvatarWidget(
+                width: 50, height: 50, image: context.images.introImage1),
           ),
         ],
       ),
@@ -55,7 +58,8 @@ class _InformacoesPageState extends State<InformacoesPage> {
                 borderRadius: const BorderRadius.all(Radius.circular(20)),
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                 child: Column(
                   children: [
                     Image.asset(context.images.example),

@@ -14,8 +14,8 @@ class Arguments {
 }
 
 class CadastroPage extends StatefulWidget {
-  final String? args;
-  const CadastroPage({super.key, this.args});
+  static const routeName = '/cadastro';
+  const CadastroPage({super.key});
 
   @override
   State<CadastroPage> createState() => _CadastroPageState();

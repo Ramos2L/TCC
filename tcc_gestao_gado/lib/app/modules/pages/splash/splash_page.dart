@@ -6,6 +6,7 @@ import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/circle_avatar_widget.dart';
 
 class SplashPage extends StatefulWidget {
+  static const routeName = '/';
   const SplashPage({super.key});
 
   @override

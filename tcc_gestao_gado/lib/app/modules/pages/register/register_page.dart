@@ -9,6 +9,7 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
 import 'package:validatorless/validatorless.dart';
 
 class RegisterPage extends StatefulWidget {
+  static const routeName = '/register';
   const RegisterPage({super.key});
 
   @override
@@ -42,7 +43,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 const SizedBox(height: 15),
                 Text(
-                  "NOME DO APP",
+                  "CattleControl",
                   style: context.textStyles.textMedium.copyWith(
                     color: context.colors.onSecondary,
                     fontSize: 16,
@@ -75,7 +76,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   ],
                   keyboardType: TextInputType.emailAddress,
                   validator: Validatorless.multiple(
-                    [Validatorless.required("Obrigatório"), Validatorless.email("e-mail inválido")],
+                    [
+                      Validatorless.required("Obrigatório"),
+                      Validatorless.email("e-mail inválido")
+                    ],
                   ),
                   suffixIcon: const Icon(Icons.person),
                   // onFieldSubmitted: (_) {
@@ -98,7 +102,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   ],
                   keyboardType: TextInputType.emailAddress,
                   validator: Validatorless.multiple(
-                    [Validatorless.required("Obrigatório"), Validatorless.email("e-mail inválido")],
+                    [
+                      Validatorless.required("Obrigatório"),
+                      Validatorless.email("e-mail inválido")
+                    ],
                   ),
                   suffixIcon: const Icon(Icons.mail),
                   // onFieldSubmitted: (_) {
@@ -142,7 +149,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   // },
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                   child: Button.primary(
                     label: 'CADASTRAR',
                     onPressed: () {

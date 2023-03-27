@@ -9,6 +9,7 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
 import '../../../core/ui/widgets/container_principal.dart';
 
 class PastoPage extends StatefulWidget {
+  static const routeName = '/pasto';
   const PastoPage({Key? key}) : super(key: key);
 
   @override
@@ -41,7 +42,8 @@ class _PastoPageState extends State<PastoPage> {
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: CircleAvatarWidget(width: 50, height: 50, image: context.images.introImage1),
+            child: CircleAvatarWidget(
+                width: 50, height: 50, image: context.images.introImage1),
           ),
         ],
       ),

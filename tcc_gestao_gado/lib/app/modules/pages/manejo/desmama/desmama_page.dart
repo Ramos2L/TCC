@@ -8,6 +8,7 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
 
 class DesmamaPage extends StatefulWidget {
+  static const routeName = '/desmama';
   const DesmamaPage({Key? key}) : super(key: key);
 
   @override
