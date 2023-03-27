@@ -87,7 +87,9 @@ class _VendasAnimalPageState extends State<VendasAnimalPage> {
                           ),
                           keyboardType: TextInputType.text,
                           obscureText: false,
-                          suffixIcon: const Icon(Icons.search),
+                          suffixIcon: const Icon(
+                            Icons.app_registration_rounded,
+                          ),
                           // onFieldSubmitted: (_) {
                           //   FocusScope.of(context).requestFocus(phoneNode);
                           // },

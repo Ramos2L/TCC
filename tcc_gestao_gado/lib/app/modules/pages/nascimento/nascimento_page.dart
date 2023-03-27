@@ -134,7 +134,7 @@ class _NascimentoPageState extends State<NascimentoPage> {
                   ),
                   keyboardType: TextInputType.text,
                   obscureText: false,
-                  suffixIcon: const Icon(Icons.search),
+                  suffixIcon: const Icon(Icons.app_registration_rounded),
                   // onFieldSubmitted: (_) {
                   //   FocusScope.of(context).requestFocus(phoneNode);
                   // },
@@ -152,7 +152,7 @@ class _NascimentoPageState extends State<NascimentoPage> {
                   ),
                   keyboardType: TextInputType.text,
                   obscureText: false,
-                  suffixIcon: const Icon(Icons.search),
+                  suffixIcon: const Icon(Icons.app_registration_rounded),
                   // onFieldSubmitted: (_) {
                   //   FocusScope.of(context).requestFocus(phoneNode);
                   // },
@@ -170,7 +170,7 @@ class _NascimentoPageState extends State<NascimentoPage> {
                   ),
                   keyboardType: TextInputType.text,
                   obscureText: false,
-                  suffixIcon: const Icon(Icons.search),
+                  suffixIcon: const Icon(Icons.balance),
                   // onFieldSubmitted: (_) {
                   //   FocusScope.of(context).requestFocus(phoneNode);
                   // },
@@ -188,7 +188,7 @@ class _NascimentoPageState extends State<NascimentoPage> {
                   ),
                   keyboardType: TextInputType.text,
                   obscureText: false,
-                  suffixIcon: const Icon(Icons.search),
+                  suffixIcon: const Icon(Icons.add_to_photos_outlined),
                   // onFieldSubmitted: (_) {
                   //   FocusScope.of(context).requestFocus(phoneNode);
                   // },
@@ -206,7 +206,7 @@ class _NascimentoPageState extends State<NascimentoPage> {
                   ),
                   keyboardType: TextInputType.text,
                   obscureText: false,
-                  suffixIcon: const Icon(Icons.search),
+                  suffixIcon: const Icon(Icons.calendar_month),
                   // onFieldSubmitted: (_) {
                   //   FocusScope.of(context).requestFocus(phoneNode);
                   // },
@@ -224,7 +224,6 @@ class _NascimentoPageState extends State<NascimentoPage> {
                   ),
                   keyboardType: TextInputType.text,
                   obscureText: false,
-                  suffixIcon: const Icon(Icons.search),
                   // onFieldSubmitted: (_) {
                   //   FocusScope.of(context).requestFocus(phoneNode);
                   // },

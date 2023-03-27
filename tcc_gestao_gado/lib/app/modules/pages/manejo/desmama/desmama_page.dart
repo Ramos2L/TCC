@@ -83,7 +83,7 @@ class _DesmamaPageState extends State<DesmamaPage> {
                           ),
                           keyboardType: TextInputType.text,
                           obscureText: false,
-                          suffixIcon: const Icon(Icons.search),
+                          suffixIcon: const Icon(Icons.calendar_month),
                           // onFieldSubmitted: (_) {
                           //   FocusScope.of(context).requestFocus(phoneNode);
                           // },
@@ -102,7 +102,8 @@ class _DesmamaPageState extends State<DesmamaPage> {
                           ),
                           keyboardType: TextInputType.text,
                           obscureText: false,
-                          suffixIcon: const Icon(Icons.calendar_month),
+                          suffixIcon:
+                              const Icon(Icons.app_registration_rounded),
                           // onFieldSubmitted: (_) {
                           //   FocusScope.of(context).requestFocus(phoneNode);
                           // },
