@@ -58,8 +58,7 @@ class _LoginPageState extends State<LoginPage> {
         backgroundColor: context.colors.primary,
         body: SafeArea(
           child: CustomScrollView(
-            scrollBehavior:
-                ScrollConfiguration.of(context).copyWith(scrollbars: false),
+            scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
             slivers: [
               SliverList(
                 delegate: SliverChildListDelegate.fixed(
@@ -69,9 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                         children: [
                           const SizedBox(height: 50),
                           CircleAvatarWidget(
-                              width: 125,
-                              height: 125,
-                              image: context.images.splashImage),
+                              width: 125, height: 125, image: context.images.splashImage),
                           const SizedBox(height: 25),
                           Text(
                             "CATTLECONTROL",
@@ -85,8 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                             padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
                             //controller: ,
                             label: 'e-mail',
-                            labelStyle:
-                                TextStyle(color: context.colors.background),
+                            labelStyle: TextStyle(color: context.colors.background),
                             inputDecoration: InputDecoration(
                               errorStyle: TextStyle(
                                 fontSize: 14,
@@ -94,8 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                             inputFormatters: [
-                              FilteringTextInputFormatter.allow(
-                                  RegExp(r'[\S]')),
+                              FilteringTextInputFormatter.allow(RegExp(r'[\S]')),
                             ],
                             keyboardType: TextInputType.emailAddress,
                             validator: Validatorless.multiple(
@@ -113,8 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                             padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
                             //controller: ,
                             label: 'senha',
-                            labelStyle:
-                                TextStyle(color: context.colors.background),
+                            labelStyle: TextStyle(color: context.colors.background),
                             inputDecoration: InputDecoration(
                               errorStyle: TextStyle(
                                 fontSize: 14,
@@ -123,6 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             keyboardType: TextInputType.text,
                             obscureText: true,
+
                             suffixIcon: const Icon(Icons.remove_red_eye),
                             // onFieldSubmitted: (_) {
                             //   FocusScope.of(context).requestFocus(phoneNode);
@@ -137,8 +132,7 @@ class _LoginPageState extends State<LoginPage> {
               SliverFillRemaining(
                 hasScrollBody: false,
                 child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                  padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [

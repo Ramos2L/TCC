@@ -11,6 +11,7 @@ class AppTheme {
 
   static final ThemeData theme = ThemeData(
     primaryColor: AppColors.i.primary,
+    primarySwatch: Colors.brown, //Color(0xFF506353),
     checkboxTheme: CheckboxThemeData(
       fillColor: MaterialStateProperty.all<Color>(AppColors.i.tertiaryContainer),
     ),

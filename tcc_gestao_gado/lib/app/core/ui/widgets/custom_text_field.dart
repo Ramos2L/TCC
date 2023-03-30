@@ -73,6 +73,14 @@ class CustomTextField extends StatelessWidget {
             onFieldSubmitted: onFieldSubmitted,
             focusNode: focusNode,
             decoration: inputDecoration?.copyWith(
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(width: 3, color: context.colors.secondary),
+                borderRadius: BorderRadius.circular(15),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(width: 3, color: context.colors.secondary),
+                borderRadius: BorderRadius.circular(15),
+              ),
               hintText: hintText,
               suffixIcon: suffixIcon,
               fillColor: enabled ?? true
