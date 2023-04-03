@@ -15,7 +15,7 @@ class ButtonStyles {
         backgroundColor: AppColors.i.secondary,
         foregroundColor: AppColors.i.primary,
         minimumSize: const Size.fromHeight(60),
-        shape: const ContinuousRectangleBorder(),
+        shape: const ContinuousRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(15))),
       );
 
   ButtonStyle get secondaryButton => ElevatedButton.styleFrom(

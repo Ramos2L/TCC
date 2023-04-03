@@ -68,7 +68,10 @@ class _LoginPageState extends State<LoginPage> {
                         children: [
                           const SizedBox(height: 50),
                           CircleAvatarWidget(
-                              width: 125, height: 125, image: context.images.splashImage),
+                            width: 125,
+                            height: 125,
+                            image: context.images.splashImage,
+                          ),
                           const SizedBox(height: 25),
                           Text(
                             "CATTLECONTROL",
@@ -117,7 +120,6 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             keyboardType: TextInputType.text,
                             obscureText: true,
-
                             suffixIcon: const Icon(Icons.remove_red_eye),
                             // onFieldSubmitted: (_) {
                             //   FocusScope.of(context).requestFocus(phoneNode);
