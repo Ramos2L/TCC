@@ -1,0 +1,44 @@
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+
+class CheckPage extends StatefulWidget {
+  static const routeName = '/check';
+
+  const CheckPage({Key? key}) : super(key: key);
+
+  @override
+  State<CheckPage> createState() => _CheckPageState();
+}
+
+class _CheckPageState extends State<CheckPage> {
+  StreamSubscription? streamSubscription;
+
+  @override
+  void initState() {
+    streamSubscription = FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user == null) {
+        print('Usuario não logado');
+        Navigator.pushNamed(context, '/intro_page');
+      } else {
+        Navigator.pushNamed(context, '/home');
+      }
+    }); // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    streamSubscription!.cancel();
+    // TODO: implement dispose
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: CircularProgressIndicator(),
+    );
+  }
+}

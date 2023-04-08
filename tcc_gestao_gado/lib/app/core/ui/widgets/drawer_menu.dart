@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/images.dart';
@@ -12,6 +13,8 @@ class DrawerMenu extends StatefulWidget {
 }
 
 class _DrawerMenuState extends State<DrawerMenu> {
+  final _firebaseAuth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -158,8 +161,9 @@ class _DrawerMenuState extends State<DrawerMenu> {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            onTap: () {
-              Navigator.pop(context);
+            onTap: () async {
+              await _firebaseAuth.signOut().then((user) => Navigator.pushNamed(context, '/'));
+              //Navigator.pop(context);
             },
           ),
         ],

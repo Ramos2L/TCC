@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
@@ -18,6 +19,26 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _canPop = false;
+  final TextEditingController _controllerEmail = TextEditingController();
+  final TextEditingController _controllerSenha = TextEditingController();
+  final _firebaseAuth = FirebaseAuth.instance;
+
+  login() async {
+    try {
+      print('teste');
+      UserCredential userCredential = await _firebaseAuth.signInWithEmailAndPassword(
+        email: _controllerEmail.text,
+        password: _controllerSenha.text,
+      );
+      Navigator.pushNamed(context, '/home');
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('TESTE ERROR $e');
+      }
+      print('testeaaaaaaa');
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                           const SizedBox(height: 50),
                           CustomTextField(
                             padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
-                            //controller: ,
+                            controller: _controllerEmail,
                             label: 'e-mail',
                             labelStyle: TextStyle(color: context.colors.background),
                             inputDecoration: InputDecoration(
@@ -109,7 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           CustomTextField(
                             padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
-                            //controller: ,
+                            controller: _controllerSenha,
                             label: 'senha',
                             labelStyle: TextStyle(color: context.colors.background),
                             inputDecoration: InputDecoration(
@@ -141,7 +162,8 @@ class _LoginPageState extends State<LoginPage> {
                       Button.primary(
                         label: 'LOGIN',
                         onPressed: () {
-                          Navigator.pushNamed(context, '/home');
+                          login();
+                          //Navigator.pushNamed(context, '/home');
                         },
                       ),
                       const SizedBox(height: 25),

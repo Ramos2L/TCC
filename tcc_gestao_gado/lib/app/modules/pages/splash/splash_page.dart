@@ -26,7 +26,7 @@ class _SplashPageState extends State<SplashPage> {
               PlayAnimationBuilder<double>(
                 tween: Tween(begin: 50.0, end: 200.0),
                 duration: const Duration(seconds: 3),
-                onCompleted: () => Navigator.pushNamed(context, '/intro_page'),
+                onCompleted: () => Navigator.pushNamed(context, '/check'),
                 builder: (context, value, _) {
                   return CircleAvatarWidget(
                     width: value,

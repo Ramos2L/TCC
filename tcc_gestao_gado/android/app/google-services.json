@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "174494369051",
+    "project_id": "cattle-control-app",
+    "storage_bucket": "cattle-control-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174494369051:android:6a1db0167a641cfaa4bfbe",
+        "android_client_info": {
+          "package_name": "br.com.lucasramosleite.tcc_gestao_gado"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "174494369051-5o24nf7ihai359itr77kto487okqt91n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTW-zDy05GY-2E77tSizMufzupb5D4IAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "174494369051-5o24nf7ihai359itr77kto487okqt91n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

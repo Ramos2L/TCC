@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
@@ -17,6 +18,31 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final TextEditingController _nomeController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _senhaController = TextEditingController();
+
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+
+  cadastrar() async {
+    try {
+      UserCredential userCredential = await _firebaseAuth.createUserWithEmailAndPassword(
+        email: _emailController.text,
+        password: _senhaController.text,
+      );
+      userCredential.user!.updateDisplayName(_nomeController.text);
+      Navigator.pushNamed(context, '/login');
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        print(e);
+        print('Crie uma senha mais forte');
+      } else if (e.code == 'email-already-in-use') {
+        print(e);
+        print('Email ja utilizado');
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +88,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 const SizedBox(height: 25),
                 CustomTextField(
                   padding: const EdgeInsets.fromLTRB(25, 0, 25, 15),
-                  //controller: ,
+                  controller: _nomeController,
                   label: 'nome',
                   labelStyle: TextStyle(color: context.colors.background),
                   inputDecoration: InputDecoration(
@@ -71,16 +97,13 @@ class _RegisterPageState extends State<RegisterPage> {
                       color: context.colors.error,
                     ),
                   ),
-                  inputFormatters: [
-                    FilteringTextInputFormatter.allow(RegExp(r'[\S]')),
-                  ],
+                  // inputFormatters: [
+                  //   FilteringTextInputFormatter.allow(RegExp(r'[\S]')),
+                  // ],
                   keyboardType: TextInputType.emailAddress,
-                  validator: Validatorless.multiple(
-                    [
-                      Validatorless.required("Obrigatório"),
-                      Validatorless.email("e-mail inválido")
-                    ],
-                  ),
+                  // validator: Validatorless.multiple(
+                  //   [Validatorless.required("Obrigatório"), Validatorless.email("e-mail inválido")],
+                  // ),
                   suffixIcon: const Icon(Icons.person),
                   // onFieldSubmitted: (_) {
                   //   FocusScope.of(context).requestFocus(phoneNode);
@@ -88,7 +111,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 CustomTextField(
                   padding: const EdgeInsets.fromLTRB(25, 0, 25, 15),
-                  //controller: ,
+                  controller: _emailController,
                   label: 'e-mail',
                   labelStyle: TextStyle(color: context.colors.background),
                   inputDecoration: InputDecoration(
@@ -102,10 +125,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ],
                   keyboardType: TextInputType.emailAddress,
                   validator: Validatorless.multiple(
-                    [
-                      Validatorless.required("Obrigatório"),
-                      Validatorless.email("e-mail inválido")
-                    ],
+                    [Validatorless.required("Obrigatório"), Validatorless.email("e-mail inválido")],
                   ),
                   suffixIcon: const Icon(Icons.mail),
                   // onFieldSubmitted: (_) {
@@ -114,7 +134,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 CustomTextField(
                   padding: const EdgeInsets.fromLTRB(25, 0, 25, 15),
-                  //controller: ,
+                  controller: _senhaController,
                   label: 'senha',
                   labelStyle: TextStyle(color: context.colors.background),
                   inputDecoration: InputDecoration(
@@ -132,7 +152,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 CustomTextField(
                   padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
-                  //controller: ,
+                  controller: _senhaController,
                   label: 'confirme sua senha',
                   labelStyle: TextStyle(color: context.colors.background),
                   inputDecoration: InputDecoration(
@@ -149,12 +169,11 @@ class _RegisterPageState extends State<RegisterPage> {
                   // },
                 ),
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                  padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                   child: Button.primary(
                     label: 'CADASTRAR',
                     onPressed: () {
-                      Navigator.pop(context);
+                      cadastrar();
                     },
                   ),
                 ),

@@ -39,6 +39,8 @@ dependencies:
   simple_animations: ^5.0.0+3
   validatorless: ^1.2.3
   flutter_svg: ^1.1.6
+  firebase_auth: ^4.4.0
+  firebase_core: ^2.9.0
 
 dev_dependencies:
   flutter_test:

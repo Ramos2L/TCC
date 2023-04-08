@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/cadastro/cadastro_animal_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/cadastro/cadastro_page.dart';
+import 'package:tcc_gestao_gado/app/modules/pages/checagem/check_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/consulta/consulta_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/home/home_page.dart';
 import 'package:tcc_gestao_gado/app/modules/pages/informacoes/informacoes_page.dart';
@@ -27,6 +28,7 @@ import 'pages/relatorio/relatorio_page.dart';
 class AppRoutes {
   static Map<String, Widget Function(BuildContext)> routes = {
     SplashPage.routeName: (context) => const SplashPage(),
+    CheckPage.routeName: (context) => const CheckPage(),
     IntroPage.routeName: (context) => const IntroPage(),
     SliderIntro1Page.routeName: (context) => const SliderIntro1Page(),
     SliderIntro2Page.routeName: (context) => const SliderIntro2Page(),
