@@ -40,8 +40,8 @@ class _SplashPageState extends State<SplashPage> {
                 child: Text(
                   "CattleControl",
                   style: context.textStyles.textLight.copyWith(
-                    color: context.colors.onPrimary,
                     fontSize: 16,
+                    color: context.colors.onPrimary,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),

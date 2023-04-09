@@ -43,8 +43,7 @@ class _ConsultaPageState extends State<ConsultaPage> {
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: CircleAvatarWidget(
-                width: 50, height: 50, image: context.images.introImage1),
+            child: CircleAvatarWidget(width: 50, height: 50, image: context.images.introImage1),
           ),
         ],
       ),

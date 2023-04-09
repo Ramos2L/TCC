@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/cadastro/cadastro_animal_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/cadastro/cadastro_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/checagem/check_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/consulta/consulta_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/home/home_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/informacoes/informacoes_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/intro/intro_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/intro/slider_intro_1_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/intro/slider_intro_2_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/intro/slider_intro_3_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/intro/slider_intro_4_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/login/login_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/manejo/descarte/descarte_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/manejo/desmama/desmama_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/manejo/manejo_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/manejo/pesagem/pesagem_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/nascimento/nascimento_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/pasto/pasto_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/register/register_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/splash/splash_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/vendas/vendas_animal_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/vendas/vendas_page.dart';
+import 'package:tcc_gestao_gado/app/modules/auth/login/login_page.dart';
+import 'package:tcc_gestao_gado/app/modules/auth/register/page/register_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/cadastro/cadastro_animal_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/cadastro/cadastro_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/checagem/check_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/consulta/consulta_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/home/home_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/informacoes/informacoes_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/intro/intro_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/intro/slider_intro_1_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/intro/slider_intro_2_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/intro/slider_intro_3_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/intro/slider_intro_4_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/manejo/descarte/descarte_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/manejo/desmama/desmama_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/manejo/manejo_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/manejo/pesagem/pesagem_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/nascimento/nascimento_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pasto/pasto_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/vendas/vendas_animal_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/vendas/vendas_page.dart';
+import 'package:tcc_gestao_gado/app/modules/splash/splash_page.dart';
 
-import 'pages/manejo/dicas/dicas_manejo_page.dart';
-import 'pages/relatorio/relatorio_page.dart';
+import 'main/manejo/dicas/dicas_manejo_page.dart';
+import 'main/relatorio/relatorio_page.dart';
 
 class AppRoutes {
   static Map<String, Widget Function(BuildContext)> routes = {

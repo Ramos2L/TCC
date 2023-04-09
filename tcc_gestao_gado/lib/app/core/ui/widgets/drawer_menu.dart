@@ -14,9 +14,21 @@ class DrawerMenu extends StatefulWidget {
 
 class _DrawerMenuState extends State<DrawerMenu> {
   final _firebaseAuth = FirebaseAuth.instance;
+  String? nome = '';
+  String? email = '';
+
+  getUser() async {
+    User? user = _firebaseAuth.currentUser;
+    setState(() {
+      nome = user!.displayName;
+      print('usuario: $nome');
+      email = user.email;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    getUser();
     return Drawer(
       backgroundColor: context.colors.background,
       child: ListView(
@@ -31,12 +43,20 @@ class _DrawerMenuState extends State<DrawerMenu> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 CircleAvatarWidget(
-                  width: 100,
-                  height: 100,
+                  width: 75,
+                  height: 75,
                   image: context.images.introImage1,
                 ),
                 Text(
-                  'Lucas Ramos',
+                  nome!,
+                  style: context.textStyles.textLight.copyWith(
+                    color: context.colors.secondary,
+                    fontSize: 18,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                Text(
+                  email!,
                   style: context.textStyles.textLight.copyWith(
                     color: context.colors.secondary,
                     fontSize: 18,

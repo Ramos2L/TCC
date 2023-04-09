@@ -4,17 +4,18 @@ import 'package:tcc_gestao_gado/app/core/ui/styles/images.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/circle_avatar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/utils/size_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/intro/widgets/count_widget.dart';
+import 'package:tcc_gestao_gado/app/modules/main/intro/widgets/count_widget.dart';
 
-class SliderIntro1Page extends StatefulWidget {
-  static const routeName = '/intro_1';
-  const SliderIntro1Page({super.key});
+class SliderIntro4Page extends StatefulWidget {
+  static const routeName = '/intro_4';
+
+  const SliderIntro4Page({super.key});
 
   @override
-  State<SliderIntro1Page> createState() => _SliderIntro1PageState();
+  State<SliderIntro4Page> createState() => _SliderIntro4PageState();
 }
 
-class _SliderIntro1PageState extends State<SliderIntro1Page> {
+class _SliderIntro4PageState extends State<SliderIntro4Page> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -28,13 +29,21 @@ class _SliderIntro1PageState extends State<SliderIntro1Page> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const CountWidget(index: 1),
+                const CountWidget(index: 4),
                 const SizedBox(height: 25),
                 Center(
                   child: CircleAvatarWidget(
                     height: 200,
                     width: 200,
-                    image: context.images.introImage1,
+                    image: context.images.introImage4,
+                  ),
+                ),
+                const SizedBox(height: 25),
+                Text(
+                  'Explore o nosso aplicativo e comece a gerenciar a sua fazenda de gado com mais eficiência agora mesmo!',
+                  style: context.textStyles.textLight.copyWith(
+                    color: context.colors.onSecondary,
+                    fontSize: 27,
                   ),
                 ),
                 const SizedBox(height: 25),
@@ -42,27 +51,21 @@ class _SliderIntro1PageState extends State<SliderIntro1Page> {
                   text: TextSpan(
                     children: <TextSpan>[
                       TextSpan(
-                        text: 'Bem-vindo ao nosso aplicativo de ',
+                        text:
+                            'Lembre-se de sempre salvar seus dados enquanto estiver off line. O aplicativo é e sempre será ',
                         style: context.textStyles.textLight.copyWith(
                           color: context.colors.onSecondary,
                           fontSize: 27,
                         ),
                       ),
                       TextSpan(
-                        text: 'gestão de gado!',
+                        text: '100% grátis.\n:)',
                         style: context.textStyles.textMedium.copyWith(
                           color: context.colors.onSecondary,
                           fontSize: 27,
                         ),
                       ),
                     ],
-                  ),
-                ),
-                Text(
-                  'Este aplicativo foi projetado para ajudar produtores de gado',
-                  style: context.textStyles.textLight.copyWith(
-                    color: context.colors.onSecondary,
-                    fontSize: 27,
                   ),
                 ),
                 const SizedBox(height: 100),

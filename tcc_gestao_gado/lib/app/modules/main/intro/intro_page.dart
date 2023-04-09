@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/intro/slider_intro_1_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/intro/slider_intro_2_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/intro/slider_intro_3_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/intro/slider_intro_4_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/intro/widgets/button_widget.dart';
+import 'package:tcc_gestao_gado/app/modules/main/intro/slider_intro_1_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/intro/slider_intro_2_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/intro/slider_intro_3_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/intro/slider_intro_4_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/intro/widgets/button_widget.dart';
 
 class IntroPage extends StatefulWidget {
   static const routeName = '/intro_page';
@@ -55,12 +55,9 @@ class _IntroPageState extends State<IntroPage> {
         icon: const Icon(Icons.arrow_forward),
         onPressed: () {
           if ((controller.page)!.toInt() != 3) {
-            controller.nextPage(
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.ease);
+            controller.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.ease);
           } else {
-            Navigator.pushNamedAndRemoveUntil(
-                context, '/login', (route) => false);
+            Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false);
           }
         },
       ),

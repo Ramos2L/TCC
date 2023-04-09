@@ -6,7 +6,7 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/button.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/circle_avatar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/vendas/vendas_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/vendas/vendas_page.dart';
 
 class VendasAnimalPage extends StatefulWidget {
   static const routeName = '/venda_animal';
@@ -45,23 +45,20 @@ class _VendasAnimalPageState extends State<VendasAnimalPage> {
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: CircleAvatarWidget(
-                width: 50, height: 50, image: context.images.introImage1),
+            child: CircleAvatarWidget(width: 50, height: 50, image: context.images.introImage1),
           ),
         ],
       ),
       drawer: const DrawerMenu(),
       body: SafeArea(
         child: CustomScrollView(
-          scrollBehavior:
-              ScrollConfiguration.of(context).copyWith(scrollbars: false),
+          scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
           slivers: [
             SliverList(
               delegate: SliverChildListDelegate.fixed(
                 [
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 25, vertical: 25),
+                    padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                     child: Column(
                       children: [
                         const SizedBox(height: 25),
@@ -77,8 +74,7 @@ class _VendasAnimalPageState extends State<VendasAnimalPage> {
                         CustomTextField(
                           //controller: ,
                           hintText: 'Nº ${args.animal}',
-                          labelStyle:
-                              TextStyle(color: context.colors.background),
+                          labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
                             errorStyle: TextStyle(
                               fontSize: 14,
@@ -98,8 +94,7 @@ class _VendasAnimalPageState extends State<VendasAnimalPage> {
                         CustomTextField(
                           //controller: ,
                           hintText: 'Peso do animal (kg)',
-                          labelStyle:
-                              TextStyle(color: context.colors.background),
+                          labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
                             errorStyle: TextStyle(
                               fontSize: 14,
@@ -117,8 +112,7 @@ class _VendasAnimalPageState extends State<VendasAnimalPage> {
                         CustomTextField(
                           //controller: ,
                           hintText: 'Preço',
-                          labelStyle:
-                              TextStyle(color: context.colors.background),
+                          labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
                             errorStyle: TextStyle(
                               fontSize: 14,
@@ -136,8 +130,7 @@ class _VendasAnimalPageState extends State<VendasAnimalPage> {
                         CustomTextField(
                           //controller: ,
                           hintText: 'Observações (optativo)',
-                          labelStyle:
-                              TextStyle(color: context.colors.background),
+                          labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
                             errorStyle: TextStyle(
                               fontSize: 14,
@@ -163,8 +156,7 @@ class _VendasAnimalPageState extends State<VendasAnimalPage> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 25, vertical: 25),
+                    padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                     child: Button.primary(
                       label: 'SALVAR',
                       onPressed: () {

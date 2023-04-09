@@ -4,7 +4,7 @@ import 'package:tcc_gestao_gado/app/core/ui/styles/images.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/circle_avatar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/utils/size_page.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/intro/widgets/count_widget.dart';
+import 'package:tcc_gestao_gado/app/modules/main/intro/widgets/count_widget.dart';
 
 class SliderIntro3Page extends StatefulWidget {
   static const routeName = '/intro_3';

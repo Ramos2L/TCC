@@ -6,7 +6,7 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/button.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/circle_avatar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
-import 'package:tcc_gestao_gado/app/modules/pages/cadastro/cadastro_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/cadastro/cadastro_page.dart';
 
 class CadastroAnimalPage extends StatefulWidget {
   static const routeName = '/cadastro_animal';
@@ -45,23 +45,20 @@ class _CadastroAnimalPageState extends State<CadastroAnimalPage> {
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: CircleAvatarWidget(
-                width: 50, height: 50, image: context.images.introImage1),
+            child: CircleAvatarWidget(width: 50, height: 50, image: context.images.introImage1),
           ),
         ],
       ),
       drawer: const DrawerMenu(),
       body: SafeArea(
         child: CustomScrollView(
-          scrollBehavior:
-              ScrollConfiguration.of(context).copyWith(scrollbars: false),
+          scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
           slivers: [
             SliverList(
               delegate: SliverChildListDelegate.fixed(
                 [
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 25, vertical: 25),
+                    padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                     child: Column(
                       children: [
                         const SizedBox(height: 25),
@@ -77,8 +74,7 @@ class _CadastroAnimalPageState extends State<CadastroAnimalPage> {
                         CustomTextField(
                           //controller: ,
                           hintText: 'Nº ${args.animal}',
-                          labelStyle:
-                              TextStyle(color: context.colors.background),
+                          labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
                             errorStyle: TextStyle(
                               fontSize: 14,
@@ -87,8 +83,7 @@ class _CadastroAnimalPageState extends State<CadastroAnimalPage> {
                           ),
                           keyboardType: TextInputType.text,
                           obscureText: false,
-                          suffixIcon:
-                              const Icon(Icons.app_registration_rounded),
+                          suffixIcon: const Icon(Icons.app_registration_rounded),
                           // onFieldSubmitted: (_) {
                           //   FocusScope.of(context).requestFocus(phoneNode);
                           // },
@@ -97,8 +92,7 @@ class _CadastroAnimalPageState extends State<CadastroAnimalPage> {
                         CustomTextField(
                           //controller: ,
                           hintText: 'Data de nascimento',
-                          labelStyle:
-                              TextStyle(color: context.colors.background),
+                          labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
                             errorStyle: TextStyle(
                               fontSize: 14,
@@ -116,8 +110,7 @@ class _CadastroAnimalPageState extends State<CadastroAnimalPage> {
                         CustomTextField(
                           //controller: ,
                           hintText: 'Peso do animal (kg)',
-                          labelStyle:
-                              TextStyle(color: context.colors.background),
+                          labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
                             errorStyle: TextStyle(
                               fontSize: 14,
@@ -135,8 +128,7 @@ class _CadastroAnimalPageState extends State<CadastroAnimalPage> {
                         CustomTextField(
                           //controller: ,
                           hintText: 'Raça',
-                          labelStyle:
-                              TextStyle(color: context.colors.background),
+                          labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
                             errorStyle: TextStyle(
                               fontSize: 14,
@@ -154,8 +146,7 @@ class _CadastroAnimalPageState extends State<CadastroAnimalPage> {
                         CustomTextField(
                           //controller: ,
                           hintText: 'Observações (optativo)',
-                          labelStyle:
-                              TextStyle(color: context.colors.background),
+                          labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
                             errorStyle: TextStyle(
                               fontSize: 14,
@@ -181,8 +172,7 @@ class _CadastroAnimalPageState extends State<CadastroAnimalPage> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 25, vertical: 25),
+                    padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                     child: Button.primary(
                       label: 'SALVAR',
                       onPressed: () {

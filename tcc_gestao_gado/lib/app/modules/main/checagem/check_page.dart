@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 
 class CheckPage extends StatefulWidget {
   static const routeName = '/check';
@@ -37,8 +38,11 @@ class _CheckPageState extends State<CheckPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: CircularProgressIndicator(),
+    return Scaffold(
+      body: Container(
+        color: context.colors.primary,
+        child: const Center(child: CircularProgressIndicator()),
+      ),
     );
   }
 }
