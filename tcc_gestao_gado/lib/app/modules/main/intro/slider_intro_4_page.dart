@@ -52,14 +52,14 @@ class _SliderIntro4PageState extends State<SliderIntro4Page> {
                     children: <TextSpan>[
                       TextSpan(
                         text:
-                            'Lembre-se de sempre salvar seus dados enquanto estiver off line. O aplicativo é e sempre será ',
+                            'Lembre-se de sempre salvar seus dados enquanto estiver off-line. O aplicativo é e sempre será ',
                         style: context.textStyles.textLight.copyWith(
                           color: context.colors.onSecondary,
                           fontSize: 27,
                         ),
                       ),
                       TextSpan(
-                        text: '100% grátis.\n:)',
+                        text: '100% gratuito.\n:)',
                         style: context.textStyles.textMedium.copyWith(
                           color: context.colors.onSecondary,
                           fontSize: 27,

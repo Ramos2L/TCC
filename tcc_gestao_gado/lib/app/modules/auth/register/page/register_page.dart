@@ -148,7 +148,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ],
                     validator: Validatorless.multiple(
                       [
-                        Validatorless.required("Obrigatório"),
+                        Validatorless.required("Campo obrigatório"),
                         Validatorless.email("e-mail inválido")
                       ],
                     ),
@@ -178,7 +178,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           : const Icon(Icons.visibility_off),
                     ),
                     validator: Validatorless.multiple(
-                      [Validatorless.required("Obrigatório")],
+                      [Validatorless.required("Campo obrigatório")],
                     ),
                     textInputAction: TextInputAction.next,
                     // onFieldSubmitted: (_) {
@@ -195,7 +195,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     validator: Validatorless.multiple(
                       [
-                        Validatorless.required("Obrigatório"),
+                        Validatorless.required("Campo obrigatório"),
                         Validatorless.compare(_passwordController, 'Senhas diferentes!')
                       ],
                     ),
