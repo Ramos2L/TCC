@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:tcc_gestao_gado/app/core/ui/helpers/messages.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/images.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
@@ -17,7 +18,7 @@ class RegisterPage extends StatefulWidget {
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _RegisterPageState extends State<RegisterPage> with Message<RegisterPage> {
   bool activeIconPassword = false;
   bool activeIconPasswordRepeat = false;
 
@@ -44,8 +45,7 @@ class _RegisterPageState extends State<RegisterPage> {
         print(e);
         print('Crie uma senha mais forte');
       } else if (e.code == 'email-already-in-use') {
-        print(e);
-        print('Email ja utilizado');
+        showCustomSnackBar("Email já está sendo utilizado!");
       }
     }
   }
@@ -178,7 +178,10 @@ class _RegisterPageState extends State<RegisterPage> {
                           : const Icon(Icons.visibility_off),
                     ),
                     validator: Validatorless.multiple(
-                      [Validatorless.required("Campo obrigatório")],
+                      [
+                        Validatorless.required("Campo obrigatório"),
+                        Validatorless.min(8, "Por favor, Digite uma senha forte!")
+                      ],
                     ),
                     textInputAction: TextInputAction.next,
                     // onFieldSubmitted: (_) {
@@ -196,6 +199,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     validator: Validatorless.multiple(
                       [
                         Validatorless.required("Campo obrigatório"),
+                        Validatorless.min(8, "Por favor, Digite uma senha forte!"),
                         Validatorless.compare(_passwordController, 'Senhas diferentes!')
                       ],
                     ),

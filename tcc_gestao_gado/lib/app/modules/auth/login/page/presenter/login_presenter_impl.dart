@@ -21,9 +21,10 @@ class LoginPresenterImpl implements LoginPresenter {
         _view.userNotFound();
       } else if (e.code == 'wrong-password') {
         _view.userPasswordIncorrect();
+      } else {
+        _view.genericError(e.toString());
+        debugPrint(e.toString());
       }
-      _view.genericError(e.toString());
-      debugPrint(e.toString());
     }
   }
 
