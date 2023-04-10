@@ -27,6 +27,7 @@ class Images {
   String get buscar => "assets/images/buscar.png";
   String get pasto => "assets/images/pasto.png";
   String get example => "assets/images/example.png";
+  String get ufmt => "assets/images/ufmt.png";
 }
 
 extension ImagesAppExtensions on BuildContext {

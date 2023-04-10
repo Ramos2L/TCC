@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
-import 'package:tcc_gestao_gado/app/core/ui/styles/images.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
+import 'package:tcc_gestao_gado/app/core/ui/widgets/app_bar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/button.dart';
-import 'package:tcc_gestao_gado/app/core/ui/widgets/circle_avatar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
 
@@ -20,44 +19,17 @@ class _PesagemPageState extends State<PesagemPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.colors.primary,
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: context.colors.onPrimary, size: 50),
-        title: SizedBox(
-          height: 50,
-          child: Center(
-            child: Text(
-              'Olá, Lucas',
-              style: context.textStyles.textMedium.copyWith(
-                color: context.colors.onPrimary,
-                fontSize: 20,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: CircleAvatarWidget(
-                width: 50, height: 50, image: context.images.introImage1),
-          ),
-        ],
-      ),
+      appBar: AppBarWidget.appBar(context),
       drawer: const DrawerMenu(),
       body: SafeArea(
         child: CustomScrollView(
-          scrollBehavior:
-              ScrollConfiguration.of(context).copyWith(scrollbars: false),
+          scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
           slivers: [
             SliverList(
               delegate: SliverChildListDelegate.fixed(
                 [
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 25, vertical: 25),
+                    padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                     child: Column(
                       children: [
                         const SizedBox(height: 25),
@@ -73,8 +45,7 @@ class _PesagemPageState extends State<PesagemPage> {
                         CustomTextField(
                           //controller: ,
                           hintText: 'Data da pesagem',
-                          labelStyle:
-                              TextStyle(color: context.colors.background),
+                          labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
                             errorStyle: TextStyle(
                               fontSize: 14,
@@ -92,8 +63,7 @@ class _PesagemPageState extends State<PesagemPage> {
                         CustomTextField(
                           //controller: ,
                           hintText: 'Código do animal',
-                          labelStyle:
-                              TextStyle(color: context.colors.background),
+                          labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
                             errorStyle: TextStyle(
                               fontSize: 14,
@@ -113,8 +83,7 @@ class _PesagemPageState extends State<PesagemPage> {
                         CustomTextField(
                           //controller: ,
                           hintText: 'Peso do animal (kg)',
-                          labelStyle:
-                              TextStyle(color: context.colors.background),
+                          labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
                             errorStyle: TextStyle(
                               fontSize: 14,
@@ -132,8 +101,7 @@ class _PesagemPageState extends State<PesagemPage> {
                         CustomTextField(
                           //controller: ,
                           hintText: 'Raça',
-                          labelStyle:
-                              TextStyle(color: context.colors.background),
+                          labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
                             errorStyle: TextStyle(
                               fontSize: 14,
@@ -151,8 +119,7 @@ class _PesagemPageState extends State<PesagemPage> {
                         CustomTextField(
                           //controller: ,
                           hintText: 'Observações (optativo)',
-                          labelStyle:
-                              TextStyle(color: context.colors.background),
+                          labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
                             errorStyle: TextStyle(
                               fontSize: 14,
@@ -178,8 +145,7 @@ class _PesagemPageState extends State<PesagemPage> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 25, vertical: 25),
+                    padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                     child: Button.primary(
                       label: 'SALVAR',
                       onPressed: () {

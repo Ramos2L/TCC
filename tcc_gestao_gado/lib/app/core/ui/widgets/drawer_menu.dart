@@ -70,10 +70,23 @@ class _DrawerMenuState extends State<DrawerMenu> {
           const SizedBox(height: 10),
           ListTile(
             title: Text(
-              'Manejo',
+              'Home',
               style: context.textStyles.textMedium.copyWith(
                 color: context.colors.secondary,
                 fontSize: 20,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            onTap: () {
+              Navigator.pushNamed(context, '/home');
+            },
+          ),
+          ListTile(
+            title: Text(
+              'Manejo',
+              style: context.textStyles.textMedium.copyWith(
+                fontSize: 20,
+                color: context.colors.secondary,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
@@ -156,7 +169,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
               ),
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, '/conta');
             },
           ),
           ListTile(
@@ -169,7 +182,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
               ),
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, '/sobre');
             },
           ),
           ListTile(

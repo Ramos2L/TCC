@@ -6,6 +6,7 @@ import 'package:tcc_gestao_gado/app/modules/main/cadastro/cadastro_animal_page.d
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/cadastro_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/checagem/check_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/consulta/consulta_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/conta/conta_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/home/home_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/informacoes/informacoes_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/intro/intro_page.dart';
@@ -19,6 +20,7 @@ import 'package:tcc_gestao_gado/app/modules/main/manejo/manejo_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/manejo/pesagem/pesagem_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/nascimento/nascimento_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pasto/pasto_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/sobre/sobre_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/vendas/vendas_animal_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/vendas/vendas_page.dart';
 import 'package:tcc_gestao_gado/app/modules/splash/splash_page.dart';
@@ -52,5 +54,7 @@ class AppRoutes {
     ConsultaPage.routeName: (context) => const ConsultaPage(),
     InformacoesPage.routeName: (context) => const InformacoesPage(),
     NascimentoPage.routeName: (context) => const NascimentoPage(),
+    SobrePage.routeName: (context) => const SobrePage(),
+    ContaPage.routeName: (context) => const ContaPage(),
   };
 }
