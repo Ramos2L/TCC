@@ -38,6 +38,7 @@ class RegisterPresenterImpl implements RegisterPresenter {
         _view.cadastroSucesso();
       } else {
         //[Mensagem de erro]
+        _view.error('Ops, tivemos problemas ao criar seu usúario, tente novamente.');
       }
     } on EmailAlreadyInUseException {
       _view.error('Este Email já está sendo utilizado!');
