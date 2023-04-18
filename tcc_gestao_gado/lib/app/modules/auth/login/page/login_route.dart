@@ -9,7 +9,7 @@ class LoginRoute extends FlutterGetItPageRoute {
 
   @override
   List<Bind<Object>> get bindings => [
-        Bind.lazySingleton<LoginPresenter>((i) => LoginPresenterImpl()),
+        Bind.lazySingleton<LoginPresenter>((i) => LoginPresenterImpl(loginRepository: i())),
       ];
 
   @override

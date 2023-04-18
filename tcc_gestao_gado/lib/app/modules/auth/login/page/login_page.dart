@@ -160,7 +160,7 @@ class _LoginPageState extends LoginViewImpl {
                           label: 'LOGIN',
                           onPressed: () {
                             if (_form.currentState!.validate()) {
-                              widget.presenter.login(
+                              widget.presenter.signIn(
                                 email: _controllerEmail.text,
                                 password: _controllerPassword.text,
                               );

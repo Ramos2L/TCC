@@ -16,17 +16,7 @@ abstract class LoginViewImpl extends State<LoginPage> with Message<LoginPage> im
   }
 
   @override
-  void userNotFound() {
-    showCustomSnackBar("Usuário informado não existe!");
-  }
-
-  @override
-  void userPasswordIncorrect() {
-    showCustomSnackBar("Senha informada incorreta!");
-  }
-
-  @override
-  void genericError(String error) {
-    showCustomSnackBar(error);
+  void error(String message) {
+    showCustomSnackBar(message);
   }
 }

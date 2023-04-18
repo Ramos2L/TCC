@@ -6,8 +6,10 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:tcc_gestao_gado/app/core/storage/user_storage.dart';
 import 'package:tcc_gestao_gado/app/core/ui/theme/app_theme.dart';
 import 'package:tcc_gestao_gado/app/modules/app_routes.dart';
-import 'package:tcc_gestao_gado/app/modules/auth/register/page/repositories/register_repository.dart';
-import 'package:tcc_gestao_gado/app/modules/auth/register/page/repositories/register_repository_impl.dart';
+import 'package:tcc_gestao_gado/app/modules/auth/login/repositories/login_repository.dart';
+import 'package:tcc_gestao_gado/app/modules/auth/login/repositories/login_repository_impl.dart';
+import 'package:tcc_gestao_gado/app/modules/auth/register/repositories/register_repository.dart';
+import 'package:tcc_gestao_gado/app/modules/auth/register/repositories/register_repository_impl.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -20,6 +22,10 @@ class AppWidget extends StatelessWidget {
         Bind.lazySingleton<UserStore>((i) => UserStore(storage: i())),
         Bind.lazySingleton<FirebaseAuth>((i) => FirebaseAuth.instance),
         Bind.lazySingleton<FirebaseFirestore>((i) => FirebaseFirestore.instance),
+        Bind.lazySingleton<LoginRepository>((i) => LoginRepositoryImpl(
+              firebaseAuth: i(),
+              firebaseFirestore: i(),
+            )),
         Bind.lazySingleton<RegisterRepository>((i) => RegisterRepositoryImpl(
               firebaseAuth: i(),
               firebaseFirestore: i(),

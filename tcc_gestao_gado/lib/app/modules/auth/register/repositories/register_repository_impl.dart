@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/errors/register_errors.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/models/user_register_model.dart';
-import 'package:tcc_gestao_gado/app/modules/auth/register/page/repositories/register_repository.dart';
+import 'package:tcc_gestao_gado/app/modules/auth/register/repositories/register_repository.dart';
 
 class RegisterRepositoryImpl implements RegisterRepository {
   final FirebaseAuth firebaseAuth;

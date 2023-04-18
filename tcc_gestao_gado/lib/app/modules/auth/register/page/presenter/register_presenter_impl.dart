@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/core/storage/user_storage.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/errors/register_errors.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/page/presenter/register_presenter.dart';
-import 'package:tcc_gestao_gado/app/modules/auth/register/page/repositories/register_repository.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/page/view/register_view.dart';
+import 'package:tcc_gestao_gado/app/modules/auth/register/repositories/register_repository.dart';
 
 class RegisterPresenterImpl implements RegisterPresenter {
   late RegisterView _view;

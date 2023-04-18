@@ -20,19 +20,17 @@ class _CheckPageState extends State<CheckPage> {
   void initState() {
     streamSubscription = FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {
-        print('Usuario não logado');
         Navigator.pushNamed(context, '/intro_page');
       } else {
         Navigator.pushNamed(context, '/home');
       }
-    }); // TODO: implement initState
+    });
     super.initState();
   }
 
   @override
   void dispose() {
     streamSubscription!.cancel();
-    // TODO: implement dispose
     super.dispose();
   }
 
