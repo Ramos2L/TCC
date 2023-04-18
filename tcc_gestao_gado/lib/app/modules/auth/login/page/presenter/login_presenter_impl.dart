@@ -11,7 +11,7 @@ class LoginPresenterImpl implements LoginPresenter {
   LoginPresenterImpl({required this.loginRepository});
 
   @override
-  signIn({required String email, required String password}) async {
+  void signIn({required String email, required String password}) async {
     try {
       if (await loginRepository.signIn(email: email, password: password)) {
         _view.loginUser();
@@ -27,6 +27,16 @@ class LoginPresenterImpl implements LoginPresenter {
     } on UnsualException {
       _view.error('Ops... Ocorreu um erro tente novamente!');
     }
+  }
+
+  @override
+  void dialogFluxo() {
+    _view.showDialog();
+  }
+
+  @override
+  void toRegister() {
+    _view.toRegisterPage();
   }
 
   @override

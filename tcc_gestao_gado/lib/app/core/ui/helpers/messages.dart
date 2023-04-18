@@ -50,7 +50,7 @@ mixin Message<T extends StatefulWidget> on State<T> {
       builder: (context) => WillPopScope(
         onWillPop: () async => barrierDismissible,
         child: AlertDialog(
-          backgroundColor: context.colors.tertiaryContainer,
+          backgroundColor: context.colors.background,
           title: Text(
             title,
             style: context.textStyles.textMedium.copyWith(
@@ -69,7 +69,7 @@ mixin Message<T extends StatefulWidget> on State<T> {
                 child: Text(
                   textSecondaryButton,
                   style: context.textStyles.textRegular.copyWith(
-                    color: context.colors.primary,
+                    color: context.colors.error,
                     fontSize: 16,
                   ),
                 ),
@@ -80,7 +80,7 @@ mixin Message<T extends StatefulWidget> on State<T> {
                 child: Text(
                   textPrimaryButton,
                   style: context.textStyles.textRegular.copyWith(
-                    color: context.colors.onPrimary,
+                    color: context.colors.scrim,
                     fontSize: 16,
                   ),
                 ),

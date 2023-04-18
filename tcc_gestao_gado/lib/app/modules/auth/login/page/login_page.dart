@@ -20,46 +20,14 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends LoginViewImpl {
-  bool _canPop = false;
-  bool activateIconPassword = false;
-
-  final _form = GlobalKey<FormState>();
-  final TextEditingController _controllerEmail = TextEditingController();
-  final TextEditingController _controllerPassword = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        if (_canPop) {
+        if (canPop) {
           return true;
         } else {
-          //Substituir por Componente de erro
-          showDialog(
-            context: context,
-            builder: (context) => AlertDialog(
-              title: const Text("Hey!"),
-              content: const Text("Deseja fechar a aplicação?"),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: const Text("Não"),
-                ),
-                TextButton(
-                  onPressed: () {
-                    setState(() {
-                      _canPop = true;
-                    });
-                    Navigator.pop(context, true);
-                    Navigator.popAndPushNamed(context, '/');
-                  },
-                  child: const Text("Sim"),
-                ),
-              ],
-            ),
-          );
+          widget.presenter.dialogFluxo();
           return false;
         }
       },
@@ -67,7 +35,7 @@ class _LoginPageState extends LoginViewImpl {
         backgroundColor: context.colors.primary,
         body: SafeArea(
           child: Form(
-            key: _form,
+            key: form,
             child: CustomScrollView(
               scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
               slivers: [
@@ -94,7 +62,7 @@ class _LoginPageState extends LoginViewImpl {
                             const SizedBox(height: 50),
                             CustomTextField(
                               padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
-                              controller: _controllerEmail,
+                              controller: controllerEmail,
                               label: 'e-mail',
                               labelStyle: TextStyle(color: context.colors.background),
                               inputDecoration: InputDecoration(
@@ -118,7 +86,7 @@ class _LoginPageState extends LoginViewImpl {
                             ),
                             CustomTextField(
                               padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),
-                              controller: _controllerPassword,
+                              controller: controllerPassword,
                               label: 'senha',
                               labelStyle: TextStyle(color: context.colors.background),
                               inputDecoration: InputDecoration(
@@ -159,10 +127,10 @@ class _LoginPageState extends LoginViewImpl {
                         Button.primary(
                           label: 'LOGIN',
                           onPressed: () {
-                            if (_form.currentState!.validate()) {
+                            if (form.currentState!.validate()) {
                               widget.presenter.signIn(
-                                email: _controllerEmail.text,
-                                password: _controllerPassword.text,
+                                email: controllerEmail.text,
+                                password: controllerPassword.text,
                               );
                             }
                           },
@@ -170,7 +138,7 @@ class _LoginPageState extends LoginViewImpl {
                         const SizedBox(height: 25),
                         TextButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/register');
+                            widget.presenter.toRegister();
                           },
                           child: Text(
                             'Não tem conta? Cadastra-se agora',
