@@ -1,4 +1,4 @@
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/login/page/login_page.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/login/page/presenter/login_presenter.dart';

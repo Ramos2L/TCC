@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/login/page/login_page.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/login/page/login_route.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/page/register_page.dart';
+import 'package:tcc_gestao_gado/app/modules/auth/register/page/register_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/cadastro_animal_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/cadastro_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/checagem/check_page.dart';
@@ -38,7 +39,7 @@ class AppRoutes {
     SliderIntro3Page.routeName: (context) => const SliderIntro3Page(),
     SliderIntro4Page.routeName: (context) => const SliderIntro4Page(),
     LoginPage.routeName: (context) => const LoginRoute(),
-    RegisterPage.routeName: (context) => const RegisterPage(),
+    RegisterPage.routeName: (context) => const RegisterRoute(),
     HomePage.routeName: (context) => const HomePage(),
     ManejoPage.routeName: (context) => const ManejoPage(),
     PesagemPage.routeName: (context) => const PesagemPage(),

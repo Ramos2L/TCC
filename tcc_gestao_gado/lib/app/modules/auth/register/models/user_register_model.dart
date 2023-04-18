@@ -1,18 +1,18 @@
 import 'dart:convert';
 
 class UserRegisterModel {
-  String id;
-  String name;
-  String phone;
-  String email;
-  String password;
+  final String? id;
+  final String? name;
+  final String? phone;
+  final String? email;
+  final String? password;
 
   UserRegisterModel({
-    required this.id,
-    required this.name,
-    required this.phone,
-    required this.email,
-    required this.password,
+    this.id,
+    this.name,
+    this.phone,
+    this.email,
+    this.password,
   });
 
   UserRegisterModel copyWith({

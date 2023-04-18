@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
@@ -14,15 +15,38 @@ class DrawerMenu extends StatefulWidget {
 
 class _DrawerMenuState extends State<DrawerMenu> {
   final _firebaseAuth = FirebaseAuth.instance;
+
   String? nome = '';
   String? email = '';
 
   getUser() async {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    print('Id: user ${users.id}');
+    //print(users.doc(users.id).snapshots());
     User? user = _firebaseAuth.currentUser;
+    user?.uid;
+    print('teste ${user?.uid}');
+    String? uid = user?.uid;
+    users.doc(uid).get().then((DocumentSnapshot documentSnapshot) {
+      if (documentSnapshot.exists) {
+        print('Document exists on the database');
+      } else {
+        print('object');
+      }
+    });
+
+    users.get().then((QuerySnapshot querySnapshot) {
+      for (var doc in querySnapshot.docs) {
+        print(doc["phone"]);
+      }
+    });
+
     setState(() {
-      nome = user!.displayName;
-      print('usuario: $nome');
-      email = user.email;
+      // nome = user!.displayName;
+      // print('usuario: $nome');
+
+      email = user!.email;
+      print('usuario: $email');
     });
   }
 
@@ -48,7 +72,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
                   image: context.images.introImage1,
                 ),
                 Text(
-                  nome!,
+                  'nome!',
                   style: context.textStyles.textLight.copyWith(
                     color: context.colors.secondary,
                     fontSize: 18,

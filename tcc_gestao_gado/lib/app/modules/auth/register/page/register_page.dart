@@ -1,55 +1,25 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:tcc_gestao_gado/app/core/ui/helpers/messages.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/images.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/button.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/circle_avatar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
+import 'package:tcc_gestao_gado/app/modules/auth/register/page/presenter/register_presenter.dart';
+import 'package:tcc_gestao_gado/app/modules/auth/register/page/view/register_view_impl.dart';
 import 'package:validatorless/validatorless.dart';
 
 class RegisterPage extends StatefulWidget {
   static const routeName = '/register';
-  const RegisterPage({super.key});
+  final RegisterPresenter presenter;
+  const RegisterPage({super.key, required this.presenter});
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> with Message<RegisterPage> {
-  bool activeIconPassword = false;
-  bool activeIconPasswordRepeat = false;
-
-  final _formKey = GlobalKey<FormState>();
-
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _passwordRepeatController = TextEditingController();
-
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-
-  cadastrar() async {
-    try {
-      UserCredential userCredential = await _firebaseAuth.createUserWithEmailAndPassword(
-        email: _emailController.text,
-        password: _passwordController.text,
-      );
-      userCredential.user!.updateDisplayName(_nameController.text);
-      Navigator.pushNamed(context, '/login');
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        print(e);
-        print('Crie uma senha mais forte');
-      } else if (e.code == 'email-already-in-use') {
-        showCustomSnackBar("Email já está sendo utilizado!");
-      }
-    }
-  }
-
+class _RegisterPageState extends RegisterViewImpl {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +27,7 @@ class _RegisterPageState extends State<RegisterPage> with Message<RegisterPage> 
       body: SafeArea(
         child: SingleChildScrollView(
           child: Form(
-            key: _formKey,
+            key: formKey,
             child: Center(
               child: Column(
                 children: [
@@ -97,7 +67,7 @@ class _RegisterPageState extends State<RegisterPage> with Message<RegisterPage> 
                   const SizedBox(height: 25),
                   CustomTextField(
                     padding: const EdgeInsets.fromLTRB(25, 0, 25, 15),
-                    controller: _nameController,
+                    controller: nameController,
                     label: 'nome',
                     labelStyle: TextStyle(color: context.colors.background),
                     keyboardType: TextInputType.name,
@@ -115,7 +85,7 @@ class _RegisterPageState extends State<RegisterPage> with Message<RegisterPage> 
                   ),
                   CustomTextField(
                     padding: const EdgeInsets.fromLTRB(25, 0, 25, 15),
-                    controller: _phoneController,
+                    controller: phoneController,
                     label: 'telefone',
                     labelStyle: TextStyle(color: context.colors.background),
                     keyboardType: TextInputType.phone,
@@ -125,7 +95,7 @@ class _RegisterPageState extends State<RegisterPage> with Message<RegisterPage> 
                     validator: Validatorless.multiple(
                       [
                         Validatorless.required("Campo obrigatório"),
-                        Validatorless.min(11, "Digite um número válido")
+                        Validatorless.min(11, "Digite um número válido"),
                       ],
                     ),
                     suffixIcon: const Icon(Icons.phone),
@@ -136,7 +106,7 @@ class _RegisterPageState extends State<RegisterPage> with Message<RegisterPage> 
                   ),
                   CustomTextField(
                     padding: const EdgeInsets.fromLTRB(25, 0, 25, 15),
-                    controller: _emailController,
+                    controller: emailController,
                     label: 'e-mail',
                     labelStyle: TextStyle(color: context.colors.background),
                     keyboardType: TextInputType.emailAddress,
@@ -160,7 +130,7 @@ class _RegisterPageState extends State<RegisterPage> with Message<RegisterPage> 
                   ),
                   CustomTextField(
                     padding: const EdgeInsets.fromLTRB(25, 0, 25, 15),
-                    controller: _passwordController,
+                    controller: passwordController,
                     label: 'senha',
                     labelStyle: TextStyle(color: context.colors.background),
                     inputDecoration: InputDecoration(
@@ -190,7 +160,7 @@ class _RegisterPageState extends State<RegisterPage> with Message<RegisterPage> 
                   ),
                   CustomTextField(
                     padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
-                    controller: _passwordRepeatController,
+                    controller: passwordRepeatController,
                     label: 'confirme sua senha',
                     labelStyle: TextStyle(color: context.colors.background),
                     inputDecoration: InputDecoration(
@@ -200,7 +170,7 @@ class _RegisterPageState extends State<RegisterPage> with Message<RegisterPage> 
                       [
                         Validatorless.required("Campo obrigatório"),
                         Validatorless.min(8, "Por favor, Digite uma senha forte!"),
-                        Validatorless.compare(_passwordController, 'Senhas diferentes!')
+                        Validatorless.compare(passwordController, 'Senhas diferentes!')
                       ],
                     ),
                     obscureText: !activeIconPasswordRepeat,
@@ -224,11 +194,11 @@ class _RegisterPageState extends State<RegisterPage> with Message<RegisterPage> 
                     child: Button.primary(
                         label: 'CADASTRAR',
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            cadastrar();
+                          if (formKey.currentState!.validate()) {
+                            register();
                           } else {
                             //MENSAGEM DE ERRO
-                            print('MENSAGEM DE ERRO');
+                            showCustomSnackBar("Opss! Algo deu errado");
                           }
                         }),
                   ),
@@ -238,6 +208,15 @@ class _RegisterPageState extends State<RegisterPage> with Message<RegisterPage> 
           ),
         ),
       ),
+    );
+  }
+
+  register() {
+    widget.presenter.registerUser(
+      nome: nameController.text,
+      phone: phoneController.text,
+      email: emailController.text,
+      password: passwordController.text,
     );
   }
 }

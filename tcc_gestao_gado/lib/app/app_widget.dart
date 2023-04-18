@@ -1,7 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:tcc_gestao_gado/app/core/storage/user_storage.dart';
 import 'package:tcc_gestao_gado/app/core/ui/theme/app_theme.dart';
 import 'package:tcc_gestao_gado/app/modules/app_routes.dart';
+import 'package:tcc_gestao_gado/app/modules/auth/register/page/repositories/register_repository.dart';
+import 'package:tcc_gestao_gado/app/modules/auth/register/page/repositories/register_repository_impl.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -9,7 +15,16 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlutterGetItApplicationBinding(
-      bindingsBuilder: () => [],
+      bindingsBuilder: () => [
+        Bind.lazySingleton<FlutterSecureStorage>((i) => const FlutterSecureStorage()),
+        Bind.lazySingleton<UserStore>((i) => UserStore(storage: i())),
+        Bind.lazySingleton<FirebaseAuth>((i) => FirebaseAuth.instance),
+        Bind.lazySingleton<FirebaseFirestore>((i) => FirebaseFirestore.instance),
+        Bind.lazySingleton<RegisterRepository>((i) => RegisterRepositoryImpl(
+              firebaseAuth: i(),
+              firebaseFirestore: i(),
+            )),
+      ],
       builder: (context, _) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
