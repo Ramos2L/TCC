@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/core/storage/user_storage.dart';
+import 'package:tcc_gestao_gado/app/modules/auth/register/errors/register_errors.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/page/presenter/register_presenter.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/page/repositories/register_repository.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/page/view/register_view.dart';
@@ -19,23 +20,35 @@ class RegisterPresenterImpl implements RegisterPresenter {
     required String email,
     required String password,
   }) async {
-    userStore.setUser(
-      userStore.user.copyWith(
-        id: "xxx",
-        name: nome,
-        phone: phone,
-        email: email,
-        password: password,
-      ),
-    );
+    try {
+      userStore.setUser(
+        userStore.user.copyWith(
+          id: "xxx",
+          name: nome,
+          phone: phone,
+          email: email,
+          password: password,
+        ),
+      );
 
-    String userId = await registerRepository.register(email: email, password: password);
-    debugPrint('UserId: $userId');
-    if (userId.isNotEmpty) {
-      await registerRepository.update(userStore.user);
-      _view.cadastroSucesso();
-    } else {
-      //[Mensagem de erro]
+      String userId = await registerRepository.register(email: email, password: password);
+      debugPrint('UserId: $userId');
+      if (userId.isNotEmpty) {
+        await registerRepository.update(userStore.user);
+        _view.cadastroSucesso();
+      } else {
+        //[Mensagem de erro]
+      }
+    } on EmailAlreadyInUseException {
+      _view.error('Este Email já está sendo utilizado!');
+    } on InvalidEmailException {
+      _view.error('Endereço de Email inválido!');
+    } on OperationNotAllowedException {
+      _view.error('Esta conta de Email não está habilitada');
+    } on WeakPasswordException {
+      _view.error('Ops, por favor informe uma senha mais forte!');
+    } on UnsualException catch (e) {
+      _view.error('Ops, algo ocorreu! tente novamente! + ${e.message}');
     }
 
     return true;

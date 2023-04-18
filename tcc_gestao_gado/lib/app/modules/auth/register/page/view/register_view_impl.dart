@@ -27,4 +27,9 @@ abstract class RegisterViewImpl extends State<RegisterPage>
   void cadastroSucesso() {
     Navigator.pushNamed(context, '/login');
   }
+
+  @override
+  void error(String message) {
+    showCustomSnackBar(message);
+  }
 }
