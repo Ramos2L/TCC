@@ -24,7 +24,7 @@ class LoginPresenterImpl implements LoginPresenter {
       _view.error('Email inserido inválido!');
     } on WrongPasswordException {
       _view.error('Senha informada incorreta!');
-    } on UnsualException {
+    } on UnusualException {
       _view.error('Ops... Ocorreu um erro tente novamente!');
     }
   }

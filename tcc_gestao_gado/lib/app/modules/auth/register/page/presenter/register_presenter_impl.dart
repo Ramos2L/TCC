@@ -21,9 +21,12 @@ class RegisterPresenterImpl implements RegisterPresenter {
     required String password,
   }) async {
     try {
+      String userId = await registerRepository.register(email: email, password: password);
+      debugPrint('UserId: $userId');
+
       userStore.setUser(
         userStore.user.copyWith(
-          id: "xxx",
+          id: userId,
           name: nome,
           phone: phone,
           email: email,
@@ -31,8 +34,6 @@ class RegisterPresenterImpl implements RegisterPresenter {
         ),
       );
 
-      String userId = await registerRepository.register(email: email, password: password);
-      debugPrint('UserId: $userId');
       if (userId.isNotEmpty) {
         await registerRepository.update(userStore.user);
         _view.cadastroSucesso();
@@ -48,7 +49,7 @@ class RegisterPresenterImpl implements RegisterPresenter {
       _view.error('Esta conta de Email não está habilitada');
     } on WeakPasswordException {
       _view.error('Ops, por favor informe uma senha mais forte!');
-    } on UnsualException catch (e) {
+    } on UnusualException catch (e) {
       _view.error('Ops, algo ocorreu! tente novamente! + ${e.message}');
     }
 

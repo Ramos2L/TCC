@@ -6,8 +6,10 @@ import 'package:tcc_gestao_gado/app/modules/auth/register/page/register_route.da
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/cadastro_animal_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/cadastro_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/checagem/check_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/checagem/check_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/consulta/consulta_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/conta/conta_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/conta/conta_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/home/home_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/informacoes/informacoes_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/intro/intro_page.dart';
@@ -32,7 +34,7 @@ import 'main/relatorio/relatorio_page.dart';
 class AppRoutes {
   static Map<String, Widget Function(BuildContext)> routes = {
     SplashPage.routeName: (context) => const SplashPage(),
-    CheckPage.routeName: (context) => const CheckPage(),
+    CheckPage.routeName: (context) => const CheckRoute(),
     IntroPage.routeName: (context) => const IntroPage(),
     SliderIntro1Page.routeName: (context) => const SliderIntro1Page(),
     SliderIntro2Page.routeName: (context) => const SliderIntro2Page(),
@@ -56,6 +58,6 @@ class AppRoutes {
     InformacoesPage.routeName: (context) => const InformacoesPage(),
     NascimentoPage.routeName: (context) => const NascimentoPage(),
     SobrePage.routeName: (context) => const SobrePage(),
-    ContaPage.routeName: (context) => const ContaPage(),
+    ContaPage.routeName: (context) => const ContaRoute(),
   };
 }

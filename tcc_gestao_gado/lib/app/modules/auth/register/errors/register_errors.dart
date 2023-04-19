@@ -2,10 +2,10 @@ abstract class RegisterFailure implements Exception {
   String? get message;
 }
 
-class UnsualException implements RegisterFailure {
+class UnusualException implements RegisterFailure {
   @override
   final String? message;
-  UnsualException({this.message});
+  UnusualException({this.message});
 }
 
 class EmailAlreadyInUseException implements RegisterFailure {

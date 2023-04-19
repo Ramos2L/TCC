@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget.appBar(context),
+      appBar: AppBarWidget.appBar(context, title: 'Lucas Ramos'),
       drawer: const DrawerMenu(),
       backgroundColor: context.colors.primary,
       body: SafeArea(

@@ -23,6 +23,7 @@ class AppWidget extends StatelessWidget {
         Bind.lazySingleton<FirebaseAuth>((i) => FirebaseAuth.instance),
         Bind.lazySingleton<FirebaseFirestore>((i) => FirebaseFirestore.instance),
         Bind.lazySingleton<LoginRepository>((i) => LoginRepositoryImpl(
+              userStore: i(),
               firebaseAuth: i(),
               firebaseFirestore: i(),
             )),

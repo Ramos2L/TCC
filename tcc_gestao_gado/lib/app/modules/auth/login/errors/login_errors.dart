@@ -2,10 +2,10 @@ abstract class LoginFailure implements Exception {
   String? get message;
 }
 
-class UnsualException implements LoginFailure {
+class UnusualException implements LoginFailure {
   @override
   final String? message;
-  UnsualException({this.message});
+  UnusualException({this.message});
 }
 
 class UserNotFoundException implements LoginFailure {

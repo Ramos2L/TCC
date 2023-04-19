@@ -5,14 +5,14 @@ import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/circle_avatar_widget.dart';
 
 class AppBarWidget {
-  static AppBar appBar(BuildContext context) {
+  static AppBar appBar(BuildContext context, {String title = 'Olá, Lucas'}) {
     return AppBar(
       iconTheme: IconThemeData(color: context.colors.onPrimary, size: 50),
       title: SizedBox(
         height: 50,
         child: Center(
           child: Text(
-            'Olá, Lucas',
+            title,
             style: context.textStyles.textMedium.copyWith(
               color: context.colors.onPrimary,
               fontSize: 20,

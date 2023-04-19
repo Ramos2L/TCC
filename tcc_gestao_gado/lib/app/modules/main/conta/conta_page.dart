@@ -5,12 +5,20 @@ import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/app_bar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/circle_avatar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
+import 'package:tcc_gestao_gado/app/modules/main/conta/presenter/conta_presenter.dart';
+import 'package:tcc_gestao_gado/app/modules/main/conta/view/conta_view_impl.dart';
 import 'package:tcc_gestao_gado/app/modules/main/conta/widgets/list_tile_widget.dart';
 
-class ContaPage extends StatelessWidget {
+class ContaPage extends StatefulWidget {
   static const routeName = '/conta';
-  const ContaPage({Key? key}) : super(key: key);
+  final ContaPresenter presenter;
+  const ContaPage({Key? key, required this.presenter}) : super(key: key);
 
+  @override
+  State<ContaPage> createState() => _ContaPageState();
+}
+
+class _ContaPageState extends ContaViewImpl {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,17 +47,17 @@ class ContaPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 15),
-                  const ListTileWidget(
+                  ListTileWidget(
                     title: 'NOME',
-                    subtitle: 'Lucas Ramos',
+                    subtitle: '${widget.presenter.getName()}',
                   ),
-                  const ListTileWidget(
+                  ListTileWidget(
                     title: 'E-MAIL',
-                    subtitle: 'lucasramosleite0@gmail.com',
+                    subtitle: '${widget.presenter.getEmail()}',
                   ),
-                  const ListTileWidget(
+                  ListTileWidget(
                     title: 'TELEFONE',
-                    subtitle: '(66) 992029888',
+                    subtitle: '${widget.presenter.getPhone()}',
                   ),
                 ],
               ),

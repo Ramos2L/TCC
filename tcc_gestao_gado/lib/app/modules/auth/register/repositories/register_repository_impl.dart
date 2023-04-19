@@ -20,7 +20,7 @@ class RegisterRepositoryImpl implements RegisterRepository {
     required password,
   }) async {
     try {
-      String userId = await signIn(
+      String userId = await signUp(
         email: email,
         password: password,
       );
@@ -36,15 +36,15 @@ class RegisterRepositoryImpl implements RegisterRepository {
       } else if (e.code == 'weak-password') {
         throw WeakPasswordException();
       } else {
-        throw UnsualException(message: e.toString());
+        throw UnusualException(message: e.toString());
       }
     } catch (e) {
-      throw UnsualException(message: e.toString());
+      throw UnusualException(message: e.toString());
     }
   }
 
   @override
-  Future<String> signIn({required email, required password}) async {
+  Future<String> signUp({required email, required password}) async {
     //[Criando credencial de user no firebase por meio de email e senha]
     UserCredential userCredential = await firebaseAuth.createUserWithEmailAndPassword(
       email: email,
@@ -60,7 +60,7 @@ class RegisterRepositoryImpl implements RegisterRepository {
 
     await firebaseFirestore
         .collection('users')
-        .doc()
+        .doc(mapUserData['id'])
         .set(mapUserData)
         .then((value) => debugPrint('Success'))
         .catchError((onError) => debugPrint('Mensage error'));
