@@ -3,4 +3,5 @@ import 'package:tcc_gestao_gado/app/modules/main/informacoes/view/informacoes_vi
 
 abstract class InformacoesPresenter extends GestaoGadoPresenter<InformacoesView> {
   String? getName();
+  Future<bool> getData();
 }
