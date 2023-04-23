@@ -3,26 +3,28 @@ import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/app_bar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
+import 'package:tcc_gestao_gado/app/modules/main/consulta/presenter/consulta_presenter.dart';
+import 'package:tcc_gestao_gado/app/modules/main/consulta/view/consulta_view_impl.dart';
 
 import '../../../core/ui/widgets/container_principal.dart';
 import '../../../core/ui/widgets/drawer_menu.dart';
 
 class ConsultaPage extends StatefulWidget {
   static const routeName = '/consulta';
-
-  const ConsultaPage({Key? key}) : super(key: key);
+  final ConsultaPresenter presenter;
+  const ConsultaPage({Key? key, required this.presenter}) : super(key: key);
 
   @override
   State<ConsultaPage> createState() => _ConsultaPageState();
 }
 
-class _ConsultaPageState extends State<ConsultaPage> {
+class _ConsultaPageState extends ConsultaViewImpl {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.colors.primary,
-      appBar: AppBarWidget.appBar(context),
-      drawer: const DrawerMenu(),
+      appBar: AppBarWidget.appBar(context, title: '${widget.presenter.getName()}'),
+      drawer: DrawerMenu(nameUser: '${widget.presenter.getName()}'),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

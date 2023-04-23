@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
-import 'package:tcc_gestao_gado/app/core/ui/widgets/app_bar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/button.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
@@ -19,7 +18,6 @@ class _DesmamaPageState extends State<DesmamaPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.colors.primary,
-      appBar: AppBarWidget.appBar(context),
       drawer: const DrawerMenu(),
       body: SafeArea(
         child: CustomScrollView(
@@ -32,6 +30,18 @@ class _DesmamaPageState extends State<DesmamaPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                     child: Column(
                       children: [
+                        GestureDetector(
+                          onTap: () => Navigator.pop(context),
+                          child: Row(
+                            children: [
+                              Icon(
+                                color: context.colors.onPrimary,
+                                Icons.arrow_back_rounded,
+                                size: 35,
+                              ),
+                            ],
+                          ),
+                        ),
                         const SizedBox(height: 25),
                         Text(
                           'Desmama do animal',

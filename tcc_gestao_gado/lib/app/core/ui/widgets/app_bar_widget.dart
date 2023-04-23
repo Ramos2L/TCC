@@ -5,7 +5,7 @@ import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/circle_avatar_widget.dart';
 
 class AppBarWidget {
-  static AppBar appBar(BuildContext context, {String title = 'Olá, Lucas'}) {
+  static AppBar appBar(BuildContext context, {String title = 'Olá, Fazendeiro'}) {
     return AppBar(
       iconTheme: IconThemeData(color: context.colors.onPrimary, size: 50),
       title: SizedBox(
@@ -14,9 +14,9 @@ class AppBarWidget {
           child: Text(
             title,
             style: context.textStyles.textMedium.copyWith(
-              color: context.colors.onPrimary,
               fontSize: 20,
               overflow: TextOverflow.ellipsis,
+              color: context.colors.onPrimary,
             ),
           ),
         ),
@@ -27,7 +27,9 @@ class AppBarWidget {
       actions: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          child: CircleAvatarWidget(width: 50, height: 50, image: context.images.introImage1),
+          child: GestureDetector(
+              onTap: () => Navigator.pushNamed(context, '/conta'),
+              child: CircleAvatarWidget(width: 50, height: 50, image: context.images.introImage1)),
         ),
       ],
     );

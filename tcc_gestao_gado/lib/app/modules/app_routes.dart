@@ -3,32 +3,41 @@ import 'package:tcc_gestao_gado/app/modules/auth/login/page/login_page.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/login/page/login_route.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/page/register_page.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/page/register_route.dart';
-import 'package:tcc_gestao_gado/app/modules/main/cadastro/cadastro_animal_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/cadastro_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/cadastro/cadastro_route.dart';
+import 'package:tcc_gestao_gado/app/modules/main/cadastro/page/cadastro_animal_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/checagem/check_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/checagem/check_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/consulta/consulta_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/consulta/consulta_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/conta/conta_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/conta/conta_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/home/home_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/home/home_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/informacoes/informacoes_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/informacoes/informacoes_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/intro/intro_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/intro/slider_intro_1_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/intro/slider_intro_2_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/intro/slider_intro_3_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/intro/slider_intro_4_page.dart';
-import 'package:tcc_gestao_gado/app/modules/main/manejo/descarte/descarte_page.dart';
-import 'package:tcc_gestao_gado/app/modules/main/manejo/desmama/desmama_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/manejo/manejo_page.dart';
-import 'package:tcc_gestao_gado/app/modules/main/manejo/pesagem/pesagem_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/manejo/manejo_route.dart';
+import 'package:tcc_gestao_gado/app/modules/main/manejo/pages/descarte/descarte_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/manejo/pages/desmama/desmama_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/manejo/pages/pesagem/pesagem_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/nascimento/nascimento_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/nascimento/nascimento_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pasto/pasto_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pasto/pasto_route.dart';
+import 'package:tcc_gestao_gado/app/modules/main/relatorio/relatorio_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/sobre/sobre_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/vendas/vendas_animal_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/vendas/vendas_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/vendas/vendas_route.dart';
 import 'package:tcc_gestao_gado/app/modules/splash/splash_page.dart';
 
-import 'main/manejo/dicas/dicas_manejo_page.dart';
+import 'main/manejo/pages/dicas/dicas_manejo_page.dart';
 import 'main/relatorio/relatorio_page.dart';
 
 class AppRoutes {
@@ -42,21 +51,21 @@ class AppRoutes {
     SliderIntro4Page.routeName: (context) => const SliderIntro4Page(),
     LoginPage.routeName: (context) => const LoginRoute(),
     RegisterPage.routeName: (context) => const RegisterRoute(),
-    HomePage.routeName: (context) => const HomePage(),
-    ManejoPage.routeName: (context) => const ManejoPage(),
+    HomePage.routeName: (context) => const HomeRoute(),
+    ManejoPage.routeName: (context) => const ManejoRoute(),
     PesagemPage.routeName: (context) => const PesagemPage(),
     DesmamaPage.routeName: (context) => const DesmamaPage(),
     DescartePage.routeName: (context) => const DescartePage(),
     DicasManejoPage.routeName: (context) => const DicasManejoPage(),
-    CadastroPage.routeName: (context) => const CadastroPage(),
+    CadastroPage.routeName: (context) => const CadastroRoute(),
     CadastroAnimalPage.routeName: (context) => const CadastroAnimalPage(),
-    RelatorioPage.routeName: (context) => const RelatorioPage(),
-    VendasPage.routeName: (context) => const VendasPage(),
+    RelatorioPage.routeName: (context) => const RelatorioRoute(),
+    VendasPage.routeName: (context) => const VendasRoute(),
     VendasAnimalPage.routeName: (context) => const VendasAnimalPage(),
-    PastoPage.routeName: (context) => const PastoPage(),
-    ConsultaPage.routeName: (context) => const ConsultaPage(),
-    InformacoesPage.routeName: (context) => const InformacoesPage(),
-    NascimentoPage.routeName: (context) => const NascimentoPage(),
+    PastoPage.routeName: (context) => const PastoRoute(),
+    ConsultaPage.routeName: (context) => const ConsultaRoute(),
+    InformacoesPage.routeName: (context) => const InformacoesRoute(),
+    NascimentoPage.routeName: (context) => const NascimentoRoute(),
     SobrePage.routeName: (context) => const SobrePage(),
     ContaPage.routeName: (context) => const ContaRoute(),
   };

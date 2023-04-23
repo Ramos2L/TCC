@@ -4,24 +4,27 @@ import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/app_bar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/container_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
+import 'package:tcc_gestao_gado/app/modules/main/relatorio/presenter/relatorio_presenter.dart';
+import 'package:tcc_gestao_gado/app/modules/main/relatorio/view/relatorio_view_impl.dart';
 
 import '../../../core/ui/widgets/container_principal.dart';
 
 class RelatorioPage extends StatefulWidget {
   static const routeName = '/relatorio';
-  const RelatorioPage({super.key});
+  final RelatorioPresenter presenter;
+  const RelatorioPage({super.key, required this.presenter});
 
   @override
   State<RelatorioPage> createState() => _RelatorioPageState();
 }
 
-class _RelatorioPageState extends State<RelatorioPage> {
+class _RelatorioPageState extends RelatorioViewImpl {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.colors.primary,
-      appBar: AppBarWidget.appBar(context),
-      drawer: const DrawerMenu(),
+      appBar: AppBarWidget.appBar(context, title: '${widget.presenter.getName()}'),
+      drawer: DrawerMenu(nameUser: '${widget.presenter.getName()}'),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

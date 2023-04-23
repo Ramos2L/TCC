@@ -4,23 +4,25 @@ import 'package:tcc_gestao_gado/app/core/ui/styles/images.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/app_bar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
+import 'package:tcc_gestao_gado/app/modules/main/informacoes/presenter/informacoes_presenter.dart';
+import 'package:tcc_gestao_gado/app/modules/main/informacoes/view/informacoes_view_impl.dart';
 
 class InformacoesPage extends StatefulWidget {
   static const routeName = '/informacoes';
-
-  const InformacoesPage({Key? key}) : super(key: key);
+  final InformacoesPresenter presenter;
+  const InformacoesPage({Key? key, required this.presenter}) : super(key: key);
 
   @override
   State<InformacoesPage> createState() => _InformacoesPageState();
 }
 
-class _InformacoesPageState extends State<InformacoesPage> {
+class _InformacoesPageState extends InformacoesViewImpl {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.colors.primary,
-      appBar: AppBarWidget.appBar(context),
-      drawer: const DrawerMenu(),
+      appBar: AppBarWidget.appBar(context, title: '${widget.presenter.getName()}'),
+      drawer: DrawerMenu(nameUser: '${widget.presenter.getName()}'),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

@@ -5,6 +5,8 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/app_bar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/container_principal.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/container_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
+import 'package:tcc_gestao_gado/app/modules/main/vendas/presenter/vendas_presenter.dart';
+import 'package:tcc_gestao_gado/app/modules/main/vendas/view/vendas_view_impl.dart';
 
 class Arguments {
   final String animal;
@@ -14,19 +16,20 @@ class Arguments {
 
 class VendasPage extends StatefulWidget {
   static const routeName = '/vendas';
-  const VendasPage({Key? key}) : super(key: key);
+  final VendasPresenter presenter;
+  const VendasPage({Key? key, required this.presenter}) : super(key: key);
 
   @override
   State<VendasPage> createState() => _VendasPageState();
 }
 
-class _VendasPageState extends State<VendasPage> {
+class _VendasPageState extends VendasViewImpl {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.colors.primary,
-      appBar: AppBarWidget.appBar(context),
-      drawer: const DrawerMenu(),
+      appBar: AppBarWidget.appBar(context, title: '${widget.presenter.getName()}'),
+      drawer: DrawerMenu(nameUser: '${widget.presenter.getName()}'),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

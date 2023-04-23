@@ -5,6 +5,8 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/app_bar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/container_principal.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/container_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
+import 'package:tcc_gestao_gado/app/modules/main/cadastro/presenter/cadastro_presenter.dart';
+import 'package:tcc_gestao_gado/app/modules/main/cadastro/view/cadastro_view_impl.dart';
 
 class Arguments {
   final String animal;
@@ -14,19 +16,20 @@ class Arguments {
 
 class CadastroPage extends StatefulWidget {
   static const routeName = '/cadastro';
-  const CadastroPage({super.key});
+  final CadastroPresenter presenter;
+  const CadastroPage({super.key, required this.presenter});
 
   @override
   State<CadastroPage> createState() => _CadastroPageState();
 }
 
-class _CadastroPageState extends State<CadastroPage> {
+class _CadastroPageState extends CadastroViewImpl {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.colors.primary,
-      appBar: AppBarWidget.appBar(context),
-      drawer: const DrawerMenu(),
+      appBar: AppBarWidget.appBar(context, title: '${widget.presenter.getName()}'),
+      drawer: DrawerMenu(nameUser: '${widget.presenter.getName()}'),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

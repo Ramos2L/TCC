@@ -5,26 +5,28 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/app_bar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/button.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/container_principal.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
+import 'package:tcc_gestao_gado/app/modules/main/nascimento/presenter/nascimento_presenter.dart';
+import 'package:tcc_gestao_gado/app/modules/main/nascimento/view/nascimento_view_impl.dart';
 
 import '../../../core/ui/widgets/drawer_menu.dart';
 
 class NascimentoPage extends StatefulWidget {
   static const routeName = '/nascimento';
-
-  const NascimentoPage({Key? key}) : super(key: key);
+  final NascimentoPresenter presenter;
+  const NascimentoPage({Key? key, required this.presenter}) : super(key: key);
 
   @override
   State<NascimentoPage> createState() => _NascimentoPageState();
 }
 
-class _NascimentoPageState extends State<NascimentoPage> {
+class _NascimentoPageState extends NascimentoViewImpl {
   String? gender;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.colors.primary,
-      appBar: AppBarWidget.appBar(context),
-      drawer: const DrawerMenu(),
+      appBar: AppBarWidget.appBar(context, title: '${widget.presenter.getName()}'),
+      drawer: DrawerMenu(nameUser: '${widget.presenter.getName()}'),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

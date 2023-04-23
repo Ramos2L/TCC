@@ -5,22 +5,25 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/app_bar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/container_principal.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/container_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
+import 'package:tcc_gestao_gado/app/modules/main/manejo/presenter/manejo_presenter.dart';
+import 'package:tcc_gestao_gado/app/modules/main/manejo/view/manejo_view_impl.dart';
 
 class ManejoPage extends StatefulWidget {
   static const routeName = '/manejo';
-  const ManejoPage({super.key});
+  final ManejoPresenter presenter;
+  const ManejoPage({super.key, required this.presenter});
 
   @override
   State<ManejoPage> createState() => _ManejoPageState();
 }
 
-class _ManejoPageState extends State<ManejoPage> {
+class _ManejoPageState extends ManejoViewImpl {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.colors.primary,
-      appBar: AppBarWidget.appBar(context),
-      drawer: const DrawerMenu(),
+      appBar: AppBarWidget.appBar(context, title: '${widget.presenter.getName()}'),
+      drawer: DrawerMenu(nameUser: '${widget.presenter.getName()}'),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

@@ -4,12 +4,14 @@ import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/app_bar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/container_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pasto/presenter/pasto_presenter.dart';
 
 import '../../../core/ui/widgets/container_principal.dart';
 
 class PastoPage extends StatefulWidget {
   static const routeName = '/pasto';
-  const PastoPage({Key? key}) : super(key: key);
+  final PastoPresenter presenter;
+  const PastoPage({Key? key, required this.presenter}) : super(key: key);
 
   @override
   State<PastoPage> createState() => _PastoPageState();
@@ -20,8 +22,8 @@ class _PastoPageState extends State<PastoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.colors.primary,
-      appBar: AppBarWidget.appBar(context),
-      drawer: const DrawerMenu(),
+      appBar: AppBarWidget.appBar(context, title: '${widget.presenter.getName()}'),
+      drawer: DrawerMenu(nameUser: '${widget.presenter.getName()}'),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
