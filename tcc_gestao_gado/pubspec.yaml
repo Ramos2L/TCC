@@ -40,10 +40,10 @@ dependencies:
   validatorless: ^1.2.3
   flutter_svg: ^1.1.6
   flutter_getit: ^1.2.1
-  firebase_auth: ^4.4.0
+  firebase_auth: ^4.4.2
   firebase_core: ^2.9.0
-  firebase_storage: ^11.0.3
-  cloud_firestore: ^4.0.3
+  firebase_storage: ^11.1.1
+  cloud_firestore: ^4.5.2
   flutter_secure_storage: ^8.0.0
 
 dev_dependencies:

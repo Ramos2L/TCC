@@ -20,7 +20,12 @@ abstract class InformacoesViewImpl extends State<InformacoesPage> implements Inf
 
   @override
   List<String> showDataInformation(InformacoesModel listInformation) {
-    listData = [listInformation.imagem, listInformation.informacao];
+    listData = [
+      listInformation.imagem,
+      listInformation.informacao1,
+      listInformation.informacao2,
+      listInformation.informacao3
+    ];
     return listData;
   }
 }

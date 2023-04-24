@@ -5,6 +5,7 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/button.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/cadastro_page.dart';
+import 'package:validatorless/validatorless.dart';
 
 class CadastroAnimalPage extends StatefulWidget {
   static const routeName = '/cadastro_animal';
@@ -16,6 +17,25 @@ class CadastroAnimalPage extends StatefulWidget {
 }
 
 class _CadastroAnimalPageState extends State<CadastroAnimalPage> {
+  DateTime dateTime = DateTime.now();
+  String date = '';
+  final TextEditingController dateController = TextEditingController();
+
+  void _showDatePicker() async {
+    await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1950),
+      lastDate: DateTime(2100),
+    ).then((value) {
+      setState(() {
+        dateTime = value!;
+        print(value);
+      });
+      return null;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as Arguments;
@@ -74,22 +94,32 @@ class _CadastroAnimalPageState extends State<CadastroAnimalPage> {
                           // },
                         ),
                         const SizedBox(height: 25),
-                        CustomTextField(
-                          //controller: ,
-                          hintText: 'Data de nascimento',
-                          labelStyle: TextStyle(color: context.colors.background),
-                          inputDecoration: InputDecoration(
-                            errorStyle: TextStyle(
-                              fontSize: 14,
-                              color: context.colors.error,
+                        GestureDetector(
+                          onTap: _showDatePicker,
+                          child: CustomTextField(
+                            controller: dateController,
+                            enabled: false,
+                            label: 'Escolha a data de nascimento',
+                            hintText: dateTime.toString().substring(0, 11),
+                            labelStyle: TextStyle(color: context.colors.background),
+                            inputDecoration: InputDecoration(
+                              errorStyle: TextStyle(
+                                fontSize: 14,
+                                color: context.colors.error,
+                              ),
                             ),
+                            keyboardType: TextInputType.datetime,
+                            obscureText: false,
+                            suffixIcon: const Icon(Icons.calendar_month),
+                            validator: Validatorless.multiple(
+                              [
+                                Validatorless.required("Campo obrigatório"),
+                              ],
+                            ),
+                            // onFieldSubmitted: (_) {
+                            //   FocusScope.of(context).requestFocus(phoneNode);
+                            // },
                           ),
-                          keyboardType: TextInputType.text,
-                          obscureText: false,
-                          suffixIcon: const Icon(Icons.calendar_month),
-                          // onFieldSubmitted: (_) {
-                          //   FocusScope.of(context).requestFocus(phoneNode);
-                          // },
                         ),
                         const SizedBox(height: 25),
                         CustomTextField(

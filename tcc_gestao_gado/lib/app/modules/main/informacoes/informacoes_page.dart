@@ -27,7 +27,7 @@ class _InformacoesPageState extends InformacoesViewImpl {
             ? Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                 child: Container(
-                  height: MediaQuery.of(context).size.height * 0.75,
+                  height: MediaQuery.of(context).size.height * 0.8,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     color: context.colors.background,
@@ -38,7 +38,27 @@ class _InformacoesPageState extends InformacoesViewImpl {
                       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                       child: Column(
                         children: [
-                          Image.network(listData[0]),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Image.network(
+                              listData[0],
+                              loadingBuilder: (
+                                BuildContext context,
+                                Widget child,
+                                ImageChunkEvent? loadingProgress,
+                              ) {
+                                if (loadingProgress == null) return child;
+                                return Center(
+                                  child: CircularProgressIndicator(
+                                    value: loadingProgress.expectedTotalBytes != null
+                                        ? loadingProgress.cumulativeBytesLoaded /
+                                            loadingProgress.expectedTotalBytes!
+                                        : null,
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
                           const SizedBox(height: 15),
                           Text(
                             listData[1],
@@ -49,37 +69,23 @@ class _InformacoesPageState extends InformacoesViewImpl {
                             ),
                           ),
                           const SizedBox(height: 15),
-                          // Row(
-                          //   children: [
-                          //     Icon(Icons.circle, color: context.colors.primary),
-                          //     const SizedBox(width: 5),
-                          //     Expanded(
-                          //       child: Text(
-                          //         '{listInformation}',
-                          //         style: context.textStyles.textMedium.copyWith(
-                          //           color: context.colors.primary,
-                          //           fontSize: 20,
-                          //         ),
-                          //       ),
-                          //     ),
-                          //   ],
-                          // ),
-                          // const SizedBox(height: 15),
-                          // Row(
-                          //   children: [
-                          //     Icon(Icons.circle, color: context.colors.primary),
-                          //     const SizedBox(width: 5),
-                          //     Expanded(
-                          //       child: Text(
-                          //         'Para fazer 1 kg de queijo, uma vaca tem de comer 3 kg de comida.',
-                          //         style: context.textStyles.textMedium.copyWith(
-                          //           color: context.colors.primary,
-                          //           fontSize: 20,
-                          //         ),
-                          //       ),
-                          //     ),
-                          //   ],
-                          // ),
+                          Text(
+                            listData[2],
+                            overflow: TextOverflow.clip,
+                            style: context.textStyles.textMedium.copyWith(
+                              color: context.colors.primary,
+                              fontSize: 20,
+                            ),
+                          ),
+                          const SizedBox(height: 15),
+                          Text(
+                            listData[3],
+                            overflow: TextOverflow.clip,
+                            style: context.textStyles.textMedium.copyWith(
+                              color: context.colors.primary,
+                              fontSize: 20,
+                            ),
+                          ),
                         ],
                       ),
                     ),

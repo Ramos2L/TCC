@@ -81,11 +81,15 @@ class CustomTextField extends StatelessWidget {
                 borderSide: BorderSide(width: 3, color: context.colors.secondary),
                 borderRadius: BorderRadius.circular(15),
               ),
+              disabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(width: 3, color: context.colors.secondary),
+                borderRadius: BorderRadius.circular(15),
+              ),
               hintText: hintText,
               suffixIcon: suffixIcon,
-              fillColor: enabled ?? true
-                  ? context.colors.background
-                  : context.colors.primary.withOpacity(0.7),
+              // fillColor: enabled ?? true
+              //     ? context.colors.background
+              //     : context.colors.primary.withOpacity(0.7),
             ),
             maxLength: maxLength,
           ),
