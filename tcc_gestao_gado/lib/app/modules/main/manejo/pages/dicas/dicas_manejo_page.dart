@@ -21,41 +21,41 @@ class _DicasManejoPageState extends DicasManejoViewImpl {
       backgroundColor: context.colors.primary,
       drawer: const DrawerMenu(),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: isActive
-              ? Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-                  child: Column(
-                    children: [
-                      GestureDetector(
-                        onTap: () => Navigator.pop(context),
-                        child: Row(
-                          children: [
-                            Icon(
+        child: isActive
+            ? Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                child: Column(
+                  children: [
+                    GestureDetector(
+                      onTap: () => Navigator.pop(context),
+                      child: Row(
+                        children: [
+                          Icon(
+                            color: context.colors.onPrimary,
+                            Icons.arrow_back_rounded,
+                            size: 35,
+                          ),
+                          const SizedBox(width: 15),
+                          Text(
+                            'Voltar',
+                            style: context.textStyles.textMedium.copyWith(
                               color: context.colors.onPrimary,
-                              Icons.arrow_back_rounded,
-                              size: 35,
+                              fontSize: 20,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            const SizedBox(width: 15),
-                            Text(
-                              'Voltar',
-                              style: context.textStyles.textMedium.copyWith(
-                                color: context.colors.onPrimary,
-                                fontSize: 20,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 25),
-                      Container(
-                        height: MediaQuery.of(context).size.height * 0.75,
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                          color: context.colors.background,
-                          borderRadius: const BorderRadius.all(Radius.circular(20)),
-                        ),
+                    ),
+                    const SizedBox(height: 25),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.75,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        color: context.colors.background,
+                        borderRadius: const BorderRadius.all(Radius.circular(20)),
+                      ),
+                      child: SingleChildScrollView(
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                           child: Column(
@@ -113,14 +113,16 @@ class _DicasManejoPageState extends DicasManejoViewImpl {
                           ),
                         ),
                       ),
-                    ],
-                  ),
-                )
-              : Container(
+                    ),
+                  ],
+                ),
+              )
+            : Center(
+                child: Container(
                   color: context.colors.primary,
                   child: const Center(child: CircularProgressIndicator()),
                 ),
-        ),
+              ),
       ),
     );
   }
