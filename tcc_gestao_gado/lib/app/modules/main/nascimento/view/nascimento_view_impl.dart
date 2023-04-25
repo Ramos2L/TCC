@@ -8,4 +8,23 @@ abstract class NascimentoViewImpl extends State<NascimentoPage> implements Nasci
     super.initState();
     widget.presenter.view = this;
   }
+
+  DateTime dateTime = DateTime.now();
+  String date = '';
+  final TextEditingController dateController = TextEditingController();
+
+  void showDatePickerFunc() async {
+    await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1950),
+      lastDate: DateTime(2100),
+    ).then((value) {
+      setState(() {
+        dateTime = value!;
+        print(value);
+      });
+      return null;
+    });
+  }
 }

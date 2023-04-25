@@ -7,6 +7,7 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/container_principal.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
 import 'package:tcc_gestao_gado/app/modules/main/nascimento/presenter/nascimento_presenter.dart';
 import 'package:tcc_gestao_gado/app/modules/main/nascimento/view/nascimento_view_impl.dart';
+import 'package:validatorless/validatorless.dart';
 
 import '../../../core/ui/widgets/drawer_menu.dart';
 
@@ -98,6 +99,34 @@ class _NascimentoPageState extends NascimentoViewImpl {
                   ],
                 ),
                 const SizedBox(height: 25),
+                GestureDetector(
+                  onTap: showDatePickerFunc,
+                  child: CustomTextField(
+                    controller: dateController,
+                    enabled: false,
+                    label: 'Data de Nascimento',
+                    hintText: dateTime.toString().substring(0, 11),
+                    labelStyle: TextStyle(color: context.colors.background),
+                    inputDecoration: InputDecoration(
+                      errorStyle: TextStyle(
+                        fontSize: 14,
+                        color: context.colors.error,
+                      ),
+                    ),
+                    keyboardType: TextInputType.datetime,
+                    obscureText: false,
+                    suffixIcon: const Icon(Icons.calendar_month),
+                    validator: Validatorless.multiple(
+                      [
+                        Validatorless.required("Campo obrigatório"),
+                      ],
+                    ),
+                    // onFieldSubmitted: (_) {
+                    //   FocusScope.of(context).requestFocus(phoneNode);
+                    // },
+                  ),
+                ),
+                const SizedBox(height: 25),
                 CustomTextField(
                   //controller: ,
                   hintText: 'Nº da mãe',
@@ -165,24 +194,6 @@ class _NascimentoPageState extends NascimentoViewImpl {
                   keyboardType: TextInputType.text,
                   obscureText: false,
                   suffixIcon: const Icon(Icons.add_to_photos_outlined),
-                  // onFieldSubmitted: (_) {
-                  //   FocusScope.of(context).requestFocus(phoneNode);
-                  // },
-                ),
-                const SizedBox(height: 25),
-                CustomTextField(
-                  //controller: ,
-                  hintText: 'Data de Nascimento',
-                  labelStyle: TextStyle(color: context.colors.background),
-                  inputDecoration: InputDecoration(
-                    errorStyle: TextStyle(
-                      fontSize: 14,
-                      color: context.colors.error,
-                    ),
-                  ),
-                  keyboardType: TextInputType.text,
-                  obscureText: false,
-                  suffixIcon: const Icon(Icons.calendar_month),
                   // onFieldSubmitted: (_) {
                   //   FocusScope.of(context).requestFocus(phoneNode);
                   // },

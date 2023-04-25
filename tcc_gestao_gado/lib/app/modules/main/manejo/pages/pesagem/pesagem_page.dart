@@ -4,6 +4,7 @@ import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/button.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
+import 'package:validatorless/validatorless.dart';
 
 class PesagemPage extends StatefulWidget {
   static const routeName = '/pesagem';
@@ -14,6 +15,25 @@ class PesagemPage extends StatefulWidget {
 }
 
 class _PesagemPageState extends State<PesagemPage> {
+  DateTime dateTime = DateTime.now();
+  String date = '';
+  final TextEditingController dateController = TextEditingController();
+
+  void _showDatePicker() async {
+    await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1950),
+      lastDate: DateTime(2100),
+    ).then((value) {
+      setState(() {
+        dateTime = value!;
+        print(value);
+      });
+      return null;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,22 +72,32 @@ class _PesagemPageState extends State<PesagemPage> {
                           ),
                         ),
                         const SizedBox(height: 25),
-                        CustomTextField(
-                          //controller: ,
-                          hintText: 'Data da pesagem',
-                          labelStyle: TextStyle(color: context.colors.background),
-                          inputDecoration: InputDecoration(
-                            errorStyle: TextStyle(
-                              fontSize: 14,
-                              color: context.colors.error,
+                        GestureDetector(
+                          onTap: _showDatePicker,
+                          child: CustomTextField(
+                            controller: dateController,
+                            enabled: false,
+                            label: 'Data da pesagem',
+                            hintText: dateTime.toString().substring(0, 11),
+                            labelStyle: TextStyle(color: context.colors.background),
+                            inputDecoration: InputDecoration(
+                              errorStyle: TextStyle(
+                                fontSize: 14,
+                                color: context.colors.error,
+                              ),
                             ),
+                            keyboardType: TextInputType.datetime,
+                            obscureText: false,
+                            suffixIcon: const Icon(Icons.calendar_month),
+                            validator: Validatorless.multiple(
+                              [
+                                Validatorless.required("Campo obrigatório"),
+                              ],
+                            ),
+                            // onFieldSubmitted: (_) {
+                            //   FocusScope.of(context).requestFocus(phoneNode);
+                            // },
                           ),
-                          keyboardType: TextInputType.text,
-                          obscureText: false,
-                          suffixIcon: const Icon(Icons.calendar_month),
-                          // onFieldSubmitted: (_) {
-                          //   FocusScope.of(context).requestFocus(phoneNode);
-                          // },
                         ),
                         const SizedBox(height: 25),
                         CustomTextField(
