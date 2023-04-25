@@ -22,7 +22,7 @@ abstract class NascimentoViewImpl extends State<NascimentoPage> implements Nasci
     ).then((value) {
       setState(() {
         dateTime = value!;
-        print(value);
+        //print(value);
       });
       return null;
     });

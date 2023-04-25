@@ -4,16 +4,19 @@ import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/button.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
+import 'package:tcc_gestao_gado/app/modules/main/manejo/pages/desmama/presenter/desmama_presenter.dart';
+import 'package:tcc_gestao_gado/app/modules/main/manejo/pages/desmama/view/desmama_view_impl.dart';
 
 class DesmamaPage extends StatefulWidget {
   static const routeName = '/desmama';
-  const DesmamaPage({Key? key}) : super(key: key);
+  final DesmamaPresenter presenter;
+  const DesmamaPage({Key? key, required this.presenter}) : super(key: key);
 
   @override
   State<DesmamaPage> createState() => _DesmamaPageState();
 }
 
-class _DesmamaPageState extends State<DesmamaPage> {
+class _DesmamaPageState extends DesmamaViewImpl {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -133,87 +136,5 @@ class _DesmamaPageState extends State<DesmamaPage> {
         ),
       ),
     );
-
-    //     SingleChildScrollView(
-    //       child: Padding(
-    //         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-    //         child: Column(
-    //           children: [
-    //             const SizedBox(height: 25),
-    //             Text(
-    //               'Desmama do animal',
-    //               style: context.textStyles.textMedium.copyWith(
-    //                 color: context.colors.onPrimary,
-    //                 fontSize: 20,
-    //                 overflow: TextOverflow.ellipsis,
-    //               ),
-    //             ),
-    //             const SizedBox(height: 25),
-    //             CustomTextField(
-    //               //controller: ,
-    //               hintText: 'Data da desmama',
-    //               labelStyle: TextStyle(color: context.colors.background),
-    //               inputDecoration: InputDecoration(
-    //                 errorStyle: TextStyle(
-    //                   fontSize: 14,
-    //                   color: context.colors.error,
-    //                 ),
-    //               ),
-    //               keyboardType: TextInputType.text,
-    //               obscureText: false,
-    //               suffixIcon: const Icon(Icons.search),
-    //               // onFieldSubmitted: (_) {
-    //               //   FocusScope.of(context).requestFocus(phoneNode);
-    //               // },
-    //             ),
-    //             const SizedBox(height: 25),
-    //             CustomTextField(
-    //               //controller: ,
-    //               hintText: 'Código do animal',
-    //               labelStyle: TextStyle(color: context.colors.background),
-    //               inputDecoration: InputDecoration(
-    //                 errorStyle: TextStyle(
-    //                   fontSize: 14,
-    //                   color: context.colors.error,
-    //                 ),
-    //               ),
-    //               keyboardType: TextInputType.text,
-    //               obscureText: false,
-    //               suffixIcon: const Icon(Icons.calendar_month),
-    //               // onFieldSubmitted: (_) {
-    //               //   FocusScope.of(context).requestFocus(phoneNode);
-    //               // },
-    //             ),
-    //             const SizedBox(height: 25),
-    //             CustomTextField(
-    //               //controller: ,
-    //               hintText: 'Observações (optativo)',
-    //               labelStyle: TextStyle(color: context.colors.background),
-    //               inputDecoration: InputDecoration(
-    //                 errorStyle: TextStyle(
-    //                   fontSize: 14,
-    //                   color: context.colors.error,
-    //                 ),
-    //               ),
-    //               keyboardType: TextInputType.text,
-    //               obscureText: false,
-    //               suffixIcon: const Icon(Icons.search),
-    //               // onFieldSubmitted: (_) {
-    //               //   FocusScope.of(context).requestFocus(phoneNode);
-    //               // },
-    //             ),
-    //             const SizedBox(height: 25),
-    //             Button.primary(
-    //               label: 'SALVAR',
-    //               onPressed: () {
-    //                 //Navigator.pushNamed(context, '/home');
-    //               },
-    //             ),
-    //           ],
-    //         ),
-    //       ),
-    //     ),
-    //   ),
-    // );
   }
 }

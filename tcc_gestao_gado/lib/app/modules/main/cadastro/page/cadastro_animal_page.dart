@@ -30,7 +30,7 @@ class _CadastroAnimalPageState extends State<CadastroAnimalPage> {
     ).then((value) {
       setState(() {
         dateTime = value!;
-        print(value);
+        //print(value);
       });
       return null;
     });

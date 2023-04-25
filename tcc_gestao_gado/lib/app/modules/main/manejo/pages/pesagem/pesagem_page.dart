@@ -28,7 +28,7 @@ class _PesagemPageState extends State<PesagemPage> {
     ).then((value) {
       setState(() {
         dateTime = value!;
-        print(value);
+        //print(value);
       });
       return null;
     });
