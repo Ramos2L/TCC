@@ -17,6 +17,10 @@ class CadastroAnimalPage extends StatefulWidget {
 }
 
 class _CadastroAnimalPageState extends State<CadastroAnimalPage> {
+  String? gender;
+  String? quite;
+  String? breastfeeding;
+
   DateTime dateTime = DateTime.now();
   String date = '';
   final TextEditingController dateController = TextEditingController();
@@ -76,6 +80,173 @@ class _CadastroAnimalPageState extends State<CadastroAnimalPage> {
                           ),
                         ),
                         const SizedBox(height: 25),
+                        args.animal == 'Bezerro'
+                            ? Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Text(
+                                        'Sexo:',
+                                        style: context.textStyles.textMedium.copyWith(
+                                          color: context.colors.onPrimary,
+                                          fontSize: 20,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: RadioListTile(
+                                          contentPadding: const EdgeInsets.all(0),
+                                          title: Text(
+                                            'Macho',
+                                            style: context.textStyles.textMedium.copyWith(
+                                              color: context.colors.onPrimary,
+                                              fontSize: 16,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
+                                          value: "macho",
+                                          groupValue: gender,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              gender = value.toString();
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: RadioListTile(
+                                          contentPadding: const EdgeInsets.all(0),
+                                          title: Text(
+                                            'Fêmea',
+                                            style: context.textStyles.textMedium.copyWith(
+                                              color: context.colors.onPrimary,
+                                              fontSize: 16,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
+                                          value: "femea",
+                                          groupValue: gender,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              gender = value.toString();
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Text(
+                                        'Meio:',
+                                        style: context.textStyles.textMedium.copyWith(
+                                          color: context.colors.onPrimary,
+                                          fontSize: 20,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: RadioListTile(
+                                          contentPadding: const EdgeInsets.all(0),
+                                          title: Text(
+                                            'Compra',
+                                            style: context.textStyles.textMedium.copyWith(
+                                              color: context.colors.onPrimary,
+                                              fontSize: 16,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
+                                          value: "Compra",
+                                          groupValue: quite,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              quite = value.toString();
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: RadioListTile(
+                                          contentPadding: const EdgeInsets.all(0),
+                                          title: Text(
+                                            'Nascimento',
+                                            style: context.textStyles.textMedium.copyWith(
+                                              color: context.colors.onPrimary,
+                                              fontSize: 16,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
+                                          ),
+                                          value: "Nascimento",
+                                          groupValue: quite,
+                                          onChanged: (value) {
+                                            setState(() {
+                                              quite = value.toString();
+                                            });
+                                          },
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  quite == 'Nascimento'
+                                      ? Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              'Amamentando:',
+                                              style: context.textStyles.textMedium.copyWith(
+                                                color: context.colors.onPrimary,
+                                                fontSize: 20,
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: RadioListTile(
+                                                contentPadding: const EdgeInsets.all(0),
+                                                title: Text(
+                                                  'Sim',
+                                                  style: context.textStyles.textMedium.copyWith(
+                                                    color: context.colors.onPrimary,
+                                                    fontSize: 16,
+                                                    overflow: TextOverflow.ellipsis,
+                                                  ),
+                                                ),
+                                                value: "Sim",
+                                                groupValue: breastfeeding,
+                                                onChanged: (value) {
+                                                  setState(() {
+                                                    breastfeeding = value.toString();
+                                                  });
+                                                },
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: RadioListTile(
+                                                contentPadding: const EdgeInsets.all(0),
+                                                title: Text(
+                                                  'Não',
+                                                  style: context.textStyles.textMedium.copyWith(
+                                                    color: context.colors.onPrimary,
+                                                    fontSize: 16,
+                                                    overflow: TextOverflow.ellipsis,
+                                                  ),
+                                                ),
+                                                value: "Não",
+                                                groupValue: breastfeeding,
+                                                onChanged: (value) {
+                                                  setState(() {
+                                                    breastfeeding = value.toString();
+                                                  });
+                                                },
+                                              ),
+                                            ),
+                                          ],
+                                        )
+                                      : const SizedBox(),
+                                ],
+                              )
+                            : const SizedBox(),
                         CustomTextField(
                           //controller: ,
                           hintText: 'Nº ${args.animal}',
@@ -99,7 +270,9 @@ class _CadastroAnimalPageState extends State<CadastroAnimalPage> {
                           child: CustomTextField(
                             controller: dateController,
                             enabled: false,
-                            label: 'Escolha a data de nascimento',
+                            label: args.animal == 'Bezerro'
+                                ? 'Escolha a data de nascimento'
+                                : 'Data para cadastro',
                             hintText: dateTime.toString().substring(0, 11),
                             labelStyle: TextStyle(color: context.colors.background),
                             inputDecoration: InputDecoration(
@@ -122,6 +295,48 @@ class _CadastroAnimalPageState extends State<CadastroAnimalPage> {
                           ),
                         ),
                         const SizedBox(height: 25),
+                        args.animal == 'Bezerro'
+                            ? Column(
+                                children: [
+                                  CustomTextField(
+                                    //controller: ,
+                                    hintText: 'Nº da mãe',
+                                    labelStyle: TextStyle(color: context.colors.background),
+                                    inputDecoration: InputDecoration(
+                                      errorStyle: TextStyle(
+                                        fontSize: 14,
+                                        color: context.colors.error,
+                                      ),
+                                    ),
+                                    keyboardType: TextInputType.text,
+                                    obscureText: false,
+                                    suffixIcon: const Icon(Icons.app_registration_rounded),
+                                    // onFieldSubmitted: (_) {
+                                    //   FocusScope.of(context).requestFocus(phoneNode);
+                                    // },
+                                  ),
+                                  const SizedBox(height: 25),
+                                  CustomTextField(
+                                    //controller: ,
+                                    hintText: 'Nº do pai',
+                                    labelStyle: TextStyle(color: context.colors.background),
+                                    inputDecoration: InputDecoration(
+                                      errorStyle: TextStyle(
+                                        fontSize: 14,
+                                        color: context.colors.error,
+                                      ),
+                                    ),
+                                    keyboardType: TextInputType.text,
+                                    obscureText: false,
+                                    suffixIcon: const Icon(Icons.app_registration_rounded),
+                                    // onFieldSubmitted: (_) {
+                                    //   FocusScope.of(context).requestFocus(phoneNode);
+                                    // },
+                                  ),
+                                  const SizedBox(height: 25),
+                                ],
+                              )
+                            : const SizedBox(),
                         CustomTextField(
                           //controller: ,
                           hintText: 'Peso do animal (kg)',

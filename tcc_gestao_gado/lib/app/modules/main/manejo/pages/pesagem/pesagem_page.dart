@@ -140,24 +140,6 @@ class _PesagemPageState extends State<PesagemPage> {
                         const SizedBox(height: 25),
                         CustomTextField(
                           //controller: ,
-                          hintText: 'Raça',
-                          labelStyle: TextStyle(color: context.colors.background),
-                          inputDecoration: InputDecoration(
-                            errorStyle: TextStyle(
-                              fontSize: 14,
-                              color: context.colors.error,
-                            ),
-                          ),
-                          keyboardType: TextInputType.text,
-                          obscureText: false,
-                          suffixIcon: const Icon(Icons.add_to_photos_outlined),
-                          // onFieldSubmitted: (_) {
-                          //   FocusScope.of(context).requestFocus(phoneNode);
-                          // },
-                        ),
-                        const SizedBox(height: 25),
-                        CustomTextField(
-                          //controller: ,
                           hintText: 'Observações (optativo)',
                           labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(

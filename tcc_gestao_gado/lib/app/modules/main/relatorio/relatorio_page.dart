@@ -86,7 +86,7 @@ class _RelatorioPageState extends RelatorioViewImpl {
                 const SizedBox(height: 15),
                 GestureDetector(
                   child: ContainerWidget(
-                    title: 'Lucro',
+                    title: 'Compras',
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
@@ -100,7 +100,7 @@ class _RelatorioPageState extends RelatorioViewImpl {
                 const SizedBox(height: 15),
                 GestureDetector(
                   child: ContainerWidget(
-                    title: 'Compras/Vendas',
+                    title: 'Vendas',
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(

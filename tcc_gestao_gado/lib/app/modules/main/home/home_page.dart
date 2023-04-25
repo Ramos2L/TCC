@@ -46,7 +46,7 @@ class _HomePageState extends HomeViewImpl {
                         backgroundColor: MaterialStateProperty.all(context.colors.secondary),
                       ),
                       image: context.images.manejo,
-                      label: 'MANEJO',
+                      label: 'manejo',
                       styleLabel: context.textStyles.textMedium.copyWith(
                         color: context.colors.onPrimary,
                         fontSize: 20,
@@ -62,7 +62,7 @@ class _HomePageState extends HomeViewImpl {
                         backgroundColor: MaterialStateProperty.all(context.colors.secondary),
                       ),
                       image: context.images.add,
-                      label: 'CADASTRO',
+                      label: 'cadastro',
                       styleLabel: context.textStyles.textMedium.copyWith(
                         color: context.colors.onPrimary,
                         fontSize: 20,
@@ -83,7 +83,7 @@ class _HomePageState extends HomeViewImpl {
                         backgroundColor: MaterialStateProperty.all(context.colors.secondary),
                       ),
                       image: context.images.buscar,
-                      label: 'CONSULTAR ANIMAL',
+                      label: 'consultar animal',
                       styleLabel: context.textStyles.textMedium.copyWith(
                         color: context.colors.onPrimary,
                         fontSize: 20,
@@ -98,7 +98,7 @@ class _HomePageState extends HomeViewImpl {
                         backgroundColor: MaterialStateProperty.all(context.colors.secondary),
                       ),
                       image: context.images.relatorio,
-                      label: 'RELATÓRIO',
+                      label: 'relatório',
                       styleLabel: context.textStyles.textMedium.copyWith(
                         color: context.colors.onPrimary,
                         fontSize: 20,
@@ -118,24 +118,8 @@ class _HomePageState extends HomeViewImpl {
                       buttonStyle: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(context.colors.secondary),
                       ),
-                      image: context.images.nascimento,
-                      label: 'NASCIMENTO',
-                      styleLabel: context.textStyles.textMedium.copyWith(
-                        color: context.colors.onPrimary,
-                        fontSize: 20,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/nascimento');
-                      },
-                    ),
-                    const SizedBox(width: 15),
-                    ButtonHome(
-                      buttonStyle: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(context.colors.secondary),
-                      ),
                       image: context.images.vendas,
-                      label: 'VENDAS',
+                      label: 'vendas',
                       styleLabel: context.textStyles.textMedium.copyWith(
                         color: context.colors.onPrimary,
                         fontSize: 20,
@@ -143,6 +127,22 @@ class _HomePageState extends HomeViewImpl {
                       ),
                       onPressed: () {
                         Navigator.pushNamed(context, '/vendas');
+                      },
+                    ),
+                    const SizedBox(width: 15),
+                    ButtonHome(
+                      buttonStyle: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(context.colors.secondary),
+                      ),
+                      image: context.images.pasto,
+                      label: 'pasto',
+                      styleLabel: context.textStyles.textMedium.copyWith(
+                        color: context.colors.onPrimary,
+                        fontSize: 20,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/pasto');
                       },
                     ),
                   ],
@@ -155,15 +155,15 @@ class _HomePageState extends HomeViewImpl {
                       buttonStyle: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(context.colors.secondary),
                       ),
-                      image: context.images.pasto,
-                      label: 'PASTO',
+                      image: context.images.precoArroba,
+                      label: 'valor da arroba',
                       styleLabel: context.textStyles.textMedium.copyWith(
                         color: context.colors.onPrimary,
                         fontSize: 20,
                         overflow: TextOverflow.ellipsis,
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/pasto');
+                        Navigator.pushNamed(context, '/preco_arroba');
                       },
                     ),
                     const SizedBox(width: 15),
@@ -172,7 +172,7 @@ class _HomePageState extends HomeViewImpl {
                         backgroundColor: MaterialStateProperty.all(context.colors.secondary),
                       ),
                       image: context.images.informacao,
-                      label: 'INFORMAÇÕES',
+                      label: 'informações',
                       styleLabel: context.textStyles.textMedium.copyWith(
                         color: context.colors.onPrimary,
                         fontSize: 20,

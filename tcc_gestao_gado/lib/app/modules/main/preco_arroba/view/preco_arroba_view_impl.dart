@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tcc_gestao_gado/app/modules/main/nascimento/nascimento_page.dart';
-import 'package:tcc_gestao_gado/app/modules/main/nascimento/view/nascimento_view.dart';
+import 'package:tcc_gestao_gado/app/modules/main/preco_arroba/preco_arroba_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/preco_arroba/view/preco_arroba_view.dart';
 
-abstract class NascimentoViewImpl extends State<NascimentoPage> implements NascimentoView {
+abstract class PrecoArrobaViewImpl extends State<PrecoArrobaPage> implements PrecoArrobaView {
   @override
   void initState() {
     super.initState();

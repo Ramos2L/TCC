@@ -21,6 +21,7 @@ class Images {
   String get manejo => "assets/images/manejo.png";
   String get add => "assets/images/add.png";
   String get nascimento => "assets/images/nascimento.png";
+  String get precoArroba => "assets/images/precoarroba.png";
   String get vendas => "assets/images/vendas.png";
   String get relatorio => "assets/images/relatorio.png";
   String get informacao => "assets/images/informacao.jpg";

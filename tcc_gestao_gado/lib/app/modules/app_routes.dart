@@ -28,10 +28,9 @@ import 'package:tcc_gestao_gado/app/modules/main/manejo/pages/desmama/desmama_pa
 import 'package:tcc_gestao_gado/app/modules/main/manejo/pages/desmama/desmama_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/manejo/pages/dicas/dicas_manejo_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/manejo/pages/pesagem/pesagem_page.dart';
-import 'package:tcc_gestao_gado/app/modules/main/nascimento/nascimento_page.dart';
-import 'package:tcc_gestao_gado/app/modules/main/nascimento/nascimento_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pasto/pasto_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pasto/pasto_route.dart';
+import 'package:tcc_gestao_gado/app/modules/main/preco_arroba/preco_arroba_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/relatorio/relatorio_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/sobre/sobre_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/vendas/vendas_animal_page.dart';
@@ -40,6 +39,7 @@ import 'package:tcc_gestao_gado/app/modules/main/vendas/vendas_route.dart';
 import 'package:tcc_gestao_gado/app/modules/splash/splash_page.dart';
 
 import 'main/manejo/pages/dicas/dicas_manejo_page.dart';
+import 'main/preco_arroba/preco_arroba_route.dart';
 import 'main/relatorio/relatorio_page.dart';
 
 class AppRoutes {
@@ -67,7 +67,7 @@ class AppRoutes {
     PastoPage.routeName: (context) => const PastoRoute(),
     ConsultaPage.routeName: (context) => const ConsultaRoute(),
     InformacoesPage.routeName: (context) => const InformacoesRoute(),
-    NascimentoPage.routeName: (context) => const NascimentoRoute(),
+    PrecoArrobaPage.routeName: (context) => const PrecoArrobaRoute(),
     SobrePage.routeName: (context) => const SobrePage(),
     ContaPage.routeName: (context) => const ContaRoute(),
   };

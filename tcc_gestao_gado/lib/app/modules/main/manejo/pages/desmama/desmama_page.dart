@@ -6,6 +6,7 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
 import 'package:tcc_gestao_gado/app/modules/main/manejo/pages/desmama/presenter/desmama_presenter.dart';
 import 'package:tcc_gestao_gado/app/modules/main/manejo/pages/desmama/view/desmama_view_impl.dart';
+import 'package:validatorless/validatorless.dart';
 
 class DesmamaPage extends StatefulWidget {
   static const routeName = '/desmama';
@@ -55,22 +56,32 @@ class _DesmamaPageState extends DesmamaViewImpl {
                           ),
                         ),
                         const SizedBox(height: 25),
-                        CustomTextField(
-                          //controller: ,
-                          hintText: 'Data da desmama',
-                          labelStyle: TextStyle(color: context.colors.background),
-                          inputDecoration: InputDecoration(
-                            errorStyle: TextStyle(
-                              fontSize: 14,
-                              color: context.colors.error,
+                        GestureDetector(
+                          onTap: showDatePickerFunc,
+                          child: CustomTextField(
+                            controller: dateController,
+                            enabled: false,
+                            label: 'Data da pesagem',
+                            hintText: dateTime.toString().substring(0, 11),
+                            labelStyle: TextStyle(color: context.colors.background),
+                            inputDecoration: InputDecoration(
+                              errorStyle: TextStyle(
+                                fontSize: 14,
+                                color: context.colors.error,
+                              ),
                             ),
+                            keyboardType: TextInputType.datetime,
+                            obscureText: false,
+                            suffixIcon: const Icon(Icons.calendar_month),
+                            validator: Validatorless.multiple(
+                              [
+                                Validatorless.required("Campo obrigatório"),
+                              ],
+                            ),
+                            // onFieldSubmitted: (_) {
+                            //   FocusScope.of(context).requestFocus(phoneNode);
+                            // },
                           ),
-                          keyboardType: TextInputType.text,
-                          obscureText: false,
-                          suffixIcon: const Icon(Icons.calendar_month),
-                          // onFieldSubmitted: (_) {
-                          //   FocusScope.of(context).requestFocus(phoneNode);
-                          // },
                         ),
                         const SizedBox(height: 25),
                         CustomTextField(
