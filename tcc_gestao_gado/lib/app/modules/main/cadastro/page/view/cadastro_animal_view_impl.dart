@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/page/cadastro_animal_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/page/view/cadastro_animal_view.dart';
 
+List<String> list = <String>['One', 'Two', 'Three', 'Four'];
+
 abstract class CadastroAnimalViewImpl extends State<CadastroAnimalPage>
     implements CadastroAnimalView {
   @override
@@ -9,6 +11,8 @@ abstract class CadastroAnimalViewImpl extends State<CadastroAnimalPage>
     super.initState();
     widget.presenter.view = this;
   }
+
+  String? dropdownValue;
 
   String? gender;
   String? quite;
@@ -18,7 +22,8 @@ abstract class CadastroAnimalViewImpl extends State<CadastroAnimalPage>
   String date = '';
   final TextEditingController dateController = TextEditingController();
 
-  void _showDatePicker() async {
+  @override
+  void showDatePickerFunc() async {
     await showDatePicker(
       context: context,
       initialDate: DateTime.now(),

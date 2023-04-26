@@ -334,22 +334,36 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                           // },
                         ),
                         const SizedBox(height: 25),
-                        CustomTextField(
-                          //controller: ,
-                          hintText: 'Raça',
-                          labelStyle: TextStyle(color: context.colors.background),
-                          inputDecoration: InputDecoration(
-                            errorStyle: TextStyle(
-                              fontSize: 14,
-                              color: context.colors.error,
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                            color: context.colors.onPrimary,
+                            border: Border.all(color: context.colors.secondary, width: 3),
+                            borderRadius: const BorderRadius.all(Radius.circular(15)),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: DropdownButton<String>(
+                              hint: const Text("Escolha a Raça"),
+                              value: dropdownValue,
+                              isExpanded: true,
+                              icon: const Icon(Icons.arrow_downward),
+                              elevation: 16,
+                              style: TextStyle(color: context.colors.secondary, fontSize: 16),
+                              underline: Container(height: 0),
+                              onChanged: (String? value) {
+                                setState(() {
+                                  dropdownValue = value!;
+                                });
+                              },
+                              items: list.map<DropdownMenuItem<String>>((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
                             ),
                           ),
-                          keyboardType: TextInputType.text,
-                          obscureText: false,
-                          suffixIcon: const Icon(Icons.add_to_photos_outlined),
-                          // onFieldSubmitted: (_) {
-                          //   FocusScope.of(context).requestFocus(phoneNode);
-                          // },
                         ),
                         const SizedBox(height: 25),
                         CustomTextField(
