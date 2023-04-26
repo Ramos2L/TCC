@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:tcc_gestao_gado/app/core/models/raca_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/page/cadastro_animal_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/page/view/cadastro_animal_view.dart';
@@ -20,6 +21,10 @@ abstract class CadastroAnimalViewImpl extends State<CadastroAnimalPage>
   void initState() {
     super.initState();
     widget.presenter.view = this;
+    SchedulerBinding.instance.addPostFrameCallback((timestamp) async {
+      await widget.presenter.getListRaca();
+      setState(() {});
+    });
   }
 
   @override
