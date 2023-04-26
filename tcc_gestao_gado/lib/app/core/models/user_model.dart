@@ -3,12 +3,14 @@ import 'dart:convert';
 class UserModel {
   final String? id;
   final String? name;
+  final String? farm;
   final String? phone;
   final String? email;
 
   UserModel({
     required this.id,
     required this.name,
+    required this.farm,
     required this.phone,
     required this.email,
   });
@@ -18,6 +20,7 @@ class UserModel {
 
     map["id"] = id;
     map["name"] = name;
+    map["farm"] = farm;
     map["phone"] = phone;
     map["email"] = email;
 
@@ -25,13 +28,14 @@ class UserModel {
   }
 
   Map<String, dynamic> toMap() {
-    return <String, dynamic>{'id': id, 'name': name, 'phone': phone, 'email': email};
+    return <String, dynamic>{'id': id, 'name': name, 'farm': farm, 'phone': phone, 'email': email};
   }
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
       id: map['id'] as String,
       name: map['name'] as String,
+      farm: map['farm'] as String,
       phone: map['phone'] as String,
       email: map['email'] as String,
     );
@@ -44,6 +48,6 @@ class UserModel {
 
   @override
   String toString() {
-    return 'UserRegisterModel(id: $id, name: $name, phone: $phone, email: $email)';
+    return 'UserRegisterModel(id: $id, name: $name, farm: $farm, phone: $phone, email: $email)';
   }
 }

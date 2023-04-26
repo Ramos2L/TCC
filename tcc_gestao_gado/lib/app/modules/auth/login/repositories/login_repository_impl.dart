@@ -59,6 +59,7 @@ class LoginRepositoryImpl implements LoginRepository {
       userStore.setUser(userStore.user.copyWith(
         id: userId,
         name: user.name,
+        farm: user.farm,
         phone: user.phone,
         email: user.email,
       ));
