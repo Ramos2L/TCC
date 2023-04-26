@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:tcc_gestao_gado/app/core/models/raca_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/page/cadastro_animal_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/page/view/cadastro_animal_view.dart';
 
-List<String> list = <String>['One', 'Two', 'Three', 'Four'];
+List<String> list = [];
 
 abstract class CadastroAnimalViewImpl extends State<CadastroAnimalPage>
     implements CadastroAnimalView {
+  final TextEditingController dateController = TextEditingController();
+  DateTime dateTime = DateTime.now();
+  String date = '';
+
+  String? dropdownValue;
+  String? breastfeeding;
+  String? gender;
+  String? quite;
+
   @override
   void initState() {
     super.initState();
     widget.presenter.view = this;
   }
-
-  String? dropdownValue;
-
-  String? gender;
-  String? quite;
-  String? breastfeeding;
-
-  DateTime dateTime = DateTime.now();
-  String date = '';
-  final TextEditingController dateController = TextEditingController();
 
   @override
   void showDatePickerFunc() async {
@@ -36,5 +36,13 @@ abstract class CadastroAnimalViewImpl extends State<CadastroAnimalPage>
       });
       return null;
     });
+  }
+
+  @override
+  Future<void> getShowListRaca(List<RacaModel> raca) async {
+    list.clear();
+    for (int i = 0; i < raca[0].nome!.length; i++) {
+      list.add(raca[0].nome![i]);
+    }
   }
 }

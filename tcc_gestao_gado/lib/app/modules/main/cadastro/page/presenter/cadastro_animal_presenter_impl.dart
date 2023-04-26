@@ -11,13 +11,13 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
   CadastroAnimalPresenterImpl({required this.cadastroRepository});
 
   @override
-  Future<List<RacaModel>> getListRaca() async {
+  Future<void> getListRaca() async {
     List<RacaModel> racas = [];
 
     racas = await cadastroRepository.findRaces();
 
     //print('TESTE :${racas[0].nome![0]}');
-    return racas;
+    _view.getShowListRaca(racas);
   }
 
   @override

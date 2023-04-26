@@ -22,7 +22,6 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as Arguments;
-    widget.presenter.getListRaca();
     return Scaffold(
       backgroundColor: context.colors.primary,
       drawer: const DrawerMenu(),
