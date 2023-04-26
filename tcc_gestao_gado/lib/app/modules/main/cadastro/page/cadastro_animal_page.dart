@@ -5,45 +5,24 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/button.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/cadastro_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/cadastro/page/presenter/cadastro_animal_presenter.dart';
+import 'package:tcc_gestao_gado/app/modules/main/cadastro/page/view/cadastro_animal_view_impl.dart';
 import 'package:validatorless/validatorless.dart';
 
 class CadastroAnimalPage extends StatefulWidget {
   static const routeName = '/cadastro_animal';
-
-  const CadastroAnimalPage({Key? key}) : super(key: key);
+  final CadastroAnimalPresenter presenter;
+  const CadastroAnimalPage({Key? key, required this.presenter}) : super(key: key);
 
   @override
   State<CadastroAnimalPage> createState() => _CadastroAnimalPageState();
 }
 
-class _CadastroAnimalPageState extends State<CadastroAnimalPage> {
-  String? gender;
-  String? quite;
-  String? breastfeeding;
-
-  DateTime dateTime = DateTime.now();
-  String date = '';
-  final TextEditingController dateController = TextEditingController();
-
-  void _showDatePicker() async {
-    await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(1950),
-      lastDate: DateTime(2100),
-    ).then((value) {
-      setState(() {
-        dateTime = value!;
-        //print(value);
-      });
-      return null;
-    });
-  }
-
+class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as Arguments;
-
+    widget.presenter.getListRaca();
     return Scaffold(
       backgroundColor: context.colors.primary,
       drawer: const DrawerMenu(),
@@ -266,7 +245,7 @@ class _CadastroAnimalPageState extends State<CadastroAnimalPage> {
                         ),
                         const SizedBox(height: 25),
                         GestureDetector(
-                          onTap: _showDatePicker,
+                          onTap: showDatePickerFunc,
                           child: CustomTextField(
                             controller: dateController,
                             enabled: false,

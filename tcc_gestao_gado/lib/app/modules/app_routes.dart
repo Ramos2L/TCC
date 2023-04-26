@@ -6,6 +6,7 @@ import 'package:tcc_gestao_gado/app/modules/auth/register/page/register_route.da
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/cadastro_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/cadastro_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/page/cadastro_animal_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/cadastro/page/cadastro_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/checagem/check_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/checagem/check_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/consulta/consulta_page.dart';
@@ -60,7 +61,7 @@ class AppRoutes {
     DescartePage.routeName: (context) => const DescartePage(),
     DicasManejoPage.routeName: (context) => const DicasManejoRoute(),
     CadastroPage.routeName: (context) => const CadastroRoute(),
-    CadastroAnimalPage.routeName: (context) => const CadastroAnimalPage(),
+    CadastroAnimalPage.routeName: (context) => const CadastroAnimalRoute(),
     RelatorioPage.routeName: (context) => const RelatorioRoute(),
     VendasPage.routeName: (context) => const VendasRoute(),
     VendasAnimalPage.routeName: (context) => const VendasAnimalPage(),
