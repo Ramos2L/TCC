@@ -15,16 +15,16 @@ class ListTileWidget extends StatelessWidget {
       title: Text(
         title!,
         style: context.textStyles.textMedium.copyWith(
-          color: context.colors.outlineVariant,
           fontSize: 18,
           overflow: TextOverflow.ellipsis,
+          color: context.colors.outlineVariant,
         ),
       ),
       subtitle: Text(
         subtitle!,
         style: context.textStyles.textLight.copyWith(
-          color: context.colors.onPrimary,
           fontSize: 22,
+          color: context.colors.onPrimary,
           overflow: TextOverflow.ellipsis,
         ),
       ),

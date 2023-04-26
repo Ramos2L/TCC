@@ -12,6 +12,7 @@ abstract class RegisterViewImpl extends State<RegisterPage>
   final formKey = GlobalKey<FormState>();
 
   final TextEditingController nameController = TextEditingController();
+  final TextEditingController farmController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();

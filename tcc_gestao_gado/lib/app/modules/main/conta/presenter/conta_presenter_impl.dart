@@ -13,6 +13,9 @@ class ContaPresenterImpl implements ContaPresenter {
   String? getName() => userStore.user.name;
 
   @override
+  String? getFarm() => userStore.user.farm;
+
+  @override
   String? getEmail() => userStore.user.email;
 
   @override

@@ -6,6 +6,7 @@ abstract class RegisterPresenter extends GestaoGadoPresenter<RegisterView> {
     required String nome,
     required String phone,
     required String email,
+    required String farm,
     required String password,
   });
 }

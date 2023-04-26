@@ -3,6 +3,7 @@ import 'package:tcc_gestao_gado/app/modules/main/conta/view/conta_view.dart';
 
 abstract class ContaPresenter extends GestaoGadoPresenter<ContaView> {
   String? getName();
+  String? getFarm();
   String? getEmail();
   String? getPhone();
 }

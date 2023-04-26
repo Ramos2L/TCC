@@ -18,6 +18,7 @@ class RegisterPresenterImpl implements RegisterPresenter {
     required String nome,
     required String phone,
     required String email,
+    required String farm,
     required String password,
   }) async {
     try {
@@ -30,6 +31,7 @@ class RegisterPresenterImpl implements RegisterPresenter {
           name: nome,
           phone: phone,
           email: email,
+          farm: farm,
           password: password,
         ),
       );

@@ -72,6 +72,10 @@ class _ContaPageState extends ContaViewImpl {
                     subtitle: '${widget.presenter.getName()}',
                   ),
                   ListTileWidget(
+                    title: 'NOME DA PROPRIEDADE',
+                    subtitle: '${widget.presenter.getFarm()}',
+                  ),
+                  ListTileWidget(
                     title: 'E-MAIL',
                     subtitle: '${widget.presenter.getEmail()}',
                   ),

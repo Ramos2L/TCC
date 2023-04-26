@@ -85,6 +85,24 @@ class _RegisterPageState extends RegisterViewImpl {
                   ),
                   CustomTextField(
                     padding: const EdgeInsets.fromLTRB(25, 0, 25, 15),
+                    controller: farmController,
+                    label: 'nome da fazenda',
+                    labelStyle: TextStyle(color: context.colors.background),
+                    keyboardType: TextInputType.name,
+                    inputDecoration: InputDecoration(
+                      errorStyle: TextStyle(color: context.colors.error, fontSize: 14),
+                    ),
+                    validator: Validatorless.multiple(
+                      [Validatorless.required("Campo obrigatório")],
+                    ),
+                    suffixIcon: const Icon(Icons.add_home_work_rounded),
+                    textInputAction: TextInputAction.next,
+                    // onFieldSubmitted: (_) {
+                    //   FocusScope.of(context).requestFocus(phoneNode);
+                    // },
+                  ),
+                  CustomTextField(
+                    padding: const EdgeInsets.fromLTRB(25, 0, 25, 15),
                     controller: phoneController,
                     label: 'telefone',
                     labelStyle: TextStyle(color: context.colors.background),
@@ -216,6 +234,7 @@ class _RegisterPageState extends RegisterViewImpl {
       nome: nameController.text,
       phone: phoneController.text,
       email: emailController.text,
+      farm: farmController.text,
       password: passwordController.text,
     );
   }

@@ -5,6 +5,7 @@ class UserRegisterModel {
   final String? name;
   final String? phone;
   final String? email;
+  final String? farm;
   final String? password;
 
   UserRegisterModel({
@@ -12,6 +13,7 @@ class UserRegisterModel {
     this.name,
     this.phone,
     this.email,
+    this.farm,
     this.password,
   });
 
@@ -20,6 +22,7 @@ class UserRegisterModel {
     String? name,
     String? phone,
     String? email,
+    String? farm,
     String? password,
   }) {
     return UserRegisterModel(
@@ -27,6 +30,7 @@ class UserRegisterModel {
       name: name ?? this.name,
       phone: phone ?? this.phone,
       email: email ?? this.email,
+      farm: farm ?? this.farm,
       password: password ?? this.password,
     );
   }
@@ -38,6 +42,7 @@ class UserRegisterModel {
     map["name"] = name;
     map["phone"] = phone;
     map["email"] = email;
+    map["farm"] = farm;
     map["password"] = password;
 
     return map;
@@ -49,6 +54,7 @@ class UserRegisterModel {
       'name': name,
       'phone': phone,
       'email': email,
+      'farm': farm,
       'password': password,
     };
   }
@@ -59,6 +65,7 @@ class UserRegisterModel {
       name: map['name'] as String,
       phone: map['phone'] as String,
       email: map['email'] as String,
+      farm: map['farm'] as String,
       password: map['password'] as String,
     );
   }
@@ -70,6 +77,6 @@ class UserRegisterModel {
 
   @override
   String toString() {
-    return 'UserRegisterModel(id: $id, name: $name, phone: $phone, email: $email, password: $password)';
+    return 'UserRegisterModel(id: $id, name: $name, phone: $phone, email: $email, farm: $farm, password: $password)';
   }
 }
