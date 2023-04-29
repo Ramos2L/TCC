@@ -32,14 +32,32 @@ class CadastroRepositoryImpl implements CadastroRepository {
   Future<void> update(CattleModel cattle) async {
     Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
 
-    print('mapCattle');
-    print(mapCattle);
-
     await firebaseFirestore
         .collection('cattle')
         .doc(mapCattle['id'])
         .set(mapCattle)
         .then((value) => debugPrint('Success'))
-        .catchError((onError) => debugPrint('Mensage error'));
+        .catchError(
+          (onError) => debugPrint('Mensage error'),
+        );
+    await findCattle();
+  }
+
+  @override
+  Future<List<CattleModel>> findCattle() async {
+    try {
+      final document = firebaseFirestore.collection("cattle").get();
+
+      QuerySnapshot doc = await document;
+
+      List<CattleModel> dataInformations = [];
+      for (var data in doc.docs) {
+        dataInformations.add(CattleModel.fromMap(data.data() as Map<String, dynamic>));
+      }
+
+      return dataInformations;
+    } catch (e) {
+      throw UnusualException(message: e.toString());
+    }
   }
 }

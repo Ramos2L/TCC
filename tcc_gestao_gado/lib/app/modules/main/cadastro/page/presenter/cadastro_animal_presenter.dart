@@ -6,7 +6,7 @@ abstract class CadastroAnimalPresenter extends GestaoGadoPresenter<CadastroAnima
   Future<bool> registerCattle({
     String? gender,
     String? quite,
-    String? breastfeeding,
+    bool? breastfeedingOption,
     String? numberController,
     String? dateController,
     String? numberMotherController,

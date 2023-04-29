@@ -23,6 +23,7 @@ abstract class CadastroAnimalViewImpl extends State<CadastroAnimalPage>
 
   String? dropdownValue;
   String? breastfeeding;
+  bool? breastfeedingOption = false;
   String? gender;
   String? quite;
 
@@ -46,7 +47,6 @@ abstract class CadastroAnimalViewImpl extends State<CadastroAnimalPage>
     ).then((value) {
       setState(() {
         dateTime = value!;
-        //print(value);
       });
       return null;
     });

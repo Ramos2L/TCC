@@ -7,6 +7,7 @@ import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/cadastro_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/page/presenter/cadastro_animal_presenter.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/page/view/cadastro_animal_view_impl.dart';
+import 'package:validatorless/validatorless.dart';
 
 class CadastroAnimalPage extends StatefulWidget {
   static const routeName = '/cadastro_animal';
@@ -196,6 +197,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                                   onChanged: (value) {
                                                     setState(() {
                                                       breastfeeding = value.toString();
+                                                      breastfeedingOption = true;
                                                     });
                                                   },
                                                 ),
@@ -216,6 +218,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                                   onChanged: (value) {
                                                     setState(() {
                                                       breastfeeding = value.toString();
+                                                      breastfeedingOption = false;
                                                     });
                                                   },
                                                 ),
@@ -239,6 +242,11 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                             keyboardType: TextInputType.text,
                             obscureText: false,
                             suffixIcon: const Icon(Icons.app_registration_rounded),
+                            validator: Validatorless.multiple(
+                              [
+                                Validatorless.required("Campo obrigatório"),
+                              ],
+                            ),
                             // onFieldSubmitted: (_) {
                             //   FocusScope.of(context).requestFocus(phoneNode);
                             // },
@@ -290,6 +298,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                       keyboardType: TextInputType.text,
                                       obscureText: false,
                                       suffixIcon: const Icon(Icons.app_registration_rounded),
+
                                       // onFieldSubmitted: (_) {
                                       //   FocusScope.of(context).requestFocus(phoneNode);
                                       // },
@@ -329,6 +338,11 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                             keyboardType: TextInputType.text,
                             obscureText: false,
                             suffixIcon: const Icon(Icons.balance),
+                            validator: Validatorless.multiple(
+                              [
+                                Validatorless.required("Campo obrigatório"),
+                              ],
+                            ),
                             // onFieldSubmitted: (_) {
                             //   FocusScope.of(context).requestFocus(phoneNode);
                             // },
@@ -399,11 +413,15 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                       child: Button.primary(
                         label: 'SALVAR',
                         onPressed: () {
-                          if (formKey.currentState!.validate()) {
+                          if (formKey.currentState!.validate() && dropdownValue != null) {
                             registerCattle();
                           } else {
                             //MENSAGEM DE ERRO
-                            showCustomSnackBar("Opss! Algo deu errado");
+                            if (dropdownValue == null) {
+                              showCustomSnackBar("Por favor, escolha a raça!");
+                            } else {
+                              showCustomSnackBar("Opss! Algo deu errado");
+                            }
                           }
                           //Navigator.pushNamed(context, '/home');
                         },
@@ -423,7 +441,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
     widget.presenter.registerCattle(
       gender: gender,
       quite: quite,
-      breastfeeding: breastfeeding,
+      breastfeedingOption: breastfeedingOption,
       numberController: numberController.text,
       dateController: dateTime.toString().substring(0, 11),
       numberMotherController: numberMotherController.text,

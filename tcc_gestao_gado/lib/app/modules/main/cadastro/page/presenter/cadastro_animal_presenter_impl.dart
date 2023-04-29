@@ -18,7 +18,6 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
 
     racas = await cadastroRepository.findRaces();
 
-    //print('TESTE :${racas[0].nome![0]}');
     _view.getShowListRaca(racas);
   }
 
@@ -26,7 +25,7 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
   Future<bool> registerCattle({
     String? gender,
     String? quite,
-    String? breastfeeding,
+    bool? breastfeedingOption,
     String? numberController,
     String? dateController,
     String? numberMotherController,
@@ -39,9 +38,9 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
 
     cattleModel = cattleModel.copyWith(
       id: numberController,
-      sex: gender,
-      quite: quite,
-      //breastfeeding: breastfeeding,
+      sex: gender ?? "",
+      quite: quite ?? "Compra",
+      breastfeeding: breastfeedingOption,
       numberFather: numberFatherController,
       numberMother: numberMotherController,
       weightCattle: weightController,
