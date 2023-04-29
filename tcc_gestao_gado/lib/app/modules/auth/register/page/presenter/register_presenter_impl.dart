@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/core/storage/user_storage.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/errors/register_errors.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/page/presenter/register_presenter.dart';
@@ -23,7 +22,6 @@ class RegisterPresenterImpl implements RegisterPresenter {
   }) async {
     try {
       String userId = await registerRepository.register(email: email, password: password);
-      debugPrint('UserId: $userId');
 
       userStore.setUser(
         userStore.user.copyWith(

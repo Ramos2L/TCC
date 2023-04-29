@@ -229,7 +229,7 @@ class _RegisterPageState extends RegisterViewImpl {
     );
   }
 
-  register() {
+  void register() {
     widget.presenter.registerUser(
       nome: nameController.text,
       phone: phoneController.text,

@@ -3,4 +3,16 @@ import 'package:tcc_gestao_gado/app/modules/main/cadastro/page/view/cadastro_ani
 
 abstract class CadastroAnimalPresenter extends GestaoGadoPresenter<CadastroAnimalView> {
   Future<void> getListRaca();
+  Future<bool> registerCattle({
+    String? gender,
+    String? quite,
+    String? breastfeeding,
+    String? numberController,
+    String? dateController,
+    String? numberMotherController,
+    String? numberFatherController,
+    String? weightController,
+    String? dropdownValue,
+    String? observationsController,
+  });
 }

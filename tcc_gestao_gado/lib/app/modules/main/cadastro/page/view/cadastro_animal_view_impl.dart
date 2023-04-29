@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:tcc_gestao_gado/app/core/models/raca_model.dart';
+import 'package:tcc_gestao_gado/app/core/ui/helpers/messages.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/page/cadastro_animal_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/page/view/cadastro_animal_view.dart';
 
 List<String> list = [];
 
 abstract class CadastroAnimalViewImpl extends State<CadastroAnimalPage>
+    with Message<CadastroAnimalPage>
     implements CadastroAnimalView {
-  final TextEditingController dateController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
+  TextEditingController dateController = TextEditingController();
+  final TextEditingController numberController = TextEditingController();
+  final TextEditingController numberMotherController = TextEditingController();
+  final TextEditingController numberFatherController = TextEditingController();
+  final TextEditingController weightController = TextEditingController();
+  final TextEditingController observationsController = TextEditingController();
+
   DateTime dateTime = DateTime.now();
   String date = '';
 

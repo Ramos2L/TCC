@@ -1,3 +1,4 @@
+import 'package:tcc_gestao_gado/app/core/models/cattle_model.dart';
 import 'package:tcc_gestao_gado/app/core/models/raca_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/page/presenter/cadastro_animal_presenter.dart';
 import 'package:tcc_gestao_gado/app/modules/main/cadastro/page/view/cadastro_animal_view.dart';
@@ -7,8 +8,9 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
   late CadastroAnimalView _view;
 
   final CadastroRepository cadastroRepository;
+  final CattleModel cattleModel;
 
-  CadastroAnimalPresenterImpl({required this.cadastroRepository});
+  CadastroAnimalPresenterImpl({required this.cadastroRepository, required this.cattleModel});
 
   @override
   Future<void> getListRaca() async {
@@ -18,6 +20,39 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
 
     //print('TESTE :${racas[0].nome![0]}');
     _view.getShowListRaca(racas);
+  }
+
+  @override
+  Future<bool> registerCattle({
+    String? gender,
+    String? quite,
+    String? breastfeeding,
+    String? numberController,
+    String? dateController,
+    String? numberMotherController,
+    String? numberFatherController,
+    String? weightController,
+    String? dropdownValue,
+    String? observationsController,
+  }) async {
+    CattleModel cattleModel = CattleModel();
+
+    cattleModel = cattleModel.copyWith(
+      id: numberController,
+      sex: gender,
+      quite: quite,
+      //breastfeeding: breastfeeding,
+      numberFather: numberFatherController,
+      numberMother: numberMotherController,
+      weightCattle: weightController,
+      date: dateController,
+      race: dropdownValue,
+      observations: observationsController,
+    );
+
+    await cadastroRepository.update(cattleModel);
+
+    return true;
   }
 
   @override

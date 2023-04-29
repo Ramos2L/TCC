@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:tcc_gestao_gado/app/core/models/cattle_model.dart';
 import 'package:tcc_gestao_gado/app/core/storage/user_storage.dart';
 import 'package:tcc_gestao_gado/app/core/ui/theme/app_theme.dart';
 import 'package:tcc_gestao_gado/app/modules/app_routes.dart';
@@ -20,6 +21,7 @@ class AppWidget extends StatelessWidget {
       bindingsBuilder: () => [
         Bind.lazySingleton<FlutterSecureStorage>((i) => const FlutterSecureStorage()),
         Bind.lazySingleton<UserStore>((i) => UserStore(storage: i())),
+        Bind.lazySingleton<CattleModel>((i) => CattleModel()),
         Bind.lazySingleton<FirebaseAuth>((i) => FirebaseAuth.instance),
         Bind.lazySingleton<FirebaseFirestore>((i) => FirebaseFirestore.instance),
         Bind.lazySingleton<LoginRepository>((i) => LoginRepositoryImpl(

@@ -20,7 +20,6 @@ class ContaPage extends StatefulWidget {
 class _ContaPageState extends ContaViewImpl {
   @override
   Widget build(BuildContext context) {
-    print('${widget.presenter.getFarm()}');
     return Scaffold(
       backgroundColor: context.colors.primary,
       drawer: const DrawerMenu(),

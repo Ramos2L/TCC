@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_getit/flutter_getit.dart';
+import 'package:tcc_gestao_gado/app/core/storage/user_storage.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/images.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
@@ -176,6 +178,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
               ),
             ),
             onTap: () async {
+              Injector.get<UserStore>().deleteUser();
               await _firebaseAuth.signOut().then((user) => Navigator.pushNamed(context, '/'));
               //Navigator.pop(context);
             },
