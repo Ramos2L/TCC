@@ -91,14 +91,14 @@ mixin Message<T extends StatefulWidget> on State<T> {
     );
   }
 
-  void showCustomSnackBar(String message) {
+  void showCustomSnackBar(String message, {Color? color}) {
     final snackBar = SnackBar(
       content: Text(
         message,
         textAlign: TextAlign.center,
         style: context.textStyles.textRegular.copyWith(color: context.colors.tertiaryContainer),
       ),
-      backgroundColor: context.colors.error.withOpacity(0.8),
+      backgroundColor: color ?? context.colors.error.withOpacity(0.8),
     );
 
     ScaffoldMessenger.of(context).showSnackBar(snackBar);

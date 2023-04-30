@@ -118,6 +118,12 @@ class _ConsultaPageState extends ConsultaViewImpl {
                                     title: 'Raça do animal:',
                                     subtitle: '${cattleAnimal[0].race}',
                                   ),
+                                  cattleAnimal[0].observations != ""
+                                      ? ListTileWidget(
+                                          title: 'Observações:',
+                                          subtitle: '${cattleAnimal[0].observations}',
+                                        )
+                                      : const SizedBox(),
                                 ],
                               )
                             : const SizedBox()

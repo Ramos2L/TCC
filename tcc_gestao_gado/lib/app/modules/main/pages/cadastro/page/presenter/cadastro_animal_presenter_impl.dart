@@ -40,9 +40,8 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
     final firebaseAuth = FirebaseAuth.instance;
 
     var currentUser = firebaseAuth.currentUser;
-    print(currentUser!.uid);
 
-    if (currentUser.uid.isNotEmpty) {
+    if (currentUser!.uid.isNotEmpty) {
       cattleModel = cattleModel.copyWith(
         id: numberController,
         idUser: currentUser.uid,
@@ -57,6 +56,8 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
         observations: observationsController,
       );
       await mainRepository.update(cattleModel);
+
+      _view.successRegister();
     }
 
     return true;
