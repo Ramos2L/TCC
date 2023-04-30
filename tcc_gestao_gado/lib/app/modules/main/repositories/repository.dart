@@ -7,6 +7,12 @@ abstract class MainRepository {
   Future<List<RacaModel>> findRaces();
   Future<void> update(CattleModel cattle);
   Future<bool> updateVenda(CattleModel cattle);
+  Future<bool> updateBreastfeeding({
+    required String id,
+    required String idUser,
+    required CattleModel cattle,
+  });
+  Future<bool> canWean({required CattleModel cattle});
   Future<bool> deleteCattle({required CattleModel cattle});
   Future<List<CattleModel>> findCattle();
   Future<List<InformacoesModel>> findInformation();

@@ -9,7 +9,8 @@ class DesmamaRoute extends FlutterGetItPageRoute {
 
   @override
   List<Bind<Object>> get bindings => [
-        Bind.lazySingleton<DesmamaPresenter>((i) => DesmamaPresenterImpl()),
+        Bind.lazySingleton<DesmamaPresenter>(
+            (i) => DesmamaPresenterImpl(mainRepository: i(), firebaseAuth: i())),
       ];
 
   @override

@@ -12,6 +12,8 @@ abstract class DesmamaViewImpl extends State<DesmamaPage> implements DesmamaView
   DateTime dateTime = DateTime.now();
   String date = '';
   final TextEditingController dateController = TextEditingController();
+  final TextEditingController numberAnimalController = TextEditingController();
+  final TextEditingController observationsController = TextEditingController();
 
   @override
   void showDatePickerFunc() async {

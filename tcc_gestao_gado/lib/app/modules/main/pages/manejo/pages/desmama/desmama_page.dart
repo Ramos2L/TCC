@@ -64,7 +64,6 @@ class _DesmamaPageState extends DesmamaViewImpl {
                             enabled: false,
                             label: 'Data da desmama',
                             hintText: DateFormat("dd/MM/yyyy").format(dateTime),
-                            //hintText: dateTime.toString().substring(0, 11),
                             labelStyle: TextStyle(color: context.colors.background),
                             inputDecoration: InputDecoration(
                               errorStyle: TextStyle(
@@ -87,7 +86,7 @@ class _DesmamaPageState extends DesmamaViewImpl {
                         ),
                         const SizedBox(height: 25),
                         CustomTextField(
-                          //controller: ,
+                          controller: numberAnimalController,
                           hintText: 'Código do animal',
                           labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
@@ -105,7 +104,7 @@ class _DesmamaPageState extends DesmamaViewImpl {
                         ),
                         const SizedBox(height: 25),
                         CustomTextField(
-                          //controller: ,
+                          controller: observationsController,
                           hintText: 'Observações (optativo)',
                           labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
@@ -138,6 +137,7 @@ class _DesmamaPageState extends DesmamaViewImpl {
                     child: Button.primary(
                       label: 'SALVAR',
                       onPressed: () {
+                        registerBreastfeeding();
                         //Navigator.pushNamed(context, '/home');
                       },
                     ),
@@ -148,6 +148,14 @@ class _DesmamaPageState extends DesmamaViewImpl {
           ],
         ),
       ),
+    );
+  }
+
+  void registerBreastfeeding() {
+    widget.presenter.updateBreastfeeding(
+      date: DateFormat("dd/MM/yyyy").format(dateTime),
+      numberAnimal: numberAnimalController.text,
+      observations: observationsController.text,
     );
   }
 }

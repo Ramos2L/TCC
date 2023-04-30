@@ -211,7 +211,7 @@ class _VendasPageState extends VendasViewImpl {
       numberAnimal: numberAnimalController.text,
       weigth: weigthController.text,
       price: priceController.text,
-      date: dateController.text,
+      date: DateFormat("dd/MM/yyyy").format(dateTime),
       observations: observationsController.text,
     );
   }

@@ -45,6 +45,58 @@ class MainRepositoryImpl implements MainRepository {
   }
 
   @override
+  Future<bool> updateBreastfeeding({
+    required String id,
+    required String idUser,
+    required CattleModel cattle,
+  }) async {
+    Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
+
+    bool result = await canWean(cattle: cattle);
+
+    if (result) {
+      await firebaseFirestore
+          .collection('cattle')
+          .doc(mapCattle['id'])
+          .set(mapCattle)
+          .then((value) => debugPrint('Success Desmama'))
+          .catchError(
+            (onError) => debugPrint('message error'),
+          );
+      return true;
+    } else {
+      debugPrint('Nao foi possivel realizar a Desmama');
+      return false;
+    }
+  }
+
+  //canWean == pode desmamar?
+  @override
+  Future<bool> canWean({required CattleModel cattle}) async {
+    Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
+    bool canWean = false;
+
+    try {
+      await firebaseFirestore
+          .collection('cattle')
+          .where("idUser", isEqualTo: mapCattle['idUser'])
+          .where("id", isEqualTo: mapCattle['id'])
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        for (var doc in querySnapshot.docs) {
+          canWean = true;
+          debugPrint(doc.reference.toString());
+        }
+      });
+
+      return canWean;
+    } catch (e) {
+      debugPrint('message error Desmamar');
+      return canWean;
+    }
+  }
+
+  @override
   Future<bool> updateVenda(CattleModel cattle) async {
     Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
 
