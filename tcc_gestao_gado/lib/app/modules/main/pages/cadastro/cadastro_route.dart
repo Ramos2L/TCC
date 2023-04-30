@@ -11,8 +11,7 @@ class CadastroRoute extends FlutterGetItPageRoute {
 
   @override
   List<Bind<Object>> get bindings => [
-        Bind.lazySingleton<CadastroPresenter>(
-            (i) => CadastroPresenterImpl(userStore: i(), cadastroRepository: i())),
+        Bind.lazySingleton<CadastroPresenter>((i) => CadastroPresenterImpl(userStore: i())),
         Bind.lazySingleton<MainRepository>((i) => MainRepositoryImpl(firebaseFirestore: i())),
       ];
 

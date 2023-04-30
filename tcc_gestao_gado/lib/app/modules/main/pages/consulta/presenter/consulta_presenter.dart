@@ -3,4 +3,5 @@ import 'package:tcc_gestao_gado/app/modules/main/pages/consulta/view/consulta_vi
 
 abstract class ConsultaPresenter extends GestaoGadoPresenter<ConsultaView> {
   String? getName();
+  Future<void> getCattle({required String idCattle});
 }

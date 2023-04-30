@@ -98,4 +98,21 @@ class MainRepositoryImpl implements MainRepository {
       throw UnusualException(message: e.toString());
     }
   }
+
+  @override
+  Future<CattleModel> consultCattle({required String idCattle}) async {
+    try {
+      final document = firebaseFirestore.collection("cattle").doc(idCattle);
+
+      DocumentSnapshot doc = await document.get();
+      Map<String, dynamic> cattleMap = {};
+      if (doc.data() != null) cattleMap = doc.data() as Map<String, dynamic>;
+
+      var cattle = CattleModel.fromMap(cattleMap);
+
+      return cattle;
+    } catch (e) {
+      throw UnusualException(message: e.toString());
+    }
+  }
 }

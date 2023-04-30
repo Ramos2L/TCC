@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';

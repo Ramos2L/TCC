@@ -5,11 +5,10 @@ import 'package:tcc_gestao_gado/app/core/ui/helpers/messages.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/cadastro/page/cadastro_animal_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/cadastro/page/view/cadastro_animal_view.dart';
 
-List<String> list = [];
-
 abstract class CadastroAnimalViewImpl extends State<CadastroAnimalPage>
     with Message<CadastroAnimalPage>
     implements CadastroAnimalView {
+  List<String> list = [];
   final formKey = GlobalKey<FormState>();
   TextEditingController dateController = TextEditingController();
   final TextEditingController numberController = TextEditingController();

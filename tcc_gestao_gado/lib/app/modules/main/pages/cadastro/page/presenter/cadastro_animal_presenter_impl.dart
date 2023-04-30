@@ -7,16 +7,16 @@ import 'package:tcc_gestao_gado/app/modules/main/repositories/repository.dart';
 class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
   late CadastroAnimalView _view;
 
-  final MainRepository cadastroRepository;
+  final MainRepository mainRepository;
   final CattleModel cattleModel;
 
-  CadastroAnimalPresenterImpl({required this.cadastroRepository, required this.cattleModel});
+  CadastroAnimalPresenterImpl({required this.mainRepository, required this.cattleModel});
 
   @override
   Future<void> getListRaca() async {
     List<RacaModel> racas = [];
 
-    racas = await cadastroRepository.findRaces();
+    racas = await mainRepository.findRaces();
 
     _view.getShowListRaca(racas);
   }
@@ -49,7 +49,7 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
       observations: observationsController,
     );
 
-    await cadastroRepository.update(cattleModel);
+    await mainRepository.update(cattleModel);
 
     return true;
   }

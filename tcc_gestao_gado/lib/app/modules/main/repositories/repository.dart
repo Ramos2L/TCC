@@ -9,4 +9,5 @@ abstract class MainRepository {
   Future<List<CattleModel>> findCattle();
   Future<List<InformacoesModel>> findInformation();
   Future<List<DicasManejoModel>> findManagementTips();
+  Future<CattleModel> consultCattle({required String idCattle});
 }

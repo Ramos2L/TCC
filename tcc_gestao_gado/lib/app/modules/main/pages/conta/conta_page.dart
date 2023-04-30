@@ -4,9 +4,9 @@ import 'package:tcc_gestao_gado/app/core/ui/styles/images.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/circle_avatar_widget.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
+import 'package:tcc_gestao_gado/app/core/ui/widgets/list_tile_widget.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/conta/presenter/conta_presenter.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/conta/view/conta_view_impl.dart';
-import 'package:tcc_gestao_gado/app/modules/main/pages/conta/widgets/list_tile_widget.dart';
 
 class ContaPage extends StatefulWidget {
   static const routeName = '/conta';
