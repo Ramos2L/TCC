@@ -3,6 +3,7 @@ import 'dart:convert';
 class CattleModel {
   //numberCattle == id
   final String? id;
+  final String? idUser;
   final String? sex;
   // meio == quite
   final String? quite;
@@ -17,6 +18,7 @@ class CattleModel {
 
   CattleModel({
     this.id,
+    this.idUser,
     this.sex,
     this.quite,
     this.breastfeeding,
@@ -30,6 +32,7 @@ class CattleModel {
 
   CattleModel copyWith({
     String? id,
+    String? idUser,
     String? sex,
     String? quite,
     bool? breastfeeding,
@@ -42,6 +45,7 @@ class CattleModel {
   }) {
     return CattleModel(
       id: id ?? this.id,
+      idUser: idUser ?? this.idUser,
       sex: sex ?? this.sex,
       quite: quite ?? this.quite,
       breastfeeding: breastfeeding ?? this.breastfeeding,
@@ -58,6 +62,7 @@ class CattleModel {
     Map<String, dynamic> map = {};
 
     map['id'] = id;
+    map['idUser'] = idUser;
     map['sex'] = sex;
     map['quite'] = quite;
     map['breastfeeding'] = breastfeeding;
@@ -74,6 +79,7 @@ class CattleModel {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'id': id,
+      'idUser': idUser,
       'sex': sex,
       'quite': quite,
       'breastfeeding': breastfeeding,
@@ -89,6 +95,7 @@ class CattleModel {
   factory CattleModel.fromMap(Map<String, dynamic> map) {
     return CattleModel(
       id: map['id'] as String,
+      idUser: map['idUser'] as String,
       sex: map['sex'] as String,
       quite: map['quite'] as String,
       breastfeeding: map['breastfeeding'] as bool,
@@ -108,6 +115,6 @@ class CattleModel {
 
   @override
   String toString() {
-    return 'CattleModel(id: $id, sex: $sex, quite: $quite, breastfeeding: $breastfeeding, numberFather: $numberFather, numberMother: $numberMother, date: $date, weightCattle: $weightCattle, race: $race, observations: $observations)';
+    return 'CattleModel(id: $id, idUser: $idUser, sex: $sex, quite: $quite, breastfeeding: $breastfeeding, numberFather: $numberFather, numberMother: $numberMother, date: $date, weightCattle: $weightCattle, race: $race, observations: $observations)';
   }
 }

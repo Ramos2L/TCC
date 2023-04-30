@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tcc_gestao_gado/app/core/models/cattle_model.dart';
 import 'package:tcc_gestao_gado/app/core/models/raca_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/cadastro/page/presenter/cadastro_animal_presenter.dart';
@@ -36,20 +37,27 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
   }) async {
     CattleModel cattleModel = CattleModel();
 
-    cattleModel = cattleModel.copyWith(
-      id: numberController,
-      sex: gender ?? "",
-      quite: quite ?? "Compra",
-      breastfeeding: breastfeedingOption,
-      numberFather: numberFatherController,
-      numberMother: numberMotherController,
-      weightCattle: weightController,
-      date: dateController,
-      race: dropdownValue,
-      observations: observationsController,
-    );
+    final firebaseAuth = FirebaseAuth.instance;
 
-    await mainRepository.update(cattleModel);
+    var currentUser = firebaseAuth.currentUser;
+    print(currentUser!.uid);
+
+    if (currentUser.uid.isNotEmpty) {
+      cattleModel = cattleModel.copyWith(
+        id: numberController,
+        idUser: currentUser.uid,
+        sex: gender ?? "",
+        quite: quite ?? "Compra",
+        breastfeeding: breastfeedingOption,
+        numberFather: numberFatherController,
+        numberMother: numberMotherController,
+        weightCattle: weightController,
+        date: dateController,
+        race: dropdownValue,
+        observations: observationsController,
+      );
+      await mainRepository.update(cattleModel);
+    }
 
     return true;
   }

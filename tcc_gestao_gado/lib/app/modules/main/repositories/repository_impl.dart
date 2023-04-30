@@ -42,7 +42,6 @@ class MainRepositoryImpl implements MainRepository {
         .catchError(
           (onError) => debugPrint('Mensage error'),
         );
-    await findCattle();
   }
 
   @override
@@ -56,7 +55,6 @@ class MainRepositoryImpl implements MainRepository {
       for (var data in doc.docs) {
         dataInformations.add(CattleModel.fromMap(data.data() as Map<String, dynamic>));
       }
-
       return dataInformations;
     } catch (e) {
       throw UnusualException(message: e.toString());
@@ -100,13 +98,21 @@ class MainRepositoryImpl implements MainRepository {
   }
 
   @override
-  Future<CattleModel> consultCattle({required String idCattle}) async {
+  Future<CattleModel> consultCattle({required String id, required String idUser}) async {
     try {
-      final document = firebaseFirestore.collection("cattle").doc(idCattle);
-
-      DocumentSnapshot doc = await document.get();
       Map<String, dynamic> cattleMap = {};
-      if (doc.data() != null) cattleMap = doc.data() as Map<String, dynamic>;
+
+      await firebaseFirestore
+          .collection("cattle")
+          .where("idUser", isEqualTo: idUser)
+          .where("id", isEqualTo: id)
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        for (var doc in querySnapshot.docs) {
+          cattleMap = doc.data() as Map<String, dynamic>;
+        }
+      });
+
       var cattle = CattleModel.fromMap(cattleMap);
 
       return cattle;
