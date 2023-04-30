@@ -22,7 +22,7 @@ class DesmamaPresenterImpl implements DesmamaPresenter {
     required String observations,
   }) async {
     var currentUser = firebaseAuth.currentUser!.uid;
-
+    bool? completedOperation;
     if (currentUser.isNotEmpty) {
       CattleModel cattleModel = CattleModel(
         idUser: currentUser,
@@ -31,7 +31,13 @@ class DesmamaPresenterImpl implements DesmamaPresenter {
         observations: observations,
       );
 
-      await mainRepository.updateBreastfeeding(cattle: cattleModel);
+      completedOperation = await mainRepository.updateBreastfeeding(cattle: cattleModel);
+
+      if (completedOperation) {
+        _view.success('Amamentação atualizada!');
+      } else {
+        _view.message('Ops... Algo deu errado!');
+      }
     }
 
     return true;

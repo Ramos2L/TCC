@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:tcc_gestao_gado/app/core/ui/helpers/messages.dart';
+import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/desmama/desmama_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/desmama/view/desmama_view.dart';
 
-abstract class DesmamaViewImpl extends State<DesmamaPage> implements DesmamaView {
+abstract class DesmamaViewImpl extends State<DesmamaPage>
+    with Message<DesmamaPage>
+    implements DesmamaView {
   @override
   void initState() {
     super.initState();
@@ -30,5 +34,16 @@ abstract class DesmamaViewImpl extends State<DesmamaPage> implements DesmamaView
       });
       return null;
     });
+  }
+
+  @override
+  void message(String message) {
+    showCustomSnackBar(message);
+  }
+
+  @override
+  void success(String message) {
+    showCustomSnackBar(message, color: context.colors.surfaceTint);
+    Navigator.pop(context);
   }
 }

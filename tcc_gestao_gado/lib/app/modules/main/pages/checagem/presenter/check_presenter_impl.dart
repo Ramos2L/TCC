@@ -38,6 +38,10 @@ class CheckPresenterImpl implements CheckPresenter {
 
       _view.toHome();
     } catch (e) {
+      //Caso a pessoa tenha uma conta e a mesma é excluida, dados podem ficar
+      //em cache retornando erro, parando neste catch, por isso a necessidade
+      //de enviar ao login novamente ou criar outra conta
+      _view.toLogin();
       throw UnusualException(message: e.toString());
     }
   }
