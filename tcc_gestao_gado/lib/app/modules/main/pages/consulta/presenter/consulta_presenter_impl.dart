@@ -1,5 +1,6 @@
 import 'package:tcc_gestao_gado/app/core/models/cattle_model.dart';
 import 'package:tcc_gestao_gado/app/core/storage/user_storage.dart';
+import 'package:tcc_gestao_gado/app/modules/auth/register/errors/register_errors.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/consulta/presenter/consulta_presenter.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/consulta/view/consulta_view.dart';
 import 'package:tcc_gestao_gado/app/modules/main/repositories/repository.dart';
@@ -16,9 +17,13 @@ class ConsultaPresenterImpl implements ConsultaPresenter {
 
   @override
   Future<void> getCattle({required String idCattle}) async {
-    CattleModel cattle = await mainRepository.consultCattle(idCattle: idCattle);
+    try {
+      CattleModel cattle = await mainRepository.consultCattle(idCattle: idCattle);
 
-    _view.consultCattle(cattle);
+      _view.consultCattle(cattle);
+    } on UnusualException {
+      _view.error('Ops... Não existe animal com este código!');
+    }
   }
 
   @override

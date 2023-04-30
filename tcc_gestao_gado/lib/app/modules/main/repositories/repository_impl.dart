@@ -107,7 +107,6 @@ class MainRepositoryImpl implements MainRepository {
       DocumentSnapshot doc = await document.get();
       Map<String, dynamic> cattleMap = {};
       if (doc.data() != null) cattleMap = doc.data() as Map<String, dynamic>;
-
       var cattle = CattleModel.fromMap(cattleMap);
 
       return cattle;
