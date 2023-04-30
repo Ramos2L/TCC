@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/button.dart';
@@ -260,7 +261,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                               label: args.animal == 'Bezerro'
                                   ? 'Escolha a data de nascimento'
                                   : 'Data para cadastro',
-                              hintText: dateTime.toString().substring(0, 11),
+                              hintText: DateFormat("dd/MM/yyyy").format(dateTime),
                               labelStyle: TextStyle(color: context.colors.background),
                               inputDecoration: InputDecoration(
                                 errorStyle: TextStyle(
@@ -443,7 +444,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
       quite: quite,
       breastfeedingOption: breastfeedingOption,
       numberController: numberController.text,
-      dateController: dateTime.toString().substring(0, 11),
+      dateController: DateFormat("dd/MM/yyyy").format(dateTime),
       numberMotherController: numberMotherController.text,
       numberFatherController: numberFatherController.text,
       weightController: weightController.text,

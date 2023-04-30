@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/button.dart';
@@ -61,8 +62,9 @@ class _DesmamaPageState extends DesmamaViewImpl {
                           child: CustomTextField(
                             controller: dateController,
                             enabled: false,
-                            label: 'Data da pesagem',
-                            hintText: dateTime.toString().substring(0, 11),
+                            label: 'Data da desmama',
+                            hintText: DateFormat("dd/MM/yyyy").format(dateTime),
+                            //hintText: dateTime.toString().substring(0, 11),
                             labelStyle: TextStyle(color: context.colors.background),
                             inputDecoration: InputDecoration(
                               errorStyle: TextStyle(

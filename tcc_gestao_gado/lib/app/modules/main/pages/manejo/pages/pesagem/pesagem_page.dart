@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/button.dart';
@@ -22,6 +23,7 @@ class _PesagemPageState extends State<PesagemPage> {
   void _showDatePicker() async {
     await showDatePicker(
       context: context,
+      locale: const Locale("pt"),
       initialDate: DateTime.now(),
       firstDate: DateTime(1950),
       lastDate: DateTime(2100),
@@ -78,7 +80,7 @@ class _PesagemPageState extends State<PesagemPage> {
                             controller: dateController,
                             enabled: false,
                             label: 'Data da pesagem',
-                            hintText: dateTime.toString().substring(0, 11),
+                            hintText: DateFormat("dd/MM/yyyy").format(dateTime),
                             labelStyle: TextStyle(color: context.colors.background),
                             inputDecoration: InputDecoration(
                               errorStyle: TextStyle(

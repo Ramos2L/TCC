@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:tcc_gestao_gado/app/core/models/cattle_model.dart';
 import 'package:tcc_gestao_gado/app/core/storage/user_storage.dart';
@@ -39,6 +40,8 @@ class AppWidget extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: "Gestão de Gado",
           theme: AppTheme.theme,
+          localizationsDelegates: const [GlobalMaterialLocalizations.delegate],
+          supportedLocales: const [Locale('pt'), Locale('en')],
           initialRoute: '/',
           routes: AppRoutes.routes,
         );

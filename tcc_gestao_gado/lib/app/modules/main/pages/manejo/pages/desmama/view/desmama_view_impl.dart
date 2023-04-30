@@ -17,6 +17,7 @@ abstract class DesmamaViewImpl extends State<DesmamaPage> implements DesmamaView
   void showDatePickerFunc() async {
     await showDatePicker(
       context: context,
+      locale: const Locale("pt"),
       initialDate: DateTime.now(),
       firstDate: DateTime(1950),
       lastDate: DateTime(2100),

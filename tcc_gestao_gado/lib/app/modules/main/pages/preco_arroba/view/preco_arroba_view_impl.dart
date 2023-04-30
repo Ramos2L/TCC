@@ -16,6 +16,7 @@ abstract class PrecoArrobaViewImpl extends State<PrecoArrobaPage> implements Pre
   void showDatePickerFunc() async {
     await showDatePicker(
       context: context,
+      locale: const Locale("pt"),
       initialDate: DateTime.now(),
       firstDate: DateTime(1950),
       lastDate: DateTime(2100),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/button.dart';
@@ -24,6 +25,7 @@ class _DescartePageState extends State<DescartePage> {
   void _showDatePicker() async {
     await showDatePicker(
       context: context,
+      locale: const Locale("pt"),
       initialDate: DateTime.now(),
       firstDate: DateTime(1950),
       lastDate: DateTime(2100),
@@ -87,8 +89,8 @@ class _DescartePageState extends State<DescartePage> {
                           child: CustomTextField(
                             controller: dateController,
                             enabled: false,
-                            label: 'Data da descarte',
-                            hintText: dateTime.toString().substring(0, 11),
+                            label: 'Data do descarte',
+                            hintText: DateFormat("dd/MM/yyyy").format(dateTime),
                             labelStyle: TextStyle(color: context.colors.background),
                             inputDecoration: InputDecoration(
                               errorStyle: TextStyle(
