@@ -37,7 +37,7 @@ class _ConsultaPageState extends ConsultaViewImpl {
                     child: Column(
                       children: [
                         Text(
-                          'Consutar animais',
+                          'Consultar animais',
                           style: context.textStyles.textMedium.copyWith(
                             color: context.colors.onPrimary,
                             fontSize: 20,

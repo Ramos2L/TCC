@@ -40,7 +40,30 @@ class MainRepositoryImpl implements MainRepository {
         .set(mapCattle)
         .then((value) => debugPrint('Success'))
         .catchError(
-          (onError) => debugPrint('Mensage error'),
+          (onError) => debugPrint('message error'),
+        );
+  }
+
+  @override
+  Future<void> updateVenda(CattleModel cattle) async {
+    Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
+
+    await firebaseFirestore
+        .collection('vendas')
+        .doc(mapCattle['id'])
+        .set(mapCattle)
+        .then((value) => debugPrint('Success Venda'))
+        .catchError(
+          (onError) => debugPrint('message error'),
+        );
+
+    await firebaseFirestore
+        .collection('cattle')
+        .doc(mapCattle['id'])
+        .delete()
+        .then((value) => debugPrint('Success Delecao'))
+        .catchError(
+          (onError) => debugPrint('message error Delecao'),
         );
   }
 

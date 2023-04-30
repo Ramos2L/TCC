@@ -15,6 +15,7 @@ class CattleModel {
   final String? weightCattle;
   final String? race;
   final String? observations;
+  final String? price;
 
   CattleModel({
     this.id,
@@ -28,6 +29,7 @@ class CattleModel {
     this.weightCattle,
     this.race,
     this.observations,
+    this.price,
   });
 
   CattleModel copyWith({
@@ -42,6 +44,7 @@ class CattleModel {
     String? weightCattle,
     String? race,
     String? observations,
+    String? price,
   }) {
     return CattleModel(
       id: id ?? this.id,
@@ -55,6 +58,7 @@ class CattleModel {
       weightCattle: weightCattle ?? this.weightCattle,
       race: race ?? this.race,
       observations: observations ?? this.observations,
+      price: price ?? this.price,
     );
   }
 
@@ -72,6 +76,7 @@ class CattleModel {
     map['weightCattle'] = weightCattle;
     map['race'] = race;
     map['observations'] = observations;
+    map['price'] = price;
 
     return map;
   }
@@ -89,6 +94,7 @@ class CattleModel {
       'weightCattle': weightCattle,
       'race': race,
       'observations': observations,
+      'price': price,
     };
   }
 
@@ -105,6 +111,7 @@ class CattleModel {
       weightCattle: map['weightCattle'] as String,
       race: map['race'] as String,
       observations: map['observations'] as String,
+      price: map['price'] as String,
     );
   }
 
@@ -115,6 +122,6 @@ class CattleModel {
 
   @override
   String toString() {
-    return 'CattleModel(id: $id, idUser: $idUser, sex: $sex, quite: $quite, breastfeeding: $breastfeeding, numberFather: $numberFather, numberMother: $numberMother, date: $date, weightCattle: $weightCattle, race: $race, observations: $observations)';
+    return 'CattleModel(id: $id, idUser: $idUser, sex: $sex, quite: $quite, breastfeeding: $breastfeeding, numberFather: $numberFather, numberMother: $numberMother, date: $date, weightCattle: $weightCattle, race: $race, observations: $observations, price: $price)';
   }
 }

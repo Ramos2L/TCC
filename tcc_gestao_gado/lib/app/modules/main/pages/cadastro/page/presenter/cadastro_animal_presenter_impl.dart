@@ -54,6 +54,7 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
         date: dateController,
         race: dropdownValue,
         observations: observationsController,
+        price: "",
       );
       await mainRepository.update(cattleModel);
 

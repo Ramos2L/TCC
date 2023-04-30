@@ -16,7 +16,7 @@ class DescartePage extends StatefulWidget {
 }
 
 class _DescartePageState extends State<DescartePage> {
-  String? gender;
+  String? option;
 
   DateTime dateTime = DateTime.now();
   String date = '';
@@ -84,6 +84,60 @@ class _DescartePageState extends State<DescartePage> {
                           ),
                         ),
                         const SizedBox(height: 25),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                              'Situação:',
+                              style: context.textStyles.textMedium.copyWith(
+                                color: context.colors.onPrimary,
+                                fontSize: 20,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            Expanded(
+                              child: RadioListTile(
+                                contentPadding: const EdgeInsets.all(0),
+                                title: Text(
+                                  'morte',
+                                  style: context.textStyles.textMedium.copyWith(
+                                    color: context.colors.onPrimary,
+                                    fontSize: 16,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                                value: "morte",
+                                groupValue: option,
+                                onChanged: (value) {
+                                  setState(() {
+                                    option = value.toString();
+                                  });
+                                },
+                              ),
+                            ),
+                            Expanded(
+                              child: RadioListTile(
+                                contentPadding: const EdgeInsets.all(0),
+                                title: Text(
+                                  'venda',
+                                  style: context.textStyles.textMedium.copyWith(
+                                    color: context.colors.onPrimary,
+                                    fontSize: 16,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                                value: "venda",
+                                groupValue: option,
+                                onChanged: (value) {
+                                  setState(() {
+                                    option = value.toString();
+                                  });
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 25),
                         GestureDetector(
                           onTap: _showDatePicker,
                           child: CustomTextField(
@@ -130,59 +184,47 @@ class _DescartePageState extends State<DescartePage> {
                           // },
                         ),
                         const SizedBox(height: 25),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              'Situação:',
-                              style: context.textStyles.textMedium.copyWith(
-                                color: context.colors.onPrimary,
-                                fontSize: 20,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                            Expanded(
-                              child: RadioListTile(
-                                contentPadding: const EdgeInsets.all(0),
-                                title: Text(
-                                  'morte',
-                                  style: context.textStyles.textMedium.copyWith(
-                                    color: context.colors.onPrimary,
-                                    fontSize: 16,
-                                    overflow: TextOverflow.ellipsis,
+                        option == "venda"
+                            ? Column(
+                                children: [
+                                  CustomTextField(
+                                    //controller: ,
+                                    hintText: 'Peso do animal (kg)',
+                                    labelStyle: TextStyle(color: context.colors.background),
+                                    inputDecoration: InputDecoration(
+                                      errorStyle: TextStyle(
+                                        fontSize: 14,
+                                        color: context.colors.error,
+                                      ),
+                                    ),
+                                    keyboardType: TextInputType.text,
+                                    obscureText: false,
+                                    suffixIcon: const Icon(Icons.balance),
+                                    // onFieldSubmitted: (_) {
+                                    //   FocusScope.of(context).requestFocus(phoneNode);
+                                    // },
                                   ),
-                                ),
-                                value: "morte",
-                                groupValue: gender,
-                                onChanged: (value) {
-                                  setState(() {
-                                    gender = value.toString();
-                                  });
-                                },
-                              ),
-                            ),
-                            Expanded(
-                              child: RadioListTile(
-                                contentPadding: const EdgeInsets.all(0),
-                                title: Text(
-                                  'venda',
-                                  style: context.textStyles.textMedium.copyWith(
-                                    color: context.colors.onPrimary,
-                                    fontSize: 16,
-                                    overflow: TextOverflow.ellipsis,
+                                  const SizedBox(height: 25),
+                                  CustomTextField(
+                                    //controller: ,
+                                    hintText: 'Preço',
+                                    labelStyle: TextStyle(color: context.colors.background),
+                                    inputDecoration: InputDecoration(
+                                      errorStyle: TextStyle(
+                                        fontSize: 14,
+                                        color: context.colors.error,
+                                      ),
+                                    ),
+                                    keyboardType: TextInputType.text,
+                                    obscureText: false,
+                                    suffixIcon: const Icon(Icons.money),
+                                    // onFieldSubmitted: (_) {
+                                    //   FocusScope.of(context).requestFocus(phoneNode);
+                                    // },
                                   ),
-                                ),
-                                value: "venda",
-                                groupValue: gender,
-                                onChanged: (value) {
-                                  setState(() {
-                                    gender = value.toString();
-                                  });
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
+                                ],
+                              )
+                            : const SizedBox(),
                       ],
                     ),
                   ),

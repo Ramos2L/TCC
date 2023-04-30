@@ -12,6 +12,8 @@ import 'package:tcc_gestao_gado/app/modules/auth/login/repositories/login_reposi
 import 'package:tcc_gestao_gado/app/modules/auth/login/repositories/login_repository_impl.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/repositories/register_repository.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/repositories/register_repository_impl.dart';
+import 'package:tcc_gestao_gado/app/modules/main/repositories/repository.dart';
+import 'package:tcc_gestao_gado/app/modules/main/repositories/repository_impl.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -25,6 +27,7 @@ class AppWidget extends StatelessWidget {
         Bind.lazySingleton<CattleModel>((i) => CattleModel()),
         Bind.lazySingleton<FirebaseAuth>((i) => FirebaseAuth.instance),
         Bind.lazySingleton<FirebaseFirestore>((i) => FirebaseFirestore.instance),
+        Bind.lazySingleton<MainRepository>((i) => MainRepositoryImpl(firebaseFirestore: i())),
         Bind.lazySingleton<LoginRepository>((i) => LoginRepositoryImpl(
               userStore: i(),
               firebaseAuth: i(),

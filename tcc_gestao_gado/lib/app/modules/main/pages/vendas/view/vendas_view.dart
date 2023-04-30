@@ -1,1 +1,4 @@
-abstract class VendasView {}
+abstract class VendasView {
+  void showDatePickerFunc();
+  void successDelecao();
+}

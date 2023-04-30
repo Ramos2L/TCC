@@ -6,6 +6,7 @@ import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/dicas/model/
 abstract class MainRepository {
   Future<List<RacaModel>> findRaces();
   Future<void> update(CattleModel cattle);
+  Future<void> updateVenda(CattleModel cattle);
   Future<List<CattleModel>> findCattle();
   Future<List<InformacoesModel>> findInformation();
   Future<List<DicasManejoModel>> findManagementTips();

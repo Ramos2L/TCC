@@ -9,7 +9,12 @@ class VendasRoute extends FlutterGetItPageRoute {
 
   @override
   List<Bind<Object>> get bindings => [
-        Bind.lazySingleton<VendasPresenter>((i) => VendasPresenterImpl(userStore: i())),
+        Bind.lazySingleton<VendasPresenter>((i) => VendasPresenterImpl(
+              userStore: i(),
+              firebaseAuth: i(),
+              cattleModel: i(),
+              mainRepository: i(),
+            )),
       ];
 
   @override
