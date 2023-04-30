@@ -45,11 +45,7 @@ class MainRepositoryImpl implements MainRepository {
   }
 
   @override
-  Future<bool> updateBreastfeeding({
-    required String id,
-    required String idUser,
-    required CattleModel cattle,
-  }) async {
+  Future<bool> updateBreastfeeding({required CattleModel cattle}) async {
     Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
 
     bool result = await canWean(cattle: cattle);
@@ -58,7 +54,10 @@ class MainRepositoryImpl implements MainRepository {
       await firebaseFirestore
           .collection('cattle')
           .doc(mapCattle['id'])
-          .set(mapCattle)
+          .update({
+            'breastfeeding': cattle.breastfeeding,
+            'observations': cattle.observations,
+          })
           .then((value) => debugPrint('Success Desmama'))
           .catchError(
             (onError) => debugPrint('message error'),
@@ -98,7 +97,7 @@ class MainRepositoryImpl implements MainRepository {
 
   @override
   Future<bool> updateVenda(CattleModel cattle) async {
-    Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
+    Map<String, dynamic> mapCattle = cattle.toFirebaseMapVendas();
 
     bool result = await deleteCattle(cattle: cattle);
 

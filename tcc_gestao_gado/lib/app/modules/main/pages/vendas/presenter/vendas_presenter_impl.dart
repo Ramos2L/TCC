@@ -33,18 +33,10 @@ class VendasPresenterImpl implements VendasPresenter {
     bool? salePermission;
     var currentUser = firebaseAuth.currentUser!.uid;
 
-    CattleModel cattleModel = CattleModel();
-
     if (currentUser.isNotEmpty) {
-      cattleModel = cattleModel.copyWith(
+      CattleModel cattleModel = CattleModel(
         idUser: currentUser,
         id: numberAnimal,
-        sex: '',
-        quite: '',
-        breastfeeding: false,
-        numberFather: '',
-        numberMother: '',
-        race: '',
         date: date,
         weightCattle: weigth,
         price: price,

@@ -23,29 +23,15 @@ class DesmamaPresenterImpl implements DesmamaPresenter {
   }) async {
     var currentUser = firebaseAuth.currentUser!.uid;
 
-    CattleModel cattleModel = CattleModel();
-
     if (currentUser.isNotEmpty) {
-      cattleModel = cattleModel.copyWith(
+      CattleModel cattleModel = CattleModel(
         idUser: currentUser,
         id: numberAnimal,
-        sex: '',
-        quite: '',
         breastfeeding: false,
-        numberFather: '',
-        numberMother: '',
-        race: '',
-        date: date,
-        weightCattle: '',
-        price: '',
         observations: observations,
       );
 
-      await mainRepository.updateBreastfeeding(
-        cattle: cattleModel,
-        id: numberAnimal,
-        idUser: currentUser,
-      );
+      await mainRepository.updateBreastfeeding(cattle: cattleModel);
     }
 
     return true;

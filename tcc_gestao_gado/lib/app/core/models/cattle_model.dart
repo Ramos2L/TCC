@@ -81,6 +81,19 @@ class CattleModel {
     return map;
   }
 
+  Map<String, dynamic> toFirebaseMapVendas() {
+    Map<String, dynamic> map = {};
+
+    map['id'] = id;
+    map['idUser'] = idUser;
+    map['date'] = date;
+    map['weightCattle'] = weightCattle;
+    map['observations'] = observations;
+    map['price'] = price;
+
+    return map;
+  }
+
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'id': id,
