@@ -95,7 +95,7 @@ class _VendasPageState extends VendasViewImpl {
                                 color: context.colors.error,
                               ),
                             ),
-                            keyboardType: TextInputType.text,
+                            keyboardType: TextInputType.number,
                             obscureText: false,
                             suffixIcon: const Icon(
                               Icons.app_registration_rounded,
@@ -120,7 +120,7 @@ class _VendasPageState extends VendasViewImpl {
                                 color: context.colors.error,
                               ),
                             ),
-                            keyboardType: TextInputType.text,
+                            keyboardType: TextInputType.number,
                             obscureText: false,
                             suffixIcon: const Icon(Icons.balance),
                             validator: Validatorless.multiple(
@@ -143,7 +143,7 @@ class _VendasPageState extends VendasViewImpl {
                                 color: context.colors.error,
                               ),
                             ),
-                            keyboardType: TextInputType.text,
+                            keyboardType: TextInputType.number,
                             obscureText: false,
                             suffixIcon: const Icon(Icons.money),
                             validator: Validatorless.multiple(

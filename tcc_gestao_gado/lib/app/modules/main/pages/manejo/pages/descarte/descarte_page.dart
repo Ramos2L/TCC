@@ -197,7 +197,7 @@ class _DescartePageState extends State<DescartePage> {
                                         color: context.colors.error,
                                       ),
                                     ),
-                                    keyboardType: TextInputType.text,
+                                    keyboardType: TextInputType.number,
                                     obscureText: false,
                                     suffixIcon: const Icon(Icons.balance),
                                     // onFieldSubmitted: (_) {
@@ -215,7 +215,7 @@ class _DescartePageState extends State<DescartePage> {
                                         color: context.colors.error,
                                       ),
                                     ),
-                                    keyboardType: TextInputType.text,
+                                    keyboardType: TextInputType.number,
                                     obscureText: false,
                                     suffixIcon: const Icon(Icons.money),
                                     // onFieldSubmitted: (_) {

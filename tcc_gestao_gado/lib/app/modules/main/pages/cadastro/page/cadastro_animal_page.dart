@@ -296,7 +296,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                           color: context.colors.error,
                                         ),
                                       ),
-                                      keyboardType: TextInputType.text,
+                                      keyboardType: TextInputType.number,
                                       obscureText: false,
                                       suffixIcon: const Icon(Icons.app_registration_rounded),
 
@@ -315,7 +315,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                           color: context.colors.error,
                                         ),
                                       ),
-                                      keyboardType: TextInputType.text,
+                                      keyboardType: TextInputType.number,
                                       obscureText: false,
                                       suffixIcon: const Icon(Icons.app_registration_rounded),
                                       // onFieldSubmitted: (_) {
@@ -336,7 +336,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                 color: context.colors.error,
                               ),
                             ),
-                            keyboardType: TextInputType.text,
+                            keyboardType: TextInputType.number,
                             obscureText: false,
                             suffixIcon: const Icon(Icons.balance),
                             validator: Validatorless.multiple(
