@@ -172,7 +172,6 @@ class _VendasPageState extends VendasViewImpl {
                             //   FocusScope.of(context).requestFocus(phoneNode);
                             // },
                           ),
-                          const SizedBox(height: 25),
                         ],
                       ),
                     ),

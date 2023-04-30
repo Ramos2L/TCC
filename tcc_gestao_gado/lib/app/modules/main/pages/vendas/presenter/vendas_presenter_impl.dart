@@ -30,6 +30,7 @@ class VendasPresenterImpl implements VendasPresenter {
     required String? date,
     required String? observations,
   }) async {
+    bool? salePermission;
     var currentUser = firebaseAuth.currentUser!.uid;
 
     CattleModel cattleModel = CattleModel();
@@ -50,7 +51,13 @@ class VendasPresenterImpl implements VendasPresenter {
         observations: observations,
       );
 
-      await mainRepository.updateVenda(cattleModel);
+      salePermission = await mainRepository.updateVenda(cattleModel);
+
+      if (salePermission) {
+        _view.success('Venda efetivada!');
+      } else {
+        _view.message('Venda não efetivada, código inválido.');
+      }
     }
     return true;
   }

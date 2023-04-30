@@ -1,4 +1,5 @@
 abstract class VendasView {
   void showDatePickerFunc();
-  void successDelecao();
+  void success(String message);
+  void message(String message);
 }

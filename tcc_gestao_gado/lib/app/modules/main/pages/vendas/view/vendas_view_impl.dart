@@ -40,8 +40,13 @@ abstract class VendasViewImpl extends State<VendasPage>
   }
 
   @override
-  void successDelecao() {
-    showCustomSnackBar('Animal Vendido com sucesso!', color: context.colors.surfaceTint);
+  void message(String message) {
+    showCustomSnackBar(message);
+  }
+
+  @override
+  void success(String message) {
+    showCustomSnackBar(message, color: context.colors.surfaceTint);
     Navigator.pop(context);
   }
 }

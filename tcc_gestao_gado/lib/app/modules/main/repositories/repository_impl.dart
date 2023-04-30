@@ -45,26 +45,50 @@ class MainRepositoryImpl implements MainRepository {
   }
 
   @override
-  Future<void> updateVenda(CattleModel cattle) async {
+  Future<bool> updateVenda(CattleModel cattle) async {
     Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
 
-    await firebaseFirestore
-        .collection('vendas')
-        .doc(mapCattle['id'])
-        .set(mapCattle)
-        .then((value) => debugPrint('Success Venda'))
-        .catchError(
-          (onError) => debugPrint('message error'),
-        );
+    bool result = await deleteCattle(cattle: cattle);
 
-    await firebaseFirestore
-        .collection('cattle')
-        .doc(mapCattle['id'])
-        .delete()
-        .then((value) => debugPrint('Success Delecao'))
-        .catchError(
-          (onError) => debugPrint('message error Delecao'),
-        );
+    if (result) {
+      await firebaseFirestore
+          .collection('vendas')
+          .doc(mapCattle['id'])
+          .set(mapCattle)
+          .then((value) => debugPrint('Success Venda'))
+          .catchError(
+            (onError) => debugPrint('message error'),
+          );
+      return true;
+    } else {
+      debugPrint('Nao foi possivel realizar a venda');
+      return false;
+    }
+  }
+
+  @override
+  Future<bool> deleteCattle({required CattleModel cattle}) async {
+    Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
+    bool salePermission = false;
+
+    try {
+      await firebaseFirestore
+          .collection('cattle')
+          .where("idUser", isEqualTo: mapCattle['idUser'])
+          .where("id", isEqualTo: mapCattle['id'])
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        for (var doc in querySnapshot.docs) {
+          salePermission = true;
+          doc.reference.delete();
+        }
+      });
+
+      return salePermission;
+    } catch (e) {
+      debugPrint('message error Delecao');
+      return salePermission;
+    }
   }
 
   @override
