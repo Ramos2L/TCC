@@ -8,8 +8,8 @@ abstract class MainRepository {
   Future<void> update(CattleModel cattle);
   Future<bool> updateVenda(CattleModel cattle);
   Future<bool> updateBreastfeeding({required CattleModel cattle});
-  Future<bool> canWean({required CattleModel cattle});
-  Future<bool> deleteCattle({required CattleModel cattle});
+  Future<String?> canWean({required CattleModel cattle});
+  Future<String?> deleteCattle({required CattleModel cattle});
   Future<List<CattleModel>> findCattle();
   Future<List<InformacoesModel>> findInformation();
   Future<List<DicasManejoModel>> findManagementTips();

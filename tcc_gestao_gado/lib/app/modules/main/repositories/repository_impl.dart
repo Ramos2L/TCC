@@ -36,7 +36,8 @@ class MainRepositoryImpl implements MainRepository {
 
     await firebaseFirestore
         .collection('cattle')
-        .doc(mapCattle['id'])
+        //.doc(mapCattle['id'])
+        .doc()
         .set(mapCattle)
         .then((value) => debugPrint('Success'))
         .catchError(
@@ -46,14 +47,12 @@ class MainRepositoryImpl implements MainRepository {
 
   @override
   Future<bool> updateBreastfeeding({required CattleModel cattle}) async {
-    Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
+    String? result = await canWean(cattle: cattle);
 
-    bool result = await canWean(cattle: cattle);
-
-    if (result) {
+    if (result != null) {
       await firebaseFirestore
           .collection('cattle')
-          .doc(mapCattle['id'])
+          .doc(result)
           .update({
             'breastfeeding': cattle.breastfeeding,
             'observations': cattle.observations,
@@ -71,9 +70,9 @@ class MainRepositoryImpl implements MainRepository {
 
   //canWean == pode desmamar?
   @override
-  Future<bool> canWean({required CattleModel cattle}) async {
+  Future<String?> canWean({required CattleModel cattle}) async {
     Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
-    bool canWean = false;
+    String? refenceId;
 
     try {
       await firebaseFirestore
@@ -83,15 +82,14 @@ class MainRepositoryImpl implements MainRepository {
           .get()
           .then((QuerySnapshot querySnapshot) {
         for (var doc in querySnapshot.docs) {
-          canWean = true;
-          debugPrint(doc.reference.toString());
+          refenceId = doc.reference.id.toString();
         }
       });
 
-      return canWean;
+      return refenceId;
     } catch (e) {
       debugPrint('message error Desmamar');
-      return canWean;
+      return null;
     }
   }
 
@@ -99,12 +97,12 @@ class MainRepositoryImpl implements MainRepository {
   Future<bool> updateVenda(CattleModel cattle) async {
     Map<String, dynamic> mapCattle = cattle.toFirebaseMapVendas();
 
-    bool result = await deleteCattle(cattle: cattle);
+    String? result = await deleteCattle(cattle: cattle);
 
-    if (result) {
+    if (result != null) {
       await firebaseFirestore
           .collection('vendas')
-          .doc(mapCattle['id'])
+          .doc(result)
           .set(mapCattle)
           .then((value) => debugPrint('Success Venda'))
           .catchError(
@@ -118,9 +116,9 @@ class MainRepositoryImpl implements MainRepository {
   }
 
   @override
-  Future<bool> deleteCattle({required CattleModel cattle}) async {
+  Future<String?> deleteCattle({required CattleModel cattle}) async {
     Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
-    bool salePermission = false;
+    String? refenceId;
 
     try {
       await firebaseFirestore
@@ -130,15 +128,15 @@ class MainRepositoryImpl implements MainRepository {
           .get()
           .then((QuerySnapshot querySnapshot) {
         for (var doc in querySnapshot.docs) {
-          salePermission = true;
+          refenceId = doc.reference.id.toString();
           doc.reference.delete();
         }
       });
 
-      return salePermission;
+      return refenceId;
     } catch (e) {
       debugPrint('message error Delecao');
-      return salePermission;
+      return null;
     }
   }
 

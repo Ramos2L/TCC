@@ -240,7 +240,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                 color: context.colors.error,
                               ),
                             ),
-                            keyboardType: TextInputType.text,
+                            keyboardType: TextInputType.number,
                             obscureText: false,
                             suffixIcon: const Icon(Icons.app_registration_rounded),
                             validator: Validatorless.multiple(
