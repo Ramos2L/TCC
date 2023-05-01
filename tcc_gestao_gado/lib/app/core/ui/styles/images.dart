@@ -24,10 +24,9 @@ class Images {
   String get precoArroba => "assets/images/precoarroba.png";
   String get vendas => "assets/images/vendas.png";
   String get relatorio => "assets/images/relatorio.png";
-  String get informacao => "assets/images/informacao.jpg";
+  String get informacao => "assets/images/informacao.png";
   String get buscar => "assets/images/buscar.png";
   String get pasto => "assets/images/pasto.png";
-  String get example => "assets/images/example.png";
   String get ufmt => "assets/images/ufmt.png";
 }
 

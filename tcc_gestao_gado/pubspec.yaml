@@ -86,10 +86,9 @@ flutter:
     - assets/images/precoarroba.png
     - assets/images/vendas.png
     - assets/images/relatorio.png
-    - assets/images/informacao.jpg
+    - assets/images/informacao.png
     - assets/images/buscar.png
     - assets/images/pasto.png
-    - assets/images/example.png
     - assets/images/ufmt.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
