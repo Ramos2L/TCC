@@ -30,6 +30,7 @@ import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/desmama/desm
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/dicas/dicas_manejo_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/dicas/dicas_manejo_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/pesagem/pesagem_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/pesagem/pesagem_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/pasto/pasto_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/pasto/pasto_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/preco_arroba/preco_arroba_page.dart';
@@ -54,7 +55,7 @@ class AppRoutes {
     RegisterPage.routeName: (context) => const RegisterRoute(),
     HomePage.routeName: (context) => const HomeRoute(),
     ManejoPage.routeName: (context) => const ManejoRoute(),
-    PesagemPage.routeName: (context) => const PesagemPage(),
+    PesagemPage.routeName: (context) => const PesagemRoute(),
     DesmamaPage.routeName: (context) => const DesmamaRoute(),
     DescartePage.routeName: (context) => const DescartePage(),
     DicasManejoPage.routeName: (context) => const DicasManejoRoute(),

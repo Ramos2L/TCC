@@ -5,37 +5,20 @@ import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/button.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/custom_text_field.dart';
 import 'package:tcc_gestao_gado/app/core/ui/widgets/drawer_menu.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/pesagem/presenter/pesagem_presenter.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/pesagem/view/pesagem_view_impl.dart';
 import 'package:validatorless/validatorless.dart';
 
 class PesagemPage extends StatefulWidget {
   static const routeName = '/pesagem';
-  const PesagemPage({Key? key}) : super(key: key);
+  final PesagemPresenter presenter;
+  const PesagemPage({Key? key, required this.presenter}) : super(key: key);
 
   @override
   State<PesagemPage> createState() => _PesagemPageState();
 }
 
-class _PesagemPageState extends State<PesagemPage> {
-  DateTime dateTime = DateTime.now();
-  String date = '';
-  final TextEditingController dateController = TextEditingController();
-
-  void _showDatePicker() async {
-    await showDatePicker(
-      context: context,
-      locale: const Locale("pt"),
-      initialDate: DateTime.now(),
-      firstDate: DateTime(1950),
-      lastDate: DateTime(2100),
-    ).then((value) {
-      setState(() {
-        dateTime = value!;
-        //print(value);
-      });
-      return null;
-    });
-  }
-
+class _PesagemPageState extends PesagemViewImpl {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,7 +58,7 @@ class _PesagemPageState extends State<PesagemPage> {
                         ),
                         const SizedBox(height: 25),
                         GestureDetector(
-                          onTap: _showDatePicker,
+                          onTap: showDatePickerFunc,
                           child: CustomTextField(
                             controller: dateController,
                             enabled: false,
@@ -103,7 +86,7 @@ class _PesagemPageState extends State<PesagemPage> {
                         ),
                         const SizedBox(height: 25),
                         CustomTextField(
-                          //controller: ,
+                          controller: numberAnimalController,
                           hintText: 'Código do animal',
                           labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
@@ -123,7 +106,7 @@ class _PesagemPageState extends State<PesagemPage> {
                         ),
                         const SizedBox(height: 25),
                         CustomTextField(
-                          //controller: ,
+                          controller: weigthController,
                           hintText: 'Peso do animal (kg)',
                           labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
@@ -141,7 +124,7 @@ class _PesagemPageState extends State<PesagemPage> {
                         ),
                         const SizedBox(height: 25),
                         CustomTextField(
-                          //controller: ,
+                          controller: observationsController,
                           hintText: 'Observações (optativo)',
                           labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
@@ -173,6 +156,7 @@ class _PesagemPageState extends State<PesagemPage> {
                     child: Button.primary(
                       label: 'SALVAR',
                       onPressed: () {
+                        registerPesagem();
                         //Navigator.pushNamed(context, '/home');
                       },
                     ),
@@ -183,6 +167,15 @@ class _PesagemPageState extends State<PesagemPage> {
           ],
         ),
       ),
+    );
+  }
+
+  void registerPesagem() {
+    widget.presenter.updatePesagem(
+      date: DateFormat("dd/MM/yyyy").format(dateTime),
+      numberAnimal: numberAnimalController.text,
+      weigth: weigthController.text,
+      oberservations: observationsController.text,
     );
   }
 }

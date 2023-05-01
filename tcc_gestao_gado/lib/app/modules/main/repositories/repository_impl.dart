@@ -46,6 +46,56 @@ class MainRepositoryImpl implements MainRepository {
   }
 
   @override
+  Future<bool> updateWeighing({required CattleModel cattle}) async {
+    String? result = await canWeighing(cattle: cattle);
+
+    if (result != null) {
+      await firebaseFirestore
+          .collection('cattle')
+          .doc(result)
+          .update({
+            'date': cattle.date,
+            'id': cattle.id,
+            'weightCattle': cattle.weightCattle,
+            'observations': cattle.observations,
+          })
+          .then((value) => debugPrint('Success Pesagem'))
+          .catchError(
+            (onError) => debugPrint('message error'),
+          );
+      return true;
+    } else {
+      debugPrint('Nao foi possivel realizar a Desmama');
+      return false;
+    }
+  }
+
+  @override
+  Future<String?> canWeighing({required CattleModel cattle}) async {
+    Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
+
+    String? referenceId;
+
+    try {
+      await firebaseFirestore
+          .collection('cattle')
+          .where("idUser", isEqualTo: mapCattle['idUser'])
+          .where("id", isEqualTo: mapCattle['id'])
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        for (var doc in querySnapshot.docs) {
+          referenceId = doc.reference.id.toString();
+        }
+      });
+
+      return referenceId;
+    } catch (e) {
+      debugPrint('Message error Pesagem');
+      return null;
+    }
+  }
+
+  @override
   Future<bool> updateBreastfeeding({required CattleModel cattle}) async {
     String? result = await canWean(cattle: cattle);
 
@@ -72,7 +122,7 @@ class MainRepositoryImpl implements MainRepository {
   @override
   Future<String?> canWean({required CattleModel cattle}) async {
     Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
-    String? refenceId;
+    String? referenceId;
 
     try {
       await firebaseFirestore
@@ -82,11 +132,11 @@ class MainRepositoryImpl implements MainRepository {
           .get()
           .then((QuerySnapshot querySnapshot) {
         for (var doc in querySnapshot.docs) {
-          refenceId = doc.reference.id.toString();
+          referenceId = doc.reference.id.toString();
         }
       });
 
-      return refenceId;
+      return referenceId;
     } catch (e) {
       debugPrint('message error Desmamar');
       return null;
