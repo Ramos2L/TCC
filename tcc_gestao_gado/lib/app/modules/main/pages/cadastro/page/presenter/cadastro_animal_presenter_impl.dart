@@ -35,6 +35,15 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
     String? type,
     String? observationsController,
   }) async {
+    String? sexAnimal;
+
+    if ((type == "Vaca" || type == "Novilha")) {
+      sexAnimal = "femea";
+    }
+    if ((type == "Boi" || type == "Touro")) {
+      sexAnimal = "macho";
+    }
+
     CattleModel cattleModel = CattleModel();
 
     final firebaseAuth = FirebaseAuth.instance;
@@ -45,7 +54,7 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
       cattleModel = cattleModel.copyWith(
         id: numberController,
         idUser: currentUser.uid,
-        sex: gender ?? "",
+        sex: gender ?? sexAnimal,
         quite: quite ?? "Compra",
         breastfeeding: breastfeedingOption,
         numberFather: numberFatherController,

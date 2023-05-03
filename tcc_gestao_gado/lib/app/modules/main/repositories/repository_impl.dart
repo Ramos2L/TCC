@@ -125,37 +125,42 @@ class MainRepositoryImpl implements MainRepository {
 
   @override
   Future<bool> updateBreastfeeding({required CattleModel cattle}) async {
-    String? result = await canWean(cattle: cattle);
-    String? sex;
+    try {
+      String? result = await canWean(cattle: cattle);
+      String? sex;
 
-    var cattleModel = await consultCattle(
-      id: cattle.id.toString(),
-      idUser: cattle.idUser.toString(),
-    );
+      var cattleModel = await consultCattle(
+        id: cattle.id.toString(),
+        idUser: cattle.idUser.toString(),
+      );
 
-    //Sempre será null o sexo, porém, a verificação é caso acontece algum cadastro errado
-    //ou desatualizado
+      //Sempre será null o sexo, porém, a verificação é caso acontece algum cadastro errado
+      //ou desatualizado
 
-    if (result != null && cattleModel.sex != null) {
-      if (cattleModel.sex == "macho") {
-        sex = "Touro";
-      } else if (cattleModel.sex == "femea") {
-        sex = "Novilha";
+      if (result != null && cattleModel.sex != null) {
+        if (cattleModel.sex == "macho") {
+          sex = "Touro";
+        } else if (cattleModel.sex == "femea") {
+          sex = "Novilha";
+        }
+        await firebaseFirestore
+            .collection('cattle')
+            .doc(result)
+            .update({
+              'breastfeeding': cattle.breastfeeding,
+              'observations': cattle.observations,
+              'type': sex,
+            })
+            .then((value) => debugPrint('Success Desmama'))
+            .catchError(
+              (onError) => debugPrint('message error'),
+            );
+        return true;
+      } else {
+        debugPrint('Nao foi possivel realizar a Desmama');
+        return false;
       }
-      await firebaseFirestore
-          .collection('cattle')
-          .doc(result)
-          .update({
-            'breastfeeding': cattle.breastfeeding,
-            'observations': cattle.observations,
-            'type': sex,
-          })
-          .then((value) => debugPrint('Success Desmama'))
-          .catchError(
-            (onError) => debugPrint('message error'),
-          );
-      return true;
-    } else {
+    } catch (e) {
       debugPrint('Nao foi possivel realizar a Desmama');
       return false;
     }

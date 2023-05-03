@@ -104,6 +104,7 @@ class _DesmamaPageState extends DesmamaViewImpl {
                             ),
                           ),
                           keyboardType: TextInputType.number,
+                          textInputAction: TextInputAction.next,
                           obscureText: false,
                           suffixIcon: const Icon(Icons.app_registration_rounded),
                           // onFieldSubmitted: (_) {
@@ -119,6 +120,7 @@ class _DesmamaPageState extends DesmamaViewImpl {
                             errorStyle: TextStyle(fontSize: 14, color: context.colors.error),
                           ),
                           keyboardType: TextInputType.text,
+                          textInputAction: TextInputAction.done,
                           obscureText: false,
                           onFieldSubmitted: (_) => registerBreastfeeding(),
                         ),
