@@ -96,13 +96,11 @@ class _PesagemPageState extends PesagemViewImpl {
                             ),
                           ),
                           keyboardType: TextInputType.number,
+                          textInputAction: TextInputAction.next,
                           obscureText: false,
                           suffixIcon: const Icon(
                             Icons.app_registration_rounded,
                           ),
-                          // onFieldSubmitted: (_) {
-                          //   FocusScope.of(context).requestFocus(phoneNode);
-                          // },
                         ),
                         const SizedBox(height: 25),
                         CustomTextField(
@@ -118,9 +116,7 @@ class _PesagemPageState extends PesagemViewImpl {
                           keyboardType: TextInputType.number,
                           obscureText: false,
                           suffixIcon: const Icon(Icons.balance),
-                          // onFieldSubmitted: (_) {
-                          //   FocusScope.of(context).requestFocus(phoneNode);
-                          // },
+                          textInputAction: TextInputAction.next,
                         ),
                         const SizedBox(height: 25),
                         CustomTextField(
@@ -134,10 +130,9 @@ class _PesagemPageState extends PesagemViewImpl {
                             ),
                           ),
                           keyboardType: TextInputType.text,
+                          textInputAction: TextInputAction.done,
                           obscureText: false,
-                          // onFieldSubmitted: (_) {
-                          //   FocusScope.of(context).requestFocus(phoneNode);
-                          // },
+                          onFieldSubmitted: (_) => registerPesagem(),
                         ),
                         const SizedBox(height: 25),
                       ],
@@ -155,10 +150,7 @@ class _PesagemPageState extends PesagemViewImpl {
                     padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                     child: Button.primary(
                       label: 'SALVAR',
-                      onPressed: () {
-                        registerPesagem();
-                        //Navigator.pushNamed(context, '/home');
-                      },
+                      onPressed: () => registerPesagem(),
                     ),
                   ),
                 ],
