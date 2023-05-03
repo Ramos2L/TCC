@@ -39,8 +39,8 @@ class _ConsultaPageState extends ConsultaViewImpl {
                         Text(
                           'Consultar animais',
                           style: context.textStyles.textMedium.copyWith(
-                            color: context.colors.onPrimary,
                             fontSize: 20,
+                            color: context.colors.onPrimary,
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
@@ -66,9 +66,7 @@ class _ConsultaPageState extends ConsultaViewImpl {
                           keyboardType: TextInputType.number,
                           obscureText: false,
                           suffixIcon: const Icon(Icons.search),
-                          // onFieldSubmitted: (_) {
-                          //   FocusScope.of(context).requestFocus(phoneNode);
-                          // },
+                          onFieldSubmitted: (_) => consult(),
                         ),
                         const SizedBox(height: 20),
                         cattleAnimal.isNotEmpty
@@ -140,13 +138,7 @@ class _ConsultaPageState extends ConsultaViewImpl {
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-                    child: Button.primary(
-                      label: 'BUSCAR',
-                      onPressed: () async {
-                        await widget.presenter.getCattle(idCattle: codAnimalController.text);
-                        setState(() {});
-                      },
-                    ),
+                    child: Button.primary(label: 'BUSCAR', onPressed: () async => consult()),
                   ),
                 ],
               ),
@@ -155,5 +147,10 @@ class _ConsultaPageState extends ConsultaViewImpl {
         ),
       ),
     );
+  }
+
+  void consult() async {
+    await widget.presenter.getCattle(idCattle: codAnimalController.text);
+    setState(() {});
   }
 }
