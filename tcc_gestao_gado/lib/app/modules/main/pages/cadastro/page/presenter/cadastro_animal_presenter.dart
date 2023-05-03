@@ -13,6 +13,7 @@ abstract class CadastroAnimalPresenter extends GestaoGadoPresenter<CadastroAnima
     String? numberFatherController,
     String? weightController,
     String? dropdownValue,
+    String? type,
     String? observationsController,
   });
 }

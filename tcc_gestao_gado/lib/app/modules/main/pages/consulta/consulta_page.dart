@@ -78,6 +78,10 @@ class _ConsultaPageState extends ConsultaViewImpl {
                                   ),
                                   ListTileWidget(
                                     title: 'Data de cadastro:',
+                                    subtitle: '${cattleAnimal[0].type}',
+                                  ),
+                                  ListTileWidget(
+                                    title: 'Data de cadastro:',
                                     subtitle: '${cattleAnimal[0].date}',
                                   ),
                                   cattleAnimal[0].sex != ""

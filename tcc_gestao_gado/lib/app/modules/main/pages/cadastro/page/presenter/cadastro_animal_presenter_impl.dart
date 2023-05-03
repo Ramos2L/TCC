@@ -9,9 +9,8 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
   late CadastroAnimalView _view;
 
   final MainRepository mainRepository;
-  final CattleModel cattleModel;
 
-  CadastroAnimalPresenterImpl({required this.mainRepository, required this.cattleModel});
+  CadastroAnimalPresenterImpl({required this.mainRepository});
 
   @override
   Future<void> getListRaca() async {
@@ -33,6 +32,7 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
     String? numberFatherController,
     String? weightController,
     String? dropdownValue,
+    String? type,
     String? observationsController,
   }) async {
     CattleModel cattleModel = CattleModel();
@@ -53,6 +53,7 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
         weightCattle: weightController,
         date: dateController,
         race: dropdownValue,
+        type: type,
         observations: observationsController,
         price: "",
       );

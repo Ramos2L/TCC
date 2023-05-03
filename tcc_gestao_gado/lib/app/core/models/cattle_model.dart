@@ -14,6 +14,7 @@ class CattleModel {
   final String? date;
   final String? weightCattle;
   final String? race;
+  final String? type;
   final String? observations;
   final String? price;
 
@@ -28,6 +29,7 @@ class CattleModel {
     this.date,
     this.weightCattle,
     this.race,
+    this.type,
     this.observations,
     this.price,
   });
@@ -43,6 +45,7 @@ class CattleModel {
     String? date,
     String? weightCattle,
     String? race,
+    String? type,
     String? observations,
     String? price,
   }) {
@@ -57,6 +60,7 @@ class CattleModel {
       date: date ?? this.date,
       weightCattle: weightCattle ?? this.weightCattle,
       race: race ?? this.race,
+      type: type ?? this.type,
       observations: observations ?? this.observations,
       price: price ?? this.price,
     );
@@ -75,6 +79,7 @@ class CattleModel {
     map['date'] = date;
     map['weightCattle'] = weightCattle;
     map['race'] = race;
+    map['type'] = type;
     map['observations'] = observations;
     map['price'] = price;
 
@@ -106,6 +111,7 @@ class CattleModel {
       'date': date,
       'weightCattle': weightCattle,
       'race': race,
+      'type': type,
       'observations': observations,
       'price': price,
     };
@@ -123,6 +129,7 @@ class CattleModel {
       date: map['date'] as String,
       weightCattle: map['weightCattle'] as String,
       race: map['race'] as String,
+      type: map['type'] as String,
       observations: map['observations'] as String,
       price: map['price'] as String,
     );
@@ -135,6 +142,6 @@ class CattleModel {
 
   @override
   String toString() {
-    return 'CattleModel(id: $id, idUser: $idUser, sex: $sex, quite: $quite, breastfeeding: $breastfeeding, numberFather: $numberFather, numberMother: $numberMother, date: $date, weightCattle: $weightCattle, race: $race, observations: $observations, price: $price)';
+    return 'CattleModel(id: $id, idUser: $idUser, sex: $sex, quite: $quite, breastfeeding: $breastfeeding, numberFather: $numberFather, numberMother: $numberMother, date: $date, weightCattle: $weightCattle, race: $race, type: $type, observations: $observations, price: $price)';
   }
 }

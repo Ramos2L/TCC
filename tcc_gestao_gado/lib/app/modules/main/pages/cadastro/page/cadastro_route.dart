@@ -12,7 +12,7 @@ class CadastroAnimalRoute extends FlutterGetItPageRoute {
   @override
   List<Bind<Object>> get bindings => [
         Bind.lazySingleton<CadastroAnimalPresenter>(
-            (i) => CadastroAnimalPresenterImpl(mainRepository: i(), cattleModel: i())),
+            (i) => CadastroAnimalPresenterImpl(mainRepository: i())),
         Bind.lazySingleton<MainRepository>((i) => MainRepositoryImpl(firebaseFirestore: i())),
       ];
 

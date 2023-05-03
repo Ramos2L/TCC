@@ -379,7 +379,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                             keyboardType: TextInputType.text,
                             textInputAction: TextInputAction.done,
                             obscureText: false,
-                            onFieldSubmitted: (_) => registerCattle(),
+                            onFieldSubmitted: (_) => registerCattle(args.animal),
                           ),
                           const SizedBox(height: 25),
                         ],
@@ -395,7 +395,10 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-                      child: Button.primary(label: 'SALVAR', onPressed: () => registerCattle()),
+                      child: Button.primary(
+                        label: 'SALVAR',
+                        onPressed: () => registerCattle(args.animal),
+                      ),
                     ),
                   ],
                 ),
@@ -407,7 +410,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
     );
   }
 
-  void registerCattle() {
+  void registerCattle(String animalType) {
     if (formKey.currentState!.validate() && dropdownValue != null) {
       widget.presenter.registerCattle(
         gender: gender,
@@ -419,6 +422,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
         numberFatherController: numberFatherController.text,
         weightController: weightController.text,
         dropdownValue: dropdownValue,
+        type: animalType,
         observationsController: observationsController.text,
       );
     } else {
