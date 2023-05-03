@@ -57,6 +57,14 @@ class _DesmamaPageState extends DesmamaViewImpl {
                           ),
                         ),
                         const SizedBox(height: 25),
+                        Text(
+                          'Quando se faz a desmama do animal, ele passa a ser "Novilha" caso sexo fêmea ou "Touro" caso macho.',
+                          style: context.textStyles.textMedium.copyWith(
+                            color: context.colors.onPrimary,
+                            fontSize: 20,
+                          ),
+                        ),
+                        const SizedBox(height: 25),
                         GestureDetector(
                           onTap: showDatePickerFunc,
                           child: CustomTextField(
@@ -108,16 +116,11 @@ class _DesmamaPageState extends DesmamaViewImpl {
                           hintText: 'Observações (optativo)',
                           labelStyle: TextStyle(color: context.colors.background),
                           inputDecoration: InputDecoration(
-                            errorStyle: TextStyle(
-                              fontSize: 14,
-                              color: context.colors.error,
-                            ),
+                            errorStyle: TextStyle(fontSize: 14, color: context.colors.error),
                           ),
                           keyboardType: TextInputType.text,
                           obscureText: false,
-                          // onFieldSubmitted: (_) {
-                          //   FocusScope.of(context).requestFocus(phoneNode);
-                          // },
+                          onFieldSubmitted: (_) => registerBreastfeeding(),
                         ),
                         const SizedBox(height: 25),
                       ],
@@ -136,10 +139,7 @@ class _DesmamaPageState extends DesmamaViewImpl {
                     padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                     child: Button.primary(
                       label: 'SALVAR',
-                      onPressed: () {
-                        registerBreastfeeding();
-                        //Navigator.pushNamed(context, '/home');
-                      },
+                      onPressed: () => registerBreastfeeding(),
                     ),
                   ),
                 ],

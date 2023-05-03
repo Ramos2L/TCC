@@ -35,8 +35,8 @@ class _ManejoPageState extends ManejoViewImpl {
                 Text(
                   'Manejo dos animais',
                   style: context.textStyles.textMedium.copyWith(
-                    color: context.colors.onPrimary,
                     fontSize: 20,
+                    color: context.colors.onPrimary,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -47,14 +47,12 @@ class _ManejoPageState extends ManejoViewImpl {
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
                       fontSize: 20,
+                      color: context.colors.primary,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {
-                    Navigator.pushNamed(context, '/pesagem');
-                  },
+                  onTap: () => Navigator.pushNamed(context, '/pesagem'),
                 ),
                 const SizedBox(height: 15),
                 GestureDetector(
@@ -63,14 +61,12 @@ class _ManejoPageState extends ManejoViewImpl {
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
                       fontSize: 20,
+                      color: context.colors.primary,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {
-                    Navigator.pushNamed(context, '/desmama');
-                  },
+                  onTap: () => Navigator.pushNamed(context, '/desmama'),
                 ),
                 const SizedBox(height: 15),
                 GestureDetector(
@@ -79,13 +75,27 @@ class _ManejoPageState extends ManejoViewImpl {
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
                       fontSize: 20,
+                      color: context.colors.primary,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  onTap: () => Navigator.pushNamed(context, '/descarte'),
+                ),
+                const SizedBox(height: 15),
+                GestureDetector(
+                  child: ContainerWidget(
+                    title: 'Alterar animal',
+                    height: 75,
+                    width: MediaQuery.of(context).size.width,
+                    style: context.textStyles.textMedium.copyWith(
+                      fontSize: 20,
+                      color: context.colors.primary,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   onTap: () {
-                    Navigator.pushNamed(context, '/descarte');
+                    //Navigator.pushNamed(context, '/dicas-manejo');
                   },
                 ),
                 const SizedBox(height: 15),
@@ -95,14 +105,12 @@ class _ManejoPageState extends ManejoViewImpl {
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
                       fontSize: 20,
+                      color: context.colors.primary,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {
-                    Navigator.pushNamed(context, '/dicas-manejo');
-                  },
+                  onTap: () => Navigator.pushNamed(context, '/dicas-manejo'),
                 ),
               ],
             ),
