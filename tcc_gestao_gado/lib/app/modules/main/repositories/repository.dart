@@ -5,7 +5,8 @@ import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/dicas/model/
 
 abstract class MainRepository {
   Future<List<RacaModel>> findRaces();
-  Future<void> update(CattleModel cattle);
+  Future<bool> update(CattleModel cattle);
+  Future<String?> checkId({required String? id, required String? idUser});
   Future<bool> updateVenda(CattleModel cattle);
   Future<bool> updateWeighing({required CattleModel cattle});
   Future<String?> canWeighing({required CattleModel cattle});

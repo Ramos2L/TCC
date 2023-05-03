@@ -60,6 +60,11 @@ abstract class CadastroAnimalViewImpl extends State<CadastroAnimalPage>
   }
 
   @override
+  void errorRegister() {
+    showCustomSnackBar('Código já utilizado por outro animal!');
+  }
+
+  @override
   Future<void> getShowListRaca(List<RacaModel> raca) async {
     list.clear();
     for (int i = 0; i < raca[0].nome!.length; i++) {

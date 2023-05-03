@@ -4,4 +4,5 @@ abstract class CadastroAnimalView {
   void showDatePickerFunc();
   Future<void> getShowListRaca(List<RacaModel> raca);
   void successRegister();
+  void errorRegister();
 }

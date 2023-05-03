@@ -56,9 +56,12 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
         observations: observationsController,
         price: "",
       );
-      await mainRepository.update(cattleModel);
-
-      _view.successRegister();
+      bool success = await mainRepository.update(cattleModel);
+      if (success) {
+        _view.successRegister();
+      } else {
+        _view.errorRegister();
+      }
     }
 
     return true;

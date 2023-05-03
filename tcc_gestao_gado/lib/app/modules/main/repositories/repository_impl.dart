@@ -31,18 +31,46 @@ class MainRepositoryImpl implements MainRepository {
   }
 
   @override
-  Future<void> update(CattleModel cattle) async {
+  Future<bool> update(CattleModel cattle) async {
     Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
 
-    await firebaseFirestore
-        .collection('cattle')
-        //.doc(mapCattle['id'])
-        .doc()
-        .set(mapCattle)
-        .then((value) => debugPrint('Success'))
-        .catchError(
-          (onError) => debugPrint('message error'),
-        );
+    String? idCheck = await checkId(id: cattle.id, idUser: cattle.idUser);
+    if (idCheck == null) {
+      await firebaseFirestore
+          .collection('cattle')
+          .doc()
+          .set(mapCattle)
+          .then((value) => debugPrint('Success'))
+          .catchError(
+            (onError) => debugPrint('message error'),
+          );
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  @override
+  Future<String?> checkId({required String? id, required String? idUser}) async {
+    String? idCheck;
+
+    try {
+      await firebaseFirestore
+          .collection('cattle')
+          .where("idUser", isEqualTo: idUser)
+          .where("id", isEqualTo: id)
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        for (var doc in querySnapshot.docs) {
+          idCheck = doc.reference.id.toString();
+        }
+      });
+
+      return idCheck;
+    } catch (e) {
+      debugPrint('Message error Pesagem');
+      return null;
+    }
   }
 
   @override
