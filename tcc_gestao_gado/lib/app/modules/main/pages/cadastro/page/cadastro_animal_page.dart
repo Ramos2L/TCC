@@ -55,8 +55,8 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                           Text(
                             'Cadastro dos animais',
                             style: context.textStyles.textMedium.copyWith(
-                              color: context.colors.onPrimary,
                               fontSize: 20,
+                              color: context.colors.onPrimary,
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),
@@ -70,8 +70,8 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                         Text(
                                           'Sexo:',
                                           style: context.textStyles.textMedium.copyWith(
-                                            color: context.colors.onPrimary,
                                             fontSize: 20,
+                                            color: context.colors.onPrimary,
                                             overflow: TextOverflow.ellipsis,
                                           ),
                                         ),
@@ -81,17 +81,15 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                             title: Text(
                                               'Macho',
                                               style: context.textStyles.textMedium.copyWith(
-                                                color: context.colors.onPrimary,
                                                 fontSize: 16,
+                                                color: context.colors.onPrimary,
                                                 overflow: TextOverflow.ellipsis,
                                               ),
                                             ),
                                             value: "macho",
                                             groupValue: gender,
                                             onChanged: (value) {
-                                              setState(() {
-                                                gender = value.toString();
-                                              });
+                                              setState(() => gender = value.toString());
                                             },
                                           ),
                                         ),
@@ -101,17 +99,15 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                             title: Text(
                                               'Fêmea',
                                               style: context.textStyles.textMedium.copyWith(
-                                                color: context.colors.onPrimary,
                                                 fontSize: 16,
+                                                color: context.colors.onPrimary,
                                                 overflow: TextOverflow.ellipsis,
                                               ),
                                             ),
                                             value: "femea",
                                             groupValue: gender,
                                             onChanged: (value) {
-                                              setState(() {
-                                                gender = value.toString();
-                                              });
+                                              setState(() => gender = value.toString());
                                             },
                                           ),
                                         ),
@@ -123,8 +119,8 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                         Text(
                                           'Meio:',
                                           style: context.textStyles.textMedium.copyWith(
-                                            color: context.colors.onPrimary,
                                             fontSize: 20,
+                                            color: context.colors.onPrimary,
                                             overflow: TextOverflow.ellipsis,
                                           ),
                                         ),
@@ -134,17 +130,15 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                             title: Text(
                                               'Compra',
                                               style: context.textStyles.textMedium.copyWith(
-                                                color: context.colors.onPrimary,
                                                 fontSize: 16,
+                                                color: context.colors.onPrimary,
                                                 overflow: TextOverflow.ellipsis,
                                               ),
                                             ),
                                             value: "Compra",
                                             groupValue: quite,
                                             onChanged: (value) {
-                                              setState(() {
-                                                quite = value.toString();
-                                              });
+                                              setState(() => quite = value.toString());
                                             },
                                           ),
                                         ),
@@ -154,17 +148,15 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                             title: Text(
                                               'Nascimento',
                                               style: context.textStyles.textMedium.copyWith(
-                                                color: context.colors.onPrimary,
                                                 fontSize: 16,
+                                                color: context.colors.onPrimary,
                                                 overflow: TextOverflow.ellipsis,
                                               ),
                                             ),
                                             value: "Nascimento",
                                             groupValue: quite,
                                             onChanged: (value) {
-                                              setState(() {
-                                                quite = value.toString();
-                                              });
+                                              setState(() => quite = value.toString());
                                             },
                                           ),
                                         ),
@@ -177,8 +169,8 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                               Text(
                                                 'Amamentando:',
                                                 style: context.textStyles.textMedium.copyWith(
-                                                  color: context.colors.onPrimary,
                                                   fontSize: 20,
+                                                  color: context.colors.onPrimary,
                                                   overflow: TextOverflow.ellipsis,
                                                 ),
                                               ),
@@ -188,8 +180,8 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                                   title: Text(
                                                     'Sim',
                                                     style: context.textStyles.textMedium.copyWith(
-                                                      color: context.colors.onPrimary,
                                                       fontSize: 16,
+                                                      color: context.colors.onPrimary,
                                                       overflow: TextOverflow.ellipsis,
                                                     ),
                                                   ),
@@ -209,8 +201,8 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                                   title: Text(
                                                     'Não',
                                                     style: context.textStyles.textMedium.copyWith(
-                                                      color: context.colors.onPrimary,
                                                       fontSize: 16,
+                                                      color: context.colors.onPrimary,
                                                       overflow: TextOverflow.ellipsis,
                                                     ),
                                                   ),
@@ -241,6 +233,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                               ),
                             ),
                             keyboardType: TextInputType.number,
+                            textInputAction: TextInputAction.next,
                             obscureText: false,
                             suffixIcon: const Icon(Icons.app_registration_rounded),
                             validator: Validatorless.multiple(
@@ -248,9 +241,6 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                 Validatorless.required("Campo obrigatório"),
                               ],
                             ),
-                            // onFieldSubmitted: (_) {
-                            //   FocusScope.of(context).requestFocus(phoneNode);
-                            // },
                           ),
                           const SizedBox(height: 25),
                           GestureDetector(
@@ -277,9 +267,6 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                               //     Validatorless.required("Campo obrigatório"),
                               //   ],
                               //),
-                              // onFieldSubmitted: (_) {
-                              //   FocusScope.of(context).requestFocus(phoneNode);
-                              // },
                             ),
                           ),
                           const SizedBox(height: 25),
@@ -297,6 +284,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                         ),
                                       ),
                                       keyboardType: TextInputType.number,
+                                      textInputAction: TextInputAction.next,
                                       obscureText: false,
                                       suffixIcon: const Icon(Icons.app_registration_rounded),
 
@@ -316,6 +304,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                         ),
                                       ),
                                       keyboardType: TextInputType.number,
+                                      textInputAction: TextInputAction.next,
                                       obscureText: false,
                                       suffixIcon: const Icon(Icons.app_registration_rounded),
                                       // onFieldSubmitted: (_) {
@@ -337,6 +326,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                               ),
                             ),
                             keyboardType: TextInputType.number,
+                            textInputAction: TextInputAction.next,
                             obscureText: false,
                             suffixIcon: const Icon(Icons.balance),
                             validator: Validatorless.multiple(
@@ -344,9 +334,6 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                 Validatorless.required("Campo obrigatório"),
                               ],
                             ),
-                            // onFieldSubmitted: (_) {
-                            //   FocusScope.of(context).requestFocus(phoneNode);
-                            // },
                           ),
                           const SizedBox(height: 25),
                           Container(
@@ -367,9 +354,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                 style: TextStyle(color: context.colors.secondary, fontSize: 16),
                                 underline: Container(height: 0),
                                 onChanged: (String? value) {
-                                  setState(() {
-                                    dropdownValue = value!;
-                                  });
+                                  setState(() => dropdownValue = value!);
                                 },
                                 items: list.map<DropdownMenuItem<String>>((String value) {
                                   return DropdownMenuItem<String>(
@@ -392,10 +377,9 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                               ),
                             ),
                             keyboardType: TextInputType.text,
+                            textInputAction: TextInputAction.done,
                             obscureText: false,
-                            // onFieldSubmitted: (_) {
-                            //   FocusScope.of(context).requestFocus(phoneNode);
-                            // },
+                            onFieldSubmitted: (_) => registerCattle(),
                           ),
                           const SizedBox(height: 25),
                         ],
@@ -411,22 +395,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-                      child: Button.primary(
-                        label: 'SALVAR',
-                        onPressed: () {
-                          if (formKey.currentState!.validate() && dropdownValue != null) {
-                            registerCattle();
-                          } else {
-                            //MENSAGEM DE ERRO
-                            if (dropdownValue == null) {
-                              showCustomSnackBar("Por favor, escolha a raça!");
-                            } else {
-                              showCustomSnackBar("Opss! Algo deu errado");
-                            }
-                          }
-                          //Navigator.pushNamed(context, '/home');
-                        },
-                      ),
+                      child: Button.primary(label: 'SALVAR', onPressed: () => registerCattle()),
                     ),
                   ],
                 ),
@@ -439,17 +408,26 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
   }
 
   void registerCattle() {
-    widget.presenter.registerCattle(
-      gender: gender,
-      quite: quite,
-      breastfeedingOption: breastfeedingOption,
-      numberController: numberController.text,
-      dateController: DateFormat("dd/MM/yyyy").format(dateTime),
-      numberMotherController: numberMotherController.text,
-      numberFatherController: numberFatherController.text,
-      weightController: weightController.text,
-      dropdownValue: dropdownValue,
-      observationsController: observationsController.text,
-    );
+    if (formKey.currentState!.validate() && dropdownValue != null) {
+      widget.presenter.registerCattle(
+        gender: gender,
+        quite: quite,
+        breastfeedingOption: breastfeedingOption,
+        numberController: numberController.text,
+        dateController: DateFormat("dd/MM/yyyy").format(dateTime),
+        numberMotherController: numberMotherController.text,
+        numberFatherController: numberFatherController.text,
+        weightController: weightController.text,
+        dropdownValue: dropdownValue,
+        observationsController: observationsController.text,
+      );
+    } else {
+      //MENSAGEM DE ERRO
+      if (dropdownValue == null) {
+        showCustomSnackBar("Por favor, escolha a raça!");
+      } else {
+        showCustomSnackBar("Opss! Algo deu errado");
+      }
+    }
   }
 }
