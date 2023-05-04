@@ -8,6 +8,7 @@ abstract class MainRepository {
   Future<bool> update(CattleModel cattle);
   Future<String?> checkId({required String? id, required String? idUser});
   Future<bool> updateVenda(CattleModel cattle);
+  Future<bool> updateDeath(CattleModel cattle);
   Future<bool> updateWeighing({required CattleModel cattle});
   Future<String?> canWeighing({required CattleModel cattle});
   Future<bool> updateBreastfeeding({required CattleModel cattle});

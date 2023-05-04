@@ -214,6 +214,32 @@ class MainRepositoryImpl implements MainRepository {
   }
 
   @override
+  Future<bool> updateDeath(CattleModel cattle) async {
+    Map<String, dynamic> mapCattle = cattle.toFirebaseMapVendas();
+
+    String? result = await deleteCattle(cattle: cattle);
+
+    if (result != null) {
+      await firebaseFirestore
+          .collection('mortes')
+          .doc(result)
+          .set({
+            'date': cattle.date,
+            'id': cattle.id,
+            'observations': cattle.observations,
+          })
+          .then((value) => debugPrint('Success Cadastro Morte animal'))
+          .catchError(
+            (onError) => debugPrint('message error'),
+          );
+      return true;
+    } else {
+      debugPrint('Nao foi possivel realizar o cadastro Morte do animal');
+      return false;
+    }
+  }
+
+  @override
   Future<String?> deleteCattle({required CattleModel cattle}) async {
     Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
     String? refenceId;

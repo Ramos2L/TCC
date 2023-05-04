@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/core/ui/helpers/messages.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
-import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/desmama/desmama_page.dart';
-import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/desmama/view/desmama_view.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/descarte/descarte_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/descarte/view/descarte_view.dart';
 
-abstract class DesmamaViewImpl extends State<DesmamaPage>
-    with Message<DesmamaPage>
-    implements DesmamaView {
+abstract class DescarteViewImpl extends State<DescartePage>
+    with Message<DescartePage>
+    implements DescarteView {
   @override
   void initState() {
     super.initState();
@@ -15,13 +15,15 @@ abstract class DesmamaViewImpl extends State<DesmamaPage>
 
   final formKey = GlobalKey<FormState>();
 
+  String? option;
   DateTime dateTime = DateTime.now();
   String date = '';
   final TextEditingController dateController = TextEditingController();
-  final TextEditingController numberAnimalController = TextEditingController();
+  final TextEditingController codeController = TextEditingController();
+  final TextEditingController weigthController = TextEditingController();
+  final TextEditingController priceController = TextEditingController();
   final TextEditingController observationsController = TextEditingController();
 
-  @override
   void showDatePickerFunc() async {
     await showDatePicker(
       context: context,
