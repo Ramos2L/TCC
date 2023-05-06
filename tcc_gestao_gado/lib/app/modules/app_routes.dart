@@ -24,6 +24,8 @@ import 'package:tcc_gestao_gado/app/modules/main/pages/intro/slider_intro_3_page
 import 'package:tcc_gestao_gado/app/modules/main/pages/intro/slider_intro_4_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/manejo_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/manejo_route.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/castrar/castrar_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/castrar/castrar_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/descarte/descarte_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/descarte/descarte_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/desmama/desmama_page.dart';
@@ -59,6 +61,7 @@ class AppRoutes {
     PesagemPage.routeName: (context) => const PesagemRoute(),
     DesmamaPage.routeName: (context) => const DesmamaRoute(),
     DescartePage.routeName: (context) => const DescarteRoute(),
+    CastrarPage.routeName: (context) => const CastrarRoute(),
     DicasManejoPage.routeName: (context) => const DicasManejoRoute(),
     CadastroPage.routeName: (context) => const CadastroRoute(),
     CadastroAnimalPage.routeName: (context) => const CadastroAnimalRoute(),

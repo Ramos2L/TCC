@@ -84,32 +84,28 @@ class _ConsultaPageState extends ConsultaViewImpl {
                                     title: 'Data de cadastro:',
                                     subtitle: '${cattleAnimal[0].date}',
                                   ),
-                                  cattleAnimal[0].sex != ""
-                                      ? Column(
-                                          children: [
-                                            ListTileWidget(
-                                              title: 'Sexo do animal:',
-                                              subtitle: '${cattleAnimal[0].sex}',
-                                            ),
-                                            ListTileWidget(
-                                              title: 'Amamentando:',
-                                              subtitle: cattleAnimal[0].breastfeeding == true
-                                                  ? "Sim"
-                                                  : "Não",
-                                            ),
-                                            ListTileWidget(
-                                              title: 'Meio aquisição do animal:',
-                                              subtitle: '${cattleAnimal[0].quite}',
-                                            ),
-                                            ListTileWidget(
-                                              title: 'Nº do mãe:',
-                                              subtitle: '${cattleAnimal[0].numberMother}',
-                                            ),
-                                            ListTileWidget(
-                                              title: 'Nº do pai:',
-                                              subtitle: '${cattleAnimal[0].numberFather}',
-                                            ),
-                                          ],
+                                  ListTileWidget(
+                                    title: 'Sexo do animal:',
+                                    subtitle: '${cattleAnimal[0].sex}',
+                                  ),
+                                  ListTileWidget(
+                                    title: 'Amamentando:',
+                                    subtitle: cattleAnimal[0].breastfeeding == true ? "Sim" : "Não",
+                                  ),
+                                  ListTileWidget(
+                                    title: 'Meio aquisição do animal:',
+                                    subtitle: '${cattleAnimal[0].quite}',
+                                  ),
+                                  cattleAnimal[0].numberMother != ""
+                                      ? ListTileWidget(
+                                          title: 'Nº do mãe:',
+                                          subtitle: '${cattleAnimal[0].numberMother}',
+                                        )
+                                      : const SizedBox(),
+                                  cattleAnimal[0].numberFather != ""
+                                      ? ListTileWidget(
+                                          title: 'Nº do pai:',
+                                          subtitle: '${cattleAnimal[0].numberFather}',
                                         )
                                       : const SizedBox(),
                                   ListTileWidget(

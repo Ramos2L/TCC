@@ -85,7 +85,7 @@ class _ManejoPageState extends ManejoViewImpl {
                 const SizedBox(height: 15),
                 GestureDetector(
                   child: ContainerWidget(
-                    title: 'Alterar animal',
+                    title: 'Castrar animal',
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
@@ -95,7 +95,7 @@ class _ManejoPageState extends ManejoViewImpl {
                     ),
                   ),
                   onTap: () {
-                    //Navigator.pushNamed(context, '/dicas-manejo');
+                    Navigator.pushNamed(context, '/castrar-animal');
                   },
                 ),
                 const SizedBox(height: 15),

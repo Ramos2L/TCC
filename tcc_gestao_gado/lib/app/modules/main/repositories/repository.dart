@@ -13,6 +13,8 @@ abstract class MainRepository {
   Future<String?> canWeighing({required CattleModel cattle});
   Future<bool> updateBreastfeeding({required CattleModel cattle});
   Future<String?> canWean({required CattleModel cattle});
+  Future<bool> castrateAnimal({required CattleModel cattle});
+  Future<String?> canCastrate({required CattleModel cattle});
   Future<String?> deleteCattle({required CattleModel cattle});
   Future<List<CattleModel>> findCattle();
   Future<List<InformacoesModel>> findInformation();

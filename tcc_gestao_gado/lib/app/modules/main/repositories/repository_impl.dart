@@ -74,6 +74,30 @@ class MainRepositoryImpl implements MainRepository {
   }
 
   @override
+  Future<CattleModel> consultCattle({required String id, required String idUser}) async {
+    try {
+      Map<String, dynamic> cattleMap = {};
+
+      await firebaseFirestore
+          .collection("cattle")
+          .where("idUser", isEqualTo: idUser)
+          .where("id", isEqualTo: id)
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        for (var doc in querySnapshot.docs) {
+          cattleMap = doc.data() as Map<String, dynamic>;
+        }
+      });
+
+      var cattle = CattleModel.fromMap(cattleMap);
+
+      return cattle;
+    } catch (e) {
+      throw UnusualException(message: e.toString());
+    }
+  }
+
+  @override
   Future<bool> updateWeighing({required CattleModel cattle}) async {
     String? result = await canWeighing(cattle: cattle);
 
@@ -170,6 +194,66 @@ class MainRepositoryImpl implements MainRepository {
   @override
   Future<String?> canWean({required CattleModel cattle}) async {
     Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
+    String? referenceId;
+
+    try {
+      await firebaseFirestore
+          .collection('cattle')
+          .where("idUser", isEqualTo: mapCattle['idUser'])
+          .where("id", isEqualTo: mapCattle['id'])
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        for (var doc in querySnapshot.docs) {
+          referenceId = doc.reference.id.toString();
+        }
+      });
+
+      return referenceId;
+    } catch (e) {
+      debugPrint('message error Desmamar');
+      return null;
+    }
+  }
+
+  @override
+  Future<bool> castrateAnimal({required CattleModel cattle}) async {
+    try {
+      CattleModel consultData = await consultCattle(id: cattle.id!, idUser: cattle.idUser!);
+
+      if (consultData.sex == "macho") {
+        String? result = await canCastrate(cattle: cattle);
+
+        if (result != null) {
+          await firebaseFirestore
+              .collection('cattle')
+              .doc(result)
+              .update({
+                'breastfeeding': false,
+                'type': 'Boi',
+              })
+              .then((value) => debugPrint('Success Castração'))
+              .catchError(
+                (onError) => debugPrint('message error'),
+              );
+          return true;
+        } else {
+          debugPrint('Nao foi possivel realizar a castração');
+          return false;
+        }
+      } else {
+        debugPrint('Animal sexo invalido!');
+        return false;
+      }
+    } catch (e) {
+      debugPrint('Nao foi possivel realizar a castração');
+      return false;
+    }
+  }
+
+  @override
+  Future<String?> canCastrate({required CattleModel cattle}) async {
+    Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
+
     String? referenceId;
 
     try {
@@ -310,30 +394,6 @@ class MainRepositoryImpl implements MainRepository {
       }
 
       return dataInformations;
-    } catch (e) {
-      throw UnusualException(message: e.toString());
-    }
-  }
-
-  @override
-  Future<CattleModel> consultCattle({required String id, required String idUser}) async {
-    try {
-      Map<String, dynamic> cattleMap = {};
-
-      await firebaseFirestore
-          .collection("cattle")
-          .where("idUser", isEqualTo: idUser)
-          .where("id", isEqualTo: id)
-          .get()
-          .then((QuerySnapshot querySnapshot) {
-        for (var doc in querySnapshot.docs) {
-          cattleMap = doc.data() as Map<String, dynamic>;
-        }
-      });
-
-      var cattle = CattleModel.fromMap(cattleMap);
-
-      return cattle;
     } catch (e) {
       throw UnusualException(message: e.toString());
     }

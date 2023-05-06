@@ -41,6 +41,7 @@ abstract class DesmamaViewImpl extends State<DesmamaPage>
 
   @override
   void message(String message) {
+    hideLoader();
     showCustomSnackBar(message);
   }
 

@@ -27,6 +27,7 @@ abstract class ConsultaViewImpl extends State<ConsultaPage>
 
   @override
   void error(String message) {
+    hideLoader();
     showCustomSnackBar(message);
   }
 }

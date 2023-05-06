@@ -33,6 +33,7 @@ abstract class RegisterViewImpl extends State<RegisterPage>
 
   @override
   void error(String message) {
+    hideLoader();
     showCustomSnackBar(message);
   }
 }

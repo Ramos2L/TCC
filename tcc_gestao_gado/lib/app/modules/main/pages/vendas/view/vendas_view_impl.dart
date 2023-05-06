@@ -42,6 +42,7 @@ abstract class VendasViewImpl extends State<VendasPage>
 
   @override
   void message(String message) {
+    hideLoader();
     showCustomSnackBar(message);
   }
 

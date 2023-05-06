@@ -63,6 +63,7 @@ abstract class CadastroAnimalViewImpl extends State<CadastroAnimalPage>
 
   @override
   void errorRegister() {
+    hideLoader();
     showCustomSnackBar('Código já utilizado por outro animal!');
   }
 

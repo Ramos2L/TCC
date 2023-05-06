@@ -40,6 +40,7 @@ abstract class PesagemViewImpl extends State<PesagemPage>
 
   @override
   void message(String message) {
+    hideLoader();
     showCustomSnackBar(message);
   }
 
