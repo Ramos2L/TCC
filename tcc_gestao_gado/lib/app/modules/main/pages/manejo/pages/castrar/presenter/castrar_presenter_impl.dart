@@ -22,8 +22,6 @@ class CastrarPresenterImpl implements CastrarPresenter {
 
       CattleModel cattleModel = CattleModel();
 
-      final firebaseAuth = FirebaseAuth.instance;
-
       var currentUser = firebaseAuth.currentUser;
 
       if (currentUser!.uid.isNotEmpty) {

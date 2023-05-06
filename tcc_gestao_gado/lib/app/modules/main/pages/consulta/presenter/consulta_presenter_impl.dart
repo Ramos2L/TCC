@@ -30,7 +30,6 @@ class ConsultaPresenterImpl implements ConsultaPresenter {
           id: idCattle,
           idUser: idUser.uid,
         );
-        print('TESTE');
         _view.consultCattle(cattle);
       } else {
         debugPrint('ERROR, IDUSER.UID IS NULL');

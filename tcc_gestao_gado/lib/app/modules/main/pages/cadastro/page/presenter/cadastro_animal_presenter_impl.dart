@@ -9,8 +9,9 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
   late CadastroAnimalView _view;
 
   final MainRepository mainRepository;
+  final FirebaseAuth firebaseAuth;
 
-  CadastroAnimalPresenterImpl({required this.mainRepository});
+  CadastroAnimalPresenterImpl({required this.mainRepository, required this.firebaseAuth});
 
   @override
   Future<void> getListRaca() async {
@@ -47,8 +48,6 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
       }
 
       CattleModel cattleModel = CattleModel();
-
-      final firebaseAuth = FirebaseAuth.instance;
 
       var currentUser = firebaseAuth.currentUser;
 

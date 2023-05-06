@@ -98,8 +98,33 @@ class MainRepositoryImpl implements MainRepository {
   }
 
   @override
+  Future<String?> checkUserCattle({required CattleModel cattle}) async {
+    Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
+
+    String? referenceId;
+
+    try {
+      await firebaseFirestore
+          .collection('cattle')
+          .where("idUser", isEqualTo: mapCattle['idUser'])
+          .where("id", isEqualTo: mapCattle['id'])
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        for (var doc in querySnapshot.docs) {
+          referenceId = doc.reference.id.toString();
+        }
+      });
+
+      return referenceId;
+    } catch (e) {
+      debugPrint('Message error check User Cattle');
+      return null;
+    }
+  }
+
+  @override
   Future<bool> updateWeighing({required CattleModel cattle}) async {
-    String? result = await canWeighing(cattle: cattle);
+    String? result = await checkUserCattle(cattle: cattle);
 
     if (result != null) {
       await firebaseFirestore
@@ -123,34 +148,9 @@ class MainRepositoryImpl implements MainRepository {
   }
 
   @override
-  Future<String?> canWeighing({required CattleModel cattle}) async {
-    Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
-
-    String? referenceId;
-
-    try {
-      await firebaseFirestore
-          .collection('cattle')
-          .where("idUser", isEqualTo: mapCattle['idUser'])
-          .where("id", isEqualTo: mapCattle['id'])
-          .get()
-          .then((QuerySnapshot querySnapshot) {
-        for (var doc in querySnapshot.docs) {
-          referenceId = doc.reference.id.toString();
-        }
-      });
-
-      return referenceId;
-    } catch (e) {
-      debugPrint('Message error Pesagem');
-      return null;
-    }
-  }
-
-  @override
   Future<bool> updateBreastfeeding({required CattleModel cattle}) async {
     try {
-      String? result = await canWean(cattle: cattle);
+      String? result = await checkUserCattle(cattle: cattle);
       String? sex;
 
       var cattleModel = await consultCattle(
@@ -190,38 +190,13 @@ class MainRepositoryImpl implements MainRepository {
     }
   }
 
-  //canWean == pode desmamar?
-  @override
-  Future<String?> canWean({required CattleModel cattle}) async {
-    Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
-    String? referenceId;
-
-    try {
-      await firebaseFirestore
-          .collection('cattle')
-          .where("idUser", isEqualTo: mapCattle['idUser'])
-          .where("id", isEqualTo: mapCattle['id'])
-          .get()
-          .then((QuerySnapshot querySnapshot) {
-        for (var doc in querySnapshot.docs) {
-          referenceId = doc.reference.id.toString();
-        }
-      });
-
-      return referenceId;
-    } catch (e) {
-      debugPrint('message error Desmamar');
-      return null;
-    }
-  }
-
   @override
   Future<bool> castrateAnimal({required CattleModel cattle}) async {
     try {
       CattleModel consultData = await consultCattle(id: cattle.id!, idUser: cattle.idUser!);
 
       if (consultData.sex == "macho") {
-        String? result = await canCastrate(cattle: cattle);
+        String? result = await checkUserCattle(cattle: cattle);
 
         if (result != null) {
           await firebaseFirestore
@@ -247,31 +222,6 @@ class MainRepositoryImpl implements MainRepository {
     } catch (e) {
       debugPrint('Nao foi possivel realizar a castração');
       return false;
-    }
-  }
-
-  @override
-  Future<String?> canCastrate({required CattleModel cattle}) async {
-    Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
-
-    String? referenceId;
-
-    try {
-      await firebaseFirestore
-          .collection('cattle')
-          .where("idUser", isEqualTo: mapCattle['idUser'])
-          .where("id", isEqualTo: mapCattle['id'])
-          .get()
-          .then((QuerySnapshot querySnapshot) {
-        for (var doc in querySnapshot.docs) {
-          referenceId = doc.reference.id.toString();
-        }
-      });
-
-      return referenceId;
-    } catch (e) {
-      debugPrint('message error Desmamar');
-      return null;
     }
   }
 
