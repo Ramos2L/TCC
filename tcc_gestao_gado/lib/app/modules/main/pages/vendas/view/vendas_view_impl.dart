@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:tcc_gestao_gado/app/core/ui/helpers/loader.dart';
 import 'package:tcc_gestao_gado/app/core/ui/helpers/messages.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/vendas/vendas_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/vendas/view/vendas_view.dart';
 
 abstract class VendasViewImpl extends State<VendasPage>
-    with Message<VendasPage>
+    with Message<VendasPage>, Loader<VendasPage>
     implements VendasView {
   @override
   void initState() {
@@ -46,6 +47,7 @@ abstract class VendasViewImpl extends State<VendasPage>
 
   @override
   void success(String message) {
+    hideLoader();
     showCustomSnackBar(message, color: context.colors.surfaceTint);
     Navigator.pop(context);
   }

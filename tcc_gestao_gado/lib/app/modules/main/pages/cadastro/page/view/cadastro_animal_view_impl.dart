@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:tcc_gestao_gado/app/core/models/raca_model.dart';
+import 'package:tcc_gestao_gado/app/core/ui/helpers/loader.dart';
 import 'package:tcc_gestao_gado/app/core/ui/helpers/messages.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/cadastro/page/cadastro_animal_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/cadastro/page/view/cadastro_animal_view.dart';
 
 abstract class CadastroAnimalViewImpl extends State<CadastroAnimalPage>
-    with Message<CadastroAnimalPage>
+    with Message<CadastroAnimalPage>, Loader<CadastroAnimalPage>
     implements CadastroAnimalView {
   List<String> list = [];
   final formKey = GlobalKey<FormState>();
@@ -55,6 +56,7 @@ abstract class CadastroAnimalViewImpl extends State<CadastroAnimalPage>
 
   @override
   void successRegister() {
+    hideLoader();
     showCustomSnackBar('Cadastrado com sucesso!', color: context.colors.surfaceTint);
     Navigator.pop(context);
   }

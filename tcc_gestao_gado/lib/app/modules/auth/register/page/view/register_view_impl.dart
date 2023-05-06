@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:tcc_gestao_gado/app/core/ui/helpers/loader.dart';
 import 'package:tcc_gestao_gado/app/core/ui/helpers/messages.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/page/register_page.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/page/view/register_view.dart';
 
 abstract class RegisterViewImpl extends State<RegisterPage>
-    with Message<RegisterPage>
+    with Message<RegisterPage>, Loader<RegisterPage>
     implements RegisterView {
   bool activeIconPassword = false;
   bool activeIconPasswordRepeat = false;
@@ -26,6 +27,7 @@ abstract class RegisterViewImpl extends State<RegisterPage>
 
   @override
   void cadastroSucesso() {
+    hideLoader();
     Navigator.pushNamed(context, '/login');
   }
 

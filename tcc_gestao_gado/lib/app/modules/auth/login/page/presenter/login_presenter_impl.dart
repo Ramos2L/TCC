@@ -14,6 +14,7 @@ class LoginPresenterImpl implements LoginPresenter {
   void signIn({required String email, required String password}) async {
     try {
       if (await loginRepository.signIn(email: email, password: password)) {
+        _view.showLoader();
         _view.loginUser();
       }
     } on UserNotFoundException {

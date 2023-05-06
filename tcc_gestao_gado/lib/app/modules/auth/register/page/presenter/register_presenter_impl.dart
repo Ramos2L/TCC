@@ -21,6 +21,7 @@ class RegisterPresenterImpl implements RegisterPresenter {
     required String password,
   }) async {
     try {
+      _view.showLoader();
       String userId = await registerRepository.register(email: email, password: password);
 
       userStore.setUser(

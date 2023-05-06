@@ -22,28 +22,34 @@ class PesagemPresenterImpl implements PesagemPresenter {
     required String? weigth,
     required String? oberservations,
   }) async {
-    var currentUser = firebaseAuth.currentUser!.uid;
+    try {
+      _view.showLoader();
+      var currentUser = firebaseAuth.currentUser!.uid;
 
-    bool? completedOperation;
+      bool? completedOperation;
 
-    if (currentUser.isNotEmpty) {
-      CattleModel cattleModel = CattleModel(
-        idUser: currentUser,
-        id: numberAnimal,
-        date: date,
-        weightCattle: weigth,
-        observations: oberservations,
-      );
+      if (currentUser.isNotEmpty) {
+        CattleModel cattleModel = CattleModel(
+          idUser: currentUser,
+          id: numberAnimal,
+          date: date,
+          weightCattle: weigth,
+          observations: oberservations,
+        );
 
-      completedOperation = await mainRepository.updateWeighing(cattle: cattleModel);
+        completedOperation = await mainRepository.updateWeighing(cattle: cattleModel);
 
-      if (completedOperation) {
-        _view.success('Peso do animal atualizada!');
-      } else {
-        _view.message('Ops... Algo deu errado!');
+        if (completedOperation) {
+          _view.success('Peso do animal atualizada!');
+        } else {
+          _view.message('Ops... Algo deu errado!');
+        }
       }
+      return true;
+    } catch (e) {
+      _view.message('Ops... Algo deu errado!');
+      return false;
     }
-    return true;
   }
 
   //     completedOperation = await mainRepository.updateBreastfeeding(cattle: cattleModel);

@@ -3,4 +3,5 @@ abstract class LoginView {
   void toRegisterPage();
   void error(String message);
   void showDialog();
+  void showLoader();
 }

@@ -25,6 +25,7 @@ class DescartePresenterImpl implements DescartePresenter {
     required String? observations,
   }) async {
     try {
+      _view.showLoader();
       var currentUser = firebaseAuth.currentUser!.uid;
       if (situation == "morte") {
         bool? deathPermission;
@@ -67,7 +68,9 @@ class DescartePresenterImpl implements DescartePresenter {
           }
         }
       }
-    } catch (e) {}
+    } catch (e) {
+      _view.message('Ocorreu um erro! Venda não efetivada.');
+    }
   }
 
   @override

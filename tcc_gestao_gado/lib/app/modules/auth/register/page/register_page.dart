@@ -202,23 +202,22 @@ class _RegisterPageState extends RegisterViewImpl {
                           ? const Icon(Icons.visibility)
                           : const Icon(Icons.visibility_off),
                     ),
-                    textInputAction: TextInputAction.go,
-                    // onFieldSubmitted: (_) {
-                    //   FocusScope.of(context).requestFocus(phoneNode);
-                    // },
+                    textInputAction: TextInputAction.done,
+                    onFieldSubmitted: (_) => register(),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                     child: Button.primary(
-                        label: 'CADASTRAR',
-                        onPressed: () {
-                          if (formKey.currentState!.validate()) {
-                            register();
-                          } else {
-                            //MENSAGEM DE ERRO
-                            showCustomSnackBar("Opss! Algo deu errado");
-                          }
-                        }),
+                      label: 'CADASTRAR',
+                      onPressed: () {
+                        if (formKey.currentState!.validate()) {
+                          register();
+                        } else {
+                          //MENSAGEM DE ERRO
+                          showCustomSnackBar("Opss! Algo deu errado");
+                        }
+                      },
+                    ),
                   ),
                 ],
               ),

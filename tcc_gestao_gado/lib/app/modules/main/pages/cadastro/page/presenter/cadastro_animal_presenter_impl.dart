@@ -35,46 +35,52 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
     String? type,
     String? observationsController,
   }) async {
-    String? sexAnimal;
+    try {
+      _view.showLoader();
+      String? sexAnimal;
 
-    if ((type == "Vaca" || type == "Novilha")) {
-      sexAnimal = "femea";
-    }
-    if ((type == "Boi" || type == "Touro")) {
-      sexAnimal = "macho";
-    }
-
-    CattleModel cattleModel = CattleModel();
-
-    final firebaseAuth = FirebaseAuth.instance;
-
-    var currentUser = firebaseAuth.currentUser;
-
-    if (currentUser!.uid.isNotEmpty) {
-      cattleModel = cattleModel.copyWith(
-        id: numberController,
-        idUser: currentUser.uid,
-        sex: gender ?? sexAnimal,
-        quite: quite ?? "Compra",
-        breastfeeding: breastfeedingOption,
-        numberFather: numberFatherController,
-        numberMother: numberMotherController,
-        weightCattle: weightController,
-        date: dateController,
-        race: dropdownValue,
-        type: type,
-        observations: observationsController,
-        price: "",
-      );
-      bool success = await mainRepository.update(cattleModel);
-      if (success) {
-        _view.successRegister();
-      } else {
-        _view.errorRegister();
+      if ((type == "Vaca" || type == "Novilha")) {
+        sexAnimal = "femea";
       }
-    }
+      if ((type == "Boi" || type == "Touro")) {
+        sexAnimal = "macho";
+      }
 
-    return true;
+      CattleModel cattleModel = CattleModel();
+
+      final firebaseAuth = FirebaseAuth.instance;
+
+      var currentUser = firebaseAuth.currentUser;
+
+      if (currentUser!.uid.isNotEmpty) {
+        cattleModel = cattleModel.copyWith(
+          id: numberController,
+          idUser: currentUser.uid,
+          sex: gender ?? sexAnimal,
+          quite: quite ?? "Compra",
+          breastfeeding: breastfeedingOption,
+          numberFather: numberFatherController,
+          numberMother: numberMotherController,
+          weightCattle: weightController,
+          date: dateController,
+          race: dropdownValue,
+          type: type,
+          observations: observationsController,
+          price: "",
+        );
+        bool success = await mainRepository.update(cattleModel);
+        if (success) {
+          _view.successRegister();
+        } else {
+          _view.errorRegister();
+        }
+      }
+
+      return true;
+    } catch (e) {
+      _view.errorRegister();
+      return false;
+    }
   }
 
   @override

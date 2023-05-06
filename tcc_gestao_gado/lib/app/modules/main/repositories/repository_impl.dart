@@ -215,8 +215,6 @@ class MainRepositoryImpl implements MainRepository {
 
   @override
   Future<bool> updateDeath(CattleModel cattle) async {
-    Map<String, dynamic> mapCattle = cattle.toFirebaseMapVendas();
-
     String? result = await deleteCattle(cattle: cattle);
 
     if (result != null) {

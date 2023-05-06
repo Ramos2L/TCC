@@ -107,9 +107,7 @@ class _LoginPageState extends LoginViewImpl {
                                 [Validatorless.required("Por favor, digite sua senha!")],
                               ),
                               textInputAction: TextInputAction.go,
-                              // onFieldSubmitted: (_) {
-                              //   FocusScope.of(context).requestFocus(phoneNode);
-                              // },
+                              onFieldSubmitted: (_) => validateData(),
                             ),
                           ],
                         ),
@@ -126,14 +124,7 @@ class _LoginPageState extends LoginViewImpl {
                       children: [
                         Button.primary(
                           label: 'LOGIN',
-                          onPressed: () {
-                            if (form.currentState!.validate()) {
-                              widget.presenter.signIn(
-                                email: controllerEmail.text,
-                                password: controllerPassword.text,
-                              );
-                            }
-                          },
+                          onPressed: () => validateData(),
                         ),
                         const SizedBox(height: 25),
                         TextButton(
@@ -159,5 +150,14 @@ class _LoginPageState extends LoginViewImpl {
         ),
       ),
     );
+  }
+
+  void validateData() {
+    if (form.currentState!.validate()) {
+      widget.presenter.signIn(
+        email: controllerEmail.text,
+        password: controllerPassword.text,
+      );
+    }
   }
 }

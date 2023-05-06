@@ -22,6 +22,7 @@ class ConsultaPresenterImpl implements ConsultaPresenter {
   @override
   Future<void> getCattle({required String idCattle}) async {
     try {
+      _view.showLoader();
       var idUser = firebaseAuth.currentUser;
 
       if (idUser!.uid.isNotEmpty) {

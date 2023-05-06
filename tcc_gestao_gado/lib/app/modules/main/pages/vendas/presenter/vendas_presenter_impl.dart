@@ -30,28 +30,34 @@ class VendasPresenterImpl implements VendasPresenter {
     required String? date,
     required String? observations,
   }) async {
-    bool? salePermission;
-    var currentUser = firebaseAuth.currentUser!.uid;
+    try {
+      _view.showLoader();
+      bool? salePermission;
+      var currentUser = firebaseAuth.currentUser!.uid;
 
-    if (currentUser.isNotEmpty) {
-      CattleModel cattleModel = CattleModel(
-        idUser: currentUser,
-        id: numberAnimal,
-        date: date,
-        weightCattle: weigth,
-        price: price,
-        observations: observations,
-      );
+      if (currentUser.isNotEmpty) {
+        CattleModel cattleModel = CattleModel(
+          idUser: currentUser,
+          id: numberAnimal,
+          date: date,
+          weightCattle: weigth,
+          price: price,
+          observations: observations,
+        );
 
-      salePermission = await mainRepository.updateVenda(cattleModel);
+        salePermission = await mainRepository.updateVenda(cattleModel);
 
-      if (salePermission) {
-        _view.success('Venda efetivada!');
-      } else {
-        _view.message('Venda não efetivada, código inválido.');
+        if (salePermission) {
+          _view.success('Venda efetivada!');
+        } else {
+          _view.message('Venda não efetivada, código inválido.');
+        }
       }
+      return true;
+    } catch (e) {
+      _view.message('Erro! Venda não efetivada, tente novamente!');
+      return false;
     }
-    return true;
   }
 
   @override

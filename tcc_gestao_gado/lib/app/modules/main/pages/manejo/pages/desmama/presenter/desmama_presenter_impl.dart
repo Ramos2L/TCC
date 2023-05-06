@@ -21,26 +21,32 @@ class DesmamaPresenterImpl implements DesmamaPresenter {
     required String numberAnimal,
     required String observations,
   }) async {
-    var currentUser = firebaseAuth.currentUser!.uid;
-    bool? completedOperation;
-    if (currentUser.isNotEmpty) {
-      CattleModel cattleModel = CattleModel(
-        idUser: currentUser,
-        id: numberAnimal,
-        breastfeeding: false,
-        observations: observations,
-      );
+    try {
+      _view.showLoader();
+      var currentUser = firebaseAuth.currentUser!.uid;
+      bool? completedOperation;
+      if (currentUser.isNotEmpty) {
+        CattleModel cattleModel = CattleModel(
+          idUser: currentUser,
+          id: numberAnimal,
+          breastfeeding: false,
+          observations: observations,
+        );
 
-      completedOperation = await mainRepository.updateBreastfeeding(cattle: cattleModel);
+        completedOperation = await mainRepository.updateBreastfeeding(cattle: cattleModel);
 
-      if (completedOperation) {
-        _view.success('Amamentação atualizada!');
-      } else {
-        _view.message('Ops... Algo deu errado!');
+        if (completedOperation) {
+          _view.success('Amamentação atualizada!');
+        } else {
+          _view.message('Ops... Algo deu errado! Tente novamente...');
+        }
       }
-    }
 
-    return true;
+      return true;
+    } catch (e) {
+      _view.message('Ops... Algo deu errado! Tente novamente...');
+      return false;
+    }
   }
 
   @override

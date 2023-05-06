@@ -5,4 +5,5 @@ abstract class CadastroAnimalView {
   Future<void> getShowListRaca(List<RacaModel> raca);
   void successRegister();
   void errorRegister();
+  void showLoader();
 }
