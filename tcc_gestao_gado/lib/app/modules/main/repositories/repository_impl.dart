@@ -70,7 +70,14 @@ class MainRepositoryImpl implements MainRepository {
     Map<String, dynamic> mapCattle = cattle.toFirebaseMap();
 
     String? idCheck = await checkId(id: cattle.id, idUser: cattle.idUser);
+
     if (idCheck == null) {
+      if (cattle.type == "Bezerro" && cattle.numberMother != "") {
+        await checkMom(id: cattle.id, idUser: cattle.idUser, numberMother: cattle.numberMother);
+      }
+      if (cattle.type == "Bezerro" && cattle.numberFather != "") {
+        await checkFather(id: cattle.id, idUser: cattle.idUser, numberFather: cattle.numberFather);
+      }
       await firebaseFirestore
           .collection('cattle')
           .doc()
@@ -80,6 +87,88 @@ class MainRepositoryImpl implements MainRepository {
       await findInfosCattle(userId: cattle.idUser!);
       return true;
     } else {
+      return false;
+    }
+  }
+
+  @override
+  Future<bool?> checkMom({
+    required String? id,
+    required String? idUser,
+    String? numberMother,
+  }) async {
+    bool existMother = false;
+    String? referenceMother;
+    try {
+      await firebaseFirestore
+          .collection('cattle')
+          .where('idUser', isEqualTo: idUser)
+          .where('id', isEqualTo: numberMother)
+          .where('sex', isEqualTo: 'femea')
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        for (var doc in querySnapshot.docs) {
+          if (doc.reference.id.toString().isNotEmpty) {
+            existMother = true;
+            referenceMother = doc.reference.id.toString();
+          }
+        }
+      });
+
+      if (existMother && referenceMother != null) {
+        await firebaseFirestore
+            .collection('cattle')
+            .doc(referenceMother)
+            .update({'type': 'Vaca'})
+            .then((value) => debugPrint('Success Alteracao status mae'))
+            .catchError((onError) => debugPrint('message error Alteracao status mae'));
+      } else {
+        debugPrint('Erro ou nao existe mãe de bezerro');
+      }
+      return existMother;
+    } catch (e) {
+      debugPrint('Erro ao consultar mãe de bezerro');
+      return false;
+    }
+  }
+
+  @override
+  Future<bool?> checkFather({
+    required String? id,
+    required String? idUser,
+    String? numberFather,
+  }) async {
+    bool existFather = false;
+    String? referenceFather;
+    try {
+      await firebaseFirestore
+          .collection('cattle')
+          .where('idUser', isEqualTo: idUser)
+          .where('id', isEqualTo: numberFather)
+          .where('sex', isEqualTo: 'macho')
+          .get()
+          .then((QuerySnapshot querySnapshot) {
+        for (var doc in querySnapshot.docs) {
+          if (doc.reference.id.toString().isNotEmpty) {
+            existFather = true;
+            referenceFather = doc.reference.id.toString();
+          }
+        }
+      });
+
+      if (existFather && referenceFather != null) {
+        await firebaseFirestore
+            .collection('cattle')
+            .doc(referenceFather)
+            .update({'breastfeeding': false, 'type': 'Touro'})
+            .then((value) => debugPrint('Success Alteracao status Bezerro'))
+            .catchError((onError) => debugPrint('message error Alteracao status Bezerro'));
+      } else {
+        debugPrint('Erro ou nao existe pai de bezerro');
+      }
+      return existFather;
+    } catch (e) {
+      debugPrint('Erro ao consultar pai de bezerro');
       return false;
     }
   }

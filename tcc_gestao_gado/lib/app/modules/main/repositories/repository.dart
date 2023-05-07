@@ -7,6 +7,16 @@ abstract class MainRepository {
   Future<bool> setUserAndSave({required String userId});
   Future<List<RacaModel>> findRaces();
   Future<bool> update(CattleModel cattle);
+  Future<bool?> checkMom({
+    required String? id,
+    required String? idUser,
+    required String numberMother,
+  });
+  Future<bool?> checkFather({
+    required String? id,
+    required String? idUser,
+    String? numberFather,
+  });
   Future<String?> checkId({required String? id, required String? idUser});
   Future<String?> checkUserCattle({required CattleModel cattle});
   Future<bool> updateVenda(CattleModel cattle);
