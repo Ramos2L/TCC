@@ -34,16 +34,12 @@ class _DrawerMenuState extends State<DrawerMenu> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                CircleAvatarWidget(
-                  width: 75,
-                  height: 75,
-                  image: context.images.introImage1,
-                ),
+                CircleAvatarWidget(width: 75, height: 75, image: context.images.introImage1),
                 Text(
                   widget.nameUser == null ? 'Olá Fazendeiro' : '${widget.nameUser}',
                   style: context.textStyles.textLight.copyWith(
-                    color: context.colors.secondary,
                     fontSize: 18,
+                    color: context.colors.secondary,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -56,14 +52,12 @@ class _DrawerMenuState extends State<DrawerMenu> {
             title: Text(
               'Home',
               style: context.textStyles.textMedium.copyWith(
-                color: context.colors.secondary,
                 fontSize: 20,
+                color: context.colors.secondary,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            onTap: () {
-              Navigator.pushNamed(context, '/home');
-            },
+            onTap: () => Navigator.pushNamed(context, '/home'),
           ),
           ListTile(
             title: Text(
@@ -74,107 +68,91 @@ class _DrawerMenuState extends State<DrawerMenu> {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            onTap: () {
-              Navigator.pushNamed(context, '/manejo');
-            },
+            onTap: () => Navigator.pushNamed(context, '/manejo'),
           ),
           ListTile(
             title: Text(
               'Cadastro de animais',
               style: context.textStyles.textMedium.copyWith(
-                color: context.colors.secondary,
                 fontSize: 20,
+                color: context.colors.secondary,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            onTap: () {
-              Navigator.pushNamed(context, '/consulta');
-            },
+            onTap: () => Navigator.pushNamed(context, '/consulta'),
           ),
           ListTile(
             title: Text(
               'Consultar animais',
               style: context.textStyles.textMedium.copyWith(
-                color: context.colors.secondary,
                 fontSize: 20,
+                color: context.colors.secondary,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            onTap: () {
-              Navigator.pushNamed(context, '/consulta');
-            },
+            onTap: () => Navigator.pushNamed(context, '/consulta'),
           ),
           ListTile(
             title: Text(
               'Relatório',
               style: context.textStyles.textMedium.copyWith(
-                color: context.colors.secondary,
                 fontSize: 20,
+                color: context.colors.secondary,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            onTap: () {
-              Navigator.pushNamed(context, '/relatorio');
-            },
+            onTap: () => Navigator.pushNamed(context, '/relatorio'),
           ),
           ListTile(
             title: Text(
               'Vendas',
               style: context.textStyles.textMedium.copyWith(
-                color: context.colors.secondary,
                 fontSize: 20,
+                color: context.colors.secondary,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            onTap: () {
-              Navigator.pushNamed(context, '/vendas');
-            },
+            onTap: () => Navigator.pushNamed(context, '/vendas'),
           ),
           ListTile(
             title: Text(
               'Pasto',
               style: context.textStyles.textMedium.copyWith(
-                color: context.colors.secondary,
                 fontSize: 20,
+                color: context.colors.secondary,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            onTap: () {
-              Navigator.pushNamed(context, '/pasto');
-            },
+            onTap: () => Navigator.pushNamed(context, '/pasto'),
           ),
           ListTile(
             title: Text(
               'Conta',
               style: context.textStyles.textMedium.copyWith(
-                color: context.colors.secondary,
                 fontSize: 20,
+                color: context.colors.secondary,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            onTap: () {
-              Navigator.pushNamed(context, '/conta');
-            },
+            onTap: () => Navigator.pushNamed(context, '/conta'),
           ),
           ListTile(
             title: Text(
               'Sobre',
               style: context.textStyles.textMedium.copyWith(
-                color: context.colors.secondary,
                 fontSize: 20,
+                color: context.colors.secondary,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            onTap: () {
-              Navigator.pushNamed(context, '/sobre');
-            },
+            onTap: () => Navigator.pushNamed(context, '/sobre'),
           ),
           ListTile(
             title: Text(
               'Sair',
               style: context.textStyles.textMedium.copyWith(
-                color: context.colors.secondary,
                 fontSize: 20,
+                color: context.colors.secondary,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
