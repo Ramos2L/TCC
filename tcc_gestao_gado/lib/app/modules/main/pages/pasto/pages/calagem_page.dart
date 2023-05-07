@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/images.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+final Uri url = Uri.parse(
+  'https://www.embrapa.br/agencia-de-informacao-tecnologica/cultivos/feijao/producao/calagem#:~:text=Portanto%2C%20a%20calagem%20%C3%A9%20a,ra%C3%ADzes%20e%20incrementos%20de%20produtividade.',
+);
 
 class CalagemPage extends StatelessWidget {
   static const routeName = '/calagem';
@@ -51,6 +56,19 @@ class CalagemPage extends StatelessWidget {
                       height: 2.0,
                     ),
                   ),
+                  const SizedBox(height: 15),
+                  TextButton(
+                    onPressed: () => _launchUrl(),
+                    child: Text(
+                      'Clique e saiba mais.',
+                      textAlign: TextAlign.justify,
+                      style: context.textStyles.textMedium.copyWith(
+                        color: context.colors.onPrimary,
+                        fontSize: 20,
+                        height: 2.0,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -58,5 +76,11 @@ class CalagemPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch $url');
+    }
   }
 }

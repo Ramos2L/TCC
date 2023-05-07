@@ -32,6 +32,12 @@ abstract class LoginViewImpl extends State<LoginPage>
   }
 
   @override
+  void navigationRecuperate() {
+    hideLoader();
+    Navigator.pushNamed(context, '/recuperate');
+  }
+
+  @override
   void error(String message) {
     hideLoader();
     showCustomSnackBar(message);

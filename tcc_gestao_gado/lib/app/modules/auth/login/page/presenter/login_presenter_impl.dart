@@ -31,6 +31,11 @@ class LoginPresenterImpl implements LoginPresenter {
   }
 
   @override
+  void toRecuperate() {
+    _view.navigationRecuperate();
+  }
+
+  @override
   void dialogFluxo() {
     _view.showDialog();
   }

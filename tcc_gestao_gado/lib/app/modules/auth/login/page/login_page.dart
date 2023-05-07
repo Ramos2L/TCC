@@ -123,13 +123,23 @@ class _LoginPageState extends LoginViewImpl {
                           label: 'LOGIN',
                           onPressed: () => validateData(),
                         ),
-                        const SizedBox(height: 25),
+                        const SizedBox(height: 10),
                         TextButton(
-                          onPressed: () {
-                            widget.presenter.toRegister();
-                          },
+                          onPressed: () => widget.presenter.toRegister(),
                           child: Text(
                             'Não tem conta? Cadastra-se agora',
+                            style: context.textStyles.textLight.copyWith(
+                              fontSize: 16,
+                              overflow: TextOverflow.ellipsis,
+                              color: context.colors.onSecondary,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        TextButton(
+                          onPressed: () => widget.presenter.toRecuperate(),
+                          child: Text(
+                            'Esqueceu sua senha? recupere já!',
                             style: context.textStyles.textLight.copyWith(
                               fontSize: 16,
                               overflow: TextOverflow.ellipsis,
