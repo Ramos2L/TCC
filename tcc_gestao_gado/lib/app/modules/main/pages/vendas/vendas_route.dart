@@ -12,7 +12,6 @@ class VendasRoute extends FlutterGetItPageRoute {
         Bind.lazySingleton<VendasPresenter>((i) => VendasPresenterImpl(
               userStore: i(),
               firebaseAuth: i(),
-              cattleModel: i(),
               mainRepository: i(),
             )),
       ];

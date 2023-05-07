@@ -10,12 +10,10 @@ class VendasPresenterImpl implements VendasPresenter {
 
   final UserStore userStore;
   final FirebaseAuth firebaseAuth;
-  final CattleModel cattleModel;
   final MainRepository mainRepository;
   VendasPresenterImpl({
     required this.userStore,
     required this.firebaseAuth,
-    required this.cattleModel,
     required this.mainRepository,
   });
 

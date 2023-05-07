@@ -4,7 +4,9 @@ import 'package:flutter_getit/flutter_getit.dart';
 import 'package:tcc_gestao_gado/app/core/models/cattle_model.dart';
 import 'package:tcc_gestao_gado/app/core/models/infos_cattle_model.dart';
 import 'package:tcc_gestao_gado/app/core/models/raca_model.dart';
+import 'package:tcc_gestao_gado/app/core/models/user_model.dart';
 import 'package:tcc_gestao_gado/app/core/storage/cattle_storage.dart';
+import 'package:tcc_gestao_gado/app/core/storage/user_storage.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/errors/register_errors.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/informacoes/model/informacoes_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/dicas/model/dicas_manejo_model.dart';
@@ -14,6 +16,36 @@ class MainRepositoryImpl implements MainRepository {
   final FirebaseFirestore firebaseFirestore;
 
   MainRepositoryImpl({required this.firebaseFirestore});
+
+  @override
+  Future<bool> setUserAndSave({required String userId}) async {
+    try {
+      final document = firebaseFirestore.collection("users").doc(userId);
+
+      DocumentSnapshot doc = await document.get();
+      Map<String, dynamic> mapUser = {};
+      if (doc.data() != null) mapUser = doc.data() as Map<String, dynamic>;
+
+      var user = UserModel.fromMap(mapUser);
+
+      var userStore = Injector.get<UserStore>();
+
+      userStore.setUser(userStore.user.copyWith(
+        id: userId,
+        name: user.name,
+        farm: user.farm,
+        phone: user.phone,
+        email: user.email,
+      ));
+      userStore.saveUser();
+      return true;
+    } catch (e) {
+      //Caso a pessoa tenha uma conta e a mesma é excluida, dados podem ficar em cache retornando
+      //erro, parando neste catch, por isso a necessidade de enviar ao login novamente ou criar
+      //conta
+      return false;
+    }
+  }
 
   @override
   Future<List<RacaModel>> findRaces() async {
@@ -44,9 +76,7 @@ class MainRepositoryImpl implements MainRepository {
           .doc()
           .set(mapCattle)
           .then((value) => debugPrint('Success'))
-          .catchError(
-            (onError) => debugPrint('message error'),
-          );
+          .catchError((onError) => debugPrint('message error'));
       await findInfosCattle(userId: cattle.idUser!);
       return true;
     } else {
@@ -141,9 +171,7 @@ class MainRepositoryImpl implements MainRepository {
             'observations': cattle.observations,
           })
           .then((value) => debugPrint('Success Pesagem'))
-          .catchError(
-            (onError) => debugPrint('message error'),
-          );
+          .catchError((onError) => debugPrint('message error'));
       return true;
     } else {
       debugPrint('Nao foi possivel realizar a Desmama');
@@ -180,9 +208,7 @@ class MainRepositoryImpl implements MainRepository {
               'type': sex,
             })
             .then((value) => debugPrint('Success Desmama'))
-            .catchError(
-              (onError) => debugPrint('message error'),
-            );
+            .catchError((onError) => debugPrint('message error'));
         return true;
       } else {
         debugPrint('Nao foi possivel realizar a Desmama');
@@ -211,9 +237,7 @@ class MainRepositoryImpl implements MainRepository {
                 'type': 'Boi',
               })
               .then((value) => debugPrint('Success Castração'))
-              .catchError(
-                (onError) => debugPrint('message error'),
-              );
+              .catchError((onError) => debugPrint('message error'));
           return true;
         } else {
           debugPrint('Nao foi possivel realizar a castração');
@@ -241,9 +265,7 @@ class MainRepositoryImpl implements MainRepository {
           .doc(result)
           .set(mapCattle)
           .then((value) => debugPrint('Success Venda'))
-          .catchError(
-            (onError) => debugPrint('message error'),
-          );
+          .catchError((onError) => debugPrint('message error'));
       await findInfosCattle(userId: cattle.idUser!);
       return true;
     } else {
@@ -266,9 +288,7 @@ class MainRepositoryImpl implements MainRepository {
             'observations': cattle.observations,
           })
           .then((value) => debugPrint('Success Cadastro Morte animal'))
-          .catchError(
-            (onError) => debugPrint('message error'),
-          );
+          .catchError((onError) => debugPrint('message error'));
       await findInfosCattle(userId: cattle.idUser!);
       return true;
     } else {

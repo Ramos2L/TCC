@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:tcc_gestao_gado/app/core/models/user_model.dart';
 import 'package:tcc_gestao_gado/app/core/storage/user_storage.dart';
-import 'package:tcc_gestao_gado/app/modules/auth/register/errors/register_errors.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/checagem/presenter/check_presenter.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/checagem/view/check_view.dart';
 import 'package:tcc_gestao_gado/app/modules/main/repositories/repository.dart';
@@ -20,31 +18,12 @@ class CheckPresenterImpl implements CheckPresenter {
 
   @override
   Future<void> setUserAndSave({required String userId}) async {
-    try {
-      final document = firebaseFirestore.collection("users").doc(userId);
+    bool response = await mainRepository.setUserAndSave(userId: userId);
 
-      DocumentSnapshot doc = await document.get();
-      Map<String, dynamic> mapUser = {};
-      if (doc.data() != null) mapUser = doc.data() as Map<String, dynamic>;
-
-      var user = UserModel.fromMap(mapUser);
-
-      userStore.setUser(userStore.user.copyWith(
-        id: userId,
-        name: user.name,
-        farm: user.farm,
-        phone: user.phone,
-        email: user.email,
-      ));
-      userStore.saveUser();
-
+    if (response) {
       _view.toHome();
-    } catch (e) {
-      //Caso a pessoa tenha uma conta e a mesma é excluida, dados podem ficar
-      //em cache retornando erro, parando neste catch, por isso a necessidade
-      //de enviar ao login novamente ou criar outra conta
+    } else {
       _view.toLogin();
-      throw UnusualException(message: e.toString());
     }
   }
 

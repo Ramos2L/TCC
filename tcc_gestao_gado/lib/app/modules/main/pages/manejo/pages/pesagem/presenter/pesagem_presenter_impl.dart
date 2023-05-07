@@ -10,10 +10,7 @@ class PesagemPresenterImpl implements PesagemPresenter {
   final MainRepository mainRepository;
   final FirebaseAuth firebaseAuth;
 
-  PesagemPresenterImpl({
-    required this.mainRepository,
-    required this.firebaseAuth,
-  });
+  PesagemPresenterImpl({required this.mainRepository, required this.firebaseAuth});
 
   @override
   Future<bool> updatePesagem({
