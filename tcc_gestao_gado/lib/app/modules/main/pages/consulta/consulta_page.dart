@@ -77,7 +77,7 @@ class _ConsultaPageState extends ConsultaViewImpl {
                                     subtitle: '${cattleAnimal[0].id}',
                                   ),
                                   ListTileWidget(
-                                    title: 'Data de cadastro:',
+                                    title: 'Tipo de animal:',
                                     subtitle: '${cattleAnimal[0].type}',
                                   ),
                                   ListTileWidget(

@@ -160,7 +160,7 @@ class MainRepositoryImpl implements MainRepository {
         await firebaseFirestore
             .collection('cattle')
             .doc(referenceFather)
-            .update({'breastfeeding': false, 'type': 'Touro'})
+            .update({'breastfeeding': false, 'type': 'Boi'})
             .then((value) => debugPrint('Success Alteracao status Bezerro'))
             .catchError((onError) => debugPrint('message error Alteracao status Bezerro'));
       } else {
