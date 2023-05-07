@@ -34,6 +34,9 @@ import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/dicas/dicas_
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/dicas/dicas_manejo_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/pesagem/pesagem_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/pesagem/pesagem_route.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/pasto/pages/adubacao_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/pasto/pages/calagem_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/pasto/pages/n_piquetes_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/pasto/pasto_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/pasto/pasto_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/preco_arroba/preco_arroba_page.dart';
@@ -68,7 +71,10 @@ class AppRoutes {
     RelatorioPage.routeName: (context) => const RelatorioRoute(),
     VendasPage.routeName: (context) => const VendasRoute(),
     PastoPage.routeName: (context) => const PastoRoute(),
+    NPiquetesPage.routeName: (context) => const NPiquetesPage(),
+    CalagemPage.routeName: (context) => const CalagemPage(),
     ConsultaPage.routeName: (context) => const ConsultaRoute(),
+    AdubacaoPage.routeName: (context) => const AdubacaoPage(),
     InformacoesPage.routeName: (context) => const InformacoesRoute(),
     PrecoArrobaPage.routeName: (context) => const PrecoArrobaRoute(),
     SobrePage.routeName: (context) => const SobrePage(),

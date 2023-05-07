@@ -28,6 +28,9 @@ class Images {
   String get buscar => "assets/images/buscar.png";
   String get pasto => "assets/images/pasto.png";
   String get ufmt => "assets/images/ufmt.png";
+  String get piquete => "assets/images/piquete.jpg";
+  String get calagem => "assets/images/calagem.jpg";
+  String get adubo => "assets/images/adubo.jpg";
 }
 
 extension ImagesAppExtensions on BuildContext {

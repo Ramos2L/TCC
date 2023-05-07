@@ -90,6 +90,9 @@ flutter:
     - assets/images/buscar.png
     - assets/images/pasto.png
     - assets/images/ufmt.png
+    - assets/images/piquete.jpg
+    - assets/images/calagem.jpg
+    - assets/images/adubo.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

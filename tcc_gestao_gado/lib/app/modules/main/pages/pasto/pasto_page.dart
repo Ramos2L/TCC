@@ -34,8 +34,8 @@ class _PastoPageState extends State<PastoPage> {
                 Text(
                   'Pasto',
                   style: context.textStyles.textMedium.copyWith(
-                    color: context.colors.onPrimary,
                     fontSize: 20,
+                    color: context.colors.onPrimary,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -46,27 +46,27 @@ class _PastoPageState extends State<PastoPage> {
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
                       fontSize: 20,
+                      color: context.colors.primary,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () => Navigator.pushNamed(context, '/n_piquetes'),
                 ),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Divisão da Área',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
-                      fontSize: 20,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  onTap: () {},
-                ),
+                // const SizedBox(height: 15),
+                // GestureDetector(
+                //   child: ContainerWidget(
+                //     title: 'Divisão da Área',
+                //     height: 75,
+                //     width: MediaQuery.of(context).size.width,
+                //     style: context.textStyles.textMedium.copyWith(
+                //       color: context.colors.primary,
+                //       fontSize: 20,
+                //       overflow: TextOverflow.ellipsis,
+                //     ),
+                //   ),
+                //   onTap: () {},
+                // ),
                 const SizedBox(height: 15),
                 GestureDetector(
                   child: ContainerWidget(
@@ -74,12 +74,12 @@ class _PastoPageState extends State<PastoPage> {
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
                       fontSize: 20,
+                      color: context.colors.primary,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () => Navigator.pushNamed(context, '/calagem'),
                 ),
                 const SizedBox(height: 15),
                 GestureDetector(
@@ -88,12 +88,12 @@ class _PastoPageState extends State<PastoPage> {
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
                       fontSize: 20,
+                      color: context.colors.primary,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () => Navigator.pushNamed(context, '/adubacao'),
                 ),
                 const SizedBox(height: 15),
               ],
