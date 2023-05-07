@@ -87,9 +87,6 @@ class CustomTextField extends StatelessWidget {
               ),
               hintText: hintText,
               suffixIcon: suffixIcon,
-              // fillColor: enabled ?? true
-              //     ? context.colors.background
-              //     : context.colors.primary.withOpacity(0.7),
             ),
             maxLength: maxLength,
           ),

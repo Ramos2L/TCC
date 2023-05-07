@@ -28,10 +28,7 @@ class ContainerPrincipal extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Image.asset(
-                      context.images.cow,
-                      width: 25,
-                    ),
+                    Image.asset(context.images.cow, width: 25),
                     const SizedBox(width: 10),
                     Text(
                       '${data.cattle.qtdTotalAnimals}  total de animais',
@@ -56,8 +53,8 @@ class ContainerPrincipal extends StatelessWidget {
                       '${data.cattle.qtdMen} Machos',
                       style: context.textStyles.textMedium.copyWith(
                         color: context.colors.primary,
-                        fontSize: SizePage.isSmallScreenWidth(context) ? 14 : 20,
                         overflow: TextOverflow.ellipsis,
+                        fontSize: SizePage.isSmallScreenWidth(context) ? 14 : 20,
                       ),
                     ),
                   ],
@@ -70,8 +67,8 @@ class ContainerPrincipal extends StatelessWidget {
                       '${data.cattle.qtdFemale} Fêmeas',
                       style: context.textStyles.textMedium.copyWith(
                         color: context.colors.primary,
-                        fontSize: SizePage.isSmallScreenWidth(context) ? 14 : 20,
                         overflow: TextOverflow.ellipsis,
+                        fontSize: SizePage.isSmallScreenWidth(context) ? 14 : 20,
                       ),
                     ),
                   ],

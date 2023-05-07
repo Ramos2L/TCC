@@ -80,9 +80,6 @@ class _LoginPageState extends LoginViewImpl {
                               ),
                               textInputAction: TextInputAction.next,
                               suffixIcon: const Icon(Icons.person),
-                              // onFieldSubmitted: (_) {
-                              //   FocusScope.of(context).requestFocus(phoneNode);
-                              // },
                             ),
                             CustomTextField(
                               padding: const EdgeInsets.fromLTRB(25, 0, 25, 25),

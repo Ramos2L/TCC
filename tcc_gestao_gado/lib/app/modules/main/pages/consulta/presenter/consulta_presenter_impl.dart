@@ -13,8 +13,11 @@ class ConsultaPresenterImpl implements ConsultaPresenter {
   final UserStore userStore;
   final MainRepository mainRepository;
   final FirebaseAuth firebaseAuth;
-  ConsultaPresenterImpl(
-      {required this.userStore, required this.mainRepository, required this.firebaseAuth});
+  ConsultaPresenterImpl({
+    required this.userStore,
+    required this.mainRepository,
+    required this.firebaseAuth,
+  });
 
   @override
   String? getName() => userStore.user.name;

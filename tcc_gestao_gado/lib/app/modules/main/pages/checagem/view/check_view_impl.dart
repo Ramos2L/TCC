@@ -16,6 +16,6 @@ abstract class CheckViewImpl extends State<CheckPage> implements CheckView {
 
   @override
   void toLogin() {
-    Navigator.pushNamed(context, '/home');
+    Navigator.pushNamed(context, '/login');
   }
 }

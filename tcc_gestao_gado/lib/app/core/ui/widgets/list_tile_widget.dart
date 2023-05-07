@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
@@ -12,7 +11,7 @@ class ListTileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: const EdgeInsets.only(left: 0.0, right: 0.0, top: 0.0, bottom: 0.0),
+      contentPadding: const EdgeInsets.all(0),
       title: Text(
         title!,
         style: context.textStyles.textMedium.copyWith(

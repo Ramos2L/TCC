@@ -41,8 +41,8 @@ class _CadastroPageState extends CadastroViewImpl {
                 Text(
                   'Cadastro dos animais',
                   style: context.textStyles.textMedium.copyWith(
-                    color: context.colors.onPrimary,
                     fontSize: 20,
+                    color: context.colors.onPrimary,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -53,8 +53,8 @@ class _CadastroPageState extends CadastroViewImpl {
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
                       fontSize: 20,
+                      color: context.colors.primary,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
@@ -73,17 +73,13 @@ class _CadastroPageState extends CadastroViewImpl {
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
                       fontSize: 20,
+                      color: context.colors.primary,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      '/cadastro_animal',
-                      arguments: Arguments('Touro'),
-                    );
+                    Navigator.pushNamed(context, '/cadastro_animal', arguments: Arguments('Touro'));
                   },
                 ),
                 const SizedBox(height: 15),
@@ -93,17 +89,13 @@ class _CadastroPageState extends CadastroViewImpl {
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
                       fontSize: 20,
+                      color: context.colors.primary,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      '/cadastro_animal',
-                      arguments: Arguments('Boi'),
-                    );
+                    Navigator.pushNamed(context, '/cadastro_animal', arguments: Arguments('Boi'));
                   },
                 ),
                 const SizedBox(height: 15),
@@ -113,8 +105,8 @@ class _CadastroPageState extends CadastroViewImpl {
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
                       fontSize: 20,
+                      color: context.colors.primary,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
@@ -133,8 +125,8 @@ class _CadastroPageState extends CadastroViewImpl {
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
                       fontSize: 20,
+                      color: context.colors.primary,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),

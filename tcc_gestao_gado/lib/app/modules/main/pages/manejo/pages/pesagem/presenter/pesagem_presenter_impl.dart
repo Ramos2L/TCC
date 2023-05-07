@@ -52,18 +52,6 @@ class PesagemPresenterImpl implements PesagemPresenter {
     }
   }
 
-  //     completedOperation = await mainRepository.updateBreastfeeding(cattle: cattleModel);
-
-  //     if (completedOperation) {
-  //       _view.success('Amamentação atualizada!');
-  //     } else {
-  //       _view.message('Ops... Algo deu errado!');
-  //     }
-  //   }
-
-  //   return true;
-  // }
-
   @override
   set view(PesagemView view) => _view = view;
 }

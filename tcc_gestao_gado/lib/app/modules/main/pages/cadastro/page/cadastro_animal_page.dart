@@ -237,9 +237,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                             obscureText: false,
                             suffixIcon: const Icon(Icons.app_registration_rounded),
                             validator: Validatorless.multiple(
-                              [
-                                Validatorless.required("Campo obrigatório"),
-                              ],
+                              [Validatorless.required("Campo obrigatório")],
                             ),
                           ),
                           const SizedBox(height: 25),
@@ -262,11 +260,6 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                               keyboardType: TextInputType.datetime,
                               obscureText: false,
                               suffixIcon: const Icon(Icons.calendar_month),
-                              // validator: Validatorless.multiple(
-                              //   [
-                              //     Validatorless.required("Campo obrigatório"),
-                              //   ],
-                              //),
                             ),
                           ),
                           const SizedBox(height: 25),
@@ -287,10 +280,6 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                       textInputAction: TextInputAction.next,
                                       obscureText: false,
                                       suffixIcon: const Icon(Icons.app_registration_rounded),
-
-                                      // onFieldSubmitted: (_) {
-                                      //   FocusScope.of(context).requestFocus(phoneNode);
-                                      // },
                                     ),
                                     const SizedBox(height: 25),
                                     CustomTextField(
@@ -307,9 +296,6 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                       textInputAction: TextInputAction.next,
                                       obscureText: false,
                                       suffixIcon: const Icon(Icons.app_registration_rounded),
-                                      // onFieldSubmitted: (_) {
-                                      //   FocusScope.of(context).requestFocus(phoneNode);
-                                      // },
                                     ),
                                     const SizedBox(height: 25),
                                   ],
@@ -330,9 +316,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                             obscureText: false,
                             suffixIcon: const Icon(Icons.balance),
                             validator: Validatorless.multiple(
-                              [
-                                Validatorless.required("Campo obrigatório"),
-                              ],
+                              [Validatorless.required("Campo obrigatório")],
                             ),
                           ),
                           const SizedBox(height: 25),

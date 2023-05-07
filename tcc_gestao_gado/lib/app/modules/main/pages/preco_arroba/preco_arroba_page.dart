@@ -35,8 +35,8 @@ class _PrecoArrobaPageState extends PrecoArrobaViewImpl {
                 Text(
                   'Preço da Arroba',
                   style: context.textStyles.textMedium.copyWith(
-                    color: context.colors.onPrimary,
                     fontSize: 20,
+                    color: context.colors.onPrimary,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -44,8 +44,8 @@ class _PrecoArrobaPageState extends PrecoArrobaViewImpl {
                 Text(
                   '...',
                   style: context.textStyles.textMedium.copyWith(
-                    color: context.colors.onPrimary,
                     fontSize: 20,
+                    color: context.colors.onPrimary,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -53,8 +53,8 @@ class _PrecoArrobaPageState extends PrecoArrobaViewImpl {
                 Text(
                   'Atualizações Futuras',
                   style: context.textStyles.textMedium.copyWith(
-                    color: context.colors.onPrimary,
                     fontSize: 20,
+                    color: context.colors.onPrimary,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),

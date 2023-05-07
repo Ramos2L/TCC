@@ -53,8 +53,8 @@ class _DescartePageState extends DescarteViewImpl {
                           Text(
                             'Descarte do animal',
                             style: context.textStyles.textMedium.copyWith(
-                              color: context.colors.onPrimary,
                               fontSize: 20,
+                              color: context.colors.onPrimary,
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),
@@ -73,8 +73,8 @@ class _DescartePageState extends DescarteViewImpl {
                               Text(
                                 'Situação:',
                                 style: context.textStyles.textMedium.copyWith(
-                                  color: context.colors.onPrimary,
                                   fontSize: 20,
+                                  color: context.colors.onPrimary,
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),
@@ -84,8 +84,8 @@ class _DescartePageState extends DescarteViewImpl {
                                   title: Text(
                                     'morte',
                                     style: context.textStyles.textMedium.copyWith(
-                                      color: context.colors.onPrimary,
                                       fontSize: 16,
+                                      color: context.colors.onPrimary,
                                       overflow: TextOverflow.ellipsis,
                                     ),
                                   ),
@@ -104,8 +104,8 @@ class _DescartePageState extends DescarteViewImpl {
                                   title: Text(
                                     'venda',
                                     style: context.textStyles.textMedium.copyWith(
-                                      color: context.colors.onPrimary,
                                       fontSize: 16,
+                                      color: context.colors.onPrimary,
                                       overflow: TextOverflow.ellipsis,
                                     ),
                                   ),
@@ -155,9 +155,7 @@ class _DescartePageState extends DescarteViewImpl {
                             obscureText: false,
                             suffixIcon: const Icon(Icons.app_registration_rounded),
                             validator: Validatorless.multiple(
-                              [
-                                Validatorless.required("Campo obrigatório"),
-                              ],
+                              [Validatorless.required("Campo obrigatório")],
                             ),
                             textInputAction:
                                 option == "morte" ? TextInputAction.done : TextInputAction.next,
@@ -182,9 +180,7 @@ class _DescartePageState extends DescarteViewImpl {
                                       suffixIcon: const Icon(Icons.balance),
                                       textInputAction: TextInputAction.next,
                                       validator: Validatorless.multiple(
-                                        [
-                                          Validatorless.required("Campo obrigatório"),
-                                        ],
+                                        [Validatorless.required("Campo obrigatório")],
                                       ),
                                     ),
                                     const SizedBox(height: 25),
@@ -199,9 +195,7 @@ class _DescartePageState extends DescarteViewImpl {
                                         ),
                                       ),
                                       validator: Validatorless.multiple(
-                                        [
-                                          Validatorless.required("Campo obrigatório"),
-                                        ],
+                                        [Validatorless.required("Campo obrigatório")],
                                       ),
                                       keyboardType: TextInputType.number,
                                       obscureText: false,
@@ -238,14 +232,11 @@ class _DescartePageState extends DescarteViewImpl {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    //const Spacer(),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                       child: Button.primary(
                         label: 'SALVAR',
-                        onPressed: () {
-                          descarteDados();
-                        },
+                        onPressed: () => descarteDados(),
                       ),
                     ),
                   ],

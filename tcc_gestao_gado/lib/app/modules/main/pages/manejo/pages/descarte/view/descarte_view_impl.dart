@@ -33,10 +33,7 @@ abstract class DescarteViewImpl extends State<DescartePage>
       firstDate: DateTime(1950),
       lastDate: DateTime(2100),
     ).then((value) {
-      setState(() {
-        dateTime = value!;
-        //print(value);
-      });
+      setState(() => dateTime = value!);
       return null;
     });
   }

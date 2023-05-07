@@ -10,10 +10,8 @@ abstract class CastrarViewImpl extends State<CastrarPage>
     implements CastrarView {
   List<String> list = [];
   final formKey = GlobalKey<FormState>();
-
-  TextEditingController dateController = TextEditingController();
+  final TextEditingController dateController = TextEditingController();
   final TextEditingController numberAnimalController = TextEditingController();
-
   DateTime dateTime = DateTime.now();
   String date = '';
 
@@ -32,9 +30,7 @@ abstract class CastrarViewImpl extends State<CastrarPage>
       firstDate: DateTime(1950),
       lastDate: DateTime(2100),
     ).then((value) {
-      setState(() {
-        dateTime = value!;
-      });
+      setState(() => dateTime = value!);
       return null;
     });
   }

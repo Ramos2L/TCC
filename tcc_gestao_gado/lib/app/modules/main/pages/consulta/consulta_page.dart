@@ -124,7 +124,7 @@ class _ConsultaPageState extends ConsultaViewImpl {
                                       : const SizedBox(),
                                 ],
                               )
-                            : const SizedBox()
+                            : const SizedBox(),
                       ],
                     ),
                   ),

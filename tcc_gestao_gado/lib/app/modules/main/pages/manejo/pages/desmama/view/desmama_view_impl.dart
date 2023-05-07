@@ -15,7 +15,6 @@ abstract class DesmamaViewImpl extends State<DesmamaPage>
   }
 
   final formKey = GlobalKey<FormState>();
-
   DateTime dateTime = DateTime.now();
   String date = '';
   final TextEditingController dateController = TextEditingController();
@@ -31,10 +30,7 @@ abstract class DesmamaViewImpl extends State<DesmamaPage>
       firstDate: DateTime(1950),
       lastDate: DateTime(2100),
     ).then((value) {
-      setState(() {
-        dateTime = value!;
-        //print(value);
-      });
+      setState(() => dateTime = value!);
       return null;
     });
   }

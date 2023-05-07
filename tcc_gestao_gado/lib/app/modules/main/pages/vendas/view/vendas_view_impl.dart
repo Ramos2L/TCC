@@ -33,9 +33,7 @@ abstract class VendasViewImpl extends State<VendasPage>
       firstDate: DateTime(1950),
       lastDate: DateTime(2100),
     ).then((value) {
-      setState(() {
-        dateTime = value!;
-      });
+      setState(() => dateTime = value!);
       return null;
     });
   }

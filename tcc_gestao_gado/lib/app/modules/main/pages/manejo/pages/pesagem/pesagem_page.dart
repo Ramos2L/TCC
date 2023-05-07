@@ -51,8 +51,8 @@ class _PesagemPageState extends PesagemViewImpl {
                         Text(
                           'Pesagem do animal',
                           style: context.textStyles.textMedium.copyWith(
-                            color: context.colors.onPrimary,
                             fontSize: 20,
+                            color: context.colors.onPrimary,
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
@@ -75,13 +75,8 @@ class _PesagemPageState extends PesagemViewImpl {
                             obscureText: false,
                             suffixIcon: const Icon(Icons.calendar_month),
                             validator: Validatorless.multiple(
-                              [
-                                Validatorless.required("Campo obrigatório"),
-                              ],
+                              [Validatorless.required("Campo obrigatório")],
                             ),
-                            // onFieldSubmitted: (_) {
-                            //   FocusScope.of(context).requestFocus(phoneNode);
-                            // },
                           ),
                         ),
                         const SizedBox(height: 25),
@@ -98,9 +93,7 @@ class _PesagemPageState extends PesagemViewImpl {
                           keyboardType: TextInputType.number,
                           textInputAction: TextInputAction.next,
                           obscureText: false,
-                          suffixIcon: const Icon(
-                            Icons.app_registration_rounded,
-                          ),
+                          suffixIcon: const Icon(Icons.app_registration_rounded),
                         ),
                         const SizedBox(height: 25),
                         CustomTextField(

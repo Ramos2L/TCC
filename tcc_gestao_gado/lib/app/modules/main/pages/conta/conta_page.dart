@@ -43,8 +43,8 @@ class _ContaPageState extends ContaViewImpl {
                         Text(
                           'Voltar',
                           style: context.textStyles.textMedium.copyWith(
-                            color: context.colors.onPrimary,
                             fontSize: 20,
+                            color: context.colors.onPrimary,
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),

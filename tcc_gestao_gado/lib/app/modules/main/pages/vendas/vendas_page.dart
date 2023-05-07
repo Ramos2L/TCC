@@ -51,8 +51,8 @@ class _VendasPageState extends VendasViewImpl {
                           Text(
                             'Vendas',
                             style: context.textStyles.textMedium.copyWith(
-                              color: context.colors.onPrimary,
                               fontSize: 20,
+                              color: context.colors.onPrimary,
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),
@@ -74,14 +74,6 @@ class _VendasPageState extends VendasViewImpl {
                               keyboardType: TextInputType.datetime,
                               obscureText: false,
                               suffixIcon: const Icon(Icons.calendar_month),
-                              // validator: Validatorless.multiple(
-                              //   [
-                              //     Validatorless.required("Campo obrigatório"),
-                              //   ],
-                              //),
-                              // onFieldSubmitted: (_) {
-                              //   FocusScope.of(context).requestFocus(phoneNode);
-                              // },
                             ),
                           ),
                           const SizedBox(height: 25),
@@ -101,13 +93,9 @@ class _VendasPageState extends VendasViewImpl {
                               Icons.app_registration_rounded,
                             ),
                             validator: Validatorless.multiple(
-                              [
-                                Validatorless.required("Campo obrigatório"),
-                              ],
+                              [Validatorless.required("Campo obrigatório")],
                             ),
-                            // onFieldSubmitted: (_) {
-                            //   FocusScope.of(context).requestFocus(phoneNode);
-                            // },
+                            textInputAction: TextInputAction.next,
                           ),
                           const SizedBox(height: 25),
                           CustomTextField(
@@ -124,13 +112,9 @@ class _VendasPageState extends VendasViewImpl {
                             obscureText: false,
                             suffixIcon: const Icon(Icons.balance),
                             validator: Validatorless.multiple(
-                              [
-                                Validatorless.required("Campo obrigatório"),
-                              ],
+                              [Validatorless.required("Campo obrigatório")],
                             ),
-                            // onFieldSubmitted: (_) {
-                            //   FocusScope.of(context).requestFocus(phoneNode);
-                            // },
+                            textInputAction: TextInputAction.next,
                           ),
                           const SizedBox(height: 25),
                           CustomTextField(
@@ -147,13 +131,9 @@ class _VendasPageState extends VendasViewImpl {
                             obscureText: false,
                             suffixIcon: const Icon(Icons.money),
                             validator: Validatorless.multiple(
-                              [
-                                Validatorless.required("Campo obrigatório"),
-                              ],
+                              [Validatorless.required("Campo obrigatório")],
                             ),
-                            // onFieldSubmitted: (_) {
-                            //   FocusScope.of(context).requestFocus(phoneNode);
-                            // },
+                            textInputAction: TextInputAction.next,
                           ),
                           const SizedBox(height: 25),
                           CustomTextField(
@@ -168,9 +148,8 @@ class _VendasPageState extends VendasViewImpl {
                             ),
                             keyboardType: TextInputType.text,
                             obscureText: false,
-                            // onFieldSubmitted: (_) {
-                            //   FocusScope.of(context).requestFocus(phoneNode);
-                            // },
+                            onFieldSubmitted: (_) => registerVenda(),
+                            textInputAction: TextInputAction.next,
                           ),
                         ],
                       ),
@@ -187,13 +166,7 @@ class _VendasPageState extends VendasViewImpl {
                       padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                       child: Button.primary(
                         label: 'VENDER',
-                        onPressed: () {
-                          if (formKey.currentState!.validate()) {
-                            registerVenda();
-                          } else {
-                            showCustomSnackBar("Opss! Algo deu errado");
-                          }
-                        },
+                        onPressed: () => registerVenda(),
                       ),
                     ),
                   ],
@@ -207,12 +180,16 @@ class _VendasPageState extends VendasViewImpl {
   }
 
   void registerVenda() {
-    widget.presenter.registerVenda(
-      numberAnimal: numberAnimalController.text,
-      weigth: weigthController.text,
-      price: priceController.text,
-      date: DateFormat("dd/MM/yyyy").format(dateTime),
-      observations: observationsController.text,
-    );
+    if (formKey.currentState!.validate()) {
+      widget.presenter.registerVenda(
+        numberAnimal: numberAnimalController.text,
+        weigth: weigthController.text,
+        price: priceController.text,
+        date: DateFormat("dd/MM/yyyy").format(dateTime),
+        observations: observationsController.text,
+      );
+    } else {
+      showCustomSnackBar("Opss! Algo deu errado");
+    }
   }
 }

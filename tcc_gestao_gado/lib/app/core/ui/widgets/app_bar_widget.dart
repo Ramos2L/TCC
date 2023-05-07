@@ -28,8 +28,9 @@ class AppBarWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: GestureDetector(
-              onTap: () => Navigator.pushNamed(context, '/conta'),
-              child: CircleAvatarWidget(width: 50, height: 50, image: context.images.introImage1)),
+            onTap: () => Navigator.pushNamed(context, '/conta'),
+            child: CircleAvatarWidget(width: 50, height: 50, image: context.images.introImage1),
+          ),
         ),
       ],
     );

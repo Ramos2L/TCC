@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 
 class ContainerWidget extends StatelessWidget {
-  const ContainerWidget(
-      {super.key, this.style, required this.title, required this.height, required this.width});
+  const ContainerWidget({
+    super.key,
+    this.style,
+    required this.title,
+    required this.height,
+    required this.width,
+  });
 
   final TextStyle? style;
   final String title;
@@ -23,10 +28,7 @@ class ContainerWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
         child: Align(
           alignment: Alignment.centerLeft,
-          child: Text(
-            title,
-            style: style,
-          ),
+          child: Text(title, style: style),
         ),
       ),
     );

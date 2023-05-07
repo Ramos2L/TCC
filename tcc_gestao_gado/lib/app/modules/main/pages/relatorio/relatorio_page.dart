@@ -35,8 +35,8 @@ class _RelatorioPageState extends RelatorioViewImpl {
                 Text(
                   'Relatório Geral',
                   style: context.textStyles.textMedium.copyWith(
-                    color: context.colors.onPrimary,
                     fontSize: 20,
+                    color: context.colors.onPrimary,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -47,8 +47,8 @@ class _RelatorioPageState extends RelatorioViewImpl {
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
                       fontSize: 20,
+                      color: context.colors.primary,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
@@ -61,8 +61,8 @@ class _RelatorioPageState extends RelatorioViewImpl {
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
                       fontSize: 20,
+                      color: context.colors.primary,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
@@ -75,8 +75,8 @@ class _RelatorioPageState extends RelatorioViewImpl {
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
                       fontSize: 20,
+                      color: context.colors.primary,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
@@ -89,8 +89,8 @@ class _RelatorioPageState extends RelatorioViewImpl {
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
                       fontSize: 20,
+                      color: context.colors.primary,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
@@ -103,8 +103,8 @@ class _RelatorioPageState extends RelatorioViewImpl {
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(
-                      color: context.colors.primary,
                       fontSize: 20,
+                      color: context.colors.primary,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),

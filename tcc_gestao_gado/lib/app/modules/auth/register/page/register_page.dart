@@ -41,11 +41,7 @@ class _RegisterPageState extends RegisterViewImpl {
                     ),
                   ),
                   const SizedBox(height: 15),
-                  CircleAvatarWidget(
-                    width: 125,
-                    height: 125,
-                    image: context.images.splashImage,
-                  ),
+                  CircleAvatarWidget(width: 125, height: 125, image: context.images.splashImage),
                   const SizedBox(height: 15),
                   Text(
                     "CattleControl",
@@ -79,9 +75,6 @@ class _RegisterPageState extends RegisterViewImpl {
                     ),
                     suffixIcon: const Icon(Icons.person),
                     textInputAction: TextInputAction.next,
-                    // onFieldSubmitted: (_) {
-                    //   FocusScope.of(context).requestFocus(phoneNode);
-                    // },
                   ),
                   CustomTextField(
                     padding: const EdgeInsets.fromLTRB(25, 0, 25, 15),
@@ -97,9 +90,6 @@ class _RegisterPageState extends RegisterViewImpl {
                     ),
                     suffixIcon: const Icon(Icons.add_home_work_rounded),
                     textInputAction: TextInputAction.next,
-                    // onFieldSubmitted: (_) {
-                    //   FocusScope.of(context).requestFocus(phoneNode);
-                    // },
                   ),
                   CustomTextField(
                     padding: const EdgeInsets.fromLTRB(25, 0, 25, 15),
@@ -118,9 +108,6 @@ class _RegisterPageState extends RegisterViewImpl {
                     ),
                     suffixIcon: const Icon(Icons.phone),
                     textInputAction: TextInputAction.next,
-                    // onFieldSubmitted: (_) {
-                    //   FocusScope.of(context).requestFocus(phoneNode);
-                    // },
                   ),
                   CustomTextField(
                     padding: const EdgeInsets.fromLTRB(25, 0, 25, 15),
@@ -142,9 +129,6 @@ class _RegisterPageState extends RegisterViewImpl {
                     ),
                     suffixIcon: const Icon(Icons.mail),
                     textInputAction: TextInputAction.next,
-                    // onFieldSubmitted: (_) {
-                    //   FocusScope.of(context).requestFocus(phoneNode);
-                    // },
                   ),
                   CustomTextField(
                     padding: const EdgeInsets.fromLTRB(25, 0, 25, 15),
@@ -172,9 +156,6 @@ class _RegisterPageState extends RegisterViewImpl {
                       ],
                     ),
                     textInputAction: TextInputAction.next,
-                    // onFieldSubmitted: (_) {
-                    //   FocusScope.of(context).requestFocus(phoneNode);
-                    // },
                   ),
                   CustomTextField(
                     padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
@@ -209,14 +190,7 @@ class _RegisterPageState extends RegisterViewImpl {
                     padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                     child: Button.primary(
                       label: 'CADASTRAR',
-                      onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                          register();
-                        } else {
-                          //MENSAGEM DE ERRO
-                          showCustomSnackBar("Opss! Algo deu errado");
-                        }
-                      },
+                      onPressed: () => register(),
                     ),
                   ),
                 ],
@@ -229,12 +203,17 @@ class _RegisterPageState extends RegisterViewImpl {
   }
 
   void register() {
-    widget.presenter.registerUser(
-      nome: nameController.text,
-      phone: phoneController.text,
-      email: emailController.text,
-      farm: farmController.text,
-      password: passwordController.text,
-    );
+    if (formKey.currentState!.validate()) {
+      widget.presenter.registerUser(
+        nome: nameController.text,
+        phone: phoneController.text,
+        email: emailController.text,
+        farm: farmController.text,
+        password: passwordController.text,
+      );
+    } else {
+      //MENSAGEM DE ERRO
+      showCustomSnackBar("Opss! Algo deu errado");
+    }
   }
 }
