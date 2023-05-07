@@ -4,16 +4,18 @@ import 'package:tcc_gestao_gado/app/core/storage/user_storage.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/errors/register_errors.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/checagem/presenter/check_presenter.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/checagem/view/check_view.dart';
+import 'package:tcc_gestao_gado/app/modules/main/repositories/repository.dart';
 
 class CheckPresenterImpl implements CheckPresenter {
   late CheckView _view;
   final UserStore userStore;
-
+  final MainRepository mainRepository;
   final FirebaseFirestore firebaseFirestore;
 
   CheckPresenterImpl({
     required this.userStore,
     required this.firebaseFirestore,
+    required this.mainRepository,
   });
 
   @override
@@ -44,6 +46,11 @@ class CheckPresenterImpl implements CheckPresenter {
       _view.toLogin();
       throw UnusualException(message: e.toString());
     }
+  }
+
+  @override
+  Future<void> setCattleAndSave({required String userId}) async {
+    await mainRepository.findInfosCattle(userId: userId);
   }
 
   @override

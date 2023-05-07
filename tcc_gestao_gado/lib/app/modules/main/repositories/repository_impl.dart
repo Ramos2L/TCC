@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_getit/flutter_getit.dart';
 import 'package:tcc_gestao_gado/app/core/models/cattle_model.dart';
+import 'package:tcc_gestao_gado/app/core/models/infos_cattle_model.dart';
 import 'package:tcc_gestao_gado/app/core/models/raca_model.dart';
+import 'package:tcc_gestao_gado/app/core/storage/cattle_storage.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/errors/register_errors.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/informacoes/model/informacoes_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/dicas/model/dicas_manejo_model.dart';
@@ -44,6 +47,7 @@ class MainRepositoryImpl implements MainRepository {
           .catchError(
             (onError) => debugPrint('message error'),
           );
+      await findInfosCattle(userId: cattle.idUser!);
       return true;
     } else {
       return false;
@@ -240,6 +244,7 @@ class MainRepositoryImpl implements MainRepository {
           .catchError(
             (onError) => debugPrint('message error'),
           );
+      await findInfosCattle(userId: cattle.idUser!);
       return true;
     } else {
       debugPrint('Nao foi possivel realizar a venda');
@@ -264,6 +269,7 @@ class MainRepositoryImpl implements MainRepository {
           .catchError(
             (onError) => debugPrint('message error'),
           );
+      await findInfosCattle(userId: cattle.idUser!);
       return true;
     } else {
       debugPrint('Nao foi possivel realizar o cadastro Morte do animal');
@@ -308,6 +314,41 @@ class MainRepositoryImpl implements MainRepository {
         dataInformations.add(CattleModel.fromMap(data.data() as Map<String, dynamic>));
       }
       return dataInformations;
+    } catch (e) {
+      throw UnusualException(message: e.toString());
+    }
+  }
+
+  @override
+  Future<void> findInfosCattle({required String userId}) async {
+    try {
+      int qtdAnimals = 0;
+      int sexMale = 0;
+      int sexFemale = 0;
+      final document =
+          firebaseFirestore.collection("cattle").where("idUser", isEqualTo: userId).get();
+
+      QuerySnapshot doc = await document;
+
+      for (var data in doc.docs) {
+        qtdAnimals = qtdAnimals + 1;
+        if (data.get('sex') == "macho") {
+          sexMale = sexMale + 1;
+        } else if (data.get('sex') == "femea") {
+          sexFemale = sexFemale + 1;
+        }
+      }
+
+      InfosCattleModel infoModel = InfosCattleModel(
+        qtdTotalAnimals: qtdAnimals,
+        qtdFemale: sexFemale,
+        qtdMen: sexMale,
+      );
+
+      var cattleStore = Injector.get<CattleStore>();
+
+      cattleStore.setCattle(infoModel);
+      cattleStore.saveCattle();
     } catch (e) {
       throw UnusualException(message: e.toString());
     }

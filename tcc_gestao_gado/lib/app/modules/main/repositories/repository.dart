@@ -15,6 +15,7 @@ abstract class MainRepository {
   Future<bool> castrateAnimal({required CattleModel cattle});
   Future<String?> deleteCattle({required CattleModel cattle});
   Future<List<CattleModel>> findCattle();
+  Future<void> findInfosCattle({required String userId});
   Future<List<InformacoesModel>> findInformation();
   Future<List<DicasManejoModel>> findManagementTips();
   Future<CattleModel> consultCattle({required String id, required String idUser});

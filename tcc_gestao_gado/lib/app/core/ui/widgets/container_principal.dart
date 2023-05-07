@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getit/flutter_getit.dart';
+import 'package:tcc_gestao_gado/app/core/storage/cattle_storage.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/images.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
@@ -9,6 +11,7 @@ class ContainerPrincipal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var data = Injector.get<CattleStore>();
     return Container(
       height: 150,
       decoration: BoxDecoration(
@@ -31,26 +34,10 @@ class ContainerPrincipal extends StatelessWidget {
                     ),
                     const SizedBox(width: 10),
                     Text(
-                      '504 animais',
+                      '${data.cattle.qtdTotalAnimals}  total de animais',
                       style: context.textStyles.textMedium.copyWith(
                         color: context.colors.primary,
-                        fontSize:
-                            SizePage.isSmallScreenWidth(context) ? 14 : 20,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    const Icon(Icons.male),
-                    const SizedBox(width: 10),
-                    Text(
-                      '201',
-                      style: context.textStyles.textMedium.copyWith(
-                        color: context.colors.primary,
-                        fontSize:
-                            SizePage.isSmallScreenWidth(context) ? 14 : 20,
+                        fontSize: SizePage.isSmallScreenWidth(context) ? 14 : 20,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -63,14 +50,13 @@ class ContainerPrincipal extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const Icon(Icons.balance),
+                    const Icon(Icons.male),
                     const SizedBox(width: 10),
                     Text(
-                      '6.450.012 peso',
+                      '${data.cattle.qtdMen} Machos',
                       style: context.textStyles.textMedium.copyWith(
                         color: context.colors.primary,
-                        fontSize:
-                            SizePage.isSmallScreenWidth(context) ? 14 : 20,
+                        fontSize: SizePage.isSmallScreenWidth(context) ? 14 : 20,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -81,11 +67,10 @@ class ContainerPrincipal extends StatelessWidget {
                     const Icon(Icons.female),
                     const SizedBox(width: 10),
                     Text(
-                      '201',
+                      '${data.cattle.qtdFemale} Fêmeas',
                       style: context.textStyles.textMedium.copyWith(
                         color: context.colors.primary,
-                        fontSize:
-                            SizePage.isSmallScreenWidth(context) ? 14 : 20,
+                        fontSize: SizePage.isSmallScreenWidth(context) ? 14 : 20,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),

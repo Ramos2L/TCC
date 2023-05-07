@@ -26,6 +26,7 @@ class _CheckPageState extends CheckViewImpl {
         Navigator.pushNamed(context, '/intro_page');
       } else {
         await widget.presenter.setUserAndSave(userId: user.uid);
+        await widget.presenter.setCattleAndSave(userId: user.uid);
       }
     });
     super.initState();

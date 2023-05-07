@@ -12,6 +12,7 @@ class CheckRoute extends FlutterGetItPageRoute {
         Bind.lazySingleton<CheckPresenter>((i) => CheckPresenterImpl(
               userStore: i(),
               firebaseFirestore: i(),
+              mainRepository: i(),
             )),
       ];
 

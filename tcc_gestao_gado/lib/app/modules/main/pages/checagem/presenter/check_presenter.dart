@@ -3,4 +3,5 @@ import 'package:tcc_gestao_gado/app/modules/main/pages/checagem/view/check_view.
 
 abstract class CheckPresenter extends GestaoGadoPresenter<CheckView> {
   Future<void> setUserAndSave({required String userId});
+  Future<void> setCattleAndSave({required String userId});
 }
