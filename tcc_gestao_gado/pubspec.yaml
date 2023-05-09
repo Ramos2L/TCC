@@ -88,6 +88,7 @@ flutter:
     - assets/images/vendas.png
     - assets/images/relatorio.png
     - assets/images/informacao.png
+    - assets/images/perfil.png
     - assets/images/buscar.png
     - assets/images/pasto.png
     - assets/images/ufmt.png

@@ -27,6 +27,7 @@ class Images {
   String get informacao => "assets/images/informacao.png";
   String get buscar => "assets/images/buscar.png";
   String get pasto => "assets/images/pasto.png";
+  String get perfil => "assets/images/perfil.png";
   String get ufmt => "assets/images/ufmt.png";
   String get piquete => "assets/images/piquete.jpg";
   String get calagem => "assets/images/calagem.jpg";

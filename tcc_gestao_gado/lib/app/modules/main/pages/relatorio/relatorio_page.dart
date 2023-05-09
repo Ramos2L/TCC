@@ -57,20 +57,6 @@ class _RelatorioPageState extends RelatorioViewImpl {
                 const SizedBox(height: 15),
                 GestureDetector(
                   child: ContainerWidget(
-                    title: 'Manejo',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      fontSize: 20,
-                      color: context.colors.primary,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  onTap: () {},
-                ),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
                     title: 'Animais',
                     height: 75,
                     width: MediaQuery.of(context).size.width,
@@ -100,6 +86,20 @@ class _RelatorioPageState extends RelatorioViewImpl {
                 GestureDetector(
                   child: ContainerWidget(
                     title: 'Vendas',
+                    height: 75,
+                    width: MediaQuery.of(context).size.width,
+                    style: context.textStyles.textMedium.copyWith(
+                      fontSize: 20,
+                      color: context.colors.primary,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  onTap: () {},
+                ),
+                const SizedBox(height: 15),
+                GestureDetector(
+                  child: ContainerWidget(
+                    title: 'Mortes',
                     height: 75,
                     width: MediaQuery.of(context).size.width,
                     style: context.textStyles.textMedium.copyWith(

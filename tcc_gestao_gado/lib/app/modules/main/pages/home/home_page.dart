@@ -144,20 +144,6 @@ class _HomePageState extends HomeViewImpl {
                       buttonStyle: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(context.colors.secondary),
                       ),
-                      image: context.images.precoArroba,
-                      label: 'valor da arroba',
-                      styleLabel: context.textStyles.textMedium.copyWith(
-                        fontSize: 20,
-                        color: context.colors.onPrimary,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      onPressed: () => Navigator.pushNamed(context, '/preco_arroba'),
-                    ),
-                    const SizedBox(width: 15),
-                    ButtonHome(
-                      buttonStyle: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(context.colors.secondary),
-                      ),
                       image: context.images.informacao,
                       label: 'informações',
                       styleLabel: context.textStyles.textMedium.copyWith(
@@ -166,6 +152,20 @@ class _HomePageState extends HomeViewImpl {
                         overflow: TextOverflow.ellipsis,
                       ),
                       onPressed: () => Navigator.pushNamed(context, '/informacoes'),
+                    ),
+                    const SizedBox(width: 15),
+                    ButtonHome(
+                      buttonStyle: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(context.colors.secondary),
+                      ),
+                      image: context.images.perfil,
+                      label: 'perfil',
+                      styleLabel: context.textStyles.textMedium.copyWith(
+                        fontSize: 20,
+                        color: context.colors.onPrimary,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      onPressed: () => Navigator.pushNamed(context, '/conta'),
                     ),
                   ],
                 ),
