@@ -18,6 +18,7 @@ class ManejoPage extends StatefulWidget {
 }
 
 class _ManejoPageState extends ManejoViewImpl {
+  bool refresh = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,98 +26,122 @@ class _ManejoPageState extends ManejoViewImpl {
       appBar: AppBarWidget.appBar(context, title: '${widget.presenter.getName()}'),
       drawer: DrawerMenu(nameUser: '${widget.presenter.getName()}'),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-            child: Column(
-              children: [
-                const ContainerPrincipal(),
-                const SizedBox(height: 25),
-                Text(
-                  'Manejo dos animais',
-                  style: context.textStyles.textMedium.copyWith(
-                    fontSize: 20,
-                    color: context.colors.onPrimary,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-                const SizedBox(height: 25),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Pesagem',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      fontSize: 20,
-                      color: context.colors.primary,
-                      overflow: TextOverflow.ellipsis,
+        child: RefreshIndicator(
+          onRefresh: _onRefresh,
+          child: ListView(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                child: Column(
+                  children: [
+                    ContainerPrincipal(refresh: refresh),
+                    const SizedBox(height: 25),
+                    Text(
+                      'Manejo dos animais',
+                      style: context.textStyles.textMedium.copyWith(
+                        fontSize: 20,
+                        color: context.colors.onPrimary,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                  ),
-                  onTap: () => Navigator.pushNamed(context, '/pesagem'),
-                ),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Desmama',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      fontSize: 20,
-                      color: context.colors.primary,
-                      overflow: TextOverflow.ellipsis,
+                    const SizedBox(height: 25),
+                    GestureDetector(
+                      child: ContainerWidget(
+                        title: 'Pesagem',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () => Navigator.pushNamed(context, '/pesagem'),
                     ),
-                  ),
-                  onTap: () => Navigator.pushNamed(context, '/desmama'),
-                ),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Descarte',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      fontSize: 20,
-                      color: context.colors.primary,
-                      overflow: TextOverflow.ellipsis,
+                    const SizedBox(height: 15),
+                    GestureDetector(
+                      child: ContainerWidget(
+                        title: 'Desmama',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () => Navigator.pushNamed(context, '/desmama'),
                     ),
-                  ),
-                  onTap: () => Navigator.pushNamed(context, '/descarte'),
-                ),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Castrar animal',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      fontSize: 20,
-                      color: context.colors.primary,
-                      overflow: TextOverflow.ellipsis,
+                    const SizedBox(height: 15),
+                    GestureDetector(
+                      child: ContainerWidget(
+                        title: 'Descarte',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () => Navigator.pushNamed(context, '/descarte'),
                     ),
-                  ),
-                  onTap: () {
-                    Navigator.pushNamed(context, '/castrar-animal');
-                  },
-                ),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Dicas de manejo',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      fontSize: 20,
-                      color: context.colors.primary,
-                      overflow: TextOverflow.ellipsis,
+                    const SizedBox(height: 15),
+                    GestureDetector(
+                      child: ContainerWidget(
+                        title: 'Castrar animal',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pushNamed(context, '/castrar-animal');
+                      },
                     ),
-                  ),
-                  onTap: () => Navigator.pushNamed(context, '/dicas-manejo'),
+                    const SizedBox(height: 15),
+                    GestureDetector(
+                      child: ContainerWidget(
+                        title: 'Anotar observação',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () => Navigator.pushNamed(context, '/observacoes'),
+                    ),
+                    const SizedBox(height: 15),
+                    GestureDetector(
+                      child: ContainerWidget(
+                        title: 'Dicas de manejo',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () => Navigator.pushNamed(context, '/dicas-manejo'),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
     );
+  }
+
+  Future<void> _onRefresh() async {
+    setState(() => refresh = !refresh);
+    return Future.delayed(const Duration(seconds: 1));
   }
 }

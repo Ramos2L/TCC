@@ -10,6 +10,7 @@ import 'package:tcc_gestao_gado/app/core/storage/user_storage.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/errors/register_errors.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/informacoes/model/informacoes_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/dicas/model/dicas_manejo_model.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/model/mortes_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/repositories/repository.dart';
 
 class MainRepositoryImpl implements MainRepository {
@@ -310,6 +311,32 @@ class MainRepositoryImpl implements MainRepository {
   }
 
   @override
+  Future<bool> updateAnnotation({required CattleModel cattle}) async {
+    try {
+      String? result = await checkUserCattle(cattle: cattle);
+      if (result != null) {
+        await firebaseFirestore
+            .collection('cattle')
+            .doc(result)
+            .update({
+              'date': cattle.date,
+              'id': cattle.id,
+              'observations': cattle.observations,
+            })
+            .then((value) => debugPrint('Success Observacoes'))
+            .catchError((onError) => debugPrint('message error'));
+        return true;
+      } else {
+        debugPrint('Nao foi possivel realizar a atualizacao de Observacoes');
+        return false;
+      }
+    } catch (e) {
+      debugPrint('Nao foi possivel realizar a atualizacao de Observacoes');
+      return false;
+    }
+  }
+
+  @override
   Future<bool> castrateAnimal({required CattleModel cattle}) async {
     try {
       CattleModel consultData = await consultCattle(id: cattle.id!, idUser: cattle.idUser!);
@@ -374,6 +401,7 @@ class MainRepositoryImpl implements MainRepository {
           .set({
             'date': cattle.date,
             'id': cattle.id,
+            'idUser': cattle.idUser,
             'observations': cattle.observations,
           })
           .then((value) => debugPrint('Success Cadastro Morte animal'))
@@ -494,6 +522,22 @@ class MainRepositoryImpl implements MainRepository {
       }
 
       return dataInformations;
+    } catch (e) {
+      throw UnusualException(message: e.toString());
+    }
+  }
+
+  @override
+  Future<List<MortesModel>> deathReport({required String idUser}) async {
+    try {
+      final document =
+          await firebaseFirestore.collection("mortes").where('idUser', isEqualTo: idUser).get();
+
+      List<MortesModel> death = [];
+      for (var data in document.docs) {
+        death.add(MortesModel.fromMap(data.data()));
+      }
+      return death;
     } catch (e) {
       throw UnusualException(message: e.toString());
     }

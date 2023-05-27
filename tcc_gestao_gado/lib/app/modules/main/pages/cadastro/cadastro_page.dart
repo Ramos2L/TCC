@@ -24,6 +24,8 @@ class CadastroPage extends StatefulWidget {
 }
 
 class _CadastroPageState extends CadastroViewImpl {
+  bool refresh = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,118 +33,130 @@ class _CadastroPageState extends CadastroViewImpl {
       appBar: AppBarWidget.appBar(context, title: '${widget.presenter.getName()}'),
       drawer: DrawerMenu(nameUser: '${widget.presenter.getName()}'),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-            child: Column(
-              children: [
-                const ContainerPrincipal(),
-                const SizedBox(height: 25),
-                Text(
-                  'Cadastro dos animais',
-                  style: context.textStyles.textMedium.copyWith(
-                    fontSize: 20,
-                    color: context.colors.onPrimary,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-                const SizedBox(height: 25),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Vaca',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      fontSize: 20,
-                      color: context.colors.primary,
-                      overflow: TextOverflow.ellipsis,
+        child: RefreshIndicator(
+          onRefresh: _onRefresh,
+          child: ListView(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                child: Column(
+                  children: [
+                    ContainerPrincipal(refresh: refresh),
+                    const SizedBox(height: 25),
+                    Text(
+                      'Cadastro dos animais',
+                      style: context.textStyles.textMedium.copyWith(
+                        fontSize: 20,
+                        color: context.colors.onPrimary,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                  ),
-                  onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      '/cadastro_animal',
-                      arguments: Arguments('Vaca'),
-                    );
-                  },
-                ),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Touro',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      fontSize: 20,
-                      color: context.colors.primary,
-                      overflow: TextOverflow.ellipsis,
+                    const SizedBox(height: 25),
+                    GestureDetector(
+                      child: ContainerWidget(
+                        title: 'Vaca',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          '/cadastro_animal',
+                          arguments: Arguments('Vaca'),
+                        );
+                      },
                     ),
-                  ),
-                  onTap: () {
-                    Navigator.pushNamed(context, '/cadastro_animal', arguments: Arguments('Touro'));
-                  },
-                ),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Boi',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      fontSize: 20,
-                      color: context.colors.primary,
-                      overflow: TextOverflow.ellipsis,
+                    const SizedBox(height: 15),
+                    GestureDetector(
+                      child: ContainerWidget(
+                        title: 'Touro',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pushNamed(context, '/cadastro_animal',
+                            arguments: Arguments('Touro'));
+                      },
                     ),
-                  ),
-                  onTap: () {
-                    Navigator.pushNamed(context, '/cadastro_animal', arguments: Arguments('Boi'));
-                  },
-                ),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Bezerro',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      fontSize: 20,
-                      color: context.colors.primary,
-                      overflow: TextOverflow.ellipsis,
+                    const SizedBox(height: 15),
+                    GestureDetector(
+                      child: ContainerWidget(
+                        title: 'Boi',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pushNamed(context, '/cadastro_animal',
+                            arguments: Arguments('Boi'));
+                      },
                     ),
-                  ),
-                  onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      '/cadastro_animal',
-                      arguments: Arguments('Bezerro'),
-                    );
-                  },
-                ),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Novilha',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      fontSize: 20,
-                      color: context.colors.primary,
-                      overflow: TextOverflow.ellipsis,
+                    const SizedBox(height: 15),
+                    GestureDetector(
+                      child: ContainerWidget(
+                        title: 'Bezerro',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          '/cadastro_animal',
+                          arguments: Arguments('Bezerro'),
+                        );
+                      },
                     ),
-                  ),
-                  onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      '/cadastro_animal',
-                      arguments: Arguments('Novilha'),
-                    );
-                  },
+                    const SizedBox(height: 15),
+                    GestureDetector(
+                      child: ContainerWidget(
+                        title: 'Novilha',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pushNamed(
+                          context,
+                          '/cadastro_animal',
+                          arguments: Arguments('Novilha'),
+                        );
+                      },
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
     );
+  }
+
+  Future<void> _onRefresh() async {
+    setState(() => refresh = !refresh);
+    return Future.delayed(const Duration(seconds: 1));
   }
 }

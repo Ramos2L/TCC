@@ -9,7 +9,8 @@ class RelatorioRoute extends FlutterGetItPageRoute {
 
   @override
   List<Bind<Object>> get bindings => [
-        Bind.lazySingleton<RelatorioPresenter>((i) => RelatorioPresenterImpl(userStore: i())),
+        Bind.lazySingleton<RelatorioPresenter>(
+            (i) => RelatorioPresenterImpl(userStore: i(), mainRepository: i())),
       ];
 
   @override

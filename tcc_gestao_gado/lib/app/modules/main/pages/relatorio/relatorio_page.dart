@@ -18,6 +18,8 @@ class RelatorioPage extends StatefulWidget {
 }
 
 class _RelatorioPageState extends RelatorioViewImpl {
+  bool refresh = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,96 +27,106 @@ class _RelatorioPageState extends RelatorioViewImpl {
       appBar: AppBarWidget.appBar(context, title: '${widget.presenter.getName()}'),
       drawer: DrawerMenu(nameUser: '${widget.presenter.getName()}'),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-            child: Column(
-              children: [
-                const ContainerPrincipal(),
-                const SizedBox(height: 25),
-                Text(
-                  'Relatório Geral',
-                  style: context.textStyles.textMedium.copyWith(
-                    fontSize: 20,
-                    color: context.colors.onPrimary,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-                const SizedBox(height: 25),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Pesagens',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      fontSize: 20,
-                      color: context.colors.primary,
-                      overflow: TextOverflow.ellipsis,
+        child: RefreshIndicator(
+          onRefresh: _onRefresh,
+          child: ListView(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                child: Column(
+                  children: [
+                    ContainerPrincipal(refresh: refresh),
+                    const SizedBox(height: 25),
+                    Text(
+                      'Relatório Geral',
+                      style: context.textStyles.textMedium.copyWith(
+                        fontSize: 20,
+                        color: context.colors.onPrimary,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                  ),
-                  onTap: () {},
-                ),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Animais',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      fontSize: 20,
-                      color: context.colors.primary,
-                      overflow: TextOverflow.ellipsis,
+                    const SizedBox(height: 25),
+                    GestureDetector(
+                      child: ContainerWidget(
+                        title: 'Pesagens',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () {},
                     ),
-                  ),
-                  onTap: () {},
-                ),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Compras',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      fontSize: 20,
-                      color: context.colors.primary,
-                      overflow: TextOverflow.ellipsis,
+                    const SizedBox(height: 15),
+                    GestureDetector(
+                      child: ContainerWidget(
+                        title: 'Animais',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () {},
                     ),
-                  ),
-                  onTap: () {},
-                ),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Vendas',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      fontSize: 20,
-                      color: context.colors.primary,
-                      overflow: TextOverflow.ellipsis,
+                    const SizedBox(height: 15),
+                    GestureDetector(
+                      child: ContainerWidget(
+                        title: 'Compras',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () {},
                     ),
-                  ),
-                  onTap: () {},
-                ),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Mortes',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      fontSize: 20,
-                      color: context.colors.primary,
-                      overflow: TextOverflow.ellipsis,
+                    const SizedBox(height: 15),
+                    GestureDetector(
+                      child: ContainerWidget(
+                        title: 'Vendas',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () {},
                     ),
-                  ),
-                  onTap: () {},
+                    const SizedBox(height: 15),
+                    GestureDetector(
+                      child: ContainerWidget(
+                        title: 'Mortes',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () => Navigator.pushNamed(context, '/relatorioMortes'),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
     );
+  }
+
+  Future<void> _onRefresh() async {
+    setState(() => refresh = !refresh);
+    return Future.delayed(const Duration(seconds: 1));
   }
 }

@@ -6,12 +6,20 @@ import 'package:tcc_gestao_gado/app/core/ui/styles/images.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/core/utils/size_page.dart';
 
-class ContainerPrincipal extends StatelessWidget {
-  const ContainerPrincipal({Key? key}) : super(key: key);
+class ContainerPrincipal extends StatefulWidget {
+  final bool? refresh;
+  const ContainerPrincipal({Key? key, required this.refresh}) : super(key: key);
 
+  @override
+  State<ContainerPrincipal> createState() => _ContainerPrincipalState();
+}
+
+class _ContainerPrincipalState extends State<ContainerPrincipal> {
   @override
   Widget build(BuildContext context) {
     var data = Injector.get<CattleStore>();
+
+    widget.refresh! ? setState(() {}) : null;
     return Container(
       height: 150,
       decoration: BoxDecoration(

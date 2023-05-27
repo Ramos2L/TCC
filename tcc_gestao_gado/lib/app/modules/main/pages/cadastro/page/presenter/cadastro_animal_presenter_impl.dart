@@ -61,6 +61,7 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
           numberFather: numberFatherController,
           numberMother: numberMotherController,
           weightCattle: weightController,
+          dateRegister: dateController,
           date: dateController,
           race: dropdownValue,
           type: type,

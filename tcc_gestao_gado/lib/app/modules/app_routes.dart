@@ -34,6 +34,8 @@ import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/desmama/desm
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/desmama/desmama_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/dicas/dicas_manejo_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/dicas/dicas_manejo_route.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/observacoes/observacoes_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/observacoes/observacoes_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/pesagem/pesagem_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/pesagem/pesagem_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/pasto/pages/adubacao_page.dart';
@@ -43,6 +45,8 @@ import 'package:tcc_gestao_gado/app/modules/main/pages/pasto/pasto_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/pasto/pasto_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/preco_arroba/preco_arroba_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/preco_arroba/preco_arroba_route.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/relatorio_mortes_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/relatorio_mortes_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/relatorio_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/relatorio_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/sobre/sobre_page.dart';
@@ -68,10 +72,12 @@ class AppRoutes {
     DesmamaPage.routeName: (context) => const DesmamaRoute(),
     DescartePage.routeName: (context) => const DescarteRoute(),
     CastrarPage.routeName: (context) => const CastrarRoute(),
+    ObservacoesPage.routeName: (context) => const ObservacoesRoute(),
     DicasManejoPage.routeName: (context) => const DicasManejoRoute(),
     CadastroPage.routeName: (context) => const CadastroRoute(),
     CadastroAnimalPage.routeName: (context) => const CadastroAnimalRoute(),
     RelatorioPage.routeName: (context) => const RelatorioRoute(),
+    RelatorioMortesPage.routeName: (context) => const RelatorioMortesRoute(),
     VendasPage.routeName: (context) => const VendasRoute(),
     PastoPage.routeName: (context) => const PastoRoute(),
     NPiquetesPage.routeName: (context) => const NPiquetesPage(),

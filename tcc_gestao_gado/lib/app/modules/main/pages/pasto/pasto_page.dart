@@ -17,6 +17,8 @@ class PastoPage extends StatefulWidget {
 }
 
 class _PastoPageState extends State<PastoPage> {
+  bool refresh = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,83 +26,93 @@ class _PastoPageState extends State<PastoPage> {
       appBar: AppBarWidget.appBar(context, title: '${widget.presenter.getName()}'),
       drawer: DrawerMenu(nameUser: '${widget.presenter.getName()}'),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-            child: Column(
-              children: [
-                const ContainerPrincipal(),
-                const SizedBox(height: 25),
-                Text(
-                  'Pasto',
-                  style: context.textStyles.textMedium.copyWith(
-                    fontSize: 20,
-                    color: context.colors.onPrimary,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-                const SizedBox(height: 25),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Número de Piquetes',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      fontSize: 20,
-                      color: context.colors.primary,
-                      overflow: TextOverflow.ellipsis,
+        child: RefreshIndicator(
+          onRefresh: _onRefresh,
+          child: ListView(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                child: Column(
+                  children: [
+                    ContainerPrincipal(refresh: refresh),
+                    const SizedBox(height: 25),
+                    Text(
+                      'Pasto',
+                      style: context.textStyles.textMedium.copyWith(
+                        fontSize: 20,
+                        color: context.colors.onPrimary,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                  ),
-                  onTap: () => Navigator.pushNamed(context, '/n_piquetes'),
-                ),
-                // const SizedBox(height: 15),
-                // GestureDetector(
-                //   child: ContainerWidget(
-                //     title: 'Divisão da Área',
-                //     height: 75,
-                //     width: MediaQuery.of(context).size.width,
-                //     style: context.textStyles.textMedium.copyWith(
-                //       color: context.colors.primary,
-                //       fontSize: 20,
-                //       overflow: TextOverflow.ellipsis,
-                //     ),
-                //   ),
-                //   onTap: () {},
-                // ),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Calagem',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      fontSize: 20,
-                      color: context.colors.primary,
-                      overflow: TextOverflow.ellipsis,
+                    const SizedBox(height: 25),
+                    GestureDetector(
+                      child: ContainerWidget(
+                        title: 'Número de Piquetes',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () => Navigator.pushNamed(context, '/n_piquetes'),
                     ),
-                  ),
-                  onTap: () => Navigator.pushNamed(context, '/calagem'),
-                ),
-                const SizedBox(height: 15),
-                GestureDetector(
-                  child: ContainerWidget(
-                    title: 'Adubação',
-                    height: 75,
-                    width: MediaQuery.of(context).size.width,
-                    style: context.textStyles.textMedium.copyWith(
-                      fontSize: 20,
-                      color: context.colors.primary,
-                      overflow: TextOverflow.ellipsis,
+                    // const SizedBox(height: 15),
+                    // GestureDetector(
+                    //   child: ContainerWidget(
+                    //     title: 'Divisão da Área',
+                    //     height: 75,
+                    //     width: MediaQuery.of(context).size.width,
+                    //     style: context.textStyles.textMedium.copyWith(
+                    //       color: context.colors.primary,
+                    //       fontSize: 20,
+                    //       overflow: TextOverflow.ellipsis,
+                    //     ),
+                    //   ),
+                    //   onTap: () {},
+                    // ),
+                    const SizedBox(height: 15),
+                    GestureDetector(
+                      child: ContainerWidget(
+                        title: 'Calagem',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () => Navigator.pushNamed(context, '/calagem'),
                     ),
-                  ),
-                  onTap: () => Navigator.pushNamed(context, '/adubacao'),
+                    const SizedBox(height: 15),
+                    GestureDetector(
+                      child: ContainerWidget(
+                        title: 'Adubação',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () => Navigator.pushNamed(context, '/adubacao'),
+                    ),
+                    const SizedBox(height: 15),
+                  ],
                 ),
-                const SizedBox(height: 15),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
     );
+  }
+
+  Future<void> _onRefresh() async {
+    setState(() => refresh = !refresh);
+    return Future.delayed(const Duration(seconds: 1));
   }
 }

@@ -18,6 +18,8 @@ class PrecoArrobaPage extends StatefulWidget {
 
 class _PrecoArrobaPageState extends PrecoArrobaViewImpl {
   String? gender;
+  bool refresh = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,44 +27,54 @@ class _PrecoArrobaPageState extends PrecoArrobaViewImpl {
       appBar: AppBarWidget.appBar(context, title: '${widget.presenter.getName()}'),
       drawer: DrawerMenu(nameUser: '${widget.presenter.getName()}'),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-            child: Column(
-              children: [
-                const ContainerPrincipal(),
-                const SizedBox(height: 25),
-                Text(
-                  'Preço da Arroba',
-                  style: context.textStyles.textMedium.copyWith(
-                    fontSize: 20,
-                    color: context.colors.onPrimary,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+        child: RefreshIndicator(
+          onRefresh: _onRefresh,
+          child: ListView(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                child: Column(
+                  children: [
+                    ContainerPrincipal(refresh: refresh),
+                    const SizedBox(height: 25),
+                    Text(
+                      'Preço da Arroba',
+                      style: context.textStyles.textMedium.copyWith(
+                        fontSize: 20,
+                        color: context.colors.onPrimary,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    const SizedBox(height: 25),
+                    Text(
+                      '...',
+                      style: context.textStyles.textMedium.copyWith(
+                        fontSize: 20,
+                        color: context.colors.onPrimary,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    const SizedBox(height: 25),
+                    Text(
+                      'Atualizações Futuras',
+                      style: context.textStyles.textMedium.copyWith(
+                        fontSize: 20,
+                        color: context.colors.onPrimary,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 25),
-                Text(
-                  '...',
-                  style: context.textStyles.textMedium.copyWith(
-                    fontSize: 20,
-                    color: context.colors.onPrimary,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-                const SizedBox(height: 25),
-                Text(
-                  'Atualizações Futuras',
-                  style: context.textStyles.textMedium.copyWith(
-                    fontSize: 20,
-                    color: context.colors.onPrimary,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
     );
+  }
+
+  Future<void> _onRefresh() async {
+    setState(() => refresh = !refresh);
+    return Future.delayed(const Duration(seconds: 1));
   }
 }
