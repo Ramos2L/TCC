@@ -24,6 +24,5 @@ abstract class RelatorioVendasViewImpl extends State<RelatorioVendasPage>
   @override
   void showSalesList({required List<VendasModel> salesList}) {
     listSales = salesList;
-    print(listSales[0].price);
   }
 }

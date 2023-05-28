@@ -56,91 +56,102 @@ class _RelatorioVendasPageState extends RelatorioVendasViewImpl {
                     ),
                   ),
                   const SizedBox(height: 15),
-                  ListView.builder(
-                    itemCount: 3,
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemBuilder: (BuildContext context, int index) {
-                      return active
-                          ? Column(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: context.colors.onPrimary,
-                                    borderRadius: const BorderRadius.all(Radius.circular(20)),
-                                  ),
-                                  width: MediaQuery.of(context).size.width,
-                                  height: MediaQuery.of(context).size.height * 0.175,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                  listSales.isNotEmpty
+                      ? ListView.builder(
+                          itemCount: listSales.length,
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemBuilder: (BuildContext context, int index) {
+                            return active
+                                ? Column(
                                     children: [
-                                      FittedBox(
-                                        child: Text(
-                                          'Nº do animal: ${listSales[index].id!}',
-                                          textAlign: TextAlign.justify,
-                                          style: context.textStyles.textMedium.copyWith(
-                                            fontSize: 20,
-                                            color: context.colors.primary,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          color: context.colors.onPrimary,
+                                          borderRadius: const BorderRadius.all(Radius.circular(20)),
+                                        ),
+                                        width: MediaQuery.of(context).size.width,
+                                        height: MediaQuery.of(context).size.height * 0.175,
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          children: [
+                                            FittedBox(
+                                              child: Text(
+                                                'Nº do animal: ${listSales[index].id!}',
+                                                textAlign: TextAlign.justify,
+                                                style: context.textStyles.textMedium.copyWith(
+                                                  fontSize: 20,
+                                                  color: context.colors.primary,
+                                                  overflow: TextOverflow.ellipsis,
+                                                ),
+                                              ),
+                                            ),
+                                            FittedBox(
+                                              child: Text(
+                                                'Data da morte: ${listSales[index].date!}',
+                                                style: context.textStyles.textMedium.copyWith(
+                                                  fontSize: 20,
+                                                  color: context.colors.primary,
+                                                  overflow: TextOverflow.ellipsis,
+                                                ),
+                                              ),
+                                            ),
+                                            listSales[index].price!.isNotEmpty
+                                                ? FittedBox(
+                                                    child: Text(
+                                                      'preço: ${listSales[index].price!}',
+                                                      style: context.textStyles.textMedium.copyWith(
+                                                        fontSize: 20,
+                                                        color: context.colors.primary,
+                                                        overflow: TextOverflow.ellipsis,
+                                                      ),
+                                                    ),
+                                                  )
+                                                : Container(),
+                                            listSales[index].weightCattle!.isNotEmpty
+                                                ? FittedBox(
+                                                    child: Text(
+                                                      'peso: ${listSales[index].weightCattle!}',
+                                                      style: context.textStyles.textMedium.copyWith(
+                                                        fontSize: 20,
+                                                        color: context.colors.primary,
+                                                        overflow: TextOverflow.ellipsis,
+                                                      ),
+                                                    ),
+                                                  )
+                                                : Container(),
+                                            listSales[index].observations!.isNotEmpty
+                                                ? FittedBox(
+                                                    child: Text(
+                                                      'obs: ${listSales[index].observations!}',
+                                                      style: context.textStyles.textMedium.copyWith(
+                                                        fontSize: 20,
+                                                        color: context.colors.primary,
+                                                        overflow: TextOverflow.ellipsis,
+                                                      ),
+                                                    ),
+                                                  )
+                                                : Container(),
+                                          ],
                                         ),
                                       ),
-                                      FittedBox(
-                                        child: Text(
-                                          'Data da morte: ${listSales[index].date!}',
-                                          style: context.textStyles.textMedium.copyWith(
-                                            fontSize: 20,
-                                            color: context.colors.primary,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ),
-                                      ),
-                                      listSales[index].price!.isNotEmpty
-                                          ? FittedBox(
-                                              child: Text(
-                                                'preço: ${listSales[index].price!}',
-                                                style: context.textStyles.textMedium.copyWith(
-                                                  fontSize: 20,
-                                                  color: context.colors.primary,
-                                                  overflow: TextOverflow.ellipsis,
-                                                ),
-                                              ),
-                                            )
-                                          : Container(),
-                                      listSales[index].weightCattle!.isNotEmpty
-                                          ? FittedBox(
-                                              child: Text(
-                                                'peso: ${listSales[index].weightCattle!}',
-                                                style: context.textStyles.textMedium.copyWith(
-                                                  fontSize: 20,
-                                                  color: context.colors.primary,
-                                                  overflow: TextOverflow.ellipsis,
-                                                ),
-                                              ),
-                                            )
-                                          : Container(),
-                                      listSales[index].observations!.isNotEmpty
-                                          ? FittedBox(
-                                              child: Text(
-                                                'obs: ${listSales[index].observations!}',
-                                                style: context.textStyles.textMedium.copyWith(
-                                                  fontSize: 20,
-                                                  color: context.colors.primary,
-                                                  overflow: TextOverflow.ellipsis,
-                                                ),
-                                              ),
-                                            )
-                                          : Container(),
+                                      const SizedBox(height: 15)
                                     ],
-                                  ),
-                                ),
-                                const SizedBox(height: 15)
-                              ],
-                            )
-                          : const CircularProgressIndicator.adaptive();
-                    },
-                  ),
+                                  )
+                                : const CircularProgressIndicator.adaptive();
+                          },
+                        )
+                      : FittedBox(
+                          child: Text(
+                            '\n\nOps... Lista vazia de vendas de animais.',
+                            style: context.textStyles.textMedium.copyWith(
+                              fontSize: 20,
+                              color: context.colors.onPrimary,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ),
                 ],
               ),
             ),
