@@ -11,6 +11,7 @@ import 'package:tcc_gestao_gado/app/modules/auth/register/errors/register_errors
 import 'package:tcc_gestao_gado/app/modules/main/pages/informacoes/model/informacoes_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/dicas/model/dicas_manejo_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/model/mortes_model.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/model/vendas_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/repositories/repository.dart';
 
 class MainRepositoryImpl implements MainRepository {
@@ -538,6 +539,22 @@ class MainRepositoryImpl implements MainRepository {
         death.add(MortesModel.fromMap(data.data()));
       }
       return death;
+    } catch (e) {
+      throw UnusualException(message: e.toString());
+    }
+  }
+
+  @override
+  Future<List<VendasModel>> salesReport({required String idUser}) async {
+    try {
+      final document =
+          await firebaseFirestore.collection("vendas").where('idUser', isEqualTo: idUser).get();
+
+      List<VendasModel> sales = [];
+      for (var data in document.docs) {
+        sales.add(VendasModel.fromMap(data.data()));
+      }
+      return sales;
     } catch (e) {
       throw UnusualException(message: e.toString());
     }

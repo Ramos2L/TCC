@@ -99,7 +99,7 @@ class _RelatorioPageState extends RelatorioViewImpl {
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () => Navigator.pushNamed(context, '/relatorio_vendas'),
                     ),
                     const SizedBox(height: 15),
                     GestureDetector(

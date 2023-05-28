@@ -47,6 +47,8 @@ import 'package:tcc_gestao_gado/app/modules/main/pages/preco_arroba/preco_arroba
 import 'package:tcc_gestao_gado/app/modules/main/pages/preco_arroba/preco_arroba_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/relatorio_mortes_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/relatorio_mortes_route.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/vendas/relatorio_vendas_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/vendas/relatorio_vendas_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/relatorio_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/relatorio_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/sobre/sobre_page.dart';
@@ -78,6 +80,7 @@ class AppRoutes {
     CadastroAnimalPage.routeName: (context) => const CadastroAnimalRoute(),
     RelatorioPage.routeName: (context) => const RelatorioRoute(),
     RelatorioMortesPage.routeName: (context) => const RelatorioMortesRoute(),
+    RelatorioVendasPage.routeName: (context) => const RelatorioVendasRoute(),
     VendasPage.routeName: (context) => const VendasRoute(),
     PastoPage.routeName: (context) => const PastoRoute(),
     NPiquetesPage.routeName: (context) => const NPiquetesPage(),
