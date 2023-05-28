@@ -16,7 +16,6 @@ class RelatorioMortesPage extends StatefulWidget {
 class _RelatorioMortesPageState extends RelatorioMortesViewImpl {
   @override
   Widget build(BuildContext context) {
-    widget.presenter.getDeathReport();
     return Scaffold(
       backgroundColor: context.colors.primary,
       body: SingleChildScrollView(
@@ -48,23 +47,73 @@ class _RelatorioMortesPageState extends RelatorioMortesViewImpl {
                     ),
                   ),
                   const SizedBox(height: 15),
+                  Text(
+                    'Lista de animais mortos: :(',
+                    style: context.textStyles.textMedium.copyWith(
+                      fontSize: 22,
+                      color: context.colors.onPrimary,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  const SizedBox(height: 15),
                   ListView.builder(
                     itemCount: 3,
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemBuilder: (BuildContext context, int index) {
-                      return Column(
-                        children: [
-                          Container(
-                            color: Colors.red,
-                            width: 100,
-                            height: 100,
-                          ),
-                          const SizedBox(
-                            height: 15,
-                          )
-                        ],
-                      );
+                      return active
+                          ? Column(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: context.colors.onPrimary,
+                                    borderRadius: const BorderRadius.all(Radius.circular(20)),
+                                  ),
+                                  width: MediaQuery.of(context).size.width,
+                                  height: 100,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      FittedBox(
+                                        child: Text(
+                                          'Nº do animal: ${listDeath[index].id!}',
+                                          style: context.textStyles.textMedium.copyWith(
+                                            fontSize: 20,
+                                            color: context.colors.primary,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                      ),
+                                      FittedBox(
+                                        child: Text(
+                                          'Data da morte: ${listDeath[index].date!}',
+                                          style: context.textStyles.textMedium.copyWith(
+                                            fontSize: 20,
+                                            color: context.colors.primary,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                      ),
+                                      listDeath[index].observations!.isNotEmpty
+                                          ? FittedBox(
+                                              child: Text(
+                                                'obs: ${listDeath[index].observations!}',
+                                                style: context.textStyles.textMedium.copyWith(
+                                                  fontSize: 20,
+                                                  color: context.colors.primary,
+                                                  overflow: TextOverflow.ellipsis,
+                                                ),
+                                              ),
+                                            )
+                                          : Container(),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(height: 15)
+                              ],
+                            )
+                          : const CircularProgressIndicator.adaptive();
                     },
                   ),
                 ],

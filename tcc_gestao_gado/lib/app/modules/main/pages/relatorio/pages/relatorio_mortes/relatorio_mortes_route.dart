@@ -10,7 +10,7 @@ class RelatorioMortesRoute extends FlutterGetItPageRoute {
   @override
   List<Bind<Object>> get bindings => [
         Bind.lazySingleton<RelatorioMortesPresenter>(
-            (i) => RelatorioMortesPresenterImpl(userStore: i(), mainRepository: i())),
+            (i) => RelatorioMortesPresenterImpl(firebaseAuth: i(), mainRepository: i())),
       ];
 
   @override
