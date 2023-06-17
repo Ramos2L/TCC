@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
-import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/vendas/presenter/relatorio_vendas_presenter.dart';
-import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/vendas/presenter/relatorio_vendas_presenter_impl.dart';
-import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/vendas/relatorio_vendas_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_vendas/presenter/relatorio_vendas_presenter.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_vendas/presenter/relatorio_vendas_presenter_impl.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_vendas/relatorio_vendas_page.dart';
 
 class RelatorioVendasRoute extends FlutterGetItPageRoute {
   const RelatorioVendasRoute({super.key});

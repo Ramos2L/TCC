@@ -45,16 +45,23 @@ import 'package:tcc_gestao_gado/app/modules/main/pages/pasto/pasto_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/pasto/pasto_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/preco_arroba/preco_arroba_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/preco_arroba/preco_arroba_route.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_animals/relatorio_animals_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_animals/relatorio_animals_route.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_compras/relatorio_compras_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_compras/relatorio_compras_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/relatorio_mortes_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/relatorio_mortes_route.dart';
-import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/vendas/relatorio_vendas_page.dart';
-import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/vendas/relatorio_vendas_route.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_pesagens/relatorio_pesagens_route.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_vendas/relatorio_vendas_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_vendas/relatorio_vendas_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/relatorio_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/relatorio_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/sobre/sobre_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/vendas/vendas_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/vendas/vendas_route.dart';
 import 'package:tcc_gestao_gado/app/modules/splash/splash_page.dart';
+
+import 'main/pages/relatorio/pages/relatorio_pesagens/relatorio_pesagens_page.dart';
 
 class AppRoutes {
   static Map<String, Widget Function(BuildContext)> routes = {
@@ -80,6 +87,9 @@ class AppRoutes {
     CadastroAnimalPage.routeName: (context) => const CadastroAnimalRoute(),
     RelatorioPage.routeName: (context) => const RelatorioRoute(),
     RelatorioMortesPage.routeName: (context) => const RelatorioMortesRoute(),
+    RelatorioComprasPage.routeName: (context) => const RelatorioComprasRoute(),
+    RelatorioAnimalsPage.routeName: (context) => const RelatorioAnimalsRoute(),
+    RelatorioPesagensPage.routeName: (context) => const RelatorioPesagensRoute(),
     RelatorioVendasPage.routeName: (context) => const RelatorioVendasRoute(),
     VendasPage.routeName: (context) => const VendasRoute(),
     PastoPage.routeName: (context) => const PastoRoute(),

@@ -2,6 +2,7 @@ import 'package:tcc_gestao_gado/app/core/models/cattle_model.dart';
 import 'package:tcc_gestao_gado/app/core/models/raca_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/informacoes/model/informacoes_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/dicas/model/dicas_manejo_model.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/model/compras_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/model/mortes_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/model/vendas_model.dart';
 
@@ -28,11 +29,12 @@ abstract class MainRepository {
   Future<bool> updateAnnotation({required CattleModel cattle});
   Future<bool> castrateAnimal({required CattleModel cattle});
   Future<String?> deleteCattle({required CattleModel cattle});
-  Future<List<CattleModel>> findCattle();
+  Future<List<CattleModel>> findCattle({required String idUser});
   Future<void> findInfosCattle({required String userId});
   Future<List<InformacoesModel>> findInformation();
   Future<List<DicasManejoModel>> findManagementTips();
   Future<CattleModel> consultCattle({required String id, required String idUser});
   Future<List<MortesModel>> deathReport({required String idUser});
   Future<List<VendasModel>> salesReport({required String idUser});
+  Future<List<ComprasModel>> findAnimalsBoughtCattle({required String idUser});
 }

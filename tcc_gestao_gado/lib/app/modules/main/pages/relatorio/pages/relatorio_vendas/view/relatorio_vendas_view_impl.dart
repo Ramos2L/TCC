@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/model/vendas_model.dart';
-import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/vendas/relatorio_vendas_page.dart';
-import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/vendas/view/relatorio_vendas_view.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_vendas/relatorio_vendas_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_vendas/view/relatorio_vendas_view.dart';
 
 abstract class RelatorioVendasViewImpl extends State<RelatorioVendasPage>
     implements RelatorioVendasView {

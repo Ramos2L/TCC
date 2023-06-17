@@ -10,6 +10,7 @@ import 'package:tcc_gestao_gado/app/core/storage/user_storage.dart';
 import 'package:tcc_gestao_gado/app/modules/auth/register/errors/register_errors.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/informacoes/model/informacoes_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/dicas/model/dicas_manejo_model.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/model/compras_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/model/mortes_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/model/vendas_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/repositories/repository.dart';
@@ -441,10 +442,10 @@ class MainRepositoryImpl implements MainRepository {
   }
 
   @override
-  Future<List<CattleModel>> findCattle() async {
+  Future<List<CattleModel>> findCattle({required String idUser}) async {
     try {
-      final document = firebaseFirestore.collection("cattle").get();
-
+      final document =
+          firebaseFirestore.collection("cattle").where("idUser", isEqualTo: idUser).get();
       QuerySnapshot doc = await document;
 
       List<CattleModel> dataInformations = [];
@@ -555,6 +556,23 @@ class MainRepositoryImpl implements MainRepository {
         sales.add(VendasModel.fromMap(data.data()));
       }
       return sales;
+    } catch (e) {
+      throw UnusualException(message: e.toString());
+    }
+  }
+
+  @override
+  Future<List<ComprasModel>> findAnimalsBoughtCattle({required String idUser}) async {
+    try {
+      final document =
+          firebaseFirestore.collection("cattle").where("idUser", isEqualTo: idUser).get();
+      QuerySnapshot doc = await document;
+
+      List<ComprasModel> dataInformations = [];
+      for (var data in doc.docs) {
+        dataInformations.add(ComprasModel.fromMap(data.data() as Map<String, dynamic>));
+      }
+      return dataInformations;
     } catch (e) {
       throw UnusualException(message: e.toString());
     }

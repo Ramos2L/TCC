@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
-import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/vendas/presenter/relatorio_vendas_presenter.dart';
-import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/vendas/view/relatorio_vendas_view_impl.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_animals/presenter/relatorio_animals_presenter.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_animals/view/relatorio_animals_view_impl.dart';
 
-class RelatorioVendasPage extends StatefulWidget {
-  final RelatorioVendasPresenter presenter;
-  static const routeName = '/relatorio_vendas';
-  const RelatorioVendasPage({Key? key, required this.presenter}) : super(key: key);
+class RelatorioAnimalsPage extends StatefulWidget {
+  final RelatorioAnimalsPresenter presenter;
+  static const routeName = '/relatorio_animais';
+  const RelatorioAnimalsPage({Key? key, required this.presenter}) : super(key: key);
 
   @override
-  State<RelatorioVendasPage> createState() => _RelatorioVendasPageState();
+  State<RelatorioAnimalsPage> createState() => _RelatorioAnimalsPageState();
 }
 
-class _RelatorioVendasPageState extends RelatorioVendasViewImpl {
+class _RelatorioAnimalsPageState extends RelatorioAnimalsViewImpl {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +48,7 @@ class _RelatorioVendasPageState extends RelatorioVendasViewImpl {
                   ),
                   const SizedBox(height: 15),
                   Text(
-                    'Lista de animais vendidos: :)',
+                    'Lista de animais: :)',
                     style: context.textStyles.textMedium.copyWith(
                       fontSize: 22,
                       color: context.colors.onPrimary,
@@ -56,9 +56,9 @@ class _RelatorioVendasPageState extends RelatorioVendasViewImpl {
                     ),
                   ),
                   const SizedBox(height: 15),
-                  listSales.isNotEmpty
+                  listAnimals.isNotEmpty
                       ? ListView.builder(
-                          itemCount: listSales.length,
+                          itemCount: listAnimals.length,
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemBuilder: (BuildContext context, int index) {
@@ -78,7 +78,7 @@ class _RelatorioVendasPageState extends RelatorioVendasViewImpl {
                                           children: [
                                             FittedBox(
                                               child: Text(
-                                                'Nº do animal: ${listSales[index].id!}',
+                                                'Nº do animal: ${listAnimals[index].id!}',
                                                 textAlign: TextAlign.justify,
                                                 style: context.textStyles.textMedium.copyWith(
                                                   fontSize: 20,
@@ -89,7 +89,7 @@ class _RelatorioVendasPageState extends RelatorioVendasViewImpl {
                                             ),
                                             FittedBox(
                                               child: Text(
-                                                'Data da morte: ${listSales[index].date!}',
+                                                'Data do Registro: ${listAnimals[index].dateRegister}',
                                                 style: context.textStyles.textMedium.copyWith(
                                                   fontSize: 20,
                                                   color: context.colors.primary,
@@ -97,10 +97,10 @@ class _RelatorioVendasPageState extends RelatorioVendasViewImpl {
                                                 ),
                                               ),
                                             ),
-                                            listSales[index].price!.isNotEmpty
+                                            listAnimals[index].price!.isNotEmpty
                                                 ? FittedBox(
                                                     child: Text(
-                                                      'preço: ${listSales[index].price!}',
+                                                      'preço: ${listAnimals[index].price!}',
                                                       style: context.textStyles.textMedium.copyWith(
                                                         fontSize: 20,
                                                         color: context.colors.primary,
@@ -109,10 +109,10 @@ class _RelatorioVendasPageState extends RelatorioVendasViewImpl {
                                                     ),
                                                   )
                                                 : Container(),
-                                            listSales[index].weightCattle!.isNotEmpty
+                                            listAnimals[index].weightCattle!.isNotEmpty
                                                 ? FittedBox(
                                                     child: Text(
-                                                      'peso: ${listSales[index].weightCattle!}',
+                                                      'peso: ${listAnimals[index].weightCattle!}',
                                                       style: context.textStyles.textMedium.copyWith(
                                                         fontSize: 20,
                                                         color: context.colors.primary,
@@ -121,10 +121,22 @@ class _RelatorioVendasPageState extends RelatorioVendasViewImpl {
                                                     ),
                                                   )
                                                 : Container(),
-                                            listSales[index].observations!.isNotEmpty
+                                            listAnimals[index].race!.isNotEmpty
                                                 ? FittedBox(
                                                     child: Text(
-                                                      'obs: ${listSales[index].observations!}',
+                                                      'Raça: ${listAnimals[index].race!}',
+                                                      style: context.textStyles.textMedium.copyWith(
+                                                        fontSize: 20,
+                                                        color: context.colors.primary,
+                                                        overflow: TextOverflow.ellipsis,
+                                                      ),
+                                                    ),
+                                                  )
+                                                : Container(),
+                                            listAnimals[index].observations!.isNotEmpty
+                                                ? FittedBox(
+                                                    child: Text(
+                                                      'obs: ${listAnimals[index].observations!}',
                                                       style: context.textStyles.textMedium.copyWith(
                                                         fontSize: 20,
                                                         color: context.colors.primary,
@@ -144,7 +156,7 @@ class _RelatorioVendasPageState extends RelatorioVendasViewImpl {
                         )
                       : FittedBox(
                           child: Text(
-                            '\n\nOps... Lista vazia de vendas de animais.',
+                            '\n\nOps... Lista vazia de animais.',
                             style: context.textStyles.textMedium.copyWith(
                               fontSize: 20,
                               color: context.colors.onPrimary,

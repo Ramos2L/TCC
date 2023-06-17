@@ -57,7 +57,7 @@ class _RelatorioPageState extends RelatorioViewImpl {
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () => Navigator.pushNamed(context, '/relatorio_pesagens'),
                     ),
                     const SizedBox(height: 15),
                     GestureDetector(
@@ -71,7 +71,7 @@ class _RelatorioPageState extends RelatorioViewImpl {
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () => Navigator.pushNamed(context, '/relatorio_animais'),
                     ),
                     const SizedBox(height: 15),
                     GestureDetector(
@@ -85,7 +85,7 @@ class _RelatorioPageState extends RelatorioViewImpl {
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                      onTap: () {},
+                      onTap: () => Navigator.pushNamed(context, '/relatorio_compras'),
                     ),
                     const SizedBox(height: 15),
                     GestureDetector(

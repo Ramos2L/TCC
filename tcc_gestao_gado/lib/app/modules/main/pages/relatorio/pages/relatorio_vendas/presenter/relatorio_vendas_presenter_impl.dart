@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/model/vendas_model.dart';
-import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/vendas/presenter/relatorio_vendas_presenter.dart';
-import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/vendas/view/relatorio_vendas_view.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_vendas/presenter/relatorio_vendas_presenter.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_vendas/view/relatorio_vendas_view.dart';
 import 'package:tcc_gestao_gado/app/modules/main/repositories/repository.dart';
 
 class RelatorioVendasPresenterImpl implements RelatorioVendasPresenter {
