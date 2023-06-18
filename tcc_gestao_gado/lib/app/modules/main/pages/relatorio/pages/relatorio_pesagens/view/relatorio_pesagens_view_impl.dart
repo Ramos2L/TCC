@@ -3,6 +3,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:tcc_gestao_gado/app/core/models/cattle_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_pesagens/relatorio_pesagens_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_pesagens/view/relatorio_pesagens_view.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/widgets/pdf_widget.dart';
 
 abstract class RelatorioPesagensViewImpl extends State<RelatorioPesagensPage>
     implements RelatorioPesagensView {
@@ -17,6 +18,10 @@ abstract class RelatorioPesagensViewImpl extends State<RelatorioPesagensPage>
 
       setState(() {});
     });
+  }
+
+  toScreenPDF({required String path}) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => PDFScreen(path: path)));
   }
 
   List<CattleModel> listWeighings = [];

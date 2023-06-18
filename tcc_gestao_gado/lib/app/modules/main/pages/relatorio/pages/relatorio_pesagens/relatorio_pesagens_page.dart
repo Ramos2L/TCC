@@ -1,12 +1,8 @@
-import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-// import 'package:path_provider/path_provider.dart';
-import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/widgets.dart' as pw;
-import 'package:share_extend/share_extend.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_pesagens/presenter/relatorio_pesagens_presenter.dart';
@@ -60,58 +56,8 @@ class _RelatorioPesagensPageState extends RelatorioPesagensViewImpl {
                       IconButton(
                         icon: Icon(Icons.print, color: context.colors.onPrimary),
                         onPressed: () async {
-                          final pdf = pw.Document();
-
-                          pdf.addPage(
-                            pw.MultiPage(
-                              build: (context) {
-                                return [
-                                  pw.ListView.builder(
-                                    itemBuilder: (pw.Context context, int index) {
-                                      return pw.Column(
-                                        children: [
-                                          pw.Column(
-                                            children: [
-                                              pw.Text(
-                                                'Nº do animal: ${listWeighings[index].id!}',
-                                                style: const pw.TextStyle(fontSize: 40),
-                                              ),
-                                              pw.Text(
-                                                'peso: ${listWeighings[index].weightCattle!}',
-                                                style: const pw.TextStyle(fontSize: 40),
-                                              ),
-                                              pw.Text(
-                                                'Raça: ${listWeighings[index].race!}',
-                                                style: const pw.TextStyle(fontSize: 40),
-                                              ),
-                                              pw.Text(
-                                                'obs: ${listWeighings[index].observations!}',
-                                                style: const pw.TextStyle(fontSize: 40),
-                                              ),
-                                              pw.SizedBox(height: 10),
-                                              pw.Divider(height: 2),
-                                              pw.SizedBox(height: 10),
-                                            ],
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                    itemCount: listWeighings.length,
-                                  ),
-                                ];
-                              },
-                            ),
-                          );
-
-                          final String dir = (await getApplicationDocumentsDirectory()).path;
-
-                          final String path = '$dir/pdfPesagens.pdf';
-
-                          final File file = File(path);
-
-                          await file.writeAsBytes(await pdf.save());
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => PDFScreen(path: path)));
+                          String path = await pdf();
+                          toScreenPDF(path: path);
                         },
                       ),
                     ],
@@ -230,51 +176,59 @@ class _RelatorioPesagensPageState extends RelatorioPesagensViewImpl {
       ),
     );
   }
-}
 
-class PDFScreen extends StatefulWidget {
-  final String path;
-  const PDFScreen({required this.path, super.key});
+  Future<String> pdf() async {
+    final pdf = pw.Document();
 
-  @override
-  State<PDFScreen> createState() => _PDFScreenState();
-}
-
-class _PDFScreenState extends State<PDFScreen> {
-  final Completer<PDFViewController> _controller = Completer<PDFViewController>();
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(''),
-        actions: [
-          IconButton(
-            onPressed: () {
-              ShareExtend.share(widget.path, 'file', sharePanelTitle: 'Enviar pdf');
-            },
-            icon: const Icon(Icons.share_rounded),
-          ),
-        ],
-      ),
-      body: PDFView(
-        filePath: widget.path,
-        enableSwipe: true,
-        swipeHorizontal: true,
-        autoSpacing: false,
-        pageFling: false,
-        onRender: (pages) {
-          setState(() => pages = pages);
-        },
-        onError: (error) {
-          debugPrint(error.toString());
-        },
-        onPageError: (page, error) {
-          debugPrint('$page: ${error.toString()}');
-        },
-        onViewCreated: (PDFViewController pdfViewController) {
-          _controller.complete(pdfViewController);
+    pdf.addPage(
+      pw.MultiPage(
+        build: (context) {
+          return [
+            pw.ListView.builder(
+              itemBuilder: (pw.Context context, int index) {
+                return pw.Column(
+                  children: [
+                    pw.Column(
+                      children: [
+                        pw.Text(
+                          'Nº do animal: ${listWeighings[index].id!}',
+                          style: const pw.TextStyle(fontSize: 40),
+                        ),
+                        pw.Text(
+                          'peso: ${listWeighings[index].weightCattle!}',
+                          style: const pw.TextStyle(fontSize: 40),
+                        ),
+                        pw.Text(
+                          'Raça: ${listWeighings[index].race!}',
+                          style: const pw.TextStyle(fontSize: 40),
+                        ),
+                        pw.Text(
+                          'obs: ${listWeighings[index].observations!}',
+                          style: const pw.TextStyle(fontSize: 40),
+                        ),
+                        pw.SizedBox(height: 10),
+                        pw.Divider(height: 2),
+                        pw.SizedBox(height: 10),
+                      ],
+                    ),
+                  ],
+                );
+              },
+              itemCount: listWeighings.length,
+            ),
+          ];
         },
       ),
     );
+
+    final String dir = (await getApplicationDocumentsDirectory()).path;
+
+    final String path = '$dir/pdfPesagens.pdf';
+
+    final File file = File(path);
+
+    await file.writeAsBytes(await pdf.save());
+
+    return path;
   }
 }
