@@ -3,6 +3,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_compras/relatorio_compras_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_compras/view/relatorio_compras_view.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/model/compras_model.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/widgets/pdf_widget.dart';
 
 abstract class RelatorioComprasViewImpl extends State<RelatorioComprasPage>
     implements RelatorioComprasView {
@@ -17,6 +18,10 @@ abstract class RelatorioComprasViewImpl extends State<RelatorioComprasPage>
 
       setState(() {});
     });
+  }
+
+  toScreenPDF({required String path}) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => PDFScreen(path: path)));
   }
 
   List<ComprasModel> listAnimals = [];

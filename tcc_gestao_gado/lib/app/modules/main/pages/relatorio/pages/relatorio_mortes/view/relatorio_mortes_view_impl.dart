@@ -3,6 +3,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/model/mortes_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/relatorio_mortes_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_mortes/view/relatorio_mortes_view.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/widgets/pdf_widget.dart';
 
 abstract class RelatorioMortesViewImpl extends State<RelatorioMortesPage>
     implements RelatorioMortesView {
@@ -17,6 +18,10 @@ abstract class RelatorioMortesViewImpl extends State<RelatorioMortesPage>
 
       setState(() {});
     });
+  }
+
+  toScreenPDF({required String path}) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => PDFScreen(path: path)));
   }
 
   List<MortesModel> listDeath = [];

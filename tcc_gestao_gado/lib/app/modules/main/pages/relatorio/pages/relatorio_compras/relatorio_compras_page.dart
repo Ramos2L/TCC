@@ -1,4 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:pdf/widgets.dart' as pw;
 import 'package:tcc_gestao_gado/app/core/ui/styles/app_colors.dart';
 import 'package:tcc_gestao_gado/app/core/ui/styles/text_styles.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/relatorio/pages/relatorio_compras/presenter/relatorio_compras_presenter.dart';
@@ -25,26 +29,38 @@ class _RelatorioComprasPageState extends RelatorioComprasViewImpl {
               padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
               child: Column(
                 children: [
-                  GestureDetector(
-                    onTap: () => Navigator.pop(context),
-                    child: Row(
-                      children: [
-                        Icon(
-                          color: context.colors.onPrimary,
-                          Icons.arrow_back_rounded,
-                          size: 35,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GestureDetector(
+                        onTap: () => Navigator.pop(context),
+                        child: Row(
+                          children: [
+                            Icon(
+                              color: context.colors.onPrimary,
+                              Icons.arrow_back_rounded,
+                              size: 35,
+                            ),
+                            const SizedBox(width: 15),
+                            Text(
+                              'Voltar',
+                              style: context.textStyles.textMedium.copyWith(
+                                fontSize: 20,
+                                color: context.colors.onPrimary,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(width: 15),
-                        Text(
-                          'Voltar',
-                          style: context.textStyles.textMedium.copyWith(
-                            fontSize: 20,
-                            color: context.colors.onPrimary,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.print, color: context.colors.onPrimary),
+                        onPressed: () async {
+                          String path = await pdf();
+                          toScreenPDF(path: path);
+                        },
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 15),
                   Text(
@@ -159,5 +175,56 @@ class _RelatorioComprasPageState extends RelatorioComprasViewImpl {
         ),
       ),
     );
+  }
+
+  Future<String> pdf() async {
+    final pdf = pw.Document();
+
+    pdf.addPage(
+      pw.MultiPage(
+        build: (context) {
+          return [
+            pw.ListView.builder(
+              itemBuilder: (pw.Context context, int index) {
+                return pw.Column(
+                  children: [
+                    pw.Column(
+                      children: [
+                        pw.Text(
+                          'Nº do animal: ${listAnimals[index].id!}',
+                          style: const pw.TextStyle(fontSize: 40),
+                        ),
+                        pw.Text(
+                          'Data: ${listAnimals[index].date!}',
+                          style: const pw.TextStyle(fontSize: 40),
+                        ),
+                        pw.Text(
+                          'obs: ${listAnimals[index].observations!}',
+                          style: const pw.TextStyle(fontSize: 40),
+                        ),
+                        pw.SizedBox(height: 10),
+                        pw.Divider(height: 2),
+                        pw.SizedBox(height: 10),
+                      ],
+                    ),
+                  ],
+                );
+              },
+              itemCount: listAnimals.length,
+            ),
+          ];
+        },
+      ),
+    );
+
+    final String dir = (await getApplicationDocumentsDirectory()).path;
+
+    final String path = '$dir/pdfCompras.pdf';
+
+    final File file = File(path);
+
+    await file.writeAsBytes(await pdf.save());
+
+    return path;
   }
 }
