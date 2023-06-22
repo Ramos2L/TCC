@@ -103,16 +103,18 @@ class _RelatorioAnimalsPageState extends RelatorioAnimalsViewImpl {
                                                 ),
                                               ),
                                             ),
-                                            FittedBox(
-                                              child: Text(
-                                                'Data do Registro: ${listAnimals[index].dateRegister}',
-                                                style: context.textStyles.textMedium.copyWith(
-                                                  fontSize: 20,
-                                                  color: context.colors.primary,
-                                                  overflow: TextOverflow.ellipsis,
-                                                ),
-                                              ),
-                                            ),
+                                            listAnimals[index].dateRegister != null
+                                                ? FittedBox(
+                                                    child: Text(
+                                                      'Data do Registro: ${listAnimals[index].dateRegister}',
+                                                      style: context.textStyles.textMedium.copyWith(
+                                                        fontSize: 20,
+                                                        color: context.colors.primary,
+                                                        overflow: TextOverflow.ellipsis,
+                                                      ),
+                                                    ),
+                                                  )
+                                                : Container(),
                                             listAnimals[index].price!.isNotEmpty
                                                 ? FittedBox(
                                                     child: Text(

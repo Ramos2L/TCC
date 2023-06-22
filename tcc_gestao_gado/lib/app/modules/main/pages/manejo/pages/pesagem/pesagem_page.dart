@@ -125,6 +125,7 @@ class _PesagemPageState extends PesagemViewImpl {
                           keyboardType: TextInputType.text,
                           textInputAction: TextInputAction.done,
                           obscureText: false,
+                          maxLength: 50,
                           onFieldSubmitted: (_) => registerPesagem(),
                         ),
                         const SizedBox(height: 25),

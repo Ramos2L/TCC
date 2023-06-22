@@ -103,16 +103,16 @@ class _RelatorioPesagensPageState extends RelatorioPesagensViewImpl {
                                                 ),
                                               ),
                                             ),
-                                            // FittedBox(
-                                            //   child: Text(
-                                            //     'Data da ultima pesagem: ${listWeighings[index].date!}',
-                                            //     style: context.textStyles.textMedium.copyWith(
-                                            //       fontSize: 20,
-                                            //       color: context.colors.primary,
-                                            //       overflow: TextOverflow.ellipsis,
-                                            //     ),
-                                            //   ),
-                                            // ),
+                                            FittedBox(
+                                              child: Text(
+                                                'Última pesagem: ${listWeighings[index].date!}',
+                                                style: context.textStyles.textMedium.copyWith(
+                                                  fontSize: 20,
+                                                  color: context.colors.primary,
+                                                  overflow: TextOverflow.ellipsis,
+                                                ),
+                                              ),
+                                            ),
                                             listWeighings[index].race!.isNotEmpty
                                                 ? FittedBox(
                                                     child: Text(

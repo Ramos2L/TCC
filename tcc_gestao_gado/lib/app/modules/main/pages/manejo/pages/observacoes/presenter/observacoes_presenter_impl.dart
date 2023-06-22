@@ -17,7 +17,7 @@ class ObservacoesPresenterImpl implements ObservacoesPresenter {
 
   @override
   Future<bool> updateAnnotation({
-    required String date,
+    required String dateObs,
     required String numberAnimal,
     required String observations,
   }) async {
@@ -28,10 +28,12 @@ class ObservacoesPresenterImpl implements ObservacoesPresenter {
       if (currentUser.isNotEmpty) {
         CattleModel cattleModel = CattleModel(
           idUser: currentUser,
-          date: date,
+          dateObs: dateObs,
           id: numberAnimal,
           observations: observations,
         );
+        print(' dateObs $dateObs');
+        print(' dateObs ${cattleModel.dateObs}');
 
         completedOperation = await mainRepository.updateAnnotation(cattle: cattleModel);
 

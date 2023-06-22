@@ -13,6 +13,8 @@ class CattleModel {
   final String? numberMother;
   final String? dateRegister;
   final String? date;
+  final String? dateWeight;
+  final String? dateObs;
   final String? weightCattle;
   final String? race;
   final String? type;
@@ -29,6 +31,8 @@ class CattleModel {
     this.numberMother,
     this.date,
     this.dateRegister,
+    this.dateWeight,
+    this.dateObs,
     this.weightCattle,
     this.race,
     this.type,
@@ -46,6 +50,8 @@ class CattleModel {
     String? numberMother,
     String? date,
     String? dateRegister,
+    String? dateWeight,
+    String? dateObs,
     String? weightCattle,
     String? race,
     String? type,
@@ -62,6 +68,8 @@ class CattleModel {
       numberMother: numberMother ?? this.numberMother,
       date: date ?? this.date,
       dateRegister: dateRegister ?? this.dateRegister,
+      dateWeight: dateWeight ?? this.dateWeight,
+      dateObs: dateObs ?? this.dateObs,
       weightCattle: weightCattle ?? this.weightCattle,
       race: race ?? this.race,
       type: type ?? this.type,
@@ -82,6 +90,8 @@ class CattleModel {
     map['numberMother'] = numberMother;
     map['date'] = date;
     map['dateRegister'] = dateRegister;
+    map['dateWeight'] = dateWeight;
+    map['dateObs'] = dateObs;
     map['weightCattle'] = weightCattle;
     map['race'] = race;
     map['type'] = type;
@@ -115,6 +125,8 @@ class CattleModel {
       'numberMother': numberMother,
       'date': date,
       'dateRegister': dateRegister,
+      'dateWeight': dateWeight,
+      'dateObs': dateObs,
       'weightCattle': weightCattle,
       'race': race,
       'type': type,
@@ -134,6 +146,8 @@ class CattleModel {
       numberMother: map['numberMother'] as String?,
       date: map['date'] as String?,
       dateRegister: map['dateRegister'] as String?,
+      dateWeight: map['dateWeight'] as String?,
+      dateObs: map['dateObs'] as String?,
       weightCattle: map['weightCattle'] as String?,
       race: map['race'] as String?,
       type: map['type'] as String?,
@@ -149,6 +163,6 @@ class CattleModel {
 
   @override
   String toString() {
-    return 'CattleModel(id: $id, idUser: $idUser, sex: $sex, quite: $quite, breastfeeding: $breastfeeding, numberFather: $numberFather, numberMother: $numberMother, date: $date, dateRegister: $dateRegister, weightCattle: $weightCattle, race: $race, type: $type, observations: $observations, price: $price)';
+    return 'CattleModel(id: $id, idUser: $idUser, sex: $sex, quite: $quite, breastfeeding: $breastfeeding, numberFather: $numberFather, numberMother: $numberMother, dateRegister: $dateRegister, date: $date, dateWeight: $dateWeight, dateObs: $dateObs, weightCattle: $weightCattle, race: $race, type: $type, observations: $observations, price: $price)';
   }
 }

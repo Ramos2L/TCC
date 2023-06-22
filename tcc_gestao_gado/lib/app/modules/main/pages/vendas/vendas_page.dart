@@ -152,6 +152,7 @@ class _VendasPageState extends VendasViewImpl {
                               ),
                               keyboardType: TextInputType.text,
                               obscureText: false,
+                              maxLength: 50,
                               onFieldSubmitted: (_) => registerVenda(),
                               textInputAction: TextInputAction.next,
                             ),

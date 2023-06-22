@@ -76,26 +76,37 @@ class _ConsultaPageState extends ConsultaViewImpl {
                                     title: 'Código do animal:',
                                     subtitle: '${cattleAnimal[0].id}',
                                   ),
-                                  ListTileWidget(
-                                    title: 'Tipo de animal:',
-                                    subtitle: '${cattleAnimal[0].type}',
-                                  ),
-                                  ListTileWidget(
-                                    title: 'Data de cadastro:',
-                                    subtitle: '${cattleAnimal[0].dateRegister}',
-                                  ),
-                                  ListTileWidget(
-                                    title: 'Sexo do animal:',
-                                    subtitle: '${cattleAnimal[0].sex}',
-                                  ),
-                                  ListTileWidget(
-                                    title: 'Amamentando:',
-                                    subtitle: cattleAnimal[0].breastfeeding == true ? "Sim" : "Não",
-                                  ),
-                                  ListTileWidget(
-                                    title: 'Meio aquisição do animal:',
-                                    subtitle: '${cattleAnimal[0].quite}',
-                                  ),
+                                  cattleAnimal[0].type != null
+                                      ? ListTileWidget(
+                                          title: 'Tipo de animal:',
+                                          subtitle: '${cattleAnimal[0].type}',
+                                        )
+                                      : Container(),
+                                  cattleAnimal[0].dateRegister != null
+                                      ? ListTileWidget(
+                                          title: 'Data de cadastro:',
+                                          subtitle: '${cattleAnimal[0].dateRegister}',
+                                        )
+                                      : Container(),
+                                  cattleAnimal[0].sex != null
+                                      ? ListTileWidget(
+                                          title: 'Sexo do animal:',
+                                          subtitle: '${cattleAnimal[0].sex}',
+                                        )
+                                      : Container(),
+                                  cattleAnimal[0].breastfeeding != null
+                                      ? ListTileWidget(
+                                          title: 'Amamentando:',
+                                          subtitle:
+                                              cattleAnimal[0].breastfeeding == true ? "Sim" : "Não",
+                                        )
+                                      : Container(),
+                                  cattleAnimal[0].quite != null
+                                      ? ListTileWidget(
+                                          title: 'Meio aquisição do animal:',
+                                          subtitle: '${cattleAnimal[0].quite}',
+                                        )
+                                      : Container(),
                                   cattleAnimal[0].numberMother != ""
                                       ? ListTileWidget(
                                           title: 'Nº do mãe:',

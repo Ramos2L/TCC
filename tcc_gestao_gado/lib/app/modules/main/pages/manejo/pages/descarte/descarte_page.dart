@@ -219,6 +219,7 @@ class _DescartePageState extends DescarteViewImpl {
                             keyboardType: TextInputType.text,
                             textInputAction: TextInputAction.done,
                             obscureText: false,
+                            maxLength: 50,
                             onFieldSubmitted: (_) => descarteDados(),
                           ),
                         ],

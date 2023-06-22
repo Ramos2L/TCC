@@ -3,7 +3,7 @@ import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/observacoes/
 
 abstract class ObservacoesPresenter extends GestaoGadoPresenter<ObservacoesView> {
   Future<bool> updateAnnotation({
-    required String date,
+    required String dateObs,
     required String numberAnimal,
     required String observations,
   });

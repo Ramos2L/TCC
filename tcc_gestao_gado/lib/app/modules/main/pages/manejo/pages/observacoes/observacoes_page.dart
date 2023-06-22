@@ -118,6 +118,7 @@ class _ObservacoesPageState extends ObservacoesViewImpl {
                             keyboardType: TextInputType.text,
                             textInputAction: TextInputAction.done,
                             obscureText: false,
+                            maxLength: 50,
                             onFieldSubmitted: (_) => registerAnnotation(),
                           ),
                           const SizedBox(height: 25),
@@ -153,7 +154,7 @@ class _ObservacoesPageState extends ObservacoesViewImpl {
   void registerAnnotation() {
     if (formKey.currentState!.validate()) {
       widget.presenter.updateAnnotation(
-        date: DateFormat("dd/MM/yyyy").format(dateTime),
+        dateObs: DateFormat("dd/MM/yyyy").format(dateTime),
         numberAnimal: numberAnimalController.text,
         observations: observationsController.text,
       );

@@ -321,7 +321,7 @@ class MainRepositoryImpl implements MainRepository {
             .collection('cattle')
             .doc(result)
             .update({
-              'date': cattle.date,
+              'dateObs': cattle.dateObs,
               'id': cattle.id,
               'observations': cattle.observations,
             })
