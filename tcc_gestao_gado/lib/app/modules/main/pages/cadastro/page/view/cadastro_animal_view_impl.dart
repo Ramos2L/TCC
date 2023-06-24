@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:tcc_gestao_gado/app/core/models/raca_model.dart';
 import 'package:tcc_gestao_gado/app/core/ui/helpers/loader.dart';
 import 'package:tcc_gestao_gado/app/core/ui/helpers/messages.dart';
@@ -19,6 +22,9 @@ abstract class CadastroAnimalViewImpl extends State<CadastroAnimalPage>
   final TextEditingController weightController = TextEditingController();
   final TextEditingController observationsController = TextEditingController();
 
+  ImagePicker imagePicker = ImagePicker();
+  File? image;
+
   DateTime dateTime = DateTime.now();
   String date = '';
 
@@ -36,6 +42,26 @@ abstract class CadastroAnimalViewImpl extends State<CadastroAnimalPage>
       await widget.presenter.getListRaca();
       setState(() {});
     });
+  }
+
+  captureImageGallery() async {
+    final XFile? imageTemporary = await imagePicker.pickImage(source: ImageSource.gallery);
+
+    if (imageTemporary != null) {
+      setState(() {
+        image = File(imageTemporary.path);
+      });
+    }
+  }
+
+  captureImageCamera() async {
+    final XFile? imageTemporary = await imagePicker.pickImage(source: ImageSource.camera);
+
+    if (imageTemporary != null) {
+      setState(() {
+        image = File(imageTemporary.path);
+      });
+    }
   }
 
   @override

@@ -61,6 +61,100 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                             ),
                           ),
                           const SizedBox(height: 25),
+                          Text(
+                            'Tire ou envie uma foto',
+                            style: context.textStyles.textRegular.copyWith(
+                              fontSize: 16,
+                              color: context.colors.onPrimary,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          const SizedBox(height: 15),
+                          image == null
+                              ? Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: context.colors.onPrimary,
+                                      width: 2,
+                                    ),
+                                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      IconButton(
+                                        onPressed: () {
+                                          captureImageCamera();
+                                        },
+                                        icon: Icon(
+                                          Icons.camera_alt_rounded,
+                                          color: context.colors.onPrimary,
+                                        ),
+                                        iconSize: 60,
+                                      ),
+                                      IconButton(
+                                        onPressed: () {
+                                          captureImageGallery();
+                                        },
+                                        icon: Icon(
+                                          Icons.add_photo_alternate_rounded,
+                                          color: context.colors.onPrimary,
+                                        ),
+                                        iconSize: 60,
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              : Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: context.colors.onPrimary,
+                                      width: 2,
+                                    ),
+                                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                                  ),
+                                  child: Stack(
+                                    alignment: Alignment.center,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            image = null;
+                                          });
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8),
+                                          child: SizedBox(
+                                            width: MediaQuery.of(context).size.width,
+                                            height: 200,
+                                            child: Image.file(
+                                              image!,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        child: SizedBox(
+                                          child: IconButton(
+                                            onPressed: () {
+                                              setState(() {
+                                                image = null;
+                                              });
+                                            },
+                                            icon: Icon(
+                                              Icons.refresh_rounded,
+                                              color: context.colors.onPrimary.withOpacity(0.5),
+                                            ),
+                                            iconSize: 60,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                          const SizedBox(height: 25),
                           args.animal == 'Bezerro'
                               ? Column(
                                   children: [
