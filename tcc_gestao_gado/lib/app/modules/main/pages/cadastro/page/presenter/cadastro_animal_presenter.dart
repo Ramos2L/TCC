@@ -9,6 +9,7 @@ abstract class CadastroAnimalPresenter extends GestaoGadoPresenter<CadastroAnima
     String? gender,
     String? quite,
     bool? breastfeedingOption,
+    String? ageCattle,
     String? numberController,
     String? dateController,
     String? numberMotherController,

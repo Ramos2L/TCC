@@ -8,6 +8,8 @@ class CattleModel {
   // meio == quite
   final String? quite;
   // amamentando == breastfeeding
+  final String? ageCattle;
+  // idade do animal
   final bool? breastfeeding;
   final String? numberFather;
   final String? numberMother;
@@ -28,6 +30,7 @@ class CattleModel {
     this.sex,
     this.quite,
     this.breastfeeding,
+    this.ageCattle,
     this.numberFather,
     this.numberMother,
     this.date,
@@ -48,6 +51,7 @@ class CattleModel {
     String? sex,
     String? quite,
     bool? breastfeeding,
+    String? ageCattle,
     String? numberFather,
     String? numberMother,
     String? date,
@@ -67,6 +71,7 @@ class CattleModel {
       sex: sex ?? this.sex,
       quite: quite ?? this.quite,
       breastfeeding: breastfeeding ?? this.breastfeeding,
+      ageCattle: ageCattle ?? this.ageCattle,
       numberFather: numberFather ?? this.numberFather,
       numberMother: numberMother ?? this.numberMother,
       date: date ?? this.date,
@@ -90,6 +95,7 @@ class CattleModel {
     map['sex'] = sex;
     map['quite'] = quite;
     map['breastfeeding'] = breastfeeding;
+    map['ageCattle'] = ageCattle;
     map['numberFather'] = numberFather;
     map['numberMother'] = numberMother;
     map['date'] = date;
@@ -126,6 +132,7 @@ class CattleModel {
       'sex': sex,
       'quite': quite,
       'breastfeeding': breastfeeding,
+      'ageCattle': ageCattle,
       'numberFather': numberFather,
       'numberMother': numberMother,
       'date': date,
@@ -148,6 +155,7 @@ class CattleModel {
       sex: map['sex'] as String?,
       quite: map['quite'] as String?,
       breastfeeding: map['breastfeeding'] as bool?,
+      ageCattle: map['ageCattle'] as String?,
       numberFather: map['numberFather'] as String?,
       numberMother: map['numberMother'] as String?,
       date: map['date'] as String?,
@@ -170,6 +178,6 @@ class CattleModel {
 
   @override
   String toString() {
-    return 'CattleModel(id: $id, idUser: $idUser, sex: $sex, quite: $quite, breastfeeding: $breastfeeding, numberFather: $numberFather, numberMother: $numberMother, dateRegister: $dateRegister, date: $date, dateWeight: $dateWeight, dateObs: $dateObs, weightCattle: $weightCattle, race: $race, type: $type, observations: $observations, price: $price, path: $path)';
+    return 'CattleModel(id: $id, idUser: $idUser, sex: $sex, quite: $quite, breastfeeding: $breastfeeding, ageCattle: $ageCattle, numberFather: $numberFather, numberMother: $numberMother, dateRegister: $dateRegister, date: $date, dateWeight: $dateWeight, dateObs: $dateObs, weightCattle: $weightCattle, race: $race, type: $type, observations: $observations, price: $price, path: $path)';
   }
 }

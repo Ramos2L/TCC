@@ -396,6 +396,25 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
                                 )
                               : const SizedBox(),
                           CustomTextField(
+                            controller: ageController,
+                            hintText: 'Idade do animal',
+                            labelStyle: TextStyle(color: context.colors.background),
+                            inputDecoration: InputDecoration(
+                              errorStyle: TextStyle(
+                                fontSize: 14,
+                                color: context.colors.error,
+                              ),
+                            ),
+                            keyboardType: TextInputType.number,
+                            textInputAction: TextInputAction.next,
+                            obscureText: false,
+                            suffixIcon: const Icon(Icons.note_alt_outlined),
+                            validator: Validatorless.multiple(
+                              [Validatorless.required("Campo obrigatório")],
+                            ),
+                          ),
+                          const SizedBox(height: 25),
+                          CustomTextField(
                             controller: weightController,
                             hintText: 'Peso do animal (kg)',
                             labelStyle: TextStyle(color: context.colors.background),
@@ -494,6 +513,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
         gender: gender,
         quite: quite,
         breastfeedingOption: breastfeedingOption,
+        ageCattle: ageController.text,
         numberController: numberController.text,
         dateController: DateFormat("dd/MM/yyyy").format(dateTime),
         numberMotherController: numberMotherController.text,

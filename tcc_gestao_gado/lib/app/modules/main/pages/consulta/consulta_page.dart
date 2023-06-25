@@ -120,6 +120,12 @@ class _ConsultaPageState extends ConsultaViewImpl {
                                           subtitle: '${cattleAnimal[0].type}',
                                         )
                                       : Container(),
+                                  cattleAnimal[0].ageCattle != null
+                                      ? ListTileWidget(
+                                          title: 'Idade do animal:',
+                                          subtitle: '${cattleAnimal[0].ageCattle}',
+                                        )
+                                      : Container(),
                                   cattleAnimal[0].dateRegister != null
                                       ? ListTileWidget(
                                           title: 'Data de cadastro:',

@@ -17,6 +17,7 @@ abstract class CadastroAnimalViewImpl extends State<CadastroAnimalPage>
   final formKey = GlobalKey<FormState>();
   TextEditingController dateController = TextEditingController();
   final TextEditingController numberController = TextEditingController();
+  final TextEditingController ageController = TextEditingController();
   final TextEditingController numberMotherController = TextEditingController();
   final TextEditingController numberFatherController = TextEditingController();
   final TextEditingController weightController = TextEditingController();
