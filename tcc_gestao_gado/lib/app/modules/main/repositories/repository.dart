@@ -44,4 +44,5 @@ abstract class MainRepository {
   Future<List<MortesModel>> deathReport({required String idUser});
   Future<List<VendasModel>> salesReport({required String idUser});
   Future<List<ComprasModel>> findAnimalsBoughtCattle({required String idUser});
+  Future<bool> updateAge({required CattleModel cattle});
 }

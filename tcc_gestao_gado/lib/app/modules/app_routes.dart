@@ -34,6 +34,8 @@ import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/desmama/desm
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/desmama/desmama_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/dicas/dicas_manejo_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/dicas/dicas_manejo_route.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/idade/idade_page.dart';
+import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/idade/idade_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/observacoes/observacoes_page.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/observacoes/observacoes_route.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/manejo/pages/pesagem/pesagem_page.dart';
@@ -81,6 +83,7 @@ class AppRoutes {
     DesmamaPage.routeName: (context) => const DesmamaRoute(),
     DescartePage.routeName: (context) => const DescarteRoute(),
     CastrarPage.routeName: (context) => const CastrarRoute(),
+    IdadePage.routeName: (context) => const IdadeRoute(),
     ObservacoesPage.routeName: (context) => const ObservacoesRoute(),
     DicasManejoPage.routeName: (context) => const DicasManejoRoute(),
     CadastroPage.routeName: (context) => const CadastroRoute(),

@@ -105,6 +105,22 @@ class _ManejoPageState extends ManejoViewImpl {
                     const SizedBox(height: 15),
                     GestureDetector(
                       child: ContainerWidget(
+                        title: 'Alterar Idade Gado',
+                        height: 75,
+                        width: MediaQuery.of(context).size.width,
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 20,
+                          color: context.colors.primary,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      onTap: () {
+                        Navigator.pushNamed(context, '/idade');
+                      },
+                    ),
+                    const SizedBox(height: 15),
+                    GestureDetector(
+                      child: ContainerWidget(
                         title: 'Anotar observação',
                         height: 75,
                         width: MediaQuery.of(context).size.width,

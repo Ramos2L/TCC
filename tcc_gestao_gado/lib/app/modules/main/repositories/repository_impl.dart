@@ -398,6 +398,31 @@ class MainRepositoryImpl implements MainRepository {
   }
 
   @override
+  Future<bool> updateAge({required CattleModel cattle}) async {
+    try {
+      String? result = await checkUserCattle(cattle: cattle);
+
+      if (result != null) {
+        await firebaseFirestore
+            .collection('cattle')
+            .doc(result)
+            .update({
+              'ageCattle': cattle.ageCattle,
+            })
+            .then((value) => debugPrint('Success Age animal'))
+            .catchError((onError) => debugPrint('message error'));
+        return true;
+      } else {
+        debugPrint('Nao foi possivel alterar idade');
+        return false;
+      }
+    } catch (e) {
+      debugPrint('Nao foi possivel realizar a alteracao de idade');
+      return false;
+    }
+  }
+
+  @override
   Future<bool> updateVenda(CattleModel cattle) async {
     Map<String, dynamic> mapCattle = cattle.toFirebaseMapVendas();
 
