@@ -208,6 +208,12 @@ class _RelatorioAnimalsPageState extends RelatorioAnimalsViewImpl {
                           'Nº do animal: ${listAnimals[index].id!}',
                           style: const pw.TextStyle(fontSize: 40),
                         ),
+                        listAnimals[index].ageCattle != null
+                            ? pw.Text(
+                                'Idade: ${listAnimals[index].ageCattle!}',
+                                style: const pw.TextStyle(fontSize: 40),
+                              )
+                            : pw.SizedBox(),
                         pw.Text(
                           'peso: ${listAnimals[index].weightCattle!}',
                           style: const pw.TextStyle(fontSize: 40),
