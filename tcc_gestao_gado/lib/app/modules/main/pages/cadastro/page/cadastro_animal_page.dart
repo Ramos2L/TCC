@@ -502,6 +502,7 @@ class _CadastroAnimalPageState extends CadastroAnimalViewImpl {
         dropdownValue: dropdownValue,
         type: animalType,
         observationsController: observationsController.text,
+        path: image,
       );
     } else {
       //MENSAGEM DE ERRO

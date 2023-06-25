@@ -15,6 +15,7 @@ class DicasManejoRoute extends FlutterGetItPageRoute {
             (i) => DicasManejoPresenterImpl(manejoRepository: i())),
         Bind.lazySingleton<MainRepository>((i) => MainRepositoryImpl(
               firebaseFirestore: i(),
+              storage: i(),
             )),
       ];
 

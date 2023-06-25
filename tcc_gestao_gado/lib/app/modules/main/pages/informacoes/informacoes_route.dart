@@ -17,6 +17,7 @@ class InformacoesRoute extends FlutterGetItPageRoute {
             )),
         Bind.lazySingleton<MainRepository>((i) => MainRepositoryImpl(
               firebaseFirestore: i(),
+              storage: i(),
             )),
       ];
 

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -31,7 +32,9 @@ class AppWidget extends StatelessWidget {
         Bind.lazySingleton<CattleModel>((i) => CattleModel()),
         Bind.lazySingleton<FirebaseAuth>((i) => FirebaseAuth.instance),
         Bind.lazySingleton<FirebaseFirestore>((i) => FirebaseFirestore.instance),
-        Bind.lazySingleton<MainRepository>((i) => MainRepositoryImpl(firebaseFirestore: i())),
+        Bind.lazySingleton<FirebaseStorage>((i) => FirebaseStorage.instance),
+        Bind.lazySingleton<MainRepository>(
+            (i) => MainRepositoryImpl(firebaseFirestore: i(), storage: i())),
         Bind.lazySingleton<LoginRepository>(
           (i) => LoginRepositoryImpl(
             userStore: i(),

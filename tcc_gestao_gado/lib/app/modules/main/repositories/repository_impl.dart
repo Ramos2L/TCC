@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 import 'package:tcc_gestao_gado/app/core/models/cattle_model.dart';
@@ -17,8 +20,9 @@ import 'package:tcc_gestao_gado/app/modules/main/repositories/repository.dart';
 
 class MainRepositoryImpl implements MainRepository {
   final FirebaseFirestore firebaseFirestore;
+  final FirebaseStorage storage;
 
-  MainRepositoryImpl({required this.firebaseFirestore});
+  MainRepositoryImpl({required this.firebaseFirestore, required this.storage});
 
   @override
   Future<bool> setUserAndSave({required String userId}) async {
@@ -90,6 +94,20 @@ class MainRepositoryImpl implements MainRepository {
       await findInfosCattle(userId: cattle.idUser!);
       return true;
     } else {
+      return false;
+    }
+  }
+
+  @override
+  Future<bool> uploadPhoto(
+      {required File path, required String? userId, required String? idCattle}) async {
+    File file = path;
+    try {
+      String ref = 'images/$userId/$idCattle/img-${DateTime.now().toString()}.jpg';
+      storage.ref(ref).putFile(file);
+      return true;
+    } on FirebaseException {
+      debugPrint('ERROR UPLOAD PHOTO');
       return false;
     }
   }

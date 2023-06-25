@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tcc_gestao_gado/app/core/models/cattle_model.dart';
 import 'package:tcc_gestao_gado/app/core/models/raca_model.dart';
@@ -35,6 +37,7 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
     String? dropdownValue,
     String? type,
     String? observationsController,
+    File? path,
   }) async {
     try {
       _view.showLoader();
@@ -69,7 +72,15 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
           price: "",
         );
         bool success = await mainRepository.update(cattleModel);
-        if (success) {
+        bool successImage = true;
+        if (path != null) {
+          successImage = await mainRepository.uploadPhoto(
+            path: path,
+            userId: cattleModel.idUser,
+            idCattle: cattleModel.id,
+          );
+        }
+        if (success && successImage) {
           _view.successRegister();
         } else {
           _view.errorRegister();

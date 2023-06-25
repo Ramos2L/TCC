@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:tcc_gestao_gado/app/core/models/cattle_model.dart';
 import 'package:tcc_gestao_gado/app/core/models/raca_model.dart';
 import 'package:tcc_gestao_gado/app/modules/main/pages/informacoes/model/informacoes_model.dart';
@@ -10,6 +12,11 @@ abstract class MainRepository {
   Future<bool> setUserAndSave({required String userId});
   Future<List<RacaModel>> findRaces();
   Future<bool> update(CattleModel cattle);
+  Future<bool> uploadPhoto({
+    required File path,
+    required String? userId,
+    required String? idCattle,
+  });
   Future<bool?> checkMom({
     required String? id,
     required String? idUser,

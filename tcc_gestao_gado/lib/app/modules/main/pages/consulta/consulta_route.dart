@@ -13,7 +13,8 @@ class ConsultaRoute extends FlutterGetItPageRoute {
   List<Bind<Object>> get bindings => [
         Bind.lazySingleton<ConsultaPresenter>(
             (i) => ConsultaPresenterImpl(userStore: i(), mainRepository: i(), firebaseAuth: i())),
-        Bind.lazySingleton<MainRepository>((i) => MainRepositoryImpl(firebaseFirestore: i()))
+        Bind.lazySingleton<MainRepository>(
+            (i) => MainRepositoryImpl(firebaseFirestore: i(), storage: i()))
       ];
 
   @override
