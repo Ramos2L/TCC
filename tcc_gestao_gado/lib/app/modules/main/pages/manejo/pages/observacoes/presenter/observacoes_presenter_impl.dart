@@ -32,8 +32,6 @@ class ObservacoesPresenterImpl implements ObservacoesPresenter {
           id: numberAnimal,
           observations: observations,
         );
-        print(' dateObs $dateObs');
-        print(' dateObs ${cattleModel.dateObs}');
 
         completedOperation = await mainRepository.updateAnnotation(cattle: cattleModel);
 

@@ -70,6 +70,7 @@ class CadastroAnimalPresenterImpl implements CadastroAnimalPresenter {
           type: type,
           observations: observationsController,
           price: "",
+          path: path == null ? '' : path.path,
         );
         bool success = await mainRepository.update(cattleModel);
         bool successImage = true;

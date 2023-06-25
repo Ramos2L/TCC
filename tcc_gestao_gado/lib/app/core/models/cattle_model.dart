@@ -20,6 +20,7 @@ class CattleModel {
   final String? type;
   final String? observations;
   final String? price;
+  final String? path;
 
   CattleModel({
     this.id,
@@ -38,6 +39,7 @@ class CattleModel {
     this.type,
     this.observations,
     this.price,
+    this.path,
   });
 
   CattleModel copyWith({
@@ -57,6 +59,7 @@ class CattleModel {
     String? type,
     String? observations,
     String? price,
+    String? path,
   }) {
     return CattleModel(
       id: id ?? this.id,
@@ -75,6 +78,7 @@ class CattleModel {
       type: type ?? this.type,
       observations: observations ?? this.observations,
       price: price ?? this.price,
+      path: path ?? this.path,
     );
   }
 
@@ -97,6 +101,7 @@ class CattleModel {
     map['type'] = type;
     map['observations'] = observations;
     map['price'] = price;
+    map['path'] = path;
 
     return map;
   }
@@ -132,6 +137,7 @@ class CattleModel {
       'type': type,
       'observations': observations,
       'price': price,
+      'path': path,
     };
   }
 
@@ -153,6 +159,7 @@ class CattleModel {
       type: map['type'] as String?,
       observations: map['observations'] as String?,
       price: map['price'] as String?,
+      path: map['path'] as String?,
     );
   }
 
@@ -163,6 +170,6 @@ class CattleModel {
 
   @override
   String toString() {
-    return 'CattleModel(id: $id, idUser: $idUser, sex: $sex, quite: $quite, breastfeeding: $breastfeeding, numberFather: $numberFather, numberMother: $numberMother, dateRegister: $dateRegister, date: $date, dateWeight: $dateWeight, dateObs: $dateObs, weightCattle: $weightCattle, race: $race, type: $type, observations: $observations, price: $price)';
+    return 'CattleModel(id: $id, idUser: $idUser, sex: $sex, quite: $quite, breastfeeding: $breastfeeding, numberFather: $numberFather, numberMother: $numberMother, dateRegister: $dateRegister, date: $date, dateWeight: $dateWeight, dateObs: $dateObs, weightCattle: $weightCattle, race: $race, type: $type, observations: $observations, price: $price, path: $path)';
   }
 }

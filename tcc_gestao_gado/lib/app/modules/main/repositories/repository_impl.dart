@@ -103,7 +103,7 @@ class MainRepositoryImpl implements MainRepository {
       {required File path, required String? userId, required String? idCattle}) async {
     File file = path;
     try {
-      String ref = 'images/$userId/$idCattle/img-${DateTime.now().toString()}.jpg';
+      String ref = 'images/$userId/$idCattle.jpg';
       storage.ref(ref).putFile(file);
       return true;
     } on FirebaseException {
@@ -221,6 +221,8 @@ class MainRepositoryImpl implements MainRepository {
   Future<CattleModel> consultCattle({required String id, required String idUser}) async {
     try {
       Map<String, dynamic> cattleMap = {};
+      Reference? ref;
+      String? getDownload;
 
       await firebaseFirestore
           .collection("cattle")
@@ -234,6 +236,12 @@ class MainRepositoryImpl implements MainRepository {
       });
 
       var cattle = CattleModel.fromMap(cattleMap);
+      if (cattle.path!.isNotEmpty) {
+        ref = (storage.ref('images/$idUser/$id.jpg'));
+        getDownload = await ref.getDownloadURL();
+        cattleMap.update('path', (value) => getDownload);
+        cattle = CattleModel.fromMap(cattleMap);
+      }
 
       return cattle;
     } catch (e) {

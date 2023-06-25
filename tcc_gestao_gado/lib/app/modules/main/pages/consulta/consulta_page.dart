@@ -72,6 +72,44 @@ class _ConsultaPageState extends ConsultaViewImpl {
                         cattleAnimal.isNotEmpty
                             ? Column(
                                 children: [
+                                  cattleAnimal[0].path != ""
+                                      ? Column(
+                                          children: [
+                                            Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(
+                                                'Foto do animal:',
+                                                style: context.textStyles.textMedium.copyWith(
+                                                  fontSize: 18,
+                                                  overflow: TextOverflow.ellipsis,
+                                                  color: context.colors.outlineVariant,
+                                                ),
+                                              ),
+                                            ),
+                                            const SizedBox(height: 10),
+                                            Image.network(
+                                              cattleAnimal[0].path!,
+                                              width: 200,
+                                              height: 200,
+                                              loadingBuilder: (BuildContext context, Widget child,
+                                                  ImageChunkEvent? loadingProgress) {
+                                                if (loadingProgress == null) {
+                                                  return child;
+                                                }
+                                                return Center(
+                                                  child: CircularProgressIndicator(
+                                                    value: loadingProgress.expectedTotalBytes !=
+                                                            null
+                                                        ? loadingProgress.cumulativeBytesLoaded /
+                                                            loadingProgress.expectedTotalBytes!
+                                                        : null,
+                                                  ),
+                                                );
+                                              },
+                                            ),
+                                          ],
+                                        )
+                                      : const SizedBox(),
                                   ListTileWidget(
                                     title: 'Código do animal:',
                                     subtitle: '${cattleAnimal[0].id}',
