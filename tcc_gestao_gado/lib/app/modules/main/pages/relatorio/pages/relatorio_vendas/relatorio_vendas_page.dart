@@ -30,6 +30,7 @@ class _RelatorioVendasPageState extends RelatorioVendasViewImpl {
               child: Column(
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       GestureDetector(
                         onTap: () => Navigator.pop(context),
