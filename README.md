@@ -29,7 +29,4 @@ APK Disponivel em Releases para download e testes
   <img height="600em" src="https://user-images.githubusercontent.com/58201578/168444684-2b5562ea-cc9d-477b-9dea-50fac817f13e.png"/>
   <img height="600em" src="https://user-images.githubusercontent.com/58201578/168444689-080abf91-bf8a-49dc-82c7-f3a09aa53c9e.png"/>
   <br/>
-  <img height="600em" src="https://user-images.githubusercontent.com/58201578/168444693-f7f4bca3-8e15-4cb8-8485-1eafe1ab4c2c.png"/>
-  <img height="600em" src="https://user-images.githubusercontent.com/58201578/168444694-ccb8d7aa-ae10-47e0-a666-ac87c36e9012.png"/>
-  <br/>
 </div>
