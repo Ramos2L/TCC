@@ -26,8 +26,8 @@ APK Disponivel em Releases para download e testes
 <h1 align="center"> 🦾 Telas Demonstração </h1>
 <div align="center">
   
-  <img height="600em" src="https://user-images.githubusercontent.com/58201578/168449487-de624284-675e-47e5-851b-78f044d3afaa.gif"/>
-  <br/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/98bd7b9a-d606-4b3d-8c62-63eb3b566273"/>
+  <br/> 
 
   <p> Splash </p>
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/a9795c19-863a-4116-9208-173b277c4054"/>
