@@ -46,41 +46,59 @@ APK Disponivel em Releases para download e testes
 
   <p> Page Login </p>
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/23d7395a-36d3-4891-afeb-4463afb7fa6d"/>
-  
+
+  <p> Page Cadastro </p>
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/f2375969-5ce9-4cac-aa40-89d45a9072f1"/>
-  
+
+  <p> Page Home </p>
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/e45c8208-9990-4d39-a738-35d00bc241d6"/>
   
+  <p> Menu Aplicação </p>
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/6f194aea-fdf1-459f-a5ff-b52c5e71c1d8"/>
-  
+
+  <p> Page Perfil </p>
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/f346fb89-140e-4859-9cbe-7c5260d19edc"/>
-  
+
+  <p> Page Manejo dos Animais </p>
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/5d3e1f21-721d-4fe3-aca8-3286082a534d"/>
-  
+
+  <p> Page Manejo dos Animais opção Pesagem do animal </p>
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/b7bb8e50-f63a-48e8-bbec-9e3d6b0f3c98"/>
-  
+
+  <p> Page Manejo dos Animais opção Desmama do animal</p>
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/cfde4ebd-648e-4ea4-9acd-24c07c6da2aa"/>
-  
+
+  <p> Page Manejo dos Animais opção Descarte do animal</p>
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/d080b181-48d2-462c-91ed-7e9ce2990a99"/>
-  
+
+  <p> Page Manejo dos Animais opção Castrar do animal</p>
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/9f7e6970-36f0-4624-abe4-e667ef1f985e"/>
   
+  <p> Page Manejo dos Animais opção Alterar idade do animal</p> 
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/0571459e-37f3-4961-b944-4dbd0d68c675"/>
   
+  <p> Page Manejo dos Animais opção Registar observação do animal</p> 
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/901397e5-cfba-4873-9bd8-875315b8a800"/>
-  
+
+  <p> Page Manejo dos Animais opção Dicas de manejo</p> 
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/4f9fef76-5ab8-41bd-a872-4a64376eb34e"/>
-  
+
+  <p> Page Cadastro dos Animais </p> 
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/43ae1fba-f406-410d-ac97-f43f9e047a25"/>
-  
+
+  <p> Page Cadastro dos Animais opção Cadastrar uma vaca</p> 
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/99ce5726-d83f-4612-b01c-52ec24bf2e3c"/>
-  
+
+  <p> Page Consultar os Animais </p> 
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/a79a87c8-7541-43dd-a64e-1c5e5087d924"/>
-  
+
+  <p> Page Relatório Geral </p> 
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/e88eec35-30c6-4fdb-9c9b-e84a59fb138d"/>
   
+  <p> Page Vendas </p> 
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/83454b7e-b1e0-4715-a471-fa555dd48aa2"/>
-  
+
+  <p> Page Pasto </p> 
   <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/ba89d23f-0d37-43d0-9e64-69ee1ff50769"/>
 
   <br/>
