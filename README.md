@@ -3,7 +3,7 @@
 <div align="center">
   <h2> Cattle </h2>
   
-  <img height="250em" src="https://github.com/Ramos2L/TCC/assets/58201578/23b43acd-2f17-45e4-85d8-3722e5881a9d"/>
+  <img height="250em" src="https://github.com/Ramos2L/TCC/assets/58201578/c1501852-1056-4e6f-843f-9d5b4b88bd06"/>
   <h2> Control </h2>
 </div>
 <!--Versions-->
@@ -26,80 +26,80 @@ APK Disponivel em Releases para download e testes
 <h1 align="center"> 🦾 Telas Demonstração </h1>
 <div align="center">
 
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/98bd7b9a-d606-4b3d-8c62-63eb3b566273"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/04b23b44-412d-4468-8872-e3c20b46afba"/>
   <br/>
 
   <p> Splash </p>
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/a9795c19-863a-4116-9208-173b277c4054"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/e4356616-4c5f-4278-852f-7eee8126895e"/>
 
   <p> Page informativa </p>
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/853ea074-3027-4050-af55-6fd0153b878c"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/d9e86725-4cfa-4833-a40c-c4875f8ae7c7"/>
   
   <p> Page informativa </p>
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/445e1cbe-9828-4b97-a01e-761f6c87265d"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/d4c3d615-58d0-48b6-a176-a7c4a8a78127"/>
   
   <p> Page informativa </p>
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/e7fee52e-5027-41e2-8b05-25075e1bf656"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/e8e0b409-1842-489e-97a8-175b61c0b293"/>
   
   <p> Page informativa </p>
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/e9653735-5824-4eef-b942-0f826a3263ff"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/c83e2d66-871e-4da4-8e48-9e02d2116c70"/>
 
   <p> Page Login </p>
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/23d7395a-36d3-4891-afeb-4463afb7fa6d"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/816c7ef4-65b5-4664-87d5-4b12f270daaa"/>
 
   <p> Page Cadastro </p>
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/f2375969-5ce9-4cac-aa40-89d45a9072f1"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/59bf5b4a-f453-4b5f-b57b-dd180b776c53"/>
 
   <p> Page Home </p>
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/e45c8208-9990-4d39-a738-35d00bc241d6"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/cfe0ddb3-a1f1-4681-88e2-311d64125e44"/>
   
   <p> Menu Aplicação </p>
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/6f194aea-fdf1-459f-a5ff-b52c5e71c1d8"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/f35afe7a-5cf1-4739-b890-792bb32cc0ae"/>
 
   <p> Page Perfil </p>
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/f346fb89-140e-4859-9cbe-7c5260d19edc"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/577584de-06ed-4552-908b-ba42534ace14"/>
 
   <p> Page Manejo dos Animais </p>
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/5d3e1f21-721d-4fe3-aca8-3286082a534d"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/061b68b6-3e7a-40a3-9c70-0697ec278fc2"/>
 
   <p> Page Manejo dos Animais opção Pesagem do animal </p>
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/b7bb8e50-f63a-48e8-bbec-9e3d6b0f3c98"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/0c36b47d-71af-4a5b-ab93-61acbd57c2f8"/>
 
   <p> Page Manejo dos Animais opção Desmama do animal</p>
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/cfde4ebd-648e-4ea4-9acd-24c07c6da2aa"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/e559a265-5e62-4d5c-bf60-b24917ff01a5"/>
 
   <p> Page Manejo dos Animais opção Descarte do animal</p>
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/d080b181-48d2-462c-91ed-7e9ce2990a99"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/11cea168-ddf6-46e2-93c0-cd3ec6d41d42"/>
 
   <p> Page Manejo dos Animais opção Castrar do animal</p>
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/9f7e6970-36f0-4624-abe4-e667ef1f985e"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/2f1fe852-7b83-4abf-a020-48c23a3a9307"/>
   
   <p> Page Manejo dos Animais opção Alterar idade do animal</p> 
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/0571459e-37f3-4961-b944-4dbd0d68c675"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/324758b8-ebe9-4788-83e3-e84c61dcae4d"/>
   
   <p> Page Manejo dos Animais opção Registar observação do animal</p> 
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/901397e5-cfba-4873-9bd8-875315b8a800"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/62f7834f-415a-416b-850a-abe6197c2e9f"/>
 
   <p> Page Manejo dos Animais opção Dicas de manejo</p> 
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/4f9fef76-5ab8-41bd-a872-4a64376eb34e"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/502b920d-5b81-43e6-bfd0-b99ce574a239"/>
 
   <p> Page Cadastro dos Animais </p> 
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/43ae1fba-f406-410d-ac97-f43f9e047a25"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/18f4a869-a939-4e9b-9993-829335d0dcec"/>
 
   <p> Page Cadastro dos Animais opção Cadastrar uma vaca</p> 
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/99ce5726-d83f-4612-b01c-52ec24bf2e3c"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/07cde3c6-0802-4866-8b45-4ed5fd7cd005"/>
 
   <p> Page Consultar os Animais </p> 
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/a79a87c8-7541-43dd-a64e-1c5e5087d924"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/595478c4-d170-44cb-a29e-f74573ce1d58"/>
 
   <p> Page Relatório Geral </p> 
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/e88eec35-30c6-4fdb-9c9b-e84a59fb138d"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/952ccf76-3179-4934-b9b5-953507c5da1f"/>
   
   <p> Page Vendas </p> 
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/83454b7e-b1e0-4715-a471-fa555dd48aa2"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/ac20234b-96e5-4d45-8e95-623a1a8f798f"/>
 
   <p> Page Pasto </p> 
-  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/ba89d23f-0d37-43d0-9e64-69ee1ff50769"/>
+  <img height="600em" src="https://github.com/Ramos2L/TCC/assets/58201578/c40cdcb7-3885-4d5a-bcef-0d4309b74405"/>
 
   <br/>
 </div>
