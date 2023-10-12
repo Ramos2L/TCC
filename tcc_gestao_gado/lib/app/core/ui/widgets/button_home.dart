@@ -24,20 +24,22 @@ class ButtonHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: buttonStyle,
-      child: SizedBox(
-        width: SizePage.isSmallScreenWidth(context)
-            ? MediaQuery.of(context).size.width * 0.25
-            : MediaQuery.of(context).size.width * 0.325,
-        height: 150,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            CircleAvatarWidget(image: image, width: 100, height: 100),
-            FittedBox(child: Text(label, style: styleLabel)),
-          ],
+    return Expanded(
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: buttonStyle,
+        child: SizedBox(
+          width: SizePage.isSmallScreenWidth(context)
+              ? MediaQuery.of(context).size.width * 0.25
+              : MediaQuery.of(context).size.width * 0.325,
+          height: 150,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              CircleAvatarWidget(image: image, width: 100, height: 100),
+              FittedBox(child: Text(label, style: styleLabel)),
+            ],
+          ),
         ),
       ),
     );
